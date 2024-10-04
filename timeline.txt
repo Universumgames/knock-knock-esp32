@@ -1,0 +1,10 @@
+04.10: Kickoff
+11.10: KICAD Workshop
+18.10: M1: BOM & Schaltplan
+18.10: 1 Minute Madness
+15.11: M2: PCB
+KW 49: Challenge Key Lab
+06.12: M3: Software
+KW 2: Challenge Bomb Lab
+10.01: M4: System
+24./25.01: Engingeering Days

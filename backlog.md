@@ -1,0 +1,14 @@
+# Backlog
+
+## Aufgabe 1: Einen aussagekräftigen Titel
+
+### Beschreibung
+Definieren Sie die Aufgabe so, dass die verantwortliche Person sie ausführen kann, ohne weitere Erklärungen zu benötigen. Definieren Sie alle Abhängigkeiten oder Informationen, die geklärt werden müssen. Definieren Sie, wie die Lösung aussehen muss, damit sie akzeptabel ist.
+
+### Definition von „Spaß“
+Definieren Sie die Aspekte der Aufgabe (falls möglich) die Motivation und Spaß bei der Ausführung der Aufgabe bringen könnten. Was könnte die Aufgabe interessant machen? Was könnte man daraus lernen?
+
+### Definition von „erledigt“
+Legen Sie die Bedingungen fest, unter denen die verantwortliche Person die Aufgabe als erledigt betrachten kann.
+
+## Aufgabe 2: Wie in der Vorlage für Aufgabe 1
