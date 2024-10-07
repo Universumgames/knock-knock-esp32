@@ -1,1 +1,0 @@
-char* intToString(int value, int base = 10);
