@@ -50,7 +50,7 @@ static void lsd(void* pvParameters) {
 extern "C"
 #endif
     void
-    app_main() {
+    app_main5() {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     // esp_task_wdt_init(0, false);

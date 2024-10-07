@@ -14,6 +14,8 @@ Definieren Sie die Aufgabe so, dass die verantwortliche Person sie ausführen ka
 ### Definition von „Spaß“
 Definieren Sie die Aspekte der Aufgabe (falls möglich) die Motivation und Spaß bei der Ausführung der Aufgabe bringen könnten. Was könnte die Aufgabe interessant machen? Was könnte man daraus lernen?
 
+Die Programmierung einer Klopfmuster-Erkennung bietet kreative Herausforderungen und praktische Anwendungen. Der Spaß liegt in der Entwicklung eines Systems, das in unserem Fall auf individuelle Klopfmuster reagiert. Hierbei lernt man wichtige Konzepte wie Signalverarbeitung, Mustererkennung und den Aufbau eines robusten Systems. Zudem wird das Wissen über Microcontroller, Sensoren und deren Anwendung vertieft. Das Projekt ist vielseitig und verbindet praktische Technik mit realen Anwendungen, was es letztendlich motivierend und lehrreich macht. 
+
 ### Definition von „erledigt“
 Legen Sie die Bedingungen fest, unter denen die verantwortliche Person die Aufgabe als erledigt betrachten kann.
 
