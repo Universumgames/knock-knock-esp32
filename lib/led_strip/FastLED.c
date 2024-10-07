@@ -24,7 +24,7 @@ FastLEDConfig* initFastLED(int length, rmt_tx_channel_config_t* tx_chan_config, 
 
     ESP_ERROR_CHECK(rmt_new_tx_channel(tx_chan_config, &config->led_chan));
 
-    ESP_LOGD(TAG_FAST_LED, "Install led strip encoder");
+    ESP_LOGV(TAG_FAST_LED, "Install led strip encoder");
 
     config->tx_config.loop_count = 0;
     config->encoder_config = encoder_config;

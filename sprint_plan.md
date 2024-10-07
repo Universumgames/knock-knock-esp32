@@ -20,3 +20,6 @@ Die Programmierung einer Klopfmuster-Erkennung bietet kreative Herausforderungen
 Legen Sie die Bedingungen fest, unter denen die verantwortliche Person die Aufgabe als erledigt betrachten kann.
 
 ## Aufgabe 2: Wie in der Vorlage für Aufgabe 1
+
+
+Um eine Tür zu demonstrieren, verwenden wir eine Box aus Holz, welche einen Doppelboden besitzt. Die Hardware-Komponenten werden in der verschlossenen Holzbox untergebracht. Der Doppelboden kann für die sichere und ordentliche Verkabelung der Komponenten genutzt werden, um Platz zu sparen und die Verdrahtung zu verstecken. 
