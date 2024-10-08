@@ -11,20 +11,35 @@
 
 static void lsd(void* pvParameters) {
     while (1) {
-        for (int g = 0; g < 255; g++) {
+        for (int g = 0; g < 50; g++) {
             writeHWLED(0, g, 0);
             showHWLED();
-            vTaskDelay(1 / portTICK_PERIOD_MS);
+            vTaskDelay(100 / portTICK_PERIOD_MS);
         }
-        for (int r = 0; r < 255; r++) {
+        for (int g = 50; g > 0; g--) {
+            writeHWLED(0, g, 0);
+            showHWLED();
+            vTaskDelay(100 / portTICK_PERIOD_MS);
+        }
+        for (int r = 0; r < 50; r++) {
             writeHWLED(r, 0, 0);
             showHWLED();
-            vTaskDelay(1 / portTICK_PERIOD_MS);
+            vTaskDelay(100 / portTICK_PERIOD_MS);
         }
-        for (int b = 0; b < 255; b++) {
+        for (int r = 50; r > 0; r--) {
+            writeHWLED(r, 0, 0);
+            showHWLED();
+            vTaskDelay(100 / portTICK_PERIOD_MS);
+        }
+        for (int b = 0; b < 50; b++) {
             writeHWLED(0, 0, b);
             showHWLED();
-            vTaskDelay(1 / portTICK_PERIOD_MS);
+            vTaskDelay(100 / portTICK_PERIOD_MS);
+        }
+        for (int b = 50; b > 0; b--) {
+            writeHWLED(0, 0, b);
+            showHWLED();
+            vTaskDelay(100 / portTICK_PERIOD_MS);
         }
     }
 }
@@ -44,6 +59,12 @@ extern "C"
     serialWrite(test);
 
     initHardwareLED();
+
+    ESP_LOGV("main", "Log test verbose");
+    ESP_LOGD("main", "Log test debug");
+    ESP_LOGI("main", "Log test info");
+    ESP_LOGW("main", "Log test warn");
+    ESP_LOGE("main", "Log test error");
     // writeHWLED(0, 50, 0);
     // showHWLED();
 

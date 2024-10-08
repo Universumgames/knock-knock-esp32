@@ -36,6 +36,7 @@ FastLEDConfig* initFastLED(int length, rmt_tx_channel_config_t* tx_chan_config, 
     // turn off all leds
     memset(config->led_strip_pixels, 0, length * 3);
     showLED(config);
+    ESP_LOGD(TAG_FAST_LED, "FastLED initialized, LED strip length on pin %d: %d", tx_chan_config->gpio_num, length);
     return config;
 }
 
@@ -46,6 +47,6 @@ void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint
 }
 
 void showLED(FastLEDConfig* config) {
-    ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->led_encoder, config->led_strip_pixels, config->length, &config->tx_config));
+    ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->led_encoder, config->led_strip_pixels, config->length * 3, &config->tx_config));
     ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, portMAX_DELAY));
 }

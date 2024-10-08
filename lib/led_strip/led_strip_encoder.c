@@ -7,6 +7,7 @@
 #include "led_strip_encoder.h"
 
 #include "esp_check.h"
+#include "freertos/FreeRTOS.h"
 
 static const char *TAG_SERIAL = "led_encoder";
 
@@ -82,15 +83,15 @@ esp_err_t rmt_new_led_strip_encoder(const led_strip_encoder_config_t *config, rm
     rmt_bytes_encoder_config_t bytes_encoder_config = {
         .bit0 = {
             .level0 = 1,
-            .duration0 = 0.3 * config->resolution / 1000000,  // T0H=0.3us
+            .duration0 = 0.4 * config->resolution / 1000000,  // T0H=0.4us
             .level1 = 0,
-            .duration1 = 0.9 * config->resolution / 1000000,  // T0L=0.9us
+            .duration1 = 0.85 * config->resolution / 1000000,  // T0L=0.85us
         },
         .bit1 = {
             .level0 = 1,
-            .duration0 = 0.9 * config->resolution / 1000000,  // T1H=0.9us
+            .duration0 = 0.85 * config->resolution / 1000000,  // T1H=0.85us
             .level1 = 0,
-            .duration1 = 0.3 * config->resolution / 1000000,  // T1L=0.3us
+            .duration1 = 0.4 * config->resolution / 1000000,  // T1L=0.4us
         },
         .flags.msb_first = 1  // WS2812 transfer bit order: G7...G0R7...R0B7...B0
     };
@@ -98,7 +99,7 @@ esp_err_t rmt_new_led_strip_encoder(const led_strip_encoder_config_t *config, rm
     rmt_copy_encoder_config_t copy_encoder_config = {};
     ESP_GOTO_ON_ERROR(rmt_new_copy_encoder(&copy_encoder_config, &led_encoder->copy_encoder), err, TAG_SERIAL, "create copy encoder failed");
 
-    uint32_t reset_ticks = config->resolution / 1000000 * 50 / 2;  // reset code duration defaults to 50us
+    uint32_t reset_ticks = 50 * config->resolution / 1000000;  // reset code duration defaults to 500us
     led_encoder->reset_code = (rmt_symbol_word_t){
         .level0 = 0,
         .duration0 = reset_ticks,
