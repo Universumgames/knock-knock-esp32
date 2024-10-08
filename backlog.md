@@ -30,31 +30,41 @@
     - [Beschreibung](#beschreibung-6)
     - [Definition von „Spaß“](#definition-von-spaß-3)
     - [Akzeptanzkriterien](#akzeptanzkriterien-6)
-- [Hardware Backlog](#hardware-backlog)
-  - [Aufgabe : Anfertigung der Holzbox](#aufgabe--anfertigung-der-holzbox)
+  - [Aufgabe : Musterwiedergabe](#aufgabe--musterwiedergabe)
     - [Beschreibung](#beschreibung-7)
     - [Definition von „Spaß“](#definition-von-spaß-4)
     - [Akzeptanzkriterien](#akzeptanzkriterien-7)
-  - [Aufgabe : Solenoid (Door-Lock)](#aufgabe--solenoid-door-lock)
+  - [Aufgabe : Storage Driver](#aufgabe--storage-driver)
     - [Beschreibung](#beschreibung-8)
     - [Akzeptanzkriterien](#akzeptanzkriterien-8)
-  - [Aufgabe : Drucktaster (Klopfmuster speichern und löschen)](#aufgabe--drucktaster-klopfmuster-speichern-und-löschen)
+  - [Aufgabe : LED-Driver](#aufgabe--led-driver)
     - [Beschreibung](#beschreibung-9)
     - [Akzeptanzkriterien](#akzeptanzkriterien-9)
-  - [Aufgabe : RGB-LED (WS2812b)](#aufgabe--rgb-led-ws2812b)
+- [Hardware Backlog](#hardware-backlog)
+  - [Aufgabe : Anfertigung der Holzbox](#aufgabe--anfertigung-der-holzbox)
     - [Beschreibung](#beschreibung-10)
     - [Definition von „Spaß“](#definition-von-spaß-5)
     - [Akzeptanzkriterien](#akzeptanzkriterien-10)
-  - [Aufgabe : Notöffnungsmechanismus](#aufgabe--notöffnungsmechanismus)
+  - [Aufgabe : Solenoid (Door-Lock)](#aufgabe--solenoid-door-lock)
     - [Beschreibung](#beschreibung-11)
     - [Akzeptanzkriterien](#akzeptanzkriterien-11)
-  - [Aufgabe : Mikrofon](#aufgabe--mikrofon)
+  - [Aufgabe : Drucktaster (Klopfmuster speichern und löschen)](#aufgabe--drucktaster-klopfmuster-speichern-und-löschen)
     - [Beschreibung](#beschreibung-12)
-    - [Definition von „Spaß“](#definition-von-spaß-6)
     - [Akzeptanzkriterien](#akzeptanzkriterien-12)
-  - [Aufgabe : Spannungsversorgung](#aufgabe--spannungsversorgung)
+  - [Aufgabe : RGB-LED (WS2812b)](#aufgabe--rgb-led-ws2812b)
     - [Beschreibung](#beschreibung-13)
+    - [Definition von „Spaß“](#definition-von-spaß-6)
     - [Akzeptanzkriterien](#akzeptanzkriterien-13)
+  - [Aufgabe : Notöffnungsmechanismus](#aufgabe--notöffnungsmechanismus)
+    - [Beschreibung](#beschreibung-14)
+    - [Akzeptanzkriterien](#akzeptanzkriterien-14)
+  - [Aufgabe : Mikrofon](#aufgabe--mikrofon)
+    - [Beschreibung](#beschreibung-15)
+    - [Definition von „Spaß“](#definition-von-spaß-7)
+    - [Akzeptanzkriterien](#akzeptanzkriterien-15)
+  - [Aufgabe : Spannungsversorgung](#aufgabe--spannungsversorgung)
+    - [Beschreibung](#beschreibung-16)
+    - [Akzeptanzkriterien](#akzeptanzkriterien-16)
 
 ### Erster Entwurf
 
@@ -68,9 +78,10 @@ Features:
     - [Musterverwaltung](#aufgabe--musterverwaltung)
     - [Schloss Status LED](#aufgabe--schloss-status-led)
     - Dependency Features
-      - Musterwiedergabe
-      - Storage (SPIFFS/SD Card) Driver
-      - LED Driver (Done, refactored and rewritten from example github code)
+      - [Musterwiedergabe](#aufgabe--musterverwaltung)
+      - [Storage Driver](#aufgabe--storage-driver)
+      - [LED Driver](#aufgabe--led-driver)
+      - [test abd](https://google.com)
 - Hardware: 
   - Box bauen ggf. doppelter Boden
   - Solenoid (Door-Lock), um die Tür zu verschließen
@@ -150,6 +161,7 @@ Die Musterverwaltung ermöglicht die Auswahl (Navigation) zwischen die einzelnen
 Die Verwaltung sollte die einwandfreie Navigation durch die gespeicherten Muster ermöglichen, sowie den Aufruf der oben genannten Funktionen ausführen.
 
 
+
 ## Aufgabe : Schloss Status LED
 
 ### Beschreibung
@@ -169,6 +181,41 @@ Interessant ist hier die Ansteuerung der LED anhand des Datenblatts zu analysier
 
 ### Akzeptanzkriterien
 Die LED zeigt den korrekten Status des Schlosses an und kann auch bei einem Systemabsturz oder Fehlerfall noch den "Fehlerfall" Status anzeigen.
+
+
+
+## Aufgabe : Musterwiedergabe
+
+### Beschreibung
+
+Die Musterwiedergabe soll die Möglichkeit bieten, ein gespeichertes Muster wiederzugeben. Dies ist wichtig, um die gespeicherten Muster zu überprüfen und zu löschen. Die Musterwiedergabe wird durch einen Drucktaster ausgelöst, der unabhängig von der Musterverwaltung ist.
+
+### Definition von „Spaß“
+Interessant ist hier das gespeicherte Format eines Musters wieder in eine wiedererkennbare Form zu bringen und dieses Muster wiederzugeben.
+Hierfür eine passende Darstellung zu finden und das Muster wiederzugeben ist eine kreative Herausforderung.
+
+### Akzeptanzkriterien
+Abgespeicherte Muster können wiedergegeben werden und sind in einer verständlichen Form dargestellt.
+
+
+
+## Aufgabe : Storage Driver
+
+### Beschreibung
+Der Storage Driver soll die Kommunikation zwischen Datenspeicher (on-board oder SD-Card) und dem ESP32 dienen.
+
+### Akzeptanzkriterien
+Dateien können korrekt erstellt und gelöscht werden.
+
+
+## Aufgabe : LED-Driver
+
+### Beschreibung
+Der LED-Driver dient dazu die adressierbaren LEDs anzusteuern. Hierbei soll der Typ WS2812b verwendet werden und einfach, vergleichbar zu der FastLED Library, angesteuert werden können.
+
+### Akzeptanzkriterien
+Die LEDs können angesteuert werden und die Farbe wird für jede LED korrekt eingestellt.
+
 
 # Hardware Backlog
 
