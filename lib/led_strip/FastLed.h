@@ -10,7 +10,9 @@ struct __FastLED_Config_internal;
 
 typedef struct __FastLED_Config_internal FastLEDConfig;
 
-FastLEDConfig* initFastLED(int length, rmt_tx_channel_config_t* tx_chan_config, led_strip_encoder_config_t* encoder_config);
+FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t* _tx_chan_config, led_strip_encoder_config_t* _encoder_config);
+
+FastLEDConfig* initFastLED(int length, gpio_num_t pin_number);
 
 void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint8_t blue);
 

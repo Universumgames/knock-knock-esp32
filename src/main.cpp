@@ -9,37 +9,40 @@
 
 #define ECHO_TASK_STACK_SIZE 2048
 
-static void lsd(void* pvParameters) {
+#define LED_BRIGHTNESS 10  // 0-255
+#define LED_FADE_DELAY 10
+
+static void fade(void* pvParameters) {
     while (1) {
-        for (int g = 0; g < 50; g++) {
+        for (int g = 0; g < LED_BRIGHTNESS; g++) {
             writeHWLED(0, g, 0);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
-        for (int g = 50; g > 0; g--) {
+        for (int g = LED_BRIGHTNESS; g > 0; g--) {
             writeHWLED(0, g, 0);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
-        for (int r = 0; r < 50; r++) {
+        for (int r = 0; r < LED_BRIGHTNESS; r++) {
             writeHWLED(r, 0, 0);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
-        for (int r = 50; r > 0; r--) {
+        for (int r = LED_BRIGHTNESS; r > 0; r--) {
             writeHWLED(r, 0, 0);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
-        for (int b = 0; b < 50; b++) {
+        for (int b = 0; b < LED_BRIGHTNESS; b++) {
             writeHWLED(0, 0, b);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
-        for (int b = 50; b > 0; b--) {
+        for (int b = LED_BRIGHTNESS; b > 0; b--) {
             writeHWLED(0, 0, b);
             showHWLED();
-            vTaskDelay(100 / portTICK_PERIOD_MS);
+            vTaskDelay(LED_FADE_DELAY / portTICK_PERIOD_MS);
         }
     }
 }
@@ -68,5 +71,5 @@ extern "C"
     // writeHWLED(0, 50, 0);
     // showHWLED();
 
-    xTaskCreate(lsd, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 }
