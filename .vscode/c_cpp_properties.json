@@ -166,6 +166,7 @@
                 "C:/Users/simon/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                 "C:/Users/simon/.platformio/packages/framework-espidf/components/spiffs/include",
                 "C:/Users/simon/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                "c:/Simon/Studium/3_Semester_(WS24-25)/MIC/mic-projekt/lib/lock_open",
                 ""
             ],
             "browse": {
@@ -329,6 +330,7 @@
                     "C:/Users/simon/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                     "C:/Users/simon/.platformio/packages/framework-espidf/components/spiffs/include",
                     "C:/Users/simon/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                    "c:/Simon/Studium/3_Semester_(WS24-25)/MIC/mic-projekt/lib/lock_open",
                     ""
                 ]
             },
