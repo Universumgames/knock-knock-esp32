@@ -3,6 +3,9 @@
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 
+#define HIGH 1
+#define LOW 0
+
 #ifdef __cplusplus
 extern "C" {
 #endif
