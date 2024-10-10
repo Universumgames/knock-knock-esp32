@@ -1,25 +1,117 @@
 # Plan Sprint Klopf-Klopf
 
-## Scrum Master: Tom Arlt
 
-## Aufgabe 1: Einen aussagekräftigen Titel
+## Sprint 1 
+Kapitän: Tom Arlt
 
-### Verantworliches Teammitglied: Name
+- Planung des Projektes
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 20 Stunden
 
-### Erwarteter Zeitaufwand: Stunden
+- Vertrautmachen mit der Enwicklungsumgebung
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 10 Stunden
 
-### Beschreibung
-Definieren Sie die Aufgabe so, dass die verantwortliche Person sie ausführen kann, ohne weitere Erklärungen zu benötigen. Definieren Sie alle Abhängigkeiten oder Informationen, die geklärt werden müssen. Definieren Sie, wie die Lösung aussehen muss, damit sie akzeptabel ist.
+- LED Driver
+  - Verantwortlicher: Tom Arlt
+  - Zeitaufwand: 8 Stunden
 
-### Definition von „Spaß“
-Definieren Sie die Aspekte der Aufgabe (falls möglich) die Motivation und Spaß bei der Ausführung der Aufgabe bringen könnten. Was könnte die Aufgabe interessant machen? Was könnte man daraus lernen?
+- Storage Driver:
+  - Verantwortlicher: Tom Arlt
+  - Zeitaufwand: 8 Stunden
 
-Die Programmierung einer Klopfmuster-Erkennung bietet kreative Herausforderungen und praktische Anwendungen. Der Spaß liegt in der Entwicklung eines Systems, das in unserem Fall auf individuelle Klopfmuster reagiert. Hierbei lernt man wichtige Konzepte wie Signalverarbeitung, Mustererkennung und den Aufbau eines robusten Systems. Zudem wird das Wissen über Microcontroller, Sensoren und deren Anwendung vertieft. Das Projekt ist vielseitig und verbindet praktische Technik mit realen Anwendungen, was es letztendlich motivierend und lehrreich macht. 
+- Schloss öffnen:
+  - Verantwortlicher: Simon Vehreschild
+  - Zeitaufwand: 3 Stunden
+  
+- Erstellen der One Minute Madness
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 4 Stunden
 
-### Definition von „erledigt“
-Legen Sie die Bedingungen fest, unter denen die verantwortliche Person die Aufgabe als erledigt betrachten kann.
+- Erstellen der Dokumentation
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 5 Stunden
 
-## Aufgabe 2: Wie in der Vorlage für Aufgabe 1
+
+## Sprint 2
+Kapitän: Simon Vehreschild
+
+- Musteraufnahme (und Komprimierung)
+  - Verantwortlicher: Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 30 Stunden
+
+- Platine entwerfen
+  - Verantwortlicher: Jovan Arnaut
+  - Zeitaufwand: 20 Stunden
+
+- Muster einspeichern
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt
+  - Zeitaufwand: 10 Stunden
+
+- Anfertigen der Holzbox
+  - Verantwortlicher: Simon Vehreschild
+  - Zeitaufwand: 16 Stunden
+
+- Notöffnungsmechanismus
+  - Verantwortlicher: Simon Vehreschild
+  - Zeitaufwand: 2 Stunden
+
+- Schloss Status LED
+  - Verantwortlicher: Simon Vehreschild
+  - Zeitaufwand: 8 Stunden
+
+- Erstellen der Dokumentation
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 8 Stunden
 
 
-Um eine Tür zu demonstrieren, verwenden wir eine Box aus Holz, welche einen Doppelboden besitzt. Die Hardware-Komponenten werden in der verschlossenen Holzbox untergebracht. Der Doppelboden kann für die sichere und ordentliche Verkabelung der Komponenten genutzt werden, um Platz zu sparen und die Verdrahtung zu verstecken. 
+## Sprint 3
+Kapitän: Jovan Arnaut
+
+
+- Muster löschen
+  - Verantwortlicher: Tom Arlt
+  - Zeitaufwand: 5 Stunden
+
+- Musterwiedergabe
+  - Verantwortlicher: Simon Vehreschild
+  - Zeitaufwand: 10 Stunden
+
+- Musterverwaltung: 
+  - Verantwortlicher: Jovan Arnaut
+  - Zeitaufwand: 10 Stunden
+
+- Erstellen der Dokumentation
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 5 Stunden
+
+
+## Sprint 4
+Kapitän: Tom Arlt
+
+- Fertigstellen des Systems
+  - Verantwortlicher: Simon Vehreschild, Jovan Arnaut, Tom Arlt
+  - Zeitaufwand: 30 Stunden
+
+- Erstellen der Dokumentation
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 5 Stunden
+
+
+## Sprint 5
+Kapitän: Simon Vehreschild
+
+- Erstellen eines Videos
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 25 Stunden
+  
+- Erstellen des Kaufpitch
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 10 Stunden
+
+- Erstellen der Dokumentation
+  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 2 Stunden
+
+
+

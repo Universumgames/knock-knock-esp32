@@ -1,14 +1,39 @@
 @startgantt
+' Project Deadlines
+language de
 Project starts 2024-10-04
 [Kickoff] happens at 2024-10-04
 [KICAD Workshop] happens at 2024-10-11
-[M1: BOM & Schaltplan] happens at 2024-10-18
+[M1: BOM & Schaltplan] as [M1] happens at 2024-10-18
 [1 Minute Madness] happens at 2024-10-18
-[M2: PCB] happens at 2024-11-15
+[M2: PCB] as [M2] happens at 2024-11-15
 [Challenge Key Lab] happens at 2024-12-06
-[M3: Software] happens at 2024-12-06
+[M3: Software] as [M3] happens at 2024-12-06
 [Challenge Bomb Lab] happens at 2025-01-10
-[M4: System] happens at 2025-01-10
-[Engingeering Days] happens at 2025-01-24
+[M4: System] as [M4] happens at 2025-01-10
+[Engingeering Days] as [End] happens at 2025-01-24
+
+' Sprints
+[Sprint 1] starts at 2024-10-04 and ends at [M1]'s start
+[Sprint 2] starts at [M1]'s end and ends at [M2]'s start
+[Sprint 3] starts at [M2]'s end and ends at [M3]'s start
+[Sprint 4] starts at [M3]'s end and ends at [M4]'s start
+[Sprint 5] starts at [M4]'s end and ends at [End]'s start
+
+' Aufgaben:
+' Umsetzung der Mustererkennung
+' Muster einspeichern
+' Musteraufnahme
+' Muster löschen
+' Schloss öffnen
+' Musterverwaltung
+' Musterwiedergabe
+' Schloss Status LED
+' Storage Driver
+' LED-Driver
+' Anfertigen der Holzbox
+' Notöffnungsmechanismus
+' Platine entwerfen
+' Fertigstellen des Systems
 @endgantt
 

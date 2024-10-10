@@ -165,6 +165,7 @@
                 "/Users/universum/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                 "/Users/universum/.platformio/packages/framework-espidf/components/spiffs/include",
                 "/Users/universum/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/DigitalGPIO",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
                 ""
             ],
@@ -328,6 +329,7 @@
                     "/Users/universum/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                     "/Users/universum/.platformio/packages/framework-espidf/components/spiffs/include",
                     "/Users/universum/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/DigitalGPIO",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
                     ""
                 ]
