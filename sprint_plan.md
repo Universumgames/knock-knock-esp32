@@ -42,7 +42,7 @@ Kapitän: Simon Vehreschild
 
 - Mustererkennung
   - Verantwortlicher: Tom Arlt, Simon Vehreschild
-  - Zeitaufwand: 20 Stunden
+  - Zeitaufwand: 40 Stunden
 
 - Platine entwerfen
   - Verantwortlicher: Jovan Arnaut
