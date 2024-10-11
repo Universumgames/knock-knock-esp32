@@ -14,7 +14,6 @@
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/String",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/HardwareLED",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/led_strip",
-                "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                 "/Users/universum/.platformio/packages/framework-espidf/components/riscv/include",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/build/esp32-c3-devkitc-02/config",
                 "/Users/universum/.platformio/packages/framework-espidf/components/newlib/platform_include",
@@ -166,6 +165,7 @@
                 "/Users/universum/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                 "/Users/universum/.platformio/packages/framework-espidf/components/spiffs/include",
                 "/Users/universum/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
                 ""
             ],
@@ -178,7 +178,6 @@
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/String",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/HardwareLED",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/led_strip",
-                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                     "/Users/universum/.platformio/packages/framework-espidf/components/riscv/include",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/build/esp32-c3-devkitc-02/config",
                     "/Users/universum/.platformio/packages/framework-espidf/components/newlib/platform_include",
@@ -330,6 +329,7 @@
                     "/Users/universum/.platformio/packages/framework-espidf/components/nvs_sec_provider/include",
                     "/Users/universum/.platformio/packages/framework-espidf/components/spiffs/include",
                     "/Users/universum/.platformio/packages/framework-espidf/components/wifi_provisioning/include",
+                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
                     ""
                 ]
