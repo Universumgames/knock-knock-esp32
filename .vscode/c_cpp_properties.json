@@ -168,6 +168,9 @@
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/Storage",
                 "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
+                "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/include",
+                "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/src",
+                "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/src/littlefs",
                 ""
             ],
             "browse": {
@@ -333,6 +336,9 @@
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/GPIO",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/Storage",
                     "/Users/universum/Developer/Studium/semester_9/mic-projekt/lib/WS2812",
+                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/include",
+                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/src",
+                    "/Users/universum/Developer/Studium/semester_9/mic-projekt/.pio/libdeps/esp32-c3-devkitc-02/esp_littlefs/src/littlefs",
                     ""
                 ]
             },

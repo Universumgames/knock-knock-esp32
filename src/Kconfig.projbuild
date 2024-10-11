@@ -1,0 +1,9 @@
+menu "Klap-Klap Configuration"
+
+    config STORAGE_FS_TYPE
+        int "Storage Filesystem"
+        default 1
+        range 0 1
+        help
+            Select the filesystem to use for storage. Use 0 for LittleFS and 1 for SD Card.
+endmenu
