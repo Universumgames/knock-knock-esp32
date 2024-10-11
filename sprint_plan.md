@@ -38,7 +38,11 @@ Kapitän: Simon Vehreschild
 
 - Musteraufnahme (und Komprimierung)
   - Verantwortlicher: Tom Arlt, Simon Vehreschild
-  - Zeitaufwand: 30 Stunden
+  - Zeitaufwand: 15 Stunden
+
+- Mustererkennung
+  - Verantwortlicher: Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 40 Stunden
 
 - Platine entwerfen
   - Verantwortlicher: Jovan Arnaut
