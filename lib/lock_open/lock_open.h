@@ -5,11 +5,11 @@ extern "C"
 {
 #endif
 
-    /*
 
-    Schnittstelle für die Lock-Open Funktion
 
-    */
+void openLock(void);
+
+
 
 #ifdef __cplusplus
 }

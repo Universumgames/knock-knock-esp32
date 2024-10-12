@@ -7,12 +7,14 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "stringHelper.h"
+#include "lock_open.h"
 
 #define ECHO_TASK_STACK_SIZE 2048
 
 #define LED_BRIGHTNESS 10 // 0-255
 #define LED_FADE_DELAY 10
 
+/*
 static void fade(void *pvParameters)
 {
     while (1)
@@ -66,6 +68,7 @@ static void relay(void *pvParameters)
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
+*/
 
 #ifdef __cplusplus
 extern "C"
@@ -92,8 +95,13 @@ extern "C"
     // writeHWLED(0, 50, 0);
     // showHWLED();
 
-    xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    //xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
     // setupDigitalGPIO(GPIO_NUM_2, GPIO_MODE_OUTPUT);
     // xTaskCreate(relay, "relay_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+
+
+    openLock();
+
+
 }
