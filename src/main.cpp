@@ -1,7 +1,6 @@
 #include <Serial.h>
 #include <stdio.h>
 
-#include "DigitalGPIO.h"
 #include "HardwareLED.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
@@ -14,7 +13,6 @@
 #define LED_BRIGHTNESS 10 // 0-255
 #define LED_FADE_DELAY 10
 
-/*
 static void fade(void *pvParameters)
 {
     while (1)
@@ -58,18 +56,6 @@ static void fade(void *pvParameters)
     }
 }
 
-static void relay(void *pvParameters)
-{
-    while (1)
-    {
-        writeDigitalGPIO(GPIO_NUM_2, 1);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-        writeDigitalGPIO(GPIO_NUM_2, 0);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
-*/
-
 #ifdef __cplusplus
 extern "C"
 #endif
@@ -78,12 +64,7 @@ extern "C"
 {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
-    // esp_task_wdt_init(0, false);
     beginSerial(115200);
-
-    // serialWrite("test\n");
-    const char *test = intToString(5, 10);
-    serialWrite(test);
 
     initHardwareLED();
 
@@ -92,16 +73,6 @@ extern "C"
     ESP_LOGI("main", "Log test info");
     ESP_LOGW("main", "Log test warn");
     ESP_LOGE("main", "Log test error");
-    // writeHWLED(0, 50, 0);
-    // showHWLED();
 
-    //xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-
-    // setupDigitalGPIO(GPIO_NUM_2, GPIO_MODE_OUTPUT);
-    // xTaskCreate(relay, "relay_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-
-
-    openLock();
-
-
+    xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 }
