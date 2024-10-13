@@ -1,4 +1,5 @@
 #pragma once
+#include "linkedList.h"
 #include "sdkconfig.h"
 
 #define CONFIG_REFERENCE_STORAGE_FS_SD 1
@@ -19,6 +20,7 @@ void mountSDCard();
 #endif
 
 void mountFS();
+list_t* lsDir(const char* path);
 
 #ifdef __cplusplus
 }

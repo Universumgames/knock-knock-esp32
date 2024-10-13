@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "HardwareLED.h"
+#include "Storage.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -65,4 +66,11 @@ extern "C"
     ESP_LOGE("main", "Log test error");
 
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+
+    mountFS();
+    list_t* list = lsDir(STORAGE_MOUNT_POINT);
+    list_foreach(list, [](void* item) {
+        char* path = (char*)item;
+        ESP_LOGI("main", "File: %s", path);
+    });
 }

@@ -1,5 +1,6 @@
 #include "Storage.h"
 
+#include <dirent.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -13,10 +14,10 @@
 
 #define LOCAL_FS_LITTLEFS_PARTITION_NAME "littlefs"  // view partition table in littlefs.csv
 
-#define PIN_NUM_MISO GPIO_NUM_12
-#define PIN_NUM_MOSI GPIO_NUM_13
-#define PIN_NUM_CLK GPIO_NUM_14
-#define PIN_NUM_CS GPIO_NUM_15
+#define PIN_NUM_MISO GPIO_NUM_5
+#define PIN_NUM_MOSI GPIO_NUM_6
+#define PIN_NUM_CLK GPIO_NUM_4
+#define PIN_NUM_CS GPIO_NUM_7
 
 static const char* TAG_STORAGE = "Storage";
 
@@ -60,6 +61,8 @@ void mountSDCard() {
 
     sdmmc_card_t* card;
 
+    ESP_LOGI(TAG_STORAGE, "Using SPI peripheral");
+
     sdmmc_host_t host = SDSPI_HOST_DEFAULT();
 
     spi_bus_config_t bus_cfg = {
@@ -72,6 +75,10 @@ void mountSDCard() {
     };
 
     ret = spi_bus_initialize(host.slot, &bus_cfg, SDSPI_DEFAULT_DMA);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG_STORAGE, "Failed to initialize bus.");
+        return;
+    }
 
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
     slot_config.gpio_cs = PIN_NUM_CS;
@@ -91,17 +98,7 @@ void mountSDCard() {
 
     ESP_LOGI(TAG_STORAGE, "SD Card Filesystem mounted");
 
-    // Card has been initialized, print its properties
-    sdmmc_card_t* card;
-    ret = sdmmc_card_get_info(&host, &card);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG_STORAGE, "Failed to get SD card information (%s)", esp_err_to_name(ret));
-    } else {
-        ESP_LOGI(TAG_STORAGE, "SD Card info:");
-        ESP_LOGI(TAG_STORAGE, "Name: %s", card->cid.name);
-        ESP_LOGI(TAG_STORAGE, "Speed: %s", (card->csd.tr_speed > 25000000) ? "High Speed" : "Default Speed");
-        ESP_LOGI(TAG_STORAGE, "Size: %d MB", card->csd.capacity / (1024 * 1024));
-    }
+    sdmmc_card_print_info(stdout, card);
 }
 
 #endif
@@ -112,4 +109,33 @@ void mountFS() {
 #elif CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_SD
     mountSDCard();
 #endif
+}
+
+list_t* lsDir(const char* path) {
+    struct stat st;
+    if (stat(path, &st) != 0) {
+        ESP_LOGE(TAG_STORAGE, "Failed to stat %s", path);
+        return NULL;
+    }
+
+    if (S_ISDIR(st.st_mode)) {
+        ESP_LOGI(TAG_STORAGE, "Listing directory %s", path);
+        list_t* list = list_create();
+        struct dirent* de;
+        DIR* dir = opendir(path);
+        if (dir == NULL) {
+            ESP_LOGE(TAG_STORAGE, "Failed to open directory %s", path);
+            return NULL;
+        }
+
+        while ((de = readdir(dir)) != NULL) {
+            list_push_back(list, strdup(de->d_name));
+        }
+
+        closedir(dir);
+        return list;
+    } else {
+        ESP_LOGE(TAG_STORAGE, "%s is not a directory", path);
+        return NULL;
+    }
 }
