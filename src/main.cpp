@@ -7,11 +7,14 @@
 #include "freertos/task.h"
 #include "stringHelper.h"
 #include "lock_open.h"
+#include "driver/gpio.h"
 
 #define ECHO_TASK_STACK_SIZE 2048
 
 #define LED_BRIGHTNESS 10 // 0-255
 #define LED_FADE_DELAY 10
+
+#define RELAY_GPIO GPIO_NUM_19
 
 static void fade(void *pvParameters)
 {
@@ -59,6 +62,7 @@ static void fade(void *pvParameters)
 #ifdef __cplusplus
 extern "C"
 #endif
+
     void
     app_main()
 {
@@ -75,4 +79,6 @@ extern "C"
     ESP_LOGE("main", "Log test error");
 
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+
+    // xTaskCreate(openLock, "open_lock_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 }

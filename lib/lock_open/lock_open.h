@@ -5,11 +5,7 @@ extern "C"
 {
 #endif
 
-
-
-void openLock(void);
-
-
+    void openLock(void *pvParameter);
 
 #ifdef __cplusplus
 }
