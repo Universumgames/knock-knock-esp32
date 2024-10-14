@@ -4,3 +4,4 @@ sdkconfig.old
 .pio
 .vscode
 managed_components/
+pcb/pcb/pcb-backups

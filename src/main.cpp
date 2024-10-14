@@ -15,8 +15,6 @@
 #define LED_BRIGHTNESS 10  // 0-255
 #define LED_FADE_DELAY 10
 
-#define RELAY_GPIO GPIO_NUM_19
-
 static void fade(void* pvParameters) {
     while (1) {
         for (int g = 0; g < LED_BRIGHTNESS; g++) {
