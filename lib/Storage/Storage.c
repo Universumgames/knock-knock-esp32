@@ -1,16 +1,15 @@
 #include "Storage.h"
 
 #include <dirent.h>
+#include <driver/gpio.h>
+#include <esp_err.h>
+#include <esp_log.h>
+#include <esp_system.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
 #include <unistd.h>
-
-#include "driver/gpio.h"
-#include "esp_err.h"
-#include "esp_log.h"
-#include "esp_system.h"
 
 #define LOCAL_FS_LITTLEFS_PARTITION_NAME "littlefs"  // view partition table in littlefs.csv
 

@@ -6,8 +6,8 @@
 
 #include "led_strip_encoder.h"
 
-#include "esp_check.h"
-#include "freertos/FreeRTOS.h"
+#include <esp_check.h>
+#include <freertos/FreeRTOS.h>
 
 static const char *TAG_SERIAL = "led_encoder";
 

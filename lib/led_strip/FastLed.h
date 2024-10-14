@@ -1,5 +1,6 @@
 #pragma once
-#include "driver/rmt_tx.h"
+#include <driver/rmt_tx.h>
+
 #include "led_strip_encoder.h"
 
 #ifdef __cplusplus

@@ -3,16 +3,15 @@
 // Copied from https://github.com/espressif/esp-idf/blob/master/examples/peripherals/uart/uart_events/main/uart_events_example_main.c
 // Modified by: Tom Arlt
 
+#include <driver/uart.h>
+#include <esp_log.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
+#include <freertos/task.h>
 #include <stdio.h>
 #include <string.h>
 
 #include <queue>
-
-#include "driver/uart.h"
-#include "esp_log.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/queue.h"
-#include "freertos/task.h"
 
 static const char *TAG_SERIAL = "uart_events";
 

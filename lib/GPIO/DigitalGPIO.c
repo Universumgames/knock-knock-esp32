@@ -1,7 +1,7 @@
 #include "DigitalGPIO.h"
 
-#include "driver/gpio.h"
-#include "esp_log.h"
+#include <driver/gpio.h>
+#include <esp_log.h>
 
 const char* TAG_DIGITAL_GPIO = "DigitalGPIO";
 

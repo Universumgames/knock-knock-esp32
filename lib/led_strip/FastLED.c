@@ -1,9 +1,8 @@
 #include "FastLed.h"
 
+#include <esp_log.h>
+#include <freertos/FreeRTOS.h>
 #include <string.h>
-
-#include "esp_log.h"
-#include "freertos/FreeRTOS.h"
 
 const char* TAG_FAST_LED = "FastLED";
 

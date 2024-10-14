@@ -1,12 +1,12 @@
-#include <Serial.h>
+#include <driver/gpio.h>
+#include <esp_log.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 #include <stdio.h>
 
 #include "HardwareLED.h"
+#include "Serial.h"
 #include "Storage.h"
-#include "driver/gpio.h"
-#include "esp_log.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "lock_open.h"
 #include "stringHelper.h"
 
