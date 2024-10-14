@@ -3,15 +3,19 @@
 
 #include "HardwareLED.h"
 #include "Storage.h"
+#include "driver/gpio.h"
 #include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "lock_open.h"
 #include "stringHelper.h"
 
 #define ECHO_TASK_STACK_SIZE 2048
 
 #define LED_BRIGHTNESS 10  // 0-255
 #define LED_FADE_DELAY 10
+
+#define RELAY_GPIO GPIO_NUM_19
 
 static void fade(void* pvParameters) {
     while (1) {
@@ -51,6 +55,7 @@ static void fade(void* pvParameters) {
 #ifdef __cplusplus
 extern "C"
 #endif
+
     void
     app_main() {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
@@ -73,4 +78,6 @@ extern "C"
         char* path = (char*)item;
         ESP_LOGI("main", "File: %s", path);
     });
+
+    openLock();
 }
