@@ -1,15 +1,17 @@
 #include "linkedList.h"
 
+#include <stdlib.h>
+
+typedef struct __node {
+    void* data;
+    struct __node* next;
+} node_t;
+
 struct __list {
     node_t* head;
     node_t* tail;
     size_t size;
 };
-
-typedef struct {
-    void* data;
-    node_t* next;
-} node_t;
 
 list_t* list_create() {
     list_t* list = malloc(sizeof(list_t));

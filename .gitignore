@@ -3,5 +3,4 @@ sdkconfig
 sdkconfig.old
 .pio
 .vscode
-!.vscode/c_cpp_properties.json
 managed_components/

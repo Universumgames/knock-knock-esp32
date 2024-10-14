@@ -1,6 +1,10 @@
 #pragma once
 #include <stddef.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct __list;
 
 typedef struct __list list_t;
@@ -22,3 +26,7 @@ void* list_get(list_t* list, size_t index);
 size_t list_size(list_t* list);
 
 void list_foreach(list_t* list, void (*callback)(void*));
+
+#ifdef __cplusplus
+}
+#endif
