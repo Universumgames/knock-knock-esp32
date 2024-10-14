@@ -80,5 +80,5 @@ extern "C"
 
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
-    // xTaskCreate(openLock, "open_lock_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    openLock();
 }

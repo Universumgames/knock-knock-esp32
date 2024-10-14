@@ -5,7 +5,12 @@ extern "C"
 {
 #endif
 
-    void openLock(void *pvParameter);
+    /**
+     * @brief Öffnen des Schloss für gewisse Zeit
+     * @return void
+     * Aufruf mit:  openLock();
+     */
+    void openLock(void);
 
 #ifdef __cplusplus
 }
