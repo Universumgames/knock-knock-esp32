@@ -4647,7 +4647,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "42nF"
+		(property "Value" "47nF"
 			(at 176.53 69.8499 0)
 			(effects
 				(font
@@ -4717,7 +4717,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "42nF"
+		(property "Value" "47nF"
 			(at 255.27 151.1299 0)
 			(effects
 				(font
@@ -4925,7 +4925,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "42nF"
+		(property "Value" "47nF"
 			(at 234.95 129.5399 0)
 			(effects
 				(font
@@ -5430,7 +5430,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "42nF"
+		(property "Value" "47nF"
 			(at 195.58 88.8999 0)
 			(effects
 				(font
@@ -5918,7 +5918,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "42nF"
+		(property "Value" "47nF"
 			(at 214.63 109.2199 0)
 			(effects
 				(font
