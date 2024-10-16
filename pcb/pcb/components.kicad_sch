@@ -6,6 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Externe Komponenten")
+		(comment 1 "diese sind später nicht fest auf dem PCB verbaut")
+		(comment 2 "Auf diesem Schlatplan sind die externen Komponenten zu finden, ")
 	)
 	(lib_symbols
 		(symbol "Conn_01x03_Socket_1"

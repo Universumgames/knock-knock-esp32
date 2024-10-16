@@ -6,6 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Klopf Klopf (Mustererkennung)")
+		(comment 1 "Aus diesem Schaltpplan generieren wir uns PCB")
 	)
 	(lib_symbols
 		(symbol "Conn_01x03_Socket_1"
