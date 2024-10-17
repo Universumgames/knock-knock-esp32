@@ -1,0 +1,9 @@
+image: universumgames/pio_esp32:01
+
+build:
+  stage: build
+  script:
+    - pio run -e esp32-c3-devkitc-02
+  artifacts:
+    paths:
+      - .pio/build/esp32dev/firmware.bin
