@@ -1,4 +1,4 @@
-image: universumgames/mic-projekt
+image: registry.ide3.de/universumgames/mic-projekt
 
 build:
   stage: build
