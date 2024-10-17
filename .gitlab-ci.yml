@@ -6,4 +6,4 @@ build:
     - pio run -e esp32-c3-devkitc-02
   artifacts:
     paths:
-      - .pio/build/esp32dev/firmware.bin
+      - .pio/build/esp32-c3-devkitc-02/firmware.bin

@@ -1,6 +1,7 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk add --no-cache python3 py3-pip curl bash
+RUN apt update
+RUN apt install -y python3 python3-pip python3-venv curl bash cmake make g++ git
 
 RUN curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 RUN python3 get-platformio.py
@@ -12,4 +13,4 @@ RUN ln -s ~/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
 RUN pio platform install espressif32
 
-ENTRYPOINT [ "/bin/bash" ]
+CMD [ "/bin/bash" ]
