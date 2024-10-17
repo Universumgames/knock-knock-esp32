@@ -8,6 +8,7 @@
 - [Sprint 4](./sprint_04.md)
 - [Sprint 5](./sprint_05.md)
 - [Backlog](./backlog.md)
+- [Sprintplan](./sprint_plan.md)
 - [Schaltplan](./assets/circuit.pdf)
 - [Timeline](#timeline)
 
