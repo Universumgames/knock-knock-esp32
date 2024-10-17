@@ -1,4 +1,4 @@
-image: universumgames/pio_esp32:01
+image: universumgames/mic-projekt
 
 build:
   stage: build
