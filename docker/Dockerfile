@@ -12,4 +12,4 @@ RUN ln -s ~/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
 RUN pio platform install espressif32
 
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "/bin/bash" ]
