@@ -8,12 +8,8 @@
 - [Sprint 4](./sprint_04.md)
 - [Sprint 5](./sprint_05.md)
 - [Backlog](./backlog.md)
-- [Schaltplan](./schaltplan.md)
+- [Schaltplan](./assets/circuit.pdf)
 - [Timeline](#timeline)
 
 ## Timeline
 ![Scrum Timeline](./assets/scrum_timeline.png)
-
-## Schaltplan
-
-Der Schaltplan ist unter [./assets/circuit.pdf](./assets/circuit.pdf) zu finden.
