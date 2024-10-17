@@ -1,4 +1,12 @@
-image: registry.ide3.de/universumgames/mic-projekt
+build_image:
+  image: docker:20.10.16
+  stage: build
+  services:
+    - docker:20.10.16-dind
+  script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+    - docker build -t $CI_REGISTRY/universumgames/mic-projekt:latest .
+    - docker push $CI_REGISTRY/universumgames/mic-projekt
 
 build:
   stage: build
