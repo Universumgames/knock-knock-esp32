@@ -10,6 +10,7 @@ typedef struct __node {
 struct __list {
     node_t* head;
     node_t* tail;
+    node_t* current;
     size_t size;
 };
 
@@ -31,7 +32,7 @@ void list_destroy(list_t* list) {
     free(list);
 }
 
-void list_push_back(list_t* list, void* data) {
+void __list_push_back(list_t* list, void* data) {
     node_t* node = malloc(sizeof(node_t));
     node->data = data;
     node->next = NULL;
@@ -45,7 +46,7 @@ void list_push_back(list_t* list, void* data) {
     list->size++;
 }
 
-void list_push_front(list_t* list, void* data) {
+void __list_push_front(list_t* list, void* data) {
     node_t* node = malloc(sizeof(node_t));
     node->data = data;
     node->next = list->head;
@@ -104,4 +105,17 @@ void list_foreach(list_t* list, void (*callback)(void*)) {
         callback(current->data);
         current = current->next;
     }
+}
+
+void list_reset(list_t* list) {
+    list->current = list->head;
+}
+
+void* list_next(list_t* list) {
+    if (list->current == NULL) {
+        return NULL;
+    }
+    void* data = list->current->data;
+    list->current = list->current->next;
+    return data;
 }

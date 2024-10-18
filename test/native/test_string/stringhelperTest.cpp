@@ -23,3 +23,8 @@ TEST(String, splitStringTest) {
     EXPECT_EQ(5, indices[1]);
     free(indices);
 }
+
+int main() {
+    ::testing::InitGoogleTest();
+    return RUN_ALL_TESTS();
+}

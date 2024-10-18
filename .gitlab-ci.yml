@@ -7,3 +7,8 @@ build:
   artifacts:
     paths:
       - .pio/build/esp32-c3-devkitc-02/firmware.bin
+
+test:
+  stage: test
+  script:
+    - pio test -e native
