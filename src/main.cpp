@@ -71,11 +71,14 @@ extern "C"
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
     mountFS();
-    list_t* list = lsDir(STORAGE_MOUNT_POINT);
-    list_foreach(list, [](void* item) {
-        char* path = (char*)item;
+    size_t len;
+    char** list = lsDir(STORAGE_MOUNT_POINT, &len);
+    for (int i = 0; i < len; i++) {
+        char* path = list[i];
         ESP_LOGI("main", "File: %s", path);
-    });
+        free(path);
+    };
+    free(list);
 
     openLock();
 }
