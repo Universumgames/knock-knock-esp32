@@ -131,7 +131,7 @@ char** lsDir(const char* path, size_t* len) {
         size_t storage_len = 10;
         char** files = (char**)calloc(sizeof(char*), storage_len);
         int index = 0;
-        len = 0;
+        *len = 0;
 
         while ((de = readdir(dir)) != NULL) {
             files[index++] = strdup(de->d_name);
