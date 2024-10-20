@@ -110,7 +110,7 @@ void mountFS() {
 #endif
 }
 
-list_t* lsDir(const char* path) {
+char** lsDir(const char* path, size_t* len) {
     struct stat st;
     if (stat(path, &st) != 0) {
         ESP_LOGE(TAG_STORAGE, "Failed to stat %s", path);
@@ -119,7 +119,6 @@ list_t* lsDir(const char* path) {
 
     if (S_ISDIR(st.st_mode)) {
         ESP_LOGI(TAG_STORAGE, "Listing directory %s", path);
-        list_t* list = list_create();
         struct dirent* de;
         DIR* dir = opendir(path);
         if (dir == NULL) {
@@ -127,14 +126,28 @@ list_t* lsDir(const char* path) {
             return NULL;
         }
 
-        while ((de = readdir(dir)) != NULL) {
-            list_push_back(list, strdup(de->d_name));
-        }
+        size_t storage_len = 10;
+        char** files = (char**)calloc(sizeof(char*), storage_len);
+        int index = 0;
+        len = 0;
 
+        while ((de = readdir(dir)) != NULL) {
+            files[index++] = strdup(de->d_name);
+            if (index >= storage_len) {
+                storage_len *= 2;
+                files = (char**)realloc(files, sizeof(char*) * storage_len);
+            }
+        }
         closedir(dir);
-        return list;
+        *len = index;
+        return files;
     } else {
         ESP_LOGE(TAG_STORAGE, "%s is not a directory", path);
         return NULL;
     }
+}
+
+bool fileExists(const char* path) {
+    struct stat st;
+    return stat(path, &st) == 0;
 }
