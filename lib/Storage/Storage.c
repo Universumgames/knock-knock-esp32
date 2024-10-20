@@ -23,7 +23,7 @@ static const char* TAG_STORAGE = "Storage";
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
 #include "esp_littlefs.h"
 
-void mountLocalFS() {
+bool mountLocalFS() {
     ESP_LOGI(TAG_STORAGE, "Initializing LittleFS");
     esp_vfs_littlefs_conf_t conf = {
         .base_path = LOCAL_FS_MOUNT_POINT,
@@ -43,13 +43,14 @@ void mountLocalFS() {
         ESP_LOGI(TAG_STORAGE, "Partition size: total: %d, used: %d", total, used);
     }
     ESP_LOGI(TAG_STORAGE, "LittleFS initialized and mounted");
+    return true;
 }
 
 #elif CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_SD
 #include "esp_vfs_fat.h"
 #include "sdmmc_cmd.h"
 
-void mountSDCard() {
+bool mountSDCard() {
     ESP_LOGI(TAG_STORAGE, "Initializing SD card");
     esp_err_t ret;
 
@@ -76,7 +77,7 @@ void mountSDCard() {
     ret = spi_bus_initialize(host.slot, &bus_cfg, SDSPI_DEFAULT_DMA);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG_STORAGE, "Failed to initialize bus.");
-        return;
+        return false;
     }
 
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
@@ -92,21 +93,22 @@ void mountSDCard() {
         } else {
             ESP_LOGE(TAG_STORAGE, "Failed to initialize the card (%s)", esp_err_to_name(ret));
         }
-        return;
+        return false;
     }
 
     ESP_LOGI(TAG_STORAGE, "SD Card Filesystem mounted");
 
     sdmmc_card_print_info(stdout, card);
+    return true;
 }
 
 #endif
 
-void mountFS() {
+bool mountFS() {
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
-    mountLocalFS();
+    return mountLocalFS();
 #elif CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_SD
-    mountSDCard();
+    return mountSDCard();
 #endif
 }
 

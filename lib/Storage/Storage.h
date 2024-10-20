@@ -15,18 +15,18 @@ extern "C" {
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
 #define LOCAL_FS_MOUNT_POINT "/littlefs"
 #define STORAGE_MOUNT_POINT LOCAL_FS_MOUNT_POINT
-void mountLocalFS();
+bool mountLocalFS();
 #elif CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_SD
 #define SD_MOUNT_POINT "/sdcard"
 #define STORAGE_MOUNT_POINT SD_MOUNT_POINT
-void mountSDCard();
+bool mountSDCard();
 #endif
 
 /**
  * @brief Mount the filesystem according to the configuration
- *
+ * @return true if the filesystem was mounted successfully
  */
-void mountFS();
+bool mountFS();
 
 /**
  * @brief List the filenames in a directory
