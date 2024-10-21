@@ -1,0 +1,83 @@
+
+# Changelog
+- (a2f756e) Universumgames, 2 hours ago : prepare analog read
+- (3347105) Tom Arlt, 24 hours ago : Merge branch 'feature-storage-driver' into 'main'
+- (b021204) Universumgames, 25 hours ago : fix main
+- (3bc64c8) Universumgames, 25 hours ago : add test templates
+- (0656771) Universumgames, 25 hours ago : add storage test
+- (ee5371d) Universumgames, 25 hours ago : fix bug in lsDir
+- (ba72fce) Universumgames, 25 hours ago : add error handling to mounting
+- (ecd584e) Universumgames, 25 hours ago : add fileExists and add comments for common file operations
+- (ec74f72) Universumgames, 25 hours ago : add basic definitions
+- (e56aefd) Universumgames, 3 days ago : fixed unit tests
+- (f8d24d4) Universumgames, 3 days ago : add testing framework and fix string methods
+- (457fd4a) Universumgames, 4 days ago : fix cicd try 7
+- (ac79808) Universumgames, 4 days ago : cicd try fix 5
+- (e839c07) Universumgames, 4 days ago : try cicd fix 4
+- (e870f71) Universumgames, 4 days ago : try ci cd 3
+- (048a51f) simonvehreschild, 4 days ago : update Sprintplan
+- (5c68ad5) simonvehreschild, 4 days ago : update-README-und-Text-Präsentation
+- (e0d1d45) Universumgames, 4 days ago : try fix 2
+- (2012cc5) Universumgames, 4 days ago : try fixing ci/cd
+- (d112d12) Universumgames, 4 days ago : test ci/cd
+- (e873cde) Universumgames, 4 days ago : update built type
+- (30b06b3) Universumgames, 5 days ago : FInish documentation for Sprint 1 with Simon and Jovan
+- (2da1056) Universumgames, 5 days ago : preparing documentation
+- (76d86c3) Universumgames, 5 days ago : Co-authored-by: Simon Vehreschild <svehreschild@users.noreply.github.com>
+- (025235c) Universumgames, 5 days ago : add first documentation file
+- (3cf6cb6) Universumgames, 5 days ago : update assets and schematic
+- (77cf8b4) Tom Arlt, 6 days ago : Merge branch 'Update_Circuit_switch' into 'main'
+- (e729de0) simonvehreschild, 6 days ago : update
+- (4215d72) simonvehreschild, 6 days ago : update
+- (ecb114d) Tom Arlt, 7 days ago : Merge branch 'update_pcb' into 'main'
+- (202fdf4) simonvehreschild, 7 days ago : update pcd mit Notöffnung
+- (98f3930) Universumgames, 7 days ago : add pcb
+- (d7d4276) Universumgames, 8 days ago : fix library includes
+- (71899c0) Universumgames, 8 days ago : remove all vs code files
+- (57d8b40) Tom Arlt, 8 days ago : Merge branch 'feature-storage-driver' into 'main'
+- (2bcffe8) Universumgames, 8 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- (b65cb25) Tom Arlt, 8 days ago : Merge branch 'feature-lock' into 'main'
+- (b75e08a) Tom Arlt, 8 days ago : Merge branch 'main' into 'feature-lock'
+- (a84312c) simonvehreschild, 8 days ago : finish (revision Tom, Jovan)
+- (025a4e7) Universumgames, 8 days ago : add pinout list
+- (845f380) Universumgames, 8 days ago : finish basic storage driver
+- (db07620) Universumgames, 8 days ago : add new pinout diagram, fix dependencies
+- (566057b) Universumgames, 8 days ago : fixed implementation in linked list
+- (3debd23) simonvehreschild, 8 days ago : lock_open fertig
+- (6a1f910) simonvehreschild, 8 days ago : 
+- (c1c8dfd) simonvehreschild, 9 days ago : test
+- (3c6289f) Universumgames, 10 days ago : update gitignore
+- (128a82e) Universumgames, 10 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- (db45b7b) Universumgames, 10 days ago : add linked list
+- (f95e07d) Universumgames, 10 days ago : implement storage driver first part
+- (dcab778) Universumgames, 11 days ago : add documentation to old functions
+- (977090d) Universumgames, 11 days ago : add c++ defines
+- (db985fe) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- (2f567ef) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
+- (9931f20) Universumgames, 11 days ago : update
+- (347c21b) Universumgames, 11 days ago : update sprint plant
+- (bf14abd) simonvehreschild, 11 days ago : .
+- (ea5a7e1) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
+- (6fc471f) Universumgames, 11 days ago : cleanup
+- (54b71ee) simonvehreschild, 11 days ago : fertig heute
+- (68f2b32) Universumgames, 11 days ago : cleanup main
+- (db0439a) Universumgames, 11 days ago : init storage
+- (507f793) simonvehreschild, 11 days ago : test
+- (3147837) Universumgames, 11 days ago : finish sprint plan
+- (63cb417) Universumgames, 13 days ago : refactoring
+- (996f363) Universumgames, 13 days ago : fix led strip
+- (d45b229) Universumgames, 13 days ago : update backlog
+- (3071cb3) Universumgames, 2 weeks ago : update backlog
+- (df5efa3) Universumgames, 2 weeks ago : update
+- (3aeae96) Universumgames, 2 weeks ago : add datasheets
+- (695ad82) Universumgames, 2 weeks ago : bugfixes
+- (b26a7b9) Universumgames, 2 weeks ago : play around with hardware led
+- (555a7f9) Universumgames, 2 weeks ago : add cpp formatting config
+- (f350323) Universumgames, 2 weeks ago : test assembler
+- (a86c7cd) Universumgames, 2 weeks ago : update Serial, switch to cpp
+- (0b6cadd) Universumgames, 2 weeks ago : first serial test
+- (ebe6fad) Universumgames, 2 weeks ago : switch to platformio
+- (7ed0768) Universumgames, 2 weeks ago : update
+- (acad8d8) Tom Arlt, 2 weeks ago : Add LICENSE
+- (0f9c7bb) Universumgames, 2 weeks ago : init
+- (90f8b42) Tom Arlt, 2 weeks ago : Initial commit
