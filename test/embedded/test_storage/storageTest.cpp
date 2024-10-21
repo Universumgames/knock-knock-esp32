@@ -42,6 +42,7 @@ TEST(Storage, readFileTest) {
     EXPECT_NE(file, nullptr);
     char buffer[100];
     char* res = fgets(buffer, sizeof(buffer), file);
+    EXPECT_NE(res, nullptr);
     EXPECT_STREQ(buffer, TEST_FILE_CONTENT);
     fclose(file);
 }
