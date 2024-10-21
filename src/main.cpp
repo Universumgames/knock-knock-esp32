@@ -4,6 +4,7 @@
 #include <freertos/task.h>
 #include <stdio.h>
 
+#include "AnalogRead.h"
 #include "HardwareLED.h"
 #include "Serial.h"
 #include "Storage.h"
@@ -50,6 +51,18 @@ static void fade(void* pvParameters) {
     }
 }
 
+static void analogReadTask(void* pvParameters) {
+    uint8_t value;
+    adc_continuous_handle_t handle;
+    adc_channel_t channels[] = {ADC_CHANNEL_0};
+    continuous_init(channels, 1, ADC_ATTEN_DB_0, &handle);
+    while (1) {
+        read_continuous(handle, &value, sizeof(value));
+        ESP_LOGI("main", "Analog value: %d", value);
+        // vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
+
 #ifdef __cplusplus
 extern "C"
 #endif
@@ -69,6 +82,7 @@ extern "C"
     ESP_LOGE("main", "Log test error");
 
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
     mountFS();
     size_t len;

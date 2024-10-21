@@ -14,6 +14,28 @@
 extern "C" {
 #endif
 
+/**
+ * @brief Initialize the continuous ADC
+ *
+ * @param channel the array of channels to read from
+ * @param channel_num the number of channels
+ * @param atten the attenuation to use
+ * @param out_handle the handle to the continuous ADC
+ * @return true on success
+ * @return false on failure
+ */
+bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t atten, adc_continuous_handle_t* out_handle);
+
+/**
+ * @brief Read analog values from the ADC buffer
+ *
+ * @param handle the handle to the continuous ADC
+ * @param valueBuf the buffer to store the values
+ * @param bufSize the size of the buffer
+ * @return size_t the number of values read
+ */
+size_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize);
+
 #if false
 bool init_oneshot(adc_unit_t unit, adc_atten_t atten, adc_channel_t channel);
 

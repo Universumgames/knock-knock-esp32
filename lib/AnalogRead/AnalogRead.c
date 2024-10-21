@@ -4,7 +4,7 @@ static const char* TAG_ANALOG_READ = "AnalogRead";
 
 #define READ_LEN (SOC_ADC_DIGI_DATA_BYTES_PER_CONV * 20)
 
-bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t atten, adc_cali_handle_t* out_handle) {
+bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t atten, adc_continuous_handle_t* out_handle) {
     adc_continuous_handle_t handle = NULL;
 
     adc_continuous_handle_cfg_t adc_config = {
@@ -37,6 +37,15 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
     *out_handle = handle;
 
     return true;
+}
+
+size_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize) {
+    size_t out_length = 0;
+    esp_err_t ret = adc_continuous_read(handle, valueBuf, bufSize, &out_length, 0);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG_ANALOG_READ, "adc_continuous_read error");
+    }
+    return out_length;
 }
 
 #if false
