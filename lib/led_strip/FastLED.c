@@ -14,12 +14,12 @@ FastLEDConfig* initFastLED(int length, gpio_num_t pin_number) {
         .clk_src = RMT_CLK_SRC_DEFAULT,  // select source clock
         .resolution_hz = RMT_LED_STRIP_RESOLUTION_HZ,
         .mem_block_symbols = 64,  // increase the block size can make the LED less flickering
-        .trans_queue_depth = 1,   // set the number of transactions that can be pending in the background
+        .trans_queue_depth = 4,   // set the number of transactions that can be pending in the background
     };
     led_strip_encoder_config_t encoder_config = {
         .resolution = RMT_LED_STRIP_RESOLUTION_HZ,
     };
-    return __initFastLED(length, &tx_chan_config, &encoder_config);
+    return __initFastLED(length, tx_chan_config, encoder_config);
 }
 
 struct __FastLED_Config_internal {
@@ -33,27 +33,27 @@ struct __FastLED_Config_internal {
     int lengthPixels;
 };
 
-FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t* _tx_chan_config, led_strip_encoder_config_t* _encoder_config) {
+FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t _tx_chan_config, led_strip_encoder_config_t _encoder_config) {
     esp_log_level_set(TAG_FAST_LED, ESP_LOG_VERBOSE);
     FastLEDConfig* config = (FastLEDConfig*)malloc(sizeof(FastLEDConfig));
     config->lengthRGB = length;
     config->lengthPixels = length * 3;
     config->led_strip_pixels = (uint8_t*)calloc(sizeof(int), config->lengthPixels);
 
-    config->tx_chan_config = *_tx_chan_config;
+    config->tx_chan_config = _tx_chan_config;
     ESP_ERROR_CHECK(rmt_new_tx_channel(&config->tx_chan_config, &config->led_chan));
 
     ESP_LOGV(TAG_FAST_LED, "Install led strip encoder");
 
     config->tx_config.loop_count = 0;
-    config->encoder_config = *_encoder_config;
+    config->encoder_config = _encoder_config;
 
     ESP_ERROR_CHECK(rmt_new_led_strip_encoder(&config->encoder_config, &config->led_encoder));
 
     ESP_LOGD(TAG_FAST_LED, "Enable RMT TX channel");
     ESP_ERROR_CHECK(rmt_enable(config->led_chan));
     // turn off all leds
-    memset(config->led_strip_pixels, 0, config->lengthPixels);
+    memset(config->led_strip_pixels, 0, config->lengthPixels * sizeof(uint8_t));
     showLED(config);
     ESP_LOGD(TAG_FAST_LED, "FastLED initialized, LED strip length on pin %d: %d", config->tx_chan_config.gpio_num, length);
     return config;

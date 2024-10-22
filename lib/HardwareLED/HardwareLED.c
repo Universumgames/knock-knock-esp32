@@ -3,7 +3,7 @@
 #include <FastLed.h>
 #include <esp_log.h>
 
-#define RMT_LED_STRIP_GPIO_NUM ((gpio_num_t)8)
+#define RMT_LED_STRIP_GPIO_NUM (GPIO_NUM_8)
 
 #define LED_STRIP_LENGTH 1
 
@@ -21,11 +21,19 @@ void initHardwareLED() {
 }
 
 void writeHWLED(uint8_t red, uint8_t green, uint8_t blue) {
+    if (config == NULL) {
+        ESP_LOGE(TAG_HW_LED, "Hardware LED not initialized");
+        return;
+    }
     writeLED(config, 0, red, green, blue);
     ESP_LOGV(TAG_HW_LED, "Wrote to Hardware LED memory: %d %d %d", red, green, blue);
 }
 
 void showHWLED() {
+    if (config == NULL) {
+        ESP_LOGE(TAG_HW_LED, "Hardware LED not initialized");
+        return;
+    }
     showLED(config);
     ESP_LOGV(TAG_HW_LED, "Showed Hardware LED");
 }

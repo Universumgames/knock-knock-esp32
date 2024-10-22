@@ -19,7 +19,7 @@ typedef struct __FastLED_Config_internal FastLEDConfig;
  * @param _encoder_config the LED strip encoder configuration
  * @return FastLEDConfig* the FastLEDConfig object
  */
-FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t* _tx_chan_config, led_strip_encoder_config_t* _encoder_config);
+FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t _tx_chan_config, led_strip_encoder_config_t _encoder_config);
 
 /**
  * @brief Initialize the FastLEDConfig object with the given length and pin number for a WS2812B LED strip
