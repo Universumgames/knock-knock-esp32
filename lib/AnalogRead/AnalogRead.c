@@ -2,15 +2,18 @@
 
 static const char* TAG_ANALOG_READ = "AnalogRead";
 
-#define READ_LEN (SOC_ADC_DIGI_DATA_BYTES_PER_CONV * 20)
+#define READ_LEN (SOC_ADC_DIGI_DATA_BYTES_PER_CONV * 64)
 
 bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t atten, adc_continuous_handle_t* out_handle) {
+    esp_log_level_set(TAG_ANALOG_READ, ESP_LOG_DEBUG);
     adc_continuous_handle_t handle = NULL;
 
     adc_continuous_handle_cfg_t adc_config = {
         .max_store_buf_size = 1024,
         .conv_frame_size = READ_LEN,
     };
+    ESP_LOGI(TAG_ANALOG_READ, "Creating continuous ADC handle");
+    ESP_ERROR_CHECK(adc_continuous_new_handle(&adc_config, &handle));
 
     adc_continuous_config_t dig_cfg = {
         .sample_freq_hz = 20 * 1000,
@@ -21,6 +24,7 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
     adc_digi_pattern_config_t adc_pattern[SOC_ADC_PATT_LEN_MAX] = {0};
     dig_cfg.pattern_num = channel_num;
 
+    ESP_LOGI(TAG_ANALOG_READ, "Setting up continuous ADC channels");
     for (int i = 0; i < channel_num; i++) {
         adc_pattern[i].atten = atten;
         adc_pattern[i].channel = channel[i] & 0x7;
@@ -32,7 +36,9 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
         ESP_LOGI(TAG_ANALOG_READ, "adc_pattern[%d].unit is :%" PRIx8, i, adc_pattern[i].unit);
     }
     dig_cfg.adc_pattern = adc_pattern;
+
     ESP_ERROR_CHECK(adc_continuous_config(handle, &dig_cfg));
+    ESP_LOGI(TAG_ANALOG_READ, "Continuous ADC channel setup done");
 
     *out_handle = handle;
 

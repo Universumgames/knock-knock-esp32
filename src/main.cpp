@@ -51,15 +51,41 @@ static void fade(void* pvParameters) {
     }
 }
 
+static TaskHandle_t s_task_handle;
+
+static bool IRAM_ATTR s_conv_done_cb(adc_continuous_handle_t handle, const adc_continuous_evt_data_t* edata, void* user_data) {
+    BaseType_t mustYield = pdFALSE;
+    // Notify that ADC continuous driver has done enough number of conversions
+    vTaskNotifyGiveFromISR(s_task_handle, &mustYield);
+
+    return (mustYield == pdTRUE);
+}
+
 static void analogReadTask(void* pvParameters) {
-    uint8_t value;
+    uint8_t value[256] = {0};
     adc_continuous_handle_t handle;
     adc_channel_t channels[] = {ADC_CHANNEL_0};
-    continuous_init(channels, 1, ADC_ATTEN_DB_0, &handle);
+    bool ret = continuous_init(channels, 1, ADC_ATTEN_DB_0, &handle);
+    if (!ret) {
+        ESP_LOGE("main", "Failed to initialize continuous ADC");
+        vTaskDelete(NULL);
+    }
+
+    s_task_handle = xTaskGetCurrentTaskHandle();
+
+    adc_continuous_evt_cbs_t cbs = {
+        //.on_conv_done = s_conv_done_cb,
+    };
+    ESP_ERROR_CHECK(adc_continuous_register_event_callbacks(handle, &cbs, NULL));
+
+    ESP_ERROR_CHECK(adc_continuous_start(handle));
+    vTaskDelete(NULL);
+    ESP_LOGI("main", "ADC continuous started");
+
     while (1) {
-        read_continuous(handle, &value, sizeof(value));
-        ESP_LOGI("main", "Analog value: %d", value);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
+        read_continuous(handle, value, 256);
+        ESP_LOGI("main", "Analog value: %d", value[0]);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
 
@@ -72,7 +98,6 @@ extern "C"
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
-
     initHardwareLED();
 
     ESP_LOGV("main", "Log test verbose");
@@ -82,7 +107,7 @@ extern "C"
     ESP_LOGE("main", "Log test error");
 
     xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE * 2, NULL, 5, NULL);
 
     mountFS();
     size_t len;
