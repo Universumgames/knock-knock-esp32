@@ -9,6 +9,12 @@ struct __FastLED_Config_internal;
 
 typedef struct __FastLED_Config_internal FastLEDConfig;
 
+typedef struct {
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+} LED_Pixel;
+
 /**
  * @brief Initialize the FastLEDConfig object
  *

@@ -1,92 +1,131 @@
-/** MIT licence
-
- Copyright (C) 2019 by Vu Nam https://github.com/vunam https://studiokoda.com
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights to
- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- of the Software, and to permit persons to whom the Software is furnished to do
- so, subject to the following conditions: The above copyright notice and this
- permission notice shall be included in all copies or substantial portions of
- the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
- EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
- OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- DEALINGS IN THE SOFTWARE.
-
-*/
-
 #include "ws2812.h"
 
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
+#include <driver/rmt_encoder.h>
+#include <driver/rmt_tx.h>
+#include <esp_log.h>
+#include <freertos/FreeRTOS.h>
 
-#include "driver/i2s.h"
-#include "esp_system.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include "FastLed.h"
 
-i2s_config_t i2s_config = {
-    .mode = I2S_MODE_MASTER | I2S_MODE_TX,
-    .sample_rate = SAMPLE_RATE,
-    .bits_per_sample = 16,
-    .communication_format = I2S_COMM_FORMAT_I2S | I2S_COMM_FORMAT_I2S_MSB,
-    .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
-    .intr_alloc_flags = 0,
-    .dma_buf_count = 4,
-    .use_apll = false,
+#define RMT_LED_STRIP_RESOLUTION_HZ 10000000  // 10MHz resolution, 1 tick = 0.1us (led strip needs a high resolution)
+#define WS2812_BYTES_PER_PIXEL 3
+
+static const char *TAG_WS2812 = "WS2812";
+
+static const rmt_symbol_word_t ws2812_zero = {
+    .level0 = 1,
+    .duration0 = 0.3 * RMT_LED_STRIP_RESOLUTION_HZ / 1000000,  // T0H=0.3us
+    .level1 = 0,
+    .duration1 = 0.9 * RMT_LED_STRIP_RESOLUTION_HZ / 1000000,  // T0L=0.9us
 };
 
-i2s_pin_config_t pin_config = {.bck_io_num = -1,
-                               .ws_io_num = -1,
-                               .data_out_num = I2S_DO_IO,
-                               .data_in_num = -1};
+static const rmt_symbol_word_t ws2812_one = {
+    .level0 = 1,
+    .duration0 = 0.9 * RMT_LED_STRIP_RESOLUTION_HZ / 1000000,  // T1H=0.9us
+    .level1 = 0,
+    .duration1 = 0.3 * RMT_LED_STRIP_RESOLUTION_HZ / 1000000,  // T1L=0.3us
+};
 
-static uint8_t out_buffer[LED_NUMBER * PIXEL_SIZE] = {0};
-static uint8_t off_buffer[ZERO_BUFFER] = {0};
-static uint16_t size_buffer;
+// reset defaults to 50uS
+static const rmt_symbol_word_t ws2812_reset = {
+    .level0 = 1,
+    .duration0 = RMT_LED_STRIP_RESOLUTION_HZ / 1000000 * 50 / 2,
+    .level1 = 0,
+    .duration1 = RMT_LED_STRIP_RESOLUTION_HZ / 1000000 * 50 / 2,
+};
 
-static const uint16_t bitpatterns[4] = {0x88, 0x8e, 0xe8, 0xee};
+struct __WS2812Config {
+    rmt_tx_channel_config_t tx_chan_config;
+    rmt_channel_handle_t led_chan;
+    rmt_simple_encoder_config_t simple_encoder_cfg;
+    rmt_transmit_config_t tx_config;
+    rmt_encoder_handle_t simple_encoder;
 
-void ws2812_init() {
-    size_buffer = LED_NUMBER * PIXEL_SIZE;
+    uint8_t *led_data;
+    int led_count;
+};
 
-    i2s_config.dma_buf_len = size_buffer;
-
-    i2s_driver_install(I2S_NUM, &i2s_config, 0, NULL);
-    i2s_set_pin(I2S_NUM, &pin_config);
-}
-
-void ws2812_update(ws2812_pixel_t *pixels) {
-    size_t bytes_written = 0;
-
-    for (uint16_t i = 0; i < LED_NUMBER; i++) {
-        int loc = i * PIXEL_SIZE;
-
-        out_buffer[loc] = bitpatterns[pixels[i].green >> 6 & 0x03];
-        out_buffer[loc + 1] = bitpatterns[pixels[i].green >> 4 & 0x03];
-        out_buffer[loc + 2] = bitpatterns[pixels[i].green >> 2 & 0x03];
-        out_buffer[loc + 3] = bitpatterns[pixels[i].green & 0x03];
-
-        out_buffer[loc + 4] = bitpatterns[pixels[i].red >> 6 & 0x03];
-        out_buffer[loc + 5] = bitpatterns[pixels[i].red >> 4 & 0x03];
-        out_buffer[loc + 6] = bitpatterns[pixels[i].red >> 2 & 0x03];
-        out_buffer[loc + 7] = bitpatterns[pixels[i].red & 0x03];
-
-        out_buffer[loc + 8] = bitpatterns[pixels[i].blue >> 6 & 0x03];
-        out_buffer[loc + 9] = bitpatterns[pixels[i].blue >> 4 & 0x03];
-        out_buffer[loc + 10] = bitpatterns[pixels[i].blue >> 2 & 0x03];
-        out_buffer[loc + 11] = bitpatterns[pixels[i].blue & 0x03];
+static size_t
+encoder_callback(const void *data, size_t data_size,
+                 size_t symbols_written, size_t symbols_free,
+                 rmt_symbol_word_t *symbols, bool *done, void *arg) {
+    // We need a minimum of 8 symbol spaces to encode a byte. We only
+    // need one to encode a reset, but it's simpler to simply demand that
+    // there are 8 symbol spaces free to write anything.
+    if (symbols_free < 8) {
+        return 0;
     }
 
-    i2s_write(I2S_NUM, out_buffer, size_buffer, &bytes_written, portMAX_DELAY);
-    // i2s_write(I2S_NUM, off_buffer, ZERO_BUFFER, &bytes_written, portMAX_DELAY);
-    // vTaskDelay(pdMS_TO_TICKS(10));
-    // i2s_zero_dma_buffer(I2S_NUM);
+    // We can calculate where in the data we are from the symbol pos.
+    // Alternatively, we could use some counter referenced by the arg
+    // parameter to keep track of this.
+    size_t data_pos = symbols_written / 8;
+    uint8_t *data_bytes = (uint8_t *)data;
+    if (data_pos < data_size) {
+        // Encode a byte
+        size_t symbol_pos = 0;
+        for (int bitmask = 0x80; bitmask != 0; bitmask >>= 1) {
+            if (data_bytes[data_pos] & bitmask) {
+                symbols[symbol_pos++] = ws2812_one;
+            } else {
+                symbols[symbol_pos++] = ws2812_zero;
+            }
+        }
+        // We're done; we should have written 8 symbols.
+        return symbol_pos;
+    } else {
+        // All bytes already are encoded.
+        // Encode the reset, and we're done.
+        symbols[0] = ws2812_reset;
+        *done = 1;  // Indicate end of the transaction.
+        return 1;   // we only wrote one symbol
+    }
+}
+
+WS2812Config *create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
+    ESP_LOGI(TAG_WS2812, "Create RMT TX channel");
+    WS2812Config *led_config = (WS2812Config *)calloc(sizeof(WS2812Config), 1);
+    led_config->led_data = (uint8_t *)calloc(led_count * WS2812_BYTES_PER_PIXEL, sizeof(uint8_t));
+    led_config->led_count = led_count;
+    led_config->tx_chan_config = (rmt_tx_channel_config_t){
+        .clk_src = RMT_CLK_SRC_DEFAULT,  // select source clock
+        .gpio_num = gpio_num,
+        .mem_block_symbols = 64,  // increase the block size can make the LED less flickering
+        .resolution_hz = RMT_LED_STRIP_RESOLUTION_HZ,
+        .trans_queue_depth = 4,  // set the number of transactions that can be pending in the background
+    };
+    ESP_ERROR_CHECK(rmt_new_tx_channel(&led_config->tx_chan_config, &led_config->led_chan));
+
+    ESP_LOGI(TAG_WS2812, "Create simple callback-based encoder");
+    led_config->simple_encoder_cfg = (rmt_simple_encoder_config_t){
+        .callback = encoder_callback
+        // Note we don't set min_chunk_size here as the default of 64 is good enough.
+    };
+    ESP_ERROR_CHECK(rmt_new_simple_encoder(&led_config->simple_encoder_cfg, &led_config->simple_encoder));
+
+    ESP_LOGI(TAG_WS2812, "Enable RMT TX channel");
+    ESP_ERROR_CHECK(rmt_enable(led_config->led_chan));
+
+    ESP_LOGI(TAG_WS2812, "Start LED rainbow chase");
+    led_config->tx_config = (rmt_transmit_config_t){
+        .loop_count = 0,  // no transfer loop
+    };
+
+    return led_config;
+}
+
+void setWS2812Pixel(WS2812Config *config, int index, uint8_t red, uint8_t green, uint8_t blue) {
+    if (index >= config->led_count) {
+        ESP_LOGE(TAG_WS2812, "Index out of range: %d", index);
+        return;
+    }
+    config->led_data[index * WS2812_BYTES_PER_PIXEL] = green;
+    config->led_data[index * WS2812_BYTES_PER_PIXEL + 1] = red;
+    config->led_data[index * WS2812_BYTES_PER_PIXEL + 2] = blue;
+}
+
+void showWS2812(WS2812Config *config) {
+    ESP_LOGI(TAG_WS2812, "Transmitting %d pixels", config->led_count);
+    ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->simple_encoder, config->led_data, config->led_count * WS2812_BYTES_PER_PIXEL * sizeof(uint8_t), &config->tx_config));
+    ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, portMAX_DELAY));
 }

@@ -14,25 +14,22 @@ const char* TAG_FAST_LED = "FastLED";
 
 struct __FastLED_Config_internal {
     gpio_num_t pin_number;
-    ws2812_pixel_t* led_data;
+    LED_Pixel* led_data;
     int lengthRBGStrip;
     uint8_t* encoded_led_data;
     int lengthEncoded;
 
-    i2s_chan_handle_t tx_handle;
-    i2s_chan_config_t chan_cfg;
-    i2s_std_config_t std_cfg;
+    WS2812Config* ws2812_config;
 };
 
 FastLEDConfig* initFastLED(int length, gpio_num_t pin_number) {
     FastLEDConfig* config = (FastLEDConfig*)calloc(sizeof(FastLEDConfig), 1);
     *config = (FastLEDConfig){
         .pin_number = pin_number,
-        .led_data = (ws2812_pixel_t*)calloc(sizeof(ws2812_pixel_t), length),
+        .led_data = (LED_Pixel*)calloc(sizeof(LED_Pixel), length),
         .lengthRBGStrip = length,
+        .ws2812_config = create_ws2812_encoder(pin_number, length),
     };
-
-    ws2812_init();
 
     showLED(config);
 
@@ -44,13 +41,14 @@ void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint
         ESP_LOGE(TAG_FAST_LED, "Index out of range: %d", index);
         return;
     }
-    config->led_data[index] = (ws2812_pixel_t){
+    config->led_data[index] = (LED_Pixel){
         .red = red,
         .green = green,
         .blue = blue,
     };
+    setWS2812Pixel(config->ws2812_config, index, red, green, blue);
 }
 
 void showLED(FastLEDConfig* config) {
-    ws2812_update(config->led_data);
+    showWS2812(config->ws2812_config);
 }
