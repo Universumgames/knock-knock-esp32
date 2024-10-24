@@ -1,8 +1,6 @@
 #pragma once
 #include <driver/rmt_tx.h>
 
-#include "led_strip_encoder.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -11,15 +9,11 @@ struct __FastLED_Config_internal;
 
 typedef struct __FastLED_Config_internal FastLEDConfig;
 
-/**
- * @brief Initialize the FastLEDConfig object
- *
- * @param length the number of LEDs in the strip
- * @param _tx_chan_config the RMT TX channel configuration
- * @param _encoder_config the LED strip encoder configuration
- * @return FastLEDConfig* the FastLEDConfig object
- */
-FastLEDConfig* __initFastLED(int length, rmt_tx_channel_config_t _tx_chan_config, led_strip_encoder_config_t _encoder_config);
+/*typedef struct {
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+} LED_Pixel;*/
 
 /**
  * @brief Initialize the FastLEDConfig object with the given length and pin number for a WS2812B LED strip
