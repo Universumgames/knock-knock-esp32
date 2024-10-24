@@ -1,17 +1,13 @@
 #pragma once
+#include "basicDefs.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+HEADER_BEGIN
 
-    /**
-     * @brief Öffnen des Schloss für gewisse Zeit
-     * @return void
-     * Aufruf mit:  openLock();
-     */
-    void openLock(void);
+/**
+ * @brief Öffnen des Schloss für gewisse Zeit
+ * @return void
+ * Aufruf mit:  openLock();
+ */
+void openLock(void);
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END

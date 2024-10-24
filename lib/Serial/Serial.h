@@ -1,10 +1,9 @@
 #pragma once
+#include "basicDefs.h"
 
 // Created by: Tom Arlt
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+HEADER_BEGIN
 
 /**
  * @brief initialize Hardware Serial
@@ -43,6 +42,4 @@ void serialRead(char *data, int len);
  */
 char serialReadChar();
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END

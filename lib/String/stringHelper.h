@@ -1,8 +1,7 @@
 #pragma once
+#include "basicDefs.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+HEADER_BEGIN
 
 /**
  * @brief Convert an integer to a string
@@ -26,6 +25,4 @@ int stringToInt(const char* str, int base);
  */
 int* splitString(const char* str, const char* delim, int* len);
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END
