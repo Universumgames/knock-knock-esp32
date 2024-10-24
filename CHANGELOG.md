@@ -1,83 +1,98 @@
 
 # Changelog
-- (a2f756e) Universumgames, 2 hours ago : prepare analog read
-- (3347105) Tom Arlt, 24 hours ago : Merge branch 'feature-storage-driver' into 'main'
-- (b021204) Universumgames, 25 hours ago : fix main
-- (3bc64c8) Universumgames, 25 hours ago : add test templates
-- (0656771) Universumgames, 25 hours ago : add storage test
-- (ee5371d) Universumgames, 25 hours ago : fix bug in lsDir
-- (ba72fce) Universumgames, 25 hours ago : add error handling to mounting
-- (ecd584e) Universumgames, 25 hours ago : add fileExists and add comments for common file operations
-- (ec74f72) Universumgames, 25 hours ago : add basic definitions
-- (e56aefd) Universumgames, 3 days ago : fixed unit tests
-- (f8d24d4) Universumgames, 3 days ago : add testing framework and fix string methods
-- (457fd4a) Universumgames, 4 days ago : fix cicd try 7
-- (ac79808) Universumgames, 4 days ago : cicd try fix 5
-- (e839c07) Universumgames, 4 days ago : try cicd fix 4
-- (e870f71) Universumgames, 4 days ago : try ci cd 3
-- (048a51f) simonvehreschild, 4 days ago : update Sprintplan
-- (5c68ad5) simonvehreschild, 4 days ago : update-README-und-Text-Präsentation
-- (e0d1d45) Universumgames, 4 days ago : try fix 2
-- (2012cc5) Universumgames, 4 days ago : try fixing ci/cd
-- (d112d12) Universumgames, 4 days ago : test ci/cd
-- (e873cde) Universumgames, 4 days ago : update built type
-- (30b06b3) Universumgames, 5 days ago : FInish documentation for Sprint 1 with Simon and Jovan
-- (2da1056) Universumgames, 5 days ago : preparing documentation
-- (76d86c3) Universumgames, 5 days ago : Co-authored-by: Simon Vehreschild <svehreschild@users.noreply.github.com>
-- (025235c) Universumgames, 5 days ago : add first documentation file
-- (3cf6cb6) Universumgames, 5 days ago : update assets and schematic
-- (77cf8b4) Tom Arlt, 6 days ago : Merge branch 'Update_Circuit_switch' into 'main'
-- (e729de0) simonvehreschild, 6 days ago : update
-- (4215d72) simonvehreschild, 6 days ago : update
-- (ecb114d) Tom Arlt, 7 days ago : Merge branch 'update_pcb' into 'main'
-- (202fdf4) simonvehreschild, 7 days ago : update pcd mit Notöffnung
-- (98f3930) Universumgames, 7 days ago : add pcb
-- (d7d4276) Universumgames, 8 days ago : fix library includes
-- (71899c0) Universumgames, 8 days ago : remove all vs code files
-- (57d8b40) Tom Arlt, 8 days ago : Merge branch 'feature-storage-driver' into 'main'
-- (2bcffe8) Universumgames, 8 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
-- (b65cb25) Tom Arlt, 8 days ago : Merge branch 'feature-lock' into 'main'
-- (b75e08a) Tom Arlt, 8 days ago : Merge branch 'main' into 'feature-lock'
-- (a84312c) simonvehreschild, 8 days ago : finish (revision Tom, Jovan)
-- (025a4e7) Universumgames, 8 days ago : add pinout list
-- (845f380) Universumgames, 8 days ago : finish basic storage driver
-- (db07620) Universumgames, 8 days ago : add new pinout diagram, fix dependencies
-- (566057b) Universumgames, 8 days ago : fixed implementation in linked list
-- (3debd23) simonvehreschild, 8 days ago : lock_open fertig
-- (6a1f910) simonvehreschild, 8 days ago : 
-- (c1c8dfd) simonvehreschild, 9 days ago : test
-- (3c6289f) Universumgames, 10 days ago : update gitignore
-- (128a82e) Universumgames, 10 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
-- (db45b7b) Universumgames, 10 days ago : add linked list
-- (f95e07d) Universumgames, 10 days ago : implement storage driver first part
-- (dcab778) Universumgames, 11 days ago : add documentation to old functions
-- (977090d) Universumgames, 11 days ago : add c++ defines
-- (db985fe) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
-- (2f567ef) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
-- (9931f20) Universumgames, 11 days ago : update
-- (347c21b) Universumgames, 11 days ago : update sprint plant
-- (bf14abd) simonvehreschild, 11 days ago : .
-- (ea5a7e1) Universumgames, 11 days ago : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
-- (6fc471f) Universumgames, 11 days ago : cleanup
-- (54b71ee) simonvehreschild, 11 days ago : fertig heute
-- (68f2b32) Universumgames, 11 days ago : cleanup main
-- (db0439a) Universumgames, 11 days ago : init storage
-- (507f793) simonvehreschild, 11 days ago : test
-- (3147837) Universumgames, 11 days ago : finish sprint plan
-- (63cb417) Universumgames, 13 days ago : refactoring
-- (996f363) Universumgames, 13 days ago : fix led strip
-- (d45b229) Universumgames, 13 days ago : update backlog
-- (3071cb3) Universumgames, 2 weeks ago : update backlog
-- (df5efa3) Universumgames, 2 weeks ago : update
-- (3aeae96) Universumgames, 2 weeks ago : add datasheets
-- (695ad82) Universumgames, 2 weeks ago : bugfixes
-- (b26a7b9) Universumgames, 2 weeks ago : play around with hardware led
-- (555a7f9) Universumgames, 2 weeks ago : add cpp formatting config
-- (f350323) Universumgames, 2 weeks ago : test assembler
-- (a86c7cd) Universumgames, 2 weeks ago : update Serial, switch to cpp
-- (0b6cadd) Universumgames, 2 weeks ago : first serial test
-- (ebe6fad) Universumgames, 2 weeks ago : switch to platformio
-- (7ed0768) Universumgames, 2 weeks ago : update
-- (acad8d8) Tom Arlt, 2 weeks ago : Add LICENSE
-- (0f9c7bb) Universumgames, 2 weeks ago : init
-- (90f8b42) Tom Arlt, 2 weeks ago : Initial commit
+- ([f1af63c](https://git.ide3.de/universumgames/mic-projekt/-/commit/f1af63c1447796527ba159470a3f0eaf79fbc33a)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:22:27 +0200") : update gitignore
+- ([dd544ed](https://git.ide3.de/universumgames/mic-projekt/-/commit/dd544ed2875198445b253a32b75fc0eacaca5be9)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:22:13 +0200") : Merge branch 'main' into feature-pattern-record
+- ([a3e37bc](https://git.ide3.de/universumgames/mic-projekt/-/commit/a3e37bc710f102bb57bba86d81e39aaf9472fc3f)) Tom Arlt on [2024-10-24](## "Thu, 24 Oct 2024 17:20:48 +0000") : Merge branch 'test-feature-led-driver' into 'main'
+- ([f6febe0](https://git.ide3.de/universumgames/mic-projekt/-/commit/f6febe07e0d8dc620bdb8cf04ff344ce22ad9647)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:12:42 +0200") : updating basic def header
+- ([15205e7](https://git.ide3.de/universumgames/mic-projekt/-/commit/15205e7742cd7e24301b7549201040898f748559)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:11:42 +0200") : simplify and remove old code
+- ([e5c8565](https://git.ide3.de/universumgames/mic-projekt/-/commit/e5c85659cb51875c8b56ece574aa5ca9dd4e1934)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 18:59:41 +0200") : simplifying rmt config
+- ([32f4616](https://git.ide3.de/universumgames/mic-projekt/-/commit/32f4616ad4bc74d97320bacf542a9991aea52fe1)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 18:08:43 +0200") : trying out i2s lib (not working)
+- ([004213b](https://git.ide3.de/universumgames/mic-projekt/-/commit/004213ba00672219b7751ead2c29c8951be74566)) Universumgames on [2024-10-23](## "Wed, 23 Oct 2024 23:44:49 +0200") : trying out i2s (not working at all)
+- ([6cbc640](https://git.ide3.de/universumgames/mic-projekt/-/commit/6cbc6406dc55131f6c01f85dcafd58ff8dd11dd5)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 12:34:25 +0200") : add led spi explanation image
+- ([9b0c969](https://git.ide3.de/universumgames/mic-projekt/-/commit/9b0c96980fb5496ad1ce06975585aa8afa5909ad)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 12:31:13 +0200") : try fixing LED driver with spi control, not usable because overwriting storage bus
+- ([d40191b](https://git.ide3.de/universumgames/mic-projekt/-/commit/d40191b7948eae47b1e13e3a23f74fa50e8cff13)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 11:04:10 +0200") : implement basic analog read
+- ([2cf7b20](https://git.ide3.de/universumgames/mic-projekt/-/commit/2cf7b20c16da66ea31dbc9a2b5b0c781ee7cdf36)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 11:03:36 +0200") : try fixing led
+- ([5d9cf31](https://git.ide3.de/universumgames/mic-projekt/-/commit/5d9cf31d983caa6cee7c2a0ee5b3bd7cbfe59d54)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 00:50:15 +0200") : preparing further implementation, adding analog read test task
+- ([da5bcc9](https://git.ide3.de/universumgames/mic-projekt/-/commit/da5bcc900ea7cbd5c339d6d0e2ceaba8e565a754)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 00:12:48 +0200") : add additional expect for storage test
+- ([a9dfdb8](https://git.ide3.de/universumgames/mic-projekt/-/commit/a9dfdb8f036778020509e1057dc55139e8d311c5)) Universumgames on [2024-10-22](## "Tue, 22 Oct 2024 00:12:25 +0200") : add changelog
+- ([a2f756e](https://git.ide3.de/universumgames/mic-projekt/-/commit/a2f756e8ea3a0d030a2c07eea35ae77967bce39c)) Universumgames on [2024-10-21](## "Mon, 21 Oct 2024 22:00:41 +0200") : prepare analog read
+- ([3347105](https://git.ide3.de/universumgames/mic-projekt/-/commit/3347105564a00b158b8be1b29b7c05a8a67f64b7)) Tom Arlt on [2024-10-20](## "Sun, 20 Oct 2024 21:45:37 +0000") : Merge branch 'feature-storage-driver' into 'main'
+- ([b021204](https://git.ide3.de/universumgames/mic-projekt/-/commit/b021204337b89a51d887ececc05a7f0d4d3b83aa)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:40:14 +0200") : fix main
+- ([3bc64c8](https://git.ide3.de/universumgames/mic-projekt/-/commit/3bc64c89b3d3f7415abf177dfc4c9cc62f999005)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:37:06 +0200") : add test templates
+- ([0656771](https://git.ide3.de/universumgames/mic-projekt/-/commit/06567714da6672b19d834d9ed7de2253f2a8b230)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:35:08 +0200") : add storage test
+- ([ee5371d](https://git.ide3.de/universumgames/mic-projekt/-/commit/ee5371dc20fa4852368682b2183f156e5275715a)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:34:59 +0200") : fix bug in lsDir
+- ([ba72fce](https://git.ide3.de/universumgames/mic-projekt/-/commit/ba72fceeaadf249c489b2bcead6d9fad45a47333)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:34:49 +0200") : add error handling to mounting
+- ([ecd584e](https://git.ide3.de/universumgames/mic-projekt/-/commit/ecd584e235d0e1030e7abed2c5cae8aa28e8e9f5)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:16:26 +0200") : add fileExists and add comments for common file operations
+- ([ec74f72](https://git.ide3.de/universumgames/mic-projekt/-/commit/ec74f72fc1fc5ac5c9a749ebb7163117411b6f6a)) Universumgames on [2024-10-20](## "Sun, 20 Oct 2024 23:14:06 +0200") : add basic definitions
+- ([e56aefd](https://git.ide3.de/universumgames/mic-projekt/-/commit/e56aefd687f7a62a6d9328073ce239a790b7294c)) Universumgames on [2024-10-18](## "Fri, 18 Oct 2024 16:04:37 +0200") : fixed unit tests
+- ([f8d24d4](https://git.ide3.de/universumgames/mic-projekt/-/commit/f8d24d4df676940a955bbd424de9573f1de3a179)) Universumgames on [2024-10-18](## "Fri, 18 Oct 2024 15:35:51 +0200") : add testing framework and fix string methods
+- ([457fd4a](https://git.ide3.de/universumgames/mic-projekt/-/commit/457fd4af31335f8a9289a30ea0533181893ca748)) Universumgames on [2024-10-18](## "Fri, 18 Oct 2024 01:48:14 +0200") : fix cicd try 7
+- ([ac79808](https://git.ide3.de/universumgames/mic-projekt/-/commit/ac7980855fe3ffb8f1b7984242f7c668c7a7d3b7)) Universumgames on [2024-10-18](## "Fri, 18 Oct 2024 01:11:37 +0200") : cicd try fix 5
+- ([e839c07](https://git.ide3.de/universumgames/mic-projekt/-/commit/e839c0785cf5aadc5e918dcf90fefb2658c7abe1)) Universumgames on [2024-10-18](## "Fri, 18 Oct 2024 01:10:04 +0200") : try cicd fix 4
+- ([e870f71](https://git.ide3.de/universumgames/mic-projekt/-/commit/e870f713ece0c5c795dba991c3e7429869e4f8a4)) Universumgames on [2024-10-17](## "Thu, 17 Oct 2024 20:54:17 +0200") : try ci cd 3
+- ([048a51f](https://git.ide3.de/universumgames/mic-projekt/-/commit/048a51fe2584423fd69703f684e8034b8442c83e)) simonvehreschild on [2024-10-17](## "Thu, 17 Oct 2024 20:46:50 +0200") : update Sprintplan
+- ([5c68ad5](https://git.ide3.de/universumgames/mic-projekt/-/commit/5c68ad5810bdfcea6c67235f56becbd4f9969ca5)) simonvehreschild on [2024-10-17](## "Thu, 17 Oct 2024 20:42:28 +0200") : update-README-und-Text-Präsentation
+- ([e0d1d45](https://git.ide3.de/universumgames/mic-projekt/-/commit/e0d1d453daf3894fcc89e1c09081cd5b0461c755)) Universumgames on [2024-10-17](## "Thu, 17 Oct 2024 20:37:56 +0200") : try fix 2
+- ([2012cc5](https://git.ide3.de/universumgames/mic-projekt/-/commit/2012cc51c8e88ab6b398a7fe18599f15be018a41)) Universumgames on [2024-10-17](## "Thu, 17 Oct 2024 20:35:42 +0200") : try fixing ci/cd
+- ([d112d12](https://git.ide3.de/universumgames/mic-projekt/-/commit/d112d129a6a0e6a70dda93f940122245a0d5a7b0)) Universumgames on [2024-10-17](## "Thu, 17 Oct 2024 20:29:09 +0200") : test ci/cd
+- ([e873cde](https://git.ide3.de/universumgames/mic-projekt/-/commit/e873cdede895a0a247516fecf7bd3dbece508163)) Universumgames on [2024-10-17](## "Thu, 17 Oct 2024 20:03:52 +0200") : update built type
+- ([30b06b3](https://git.ide3.de/universumgames/mic-projekt/-/commit/30b06b3cc324bf7cb75c6232b23082b3553ba7b9)) Universumgames on [2024-10-16](## "Wed, 16 Oct 2024 20:19:26 +0200") : FInish documentation for Sprint 1 with Simon and Jovan
+- ([2da1056](https://git.ide3.de/universumgames/mic-projekt/-/commit/2da1056b0940b3a1bd7b5c71841e4144947efacd)) Universumgames on [2024-10-16](## "Wed, 16 Oct 2024 19:24:06 +0200") : preparing documentation
+- ([76d86c3](https://git.ide3.de/universumgames/mic-projekt/-/commit/76d86c32dc204eb8654a452e381dbff98d088878)) Universumgames on [2024-10-16](## "Wed, 16 Oct 2024 19:12:10 +0200") : Co-authored-by: Simon Vehreschild <svehreschild@users.noreply.github.com>
+- ([025235c](https://git.ide3.de/universumgames/mic-projekt/-/commit/025235ca33e95b409395c0584428b04cf93782cf)) Universumgames on [2024-10-16](## "Wed, 16 Oct 2024 18:25:32 +0200") : add first documentation file
+- ([3cf6cb6](https://git.ide3.de/universumgames/mic-projekt/-/commit/3cf6cb6fad2370768018fd4502e336cfd64e8143)) Universumgames on [2024-10-16](## "Wed, 16 Oct 2024 18:21:31 +0200") : update assets and schematic
+- ([77cf8b4](https://git.ide3.de/universumgames/mic-projekt/-/commit/77cf8b42c1bf098ea796ebeebdb0d2b29d7a6035)) Tom Arlt on [2024-10-15](## "Tue, 15 Oct 2024 18:51:22 +0000") : Merge branch 'Update_Circuit_switch' into 'main'
+- ([e729de0](https://git.ide3.de/universumgames/mic-projekt/-/commit/e729de036a8aee4f1dd808a89e3b388019dfb9c7)) simonvehreschild on [2024-10-15](## "Tue, 15 Oct 2024 20:15:50 +0200") : update
+- ([4215d72](https://git.ide3.de/universumgames/mic-projekt/-/commit/4215d729f1fd6acc313ca035f3c366f18115d16b)) simonvehreschild on [2024-10-15](## "Tue, 15 Oct 2024 20:03:34 +0200") : update
+- ([ecb114d](https://git.ide3.de/universumgames/mic-projekt/-/commit/ecb114d629c8d3623d8dff112341fdfe1eea8867)) Tom Arlt on [2024-10-14](## "Mon, 14 Oct 2024 22:47:51 +0000") : Merge branch 'update_pcb' into 'main'
+- ([202fdf4](https://git.ide3.de/universumgames/mic-projekt/-/commit/202fdf4f46c797d9994fc980b3b99e00de1a8e90)) simonvehreschild on [2024-10-14](## "Mon, 14 Oct 2024 21:43:51 +0200") : update pcd mit Notöffnung
+- ([98f3930](https://git.ide3.de/universumgames/mic-projekt/-/commit/98f3930d8624877f5fd2022d00bc222ccb6a1b66)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 20:19:25 +0200") : add pcb
+- ([d7d4276](https://git.ide3.de/universumgames/mic-projekt/-/commit/d7d4276ef6406cb32793c97e63a5690d8e5ad19d)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 11:34:54 +0200") : fix library includes
+- ([71899c0](https://git.ide3.de/universumgames/mic-projekt/-/commit/71899c0432226f1e7f66d8dabf1beded1aa19b63)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 11:30:42 +0200") : remove all vs code files
+- ([57d8b40](https://git.ide3.de/universumgames/mic-projekt/-/commit/57d8b401be7b678ea7fba60cd930a789026fa755)) Tom Arlt on [2024-10-14](## "Mon, 14 Oct 2024 09:29:37 +0000") : Merge branch 'feature-storage-driver' into 'main'
+- ([2bcffe8](https://git.ide3.de/universumgames/mic-projekt/-/commit/2bcffe8536bf1138b33073c55c8742c8ba23f7b5)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 11:29:09 +0200") : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- ([b65cb25](https://git.ide3.de/universumgames/mic-projekt/-/commit/b65cb250cf85f31960e4ee8c0ce654c384d81ec5)) Tom Arlt on [2024-10-14](## "Mon, 14 Oct 2024 09:25:12 +0000") : Merge branch 'feature-lock' into 'main'
+- ([b75e08a](https://git.ide3.de/universumgames/mic-projekt/-/commit/b75e08a81a3fee8292a5e0b11c4c2dca488508fc)) Tom Arlt on [2024-10-14](## "Mon, 14 Oct 2024 09:21:07 +0000") : Merge branch 'main' into 'feature-lock'
+- ([a84312c](https://git.ide3.de/universumgames/mic-projekt/-/commit/a84312c4da8707c00b0683ed6b1b0e1984a54f3a)) simonvehreschild on [2024-10-14](## "Mon, 14 Oct 2024 11:16:42 +0200") : finish (revision Tom, Jovan)
+- ([025a4e7](https://git.ide3.de/universumgames/mic-projekt/-/commit/025a4e7b53c834d32a2776f4256b2e38721f0113)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 10:44:04 +0200") : add pinout list
+- ([845f380](https://git.ide3.de/universumgames/mic-projekt/-/commit/845f380ac1237899d801150cf0725e33cf4b1484)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 00:05:18 +0200") : finish basic storage driver
+- ([db07620](https://git.ide3.de/universumgames/mic-projekt/-/commit/db07620dab579bad0ce28adeddd5320a6091ee05)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 00:05:00 +0200") : add new pinout diagram, fix dependencies
+- ([566057b](https://git.ide3.de/universumgames/mic-projekt/-/commit/566057b6b86188b38da4b2ed1f07a8b53f132c38)) Universumgames on [2024-10-14](## "Mon, 14 Oct 2024 00:04:44 +0200") : fixed implementation in linked list
+- ([3debd23](https://git.ide3.de/universumgames/mic-projekt/-/commit/3debd2319ec15b7f943784decf6f021d69011d93)) simonvehreschild on [2024-10-13](## "Sun, 13 Oct 2024 19:39:53 +0200") : lock_open fertig
+- ([6a1f910](https://git.ide3.de/universumgames/mic-projekt/-/commit/6a1f9107cfb7d615c858905367b4ada0af238768)) simonvehreschild on [2024-10-13](## "Sun, 13 Oct 2024 16:22:07 +0200") : 
+- ([c1c8dfd](https://git.ide3.de/universumgames/mic-projekt/-/commit/c1c8dfd69f9740e4b61e8827f04e5bd964ee4385)) simonvehreschild on [2024-10-12](## "Sat, 12 Oct 2024 18:59:57 +0200") : test
+- ([3c6289f](https://git.ide3.de/universumgames/mic-projekt/-/commit/3c6289f1f95bcfdd38cbc256f7718c71d09f1462)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 19:59:55 +0200") : update gitignore
+- ([128a82e](https://git.ide3.de/universumgames/mic-projekt/-/commit/128a82e10410dca8237605098809bfc1211e9a82)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 19:59:05 +0200") : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- ([db45b7b](https://git.ide3.de/universumgames/mic-projekt/-/commit/db45b7bb4262ed5a6db781f00ec6c44ce826a8db)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 19:57:08 +0200") : add linked list
+- ([f95e07d](https://git.ide3.de/universumgames/mic-projekt/-/commit/f95e07d94de17d950d6a0b4d91521b98a5b35f35)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 19:50:11 +0200") : implement storage driver first part
+- ([dcab778](https://git.ide3.de/universumgames/mic-projekt/-/commit/dcab778d50a42cf46c2cfc524ed9a8a6dfc84273)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 12:20:14 +0200") : add documentation to old functions
+- ([977090d](https://git.ide3.de/universumgames/mic-projekt/-/commit/977090d669d159e7c89c76f41ba41f618fb4a8d3)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 12:15:12 +0200") : add c++ defines
+- ([db985fe](https://git.ide3.de/universumgames/mic-projekt/-/commit/db985fe134a45e243d040f9b517e459f2ab0ca99)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 12:13:24 +0200") : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-storage-driver
+- ([2f567ef](https://git.ide3.de/universumgames/mic-projekt/-/commit/2f567efe007c04f4614b9447709d4bc9ab30123c)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 12:11:25 +0200") : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
+- ([9931f20](https://git.ide3.de/universumgames/mic-projekt/-/commit/9931f20de4ddd52e251869402515dfb7914d3078)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 12:08:07 +0200") : update
+- ([347c21b](https://git.ide3.de/universumgames/mic-projekt/-/commit/347c21ba45c9b00be99ac33ff7ed93204c63c8a5)) Universumgames on [2024-10-11](## "Fri, 11 Oct 2024 10:56:53 +0200") : update sprint plant
+- ([bf14abd](https://git.ide3.de/universumgames/mic-projekt/-/commit/bf14abd3396c824e0a6c8f269f00dd2e948c2e85)) simonvehreschild on [2024-10-10](## "Thu, 10 Oct 2024 19:29:05 +0200") : .
+- ([ea5a7e1](https://git.ide3.de/universumgames/mic-projekt/-/commit/ea5a7e1002c9454911732ae8c995740adb2b0719)) Universumgames on [2024-10-10](## "Thu, 10 Oct 2024 19:24:14 +0200") : Merge branch 'main' of https://git.ide3.de/universumgames/mic-projekt into feature-lock
+- ([6fc471f](https://git.ide3.de/universumgames/mic-projekt/-/commit/6fc471fb72a2c2be37674bcc7b85a9fd1a229f59)) Universumgames on [2024-10-10](## "Thu, 10 Oct 2024 19:18:27 +0200") : cleanup
+- ([54b71ee](https://git.ide3.de/universumgames/mic-projekt/-/commit/54b71ee730ee5790b9cf63092c73488652815c77)) simonvehreschild on [2024-10-10](## "Thu, 10 Oct 2024 19:13:25 +0200") : fertig heute
+- ([68f2b32](https://git.ide3.de/universumgames/mic-projekt/-/commit/68f2b328128356debdd50cd02a4a2938a7380334)) Universumgames on [2024-10-10](## "Thu, 10 Oct 2024 18:55:41 +0200") : cleanup main
+- ([db0439a](https://git.ide3.de/universumgames/mic-projekt/-/commit/db0439a97c8f22e17a9225da34eff1cdf737e2ad)) Universumgames on [2024-10-10](## "Thu, 10 Oct 2024 18:47:19 +0200") : init storage
+- ([507f793](https://git.ide3.de/universumgames/mic-projekt/-/commit/507f793d7d097b7c5c343d174cff71f91dfead53)) simonvehreschild on [2024-10-10](## "Thu, 10 Oct 2024 18:45:07 +0200") : test
+- ([3147837](https://git.ide3.de/universumgames/mic-projekt/-/commit/314783771a4a90088a60da5e7890c498cd706567)) Universumgames on [2024-10-10](## "Thu, 10 Oct 2024 18:29:53 +0200") : finish sprint plan
+- ([63cb417](https://git.ide3.de/universumgames/mic-projekt/-/commit/63cb4178868ae12b7d8d3937a8b783166e38011a)) Universumgames on [2024-10-08](## "Tue, 8 Oct 2024 23:42:35 +0200") : refactoring
+- ([996f363](https://git.ide3.de/universumgames/mic-projekt/-/commit/996f363341a3c6da0cee2731337704389c1c27d9)) Universumgames on [2024-10-08](## "Tue, 8 Oct 2024 23:14:28 +0200") : fix led strip
+- ([d45b229](https://git.ide3.de/universumgames/mic-projekt/-/commit/d45b2295a0eb170171839f1d37a71f3d3e5174ad)) Universumgames on [2024-10-08](## "Tue, 8 Oct 2024 23:14:13 +0200") : update backlog
+- ([3071cb3](https://git.ide3.de/universumgames/mic-projekt/-/commit/3071cb310f6f44ce29257fd1df81dfe80893ed52)) Universumgames on [2024-10-07](## "Mon, 7 Oct 2024 18:26:50 +0200") : update backlog
+- ([df5efa3](https://git.ide3.de/universumgames/mic-projekt/-/commit/df5efa3148215291224b605842a2d348f63dc7fc)) Universumgames on [2024-10-07](## "Mon, 7 Oct 2024 16:11:52 +0200") : update
+- ([3aeae96](https://git.ide3.de/universumgames/mic-projekt/-/commit/3aeae960c54b79cb2c10e4bea0c93d2bcbe1bdeb)) Universumgames on [2024-10-07](## "Mon, 7 Oct 2024 14:09:20 +0200") : add datasheets
+- ([695ad82](https://git.ide3.de/universumgames/mic-projekt/-/commit/695ad827ad9d430184201c1081f256d5739a4c5c)) Universumgames on [2024-10-07](## "Mon, 7 Oct 2024 13:05:32 +0200") : bugfixes
+- ([b26a7b9](https://git.ide3.de/universumgames/mic-projekt/-/commit/b26a7b936ae7422189c8e334d95813fc6c68651e)) Universumgames on [2024-10-06](## "Sun, 6 Oct 2024 18:22:10 +0200") : play around with hardware led
+- ([555a7f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/555a7f9bf95e6733e1f0850702df2c42b7ab6a6e)) Universumgames on [2024-10-06](## "Sun, 6 Oct 2024 18:21:58 +0200") : add cpp formatting config
+- ([f350323](https://git.ide3.de/universumgames/mic-projekt/-/commit/f3503238b54a6d8812431f5e7c18ed6a7ede67c8)) Universumgames on [2024-10-06](## "Sun, 6 Oct 2024 18:21:03 +0200") : test assembler
+- ([a86c7cd](https://git.ide3.de/universumgames/mic-projekt/-/commit/a86c7cde54f8de6152c31b819bc491b360a9c9ce)) Universumgames on [2024-10-06](## "Sun, 6 Oct 2024 13:12:30 +0200") : update Serial, switch to cpp
+- ([0b6cadd](https://git.ide3.de/universumgames/mic-projekt/-/commit/0b6cadd1ac37331de55ecb0b112c2a9c4c76b103)) Universumgames on [2024-10-05](## "Sat, 5 Oct 2024 16:57:41 +0200") : first serial test
+- ([ebe6fad](https://git.ide3.de/universumgames/mic-projekt/-/commit/ebe6fadfd2ed63880dd0925bc9eb1d092a9a5e8b)) Universumgames on [2024-10-04](## "Fri, 4 Oct 2024 19:35:29 +0200") : switch to platformio
+- ([7ed0768](https://git.ide3.de/universumgames/mic-projekt/-/commit/7ed07680d3e5fbe5f452daadd767fc426f2bc098)) Universumgames on [2024-10-04](## "Fri, 4 Oct 2024 16:52:42 +0200") : update
+- ([acad8d8](https://git.ide3.de/universumgames/mic-projekt/-/commit/acad8d85c8d9bfdc56828f987b81d672290a3870)) Tom Arlt on [2024-10-04](## "Fri, 4 Oct 2024 13:24:20 +0000") : Add LICENSE
+- ([0f9c7bb](https://git.ide3.de/universumgames/mic-projekt/-/commit/0f9c7bb8ca9151e02d2eef3496b29e4e9596e993)) Universumgames on [2024-10-04](## "Fri, 4 Oct 2024 15:22:45 +0200") : init
+- ([90f8b42](https://git.ide3.de/universumgames/mic-projekt/-/commit/90f8b4222daad974fd31f07dc483515db23cfd74)) Tom Arlt on [2024-10-04](## "Fri, 4 Oct 2024 13:12:12 +0000") : Initial commit
