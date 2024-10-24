@@ -2,15 +2,15 @@
 
 #include <driver/gpio.h>
 
+#include "basicDefs.h"
+
 #define HIGH (1)
 #define LOW (0)
 
 #define INPUT (GPIO_MODE_INPUT)
 #define OUTPUT (GPIO_MODE_OUTPUT)
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+HEADER_BEGIN
 
 /**
  * @brief Setup a digital GPIO pin
@@ -36,6 +36,4 @@ void writeDigitalGPIO(gpio_num_t pin, int value);
  */
 int readDigitalGPIO(gpio_num_t pin);
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END

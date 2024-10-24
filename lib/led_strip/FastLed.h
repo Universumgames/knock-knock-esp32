@@ -1,9 +1,9 @@
 #pragma once
 #include <driver/rmt_tx.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "basicDefs.h"
+
+HEADER_BEGIN
 
 struct __FastLED_Config_internal;
 
@@ -42,6 +42,4 @@ void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint
  */
 void showLED(FastLEDConfig* config);
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END

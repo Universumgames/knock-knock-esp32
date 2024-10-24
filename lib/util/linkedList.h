@@ -1,9 +1,9 @@
 #pragma once
 #include <stddef.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "basicDefs.h"
+
+HEADER_BEGIN
 
 struct __list;
 
@@ -33,6 +33,4 @@ void list_reset(list_t* list);
 #define list_push_back(list, obj) __list_push_back(list, (void*)(obj))
 #define list_push_front(list, obj) __list_push_front(list, (void*)(obj))
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END

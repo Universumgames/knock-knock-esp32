@@ -8,9 +8,7 @@
 #define CONFIG_REFERENCE_STORAGE_FS_SD 1
 #define CONFIG_REFERENCE_STORAGE_FS_LITTLEFS 0
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+HEADER_BEGIN
 
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
 #define LOCAL_FS_MOUNT_POINT "/littlefs"
@@ -47,6 +45,4 @@ bool fileExists(const char* path);
 // rename(oldpath, newpath) // rename file, returns 0 on success
 // unlink(path) // delete file, returns 0 on success
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END
