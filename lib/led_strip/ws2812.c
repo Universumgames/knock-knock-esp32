@@ -106,7 +106,6 @@ WS2812Config *create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
     ESP_LOGI(TAG_WS2812, "Enable RMT TX channel");
     ESP_ERROR_CHECK(rmt_enable(led_config->led_chan));
 
-    ESP_LOGI(TAG_WS2812, "Start LED rainbow chase");
     led_config->tx_config = (rmt_transmit_config_t){
         .loop_count = 0,  // no transfer loop
     };
@@ -125,7 +124,7 @@ void setWS2812Pixel(WS2812Config *config, int index, uint8_t red, uint8_t green,
 }
 
 void showWS2812(WS2812Config *config) {
-    ESP_LOGI(TAG_WS2812, "Transmitting %d pixels", config->led_count);
+    ESP_LOGD(TAG_WS2812, "Transmitting %d pixels", config->led_count);
     ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->simple_encoder, config->led_data, config->led_count * WS2812_BYTES_PER_PIXEL * sizeof(uint8_t), &config->tx_config));
     ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, portMAX_DELAY));
 }
