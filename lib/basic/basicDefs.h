@@ -1,5 +1,4 @@
 #pragma once
-#include <driver/gpio.h>
 #include <stdint.h>
 
 // include for bool, true and false
