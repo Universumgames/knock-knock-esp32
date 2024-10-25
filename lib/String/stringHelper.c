@@ -37,3 +37,40 @@ int* splitString(const char* str, const char* delim, int* len) {
     if (len != NULL) *len = count;
     return indices;
 }
+
+char* substring(const char* str, int start, int end) {
+    int len = end - start;
+    char* substr = (char*)calloc(sizeof(char), len + 1);
+    strncpy(substr, str + start, len);
+    return substr;
+}
+
+char* concat(const char* str1, const char* str2) {
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    char* str = (char*)calloc(sizeof(char), len1 + len2 + 1);
+    strncpy(str, str1, len1);
+    strncpy(str + len1, str2, len2);
+    return str;
+}
+
+char* concat3(const char* str1, const char* str2, const char* str3) {
+    int len1 = strlen(str1);
+    int len2 = strlen(str2);
+    int len3 = strlen(str3);
+    char* str = (char*)calloc(sizeof(char), len1 + len2 + len3 + 1);
+    strncpy(str, str1, len1);
+    strncpy(str + len1, str2, len2);
+    strncpy(str + len1 + len2, str3, len3);
+    return str;
+}
+
+char* randomString(int len) {
+    static char* charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    static int charsetLen = 62;
+    char* str = (char*)calloc(sizeof(char), len + 1);
+    for (int i = 0; i < len; i++) {
+        str[i] = charset[rand() % charsetLen];
+    }
+    return str;
+}

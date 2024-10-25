@@ -1,11 +1,8 @@
 #pragma once
+#include "basicDefs.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+HEADER_BEGIN
 
 void initPatternRecorder();
 
-#ifdef __cplusplus
-}
-#endif
+HEADER_END
