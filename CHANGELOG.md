@@ -1,5 +1,11 @@
 
 # Changelog
+- ([6ffc164](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ffc164e5de5cc495d6b595688ddeb12c551d27b)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:12:14 +0200") : fix basicdefs
+- ([5f03043](https://git.ide3.de/universumgames/mic-projekt/-/commit/5f030430667ad9b941de6ba988534add2ee7017c)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:03:50 +0200") : init pattern storage
+- ([7dc0c34](https://git.ide3.de/universumgames/mic-projekt/-/commit/7dc0c34e57f97576caef365538b8afae46b79a7d)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 00:13:26 +0200") : add pattern storage
+- ([132c47c](https://git.ide3.de/universumgames/mic-projekt/-/commit/132c47c3979a3d52794d55ff7d74b256321c64d0)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 00:12:54 +0200") : Merge branch 'main' into feature-pattern-record
+- ([681f5c8](https://git.ide3.de/universumgames/mic-projekt/-/commit/681f5c80a65015f91776209bc7ceaeb750fcd4a0)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 00:12:06 +0200") : update cpp header pragma
+- ([8069149](https://git.ide3.de/universumgames/mic-projekt/-/commit/806914973e5436056c38041b2a08a112e0b5ce55)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:35:29 +0200") : update changelog generator
 - ([f1af63c](https://git.ide3.de/universumgames/mic-projekt/-/commit/f1af63c1447796527ba159470a3f0eaf79fbc33a)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:22:27 +0200") : update gitignore
 - ([dd544ed](https://git.ide3.de/universumgames/mic-projekt/-/commit/dd544ed2875198445b253a32b75fc0eacaca5be9)) Universumgames on [2024-10-24](## "Thu, 24 Oct 2024 19:22:13 +0200") : Merge branch 'main' into feature-pattern-record
 - ([a3e37bc](https://git.ide3.de/universumgames/mic-projekt/-/commit/a3e37bc710f102bb57bba86d81e39aaf9472fc3f)) Tom Arlt on [2024-10-24](## "Thu, 24 Oct 2024 17:20:48 +0000") : Merge branch 'test-feature-led-driver' into 'main'
