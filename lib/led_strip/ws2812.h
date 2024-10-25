@@ -1,4 +1,6 @@
 #pragma once
+#include <driver/gpio.h>
+
 #include "basicDefs.h"
 
 HEADER_BEGIN
