@@ -1,5 +1,7 @@
 #pragma once
+#include <esp_vfs_fat.h>
 #include <stdio.h>
+#include <sys/stat.h>
 
 #include "basicDefs.h"
 #include "linkedList.h"
