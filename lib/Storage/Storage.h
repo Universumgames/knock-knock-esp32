@@ -1,16 +1,17 @@
 #pragma once
-#include <esp_vfs_fat.h>
 #include <stdio.h>
 #include <sys/stat.h>
 
 #include "basicDefs.h"
-#include "linkedList.h"
 #include "sdkconfig.h"
 
 #define CONFIG_REFERENCE_STORAGE_FS_SD 1
 #define CONFIG_REFERENCE_STORAGE_FS_LITTLEFS 0
 
 HEADER_BEGIN
+
+#if ENV_IS_ESP32
+#include <esp_vfs_fat.h>
 
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
 #define LOCAL_FS_MOUNT_POINT "/littlefs"
@@ -20,6 +21,9 @@ bool mountLocalFS();
 #define SD_MOUNT_POINT "/sdcard"
 #define STORAGE_MOUNT_POINT SD_MOUNT_POINT
 bool mountSDCard();
+#endif
+#elif ENV_IS_NATIVE
+#define STORAGE_MOUNT_POINT "./"
 #endif
 
 /**

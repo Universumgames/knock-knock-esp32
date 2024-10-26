@@ -5,14 +5,13 @@ static const char* TAG_ANALOG_READ = "AnalogRead";
 #define READ_LEN (SOC_ADC_DIGI_DATA_BYTES_PER_CONV * 64)
 
 bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t atten, adc_continuous_handle_t* out_handle) {
-    esp_log_level_set(TAG_ANALOG_READ, ESP_LOG_DEBUG);
     adc_continuous_handle_t handle = NULL;
 
     adc_continuous_handle_cfg_t adc_config = {
         .max_store_buf_size = 1024,
         .conv_frame_size = READ_LEN,
     };
-    ESP_LOGI(TAG_ANALOG_READ, "Creating continuous ADC handle");
+    LOGI(TAG_ANALOG_READ, "Creating continuous ADC handle");
     ESP_ERROR_CHECK(adc_continuous_new_handle(&adc_config, &handle));
 
     adc_continuous_config_t dig_cfg = {
@@ -24,21 +23,21 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
     adc_digi_pattern_config_t adc_pattern[SOC_ADC_PATT_LEN_MAX] = {0};
     dig_cfg.pattern_num = channel_num;
 
-    ESP_LOGI(TAG_ANALOG_READ, "Setting up continuous ADC channels");
+    LOGI(TAG_ANALOG_READ, "Setting up continuous ADC channels");
     for (int i = 0; i < channel_num; i++) {
         adc_pattern[i].atten = atten;
         adc_pattern[i].channel = channel[i] & 0x7;
         adc_pattern[i].unit = ADC_UNIT_1;
         adc_pattern[i].bit_width = SOC_ADC_DIGI_MAX_BITWIDTH;
 
-        ESP_LOGI(TAG_ANALOG_READ, "adc_pattern[%d].atten is :%" PRIx8, i, adc_pattern[i].atten);
-        ESP_LOGI(TAG_ANALOG_READ, "adc_pattern[%d].channel is :%" PRIx8, i, adc_pattern[i].channel);
-        ESP_LOGI(TAG_ANALOG_READ, "adc_pattern[%d].unit is :%" PRIx8, i, adc_pattern[i].unit);
+        LOGI(TAG_ANALOG_READ, "adc_pattern[%d].atten is :%" PRIx8, i, adc_pattern[i].atten);
+        LOGI(TAG_ANALOG_READ, "adc_pattern[%d].channel is :%" PRIx8, i, adc_pattern[i].channel);
+        LOGI(TAG_ANALOG_READ, "adc_pattern[%d].unit is :%" PRIx8, i, adc_pattern[i].unit);
     }
     dig_cfg.adc_pattern = adc_pattern;
 
     ESP_ERROR_CHECK(adc_continuous_config(handle, &dig_cfg));
-    ESP_LOGI(TAG_ANALOG_READ, "Continuous ADC channel setup done");
+    LOGI(TAG_ANALOG_READ, "Continuous ADC channel setup done");
 
     *out_handle = handle;
 
@@ -46,10 +45,10 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
 }
 
 size_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize) {
-    size_t out_length = 0;
+    uint32_t out_length = 0;
     esp_err_t ret = adc_continuous_read(handle, valueBuf, bufSize, &out_length, 0);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG_ANALOG_READ, "adc_continuous_read error");
+        LOGE(TAG_ANALOG_READ, "adc_continuous_read error");
     }
     return out_length;
 }
@@ -62,7 +61,7 @@ bool adc_calibration_init(adc_unit_t unit, adc_channel_t channel, adc_atten_t at
 
 #if ADC_CALI_SCHEME_CURVE_FITTING_SUPPORTED
     if (!calibrated) {
-        ESP_LOGI(TAG_ANALOG_READ, "calibration scheme version is %s", "Curve Fitting");
+        LOGI(TAG_ANALOG_READ, "calibration scheme version is %s", "Curve Fitting");
         adc_cali_curve_fitting_config_t cali_config = {
             .unit_id = unit,
             .chan = channel,
@@ -78,7 +77,7 @@ bool adc_calibration_init(adc_unit_t unit, adc_channel_t channel, adc_atten_t at
 
 #if ADC_CALI_SCHEME_LINE_FITTING_SUPPORTED
     if (!calibrated) {
-        ESP_LOGI(TAG_ANALOG_READ, "calibration scheme version is %s", "Line Fitting");
+        LOGI(TAG_ANALOG_READ, "calibration scheme version is %s", "Line Fitting");
         adc_cali_line_fitting_config_t cali_config = {
             .unit_id = unit,
             .atten = atten,
@@ -93,11 +92,11 @@ bool adc_calibration_init(adc_unit_t unit, adc_channel_t channel, adc_atten_t at
 
     *out_handle = handle;
     if (ret == ESP_OK) {
-        ESP_LOGI(TAG_ANALOG_READ, "Calibration Success");
+        LOGI(TAG_ANALOG_READ, "Calibration Success");
     } else if (ret == ESP_ERR_NOT_SUPPORTED || !calibrated) {
-        ESP_LOGW(TAG_ANALOG_READ, "eFuse not burnt, skip software calibration");
+        LOGW(TAG_ANALOG_READ, "eFuse not burnt, skip software calibration");
     } else {
-        ESP_LOGE(TAG_ANALOG_READ, "Invalid arg or no memory");
+        LOGE(TAG_ANALOG_READ, "Invalid arg or no memory");
     }
 
     return calibrated;

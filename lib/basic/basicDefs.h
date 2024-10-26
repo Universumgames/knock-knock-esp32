@@ -4,6 +4,9 @@
 // include for bool, true and false
 #include <stdbool.h>
 
+#include "_env.h"
+#include "_logging.h"
+
 #define HIGH 1
 #define LOW 0
 
@@ -13,6 +16,12 @@
 #else
 #define HEADER_BEGIN
 #define HEADER_END
+#endif
+
+#if ENV_IS_ESP32
+#include "_defs_esp.h"
+#elif ENV_IS_NATIVE
+#include "_defs_native.h"
 #endif
 
 #define CHECK_DO(condition, doX) \

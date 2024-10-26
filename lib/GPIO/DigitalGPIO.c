@@ -1,7 +1,6 @@
 #include "DigitalGPIO.h"
 
 #include <driver/gpio.h>
-#include <esp_log.h>
 
 const char* TAG_DIGITAL_GPIO = "DigitalGPIO";
 
@@ -13,12 +12,12 @@ void setupDigitalGPIO(gpio_num_t pin, gpio_mode_t mode) {
     io_conf.pull_up_en = GPIO_PULLUP_DISABLE;
     io_conf.pin_bit_mask = 1ULL << pin;
     gpio_config(&io_conf);
-    ESP_LOGD(TAG_DIGITAL_GPIO, "GPIO %d setup", pin);
+    LOGD(TAG_DIGITAL_GPIO, "GPIO %d setup", pin);
 }
 
 void writeDigitalGPIO(gpio_num_t pin, int value) {
     gpio_set_level(pin, value);
-    ESP_LOGD(TAG_DIGITAL_GPIO, "GPIO %d set to %d", pin, value);
+    LOGD(TAG_DIGITAL_GPIO, "GPIO %d set to %d", pin, value);
 }
 
 int readDigitalGPIO(gpio_num_t pin) {

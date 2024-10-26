@@ -6,6 +6,7 @@ HEADER_BEGIN
 
 /**
  * @brief Initialize the pattern storage
+ * WARNING: on embedded devices, the storage must be mounted before calling this function
  *
  * @return true if the pattern storage was initialized successfully
  */
