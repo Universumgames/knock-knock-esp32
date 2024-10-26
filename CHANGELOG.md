@@ -1,9 +1,16 @@
 
 # Changelog
+- ([b109d47](https://git.ide3.de/universumgames/mic-projekt/-/commit/b109d472d6a4c22f56df81c0d566161eae314418)) Universumgames on [2024-10-26](## "Sat, 26 Oct 2024 15:32:55 +0200") : Merge branch 'main' into feature-pattern-record
+- ([e5a1306](https://git.ide3.de/universumgames/mic-projekt/-/commit/e5a13068017ba49fcf5e0b999c10f82aa809652c)) Tom Arlt on [2024-10-26](## "Sat, 26 Oct 2024 13:31:45 +0000") : Merge branch 'feature-pattern-storage' into 'main'
+- ([4dde21a](https://git.ide3.de/universumgames/mic-projekt/-/commit/4dde21a52beb9b5a7770a39749f084b33104a274)) Universumgames on [2024-10-26](## "Sat, 26 Oct 2024 15:29:19 +0200") : implement pattern storage
 - ([97b44b7](https://git.ide3.de/universumgames/mic-projekt/-/commit/97b44b79d76f80a0f1819de9f0662498a069ed92)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 23:00:51 +0200") : finish pattern storage
+- ([8eabfb1](https://git.ide3.de/universumgames/mic-projekt/-/commit/8eabfb1b35980388cf32b6401551eb18e571e568)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:49:39 +0200") : fix include
 - ([59044c1](https://git.ide3.de/universumgames/mic-projekt/-/commit/59044c18718d009ee089bb71dc0ceb2a1f8d4434)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:48:43 +0200") : update changelog
 - ([06bbbba](https://git.ide3.de/universumgames/mic-projekt/-/commit/06bbbba53ecb8b6f950baf375ff01319439e6bee)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:48:34 +0200") : fix include
+- ([1635f4a](https://git.ide3.de/universumgames/mic-projekt/-/commit/1635f4a07e10f5a0a8220045a11488f2d4c2040c)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:12:35 +0200") : fix basicdefs
 - ([6ffc164](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ffc164e5de5cc495d6b595688ddeb12c551d27b)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:12:14 +0200") : fix basicdefs
+- ([9e22f77](https://git.ide3.de/universumgames/mic-projekt/-/commit/9e22f77d7b7cdd37d39ad23794bad3147b876814)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:10:50 +0200") : add first code of conduct and contributing
+- ([d798a4a](https://git.ide3.de/universumgames/mic-projekt/-/commit/d798a4af4c9fa6acb73b45cea66d5170bc04e185)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:04:31 +0200") : add changelog
 - ([5f03043](https://git.ide3.de/universumgames/mic-projekt/-/commit/5f030430667ad9b941de6ba988534add2ee7017c)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:03:50 +0200") : init pattern storage
 - ([7dc0c34](https://git.ide3.de/universumgames/mic-projekt/-/commit/7dc0c34e57f97576caef365538b8afae46b79a7d)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 00:13:26 +0200") : add pattern storage
 - ([132c47c](https://git.ide3.de/universumgames/mic-projekt/-/commit/132c47c3979a3d52794d55ff7d74b256321c64d0)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 00:12:54 +0200") : Merge branch 'main' into feature-pattern-record

@@ -78,6 +78,7 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t ex
 
     int nextId = getNextPatternId(ps, len);
     pattern->id = nextId;
+    pattern->patternVersion = PATTERN_FILE_VERSION;
     char* idStr = intToString(nextId, 10);
     CHECK_NULL_GOTO(idStr, free_IDstr);
 
@@ -126,6 +127,13 @@ PatternData* loadPattern(char* path) {
     PatternData* pattern = (PatternData*)calloc(sizeof(PatternData), 1);
     CHECK_NULL_GOTO_LOG(pattern, free_file, ESP_LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for pattern"));
 
+    // read pattern version to check if file is compatible with current struct encoding
+    uint8_t patternVersion;
+    size_t read = fread(&patternVersion, sizeof(uint8_t), 1, file);
+    CHECK_NULL_GOTO_LOG_DO(pattern, free_file, ESP_LOGE(TAG_PATTERN_STORAGE, "Failed to read pattern version from file"), pattern = NULL);
+    CHECK_DO(patternVersion != PATTERN_FILE_VERSION, ESP_LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch"); goto free_file);
+    rewind(file);
+
     size_t read = fread(pattern, sizeof(PatternData), 1, file);
     CHECK_NULL_GOTO_LOG_DO(pattern, free_file, ESP_LOGE(TAG_PATTERN_STORAGE, "Failed to read pattern from file"), pattern = NULL);
 
@@ -150,7 +158,7 @@ PatternData* loadPatterns(size_t* len) {
 
     for (size_t i = 0; i < *len; i++) {
         patternPtrs[i] = loadPattern(paths[i]);
-        CHECK_NULL_GOTO_LOG(patternPtrs[i], free_patterns, ESP_LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
+        CHECK_DO(patternPtrs[i] == NULL, ESP_LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
     }
     goto free_paths;  // on success, free paths and return patterns
 
