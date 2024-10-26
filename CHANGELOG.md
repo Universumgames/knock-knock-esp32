@@ -1,5 +1,6 @@
 
 # Changelog
+- ([97b44b7](https://git.ide3.de/universumgames/mic-projekt/-/commit/97b44b79d76f80a0f1819de9f0662498a069ed92)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 23:00:51 +0200") : finish pattern storage
 - ([59044c1](https://git.ide3.de/universumgames/mic-projekt/-/commit/59044c18718d009ee089bb71dc0ceb2a1f8d4434)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:48:43 +0200") : update changelog
 - ([06bbbba](https://git.ide3.de/universumgames/mic-projekt/-/commit/06bbbba53ecb8b6f950baf375ff01319439e6bee)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:48:34 +0200") : fix include
 - ([6ffc164](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ffc164e5de5cc495d6b595688ddeb12c551d27b)) Universumgames on [2024-10-25](## "Fri, 25 Oct 2024 12:12:14 +0200") : fix basicdefs
