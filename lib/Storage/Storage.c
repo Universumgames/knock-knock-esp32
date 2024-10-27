@@ -2,10 +2,10 @@
 
 #include <dirent.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/unistd.h>
-#include <unistd.h>
 
 static const char* TAG_STORAGE = "Storage";
 
@@ -31,6 +31,9 @@ char** lsDir(const char* path, size_t* len) {
         *len = 0;
 
         while ((de = readdir(dir)) != NULL) {
+            if (strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0) {
+                continue;
+            }
             files[index++] = strdup(de->d_name);
             if (index >= storage_len) {
                 storage_len *= 2;

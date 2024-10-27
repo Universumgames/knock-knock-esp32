@@ -39,7 +39,7 @@ int* splitString(const char* str, const char* delim, int* len) {
 }
 
 char* substring(const char* str, int start, int end) {
-    int len = end - start;
+    int len = end - start + 1;
     char* substr = (char*)calloc(sizeof(char), len + 1);
     strncpy(substr, str + start, len);
     return substr;
