@@ -51,11 +51,7 @@ TEST(Storage, deleteFileTest) {
     EXPECT_EQ(unlink(TEST_FILE_NAME), 0);
 }
 
-#ifdef __cplusplus
-extern "C"
-#endif
-    int
-    app_main() {
+CPP_BEGIN int app_main() {
     ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();
 }

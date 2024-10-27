@@ -1,5 +1,6 @@
 
 # Changelog
+- ([de7afdf](https://git.ide3.de/universumgames/mic-projekt/-/commit/de7afdfe1ad17b80edae274f3952839cb257f6e6)) Universumgames on [2024-10-27](## "Sun, 27 Oct 2024 02:04:06 +0100") : fix pattern storage driver and write tests
 - ([7f8501e](https://git.ide3.de/universumgames/mic-projekt/-/commit/7f8501e265e99db3028c638b39362339f2b2ebe7)) Universumgames on [2024-10-27](## "Sun, 27 Oct 2024 00:59:09 +0200") : adding platform specific definitions and compilations
 - ([894c0cb](https://git.ide3.de/universumgames/mic-projekt/-/commit/894c0cbb2b6631eff246f020c0318bfd46a43909)) Universumgames on [2024-10-27](## "Sun, 27 Oct 2024 00:11:40 +0200") : restructure pattern struct to add struct versioning
 - ([b109d47](https://git.ide3.de/universumgames/mic-projekt/-/commit/b109d472d6a4c22f56df81c0d566161eae314418)) Universumgames on [2024-10-26](## "Sat, 26 Oct 2024 15:32:55 +0200") : Merge branch 'main' into feature-pattern-record

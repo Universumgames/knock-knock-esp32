@@ -9,9 +9,11 @@
 #ifdef __cplusplus
 #define HEADER_BEGIN extern "C" {
 #define HEADER_END }
+#define CPP_BEGIN extern "C"
 #else
 #define HEADER_BEGIN
 #define HEADER_END
+#define CPP_BEGIN
 #endif
 
 #if ENV_IS_ESP32
