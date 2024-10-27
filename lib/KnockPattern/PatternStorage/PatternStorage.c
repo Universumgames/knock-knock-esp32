@@ -1,6 +1,7 @@
 #include "PatternStorage.h"
 
 #include "Storage.h"
+#include "mini.h"
 #include "stringHelper.h"
 
 #define PATTERN_STORAGE_PATH "/pattern_storage"
