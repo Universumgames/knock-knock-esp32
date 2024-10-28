@@ -1,5 +1,6 @@
 
 # Changelog
+- ([3b618e5](https://git.ide3.de/universumgames/mic-projekt/-/commit/3b618e58d6d5b87967b068e5f412e1804466aa40)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 23:39:51 +0100") : retest native assembly
 - ([ec77e4e](https://git.ide3.de/universumgames/mic-projekt/-/commit/ec77e4e1b939f981866cedb86181e5fec81f3ca5)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 23:15:14 +0100") : fix multiplatform build
 - ([314d4e2](https://git.ide3.de/universumgames/mic-projekt/-/commit/314d4e25a128ff5de86b8ab6dbf2653b3820f6af)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 03:03:56 +0100") : fix platform specific assembler
 - ([235c42e](https://git.ide3.de/universumgames/mic-projekt/-/commit/235c42e0c1b89cd38537d36eb390d14e20a8d77f)) Universumgames on [2024-10-27](## "Sun, 27 Oct 2024 13:49:44 +0100") : fix comments in assembly
