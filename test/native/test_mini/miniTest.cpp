@@ -3,7 +3,7 @@
 #include "basicDefs.h"
 #include "mini.h"
 
-TEST(MiniTest, max) {
+TEST(MiniTest, maxTest) {
     EXPECT_EQ(2, max(1, 2));
     EXPECT_EQ(2, max(2, 1));
     EXPECT_EQ(1, max(1, 1));

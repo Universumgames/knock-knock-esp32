@@ -1,9 +1,8 @@
-#include "Storage.h"
-
-#if ENV_IS_ESP32
 #include <driver/gpio.h>
 #include <esp_err.h>
 #include <esp_system.h>
+
+#include "Storage.h"
 
 #define LOCAL_FS_LITTLEFS_PARTITION_NAME "littlefs"  // view partition table in littlefs.csv
 
@@ -105,5 +104,3 @@ bool mountFS() {
     return mountSDCard();
 #endif
 }
-
-#endif
