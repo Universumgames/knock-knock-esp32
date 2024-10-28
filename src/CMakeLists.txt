@@ -3,9 +3,9 @@
 
 FILE(GLOB_RECURSE app_sources ${CMAKE_SOURCE_DIR}/src/*.*)
 
-# Filter out files ending with _x64.* and _arm.*
+# Filter out files ending with _native*
 foreach(src_file ${all_sources})
-    if (NOT src_file MATCHES ".*_x64\\..*" AND NOT src_file MATCHES ".*_arm\\..*")
+    if (NOT src_file MATCHES ".*_native.*")
         list(APPEND app_sources ${src_file})
     endif()
 endforeach()
