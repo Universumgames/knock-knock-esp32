@@ -1,9 +1,21 @@
-.global _max
+section .text
+    global _max          ; Export the function
 
-_max:
-    cmp rdi, rsi        ; Compare rdi with rsi
-    jge end             ; If rdi >= rsi, jump to end
-    mov rdi, rsi        ; Otherwise, move rsi into rdi (rdi = max(a, b))
-end:
-    mov rax, rdi        ; Move result into rax (return register)
-    ret                 ; Return, result is in rax
+max(int, int):                               # @max(int, int)
+        push    rbp
+        mov     rbp, rsp
+        mov     dword ptr [rbp - 8], edi
+        mov     dword ptr [rbp - 12], esi
+        mov     eax, dword ptr [rbp - 8]
+        cmp     eax, dword ptr [rbp - 12]
+        jle     .LBB0_2
+        mov     eax, dword ptr [rbp - 8]
+        mov     dword ptr [rbp - 4], eax
+        jmp     .LBB0_3
+.LBB0_2:
+        mov     eax, dword ptr [rbp - 12]
+        mov     dword ptr [rbp - 4], eax
+.LBB0_3:
+        mov     eax, dword ptr [rbp - 4]
+        pop     rbp
+        ret
