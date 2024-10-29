@@ -1,5 +1,11 @@
 
 # Changelog
+- ([b7431e4](https://git.ide3.de/universumgames/mic-projekt/-/commit/b7431e43653f1dcf17d72b698ef759b40d2dc4cc)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 12:22:15 +0100") : Merge remote-tracking branch 'origin/main' into feature-pattern-record
+- ([ac2a4ec](https://git.ide3.de/universumgames/mic-projekt/-/commit/ac2a4ec3c0a224656faef4f5d5ac05a9e9f71ee8)) UniversumGames on [2024-10-29](## "Tue, 29 Oct 2024 12:21:58 +0100") : fix speedup of cicd
+- ([e742a33](https://git.ide3.de/universumgames/mic-projekt/-/commit/e742a33d560dc2bbc14a89e88f8ece9e99eb6635)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 12:15:57 +0100") : Merge remote-tracking branch 'origin/main' into feature-pattern-record
+- ([1f9ad3c](https://git.ide3.de/universumgames/mic-projekt/-/commit/1f9ad3cbf030e872e32deda489af642f0d378169)) UniversumGames on [2024-10-29](## "Tue, 29 Oct 2024 12:15:33 +0100") : speed up cicd
+- ([7f8b210](https://git.ide3.de/universumgames/mic-projekt/-/commit/7f8b210ba65898ce8c245680712f9e2109ae0aed)) UniversumGames on [2024-10-29](## "Tue, 29 Oct 2024 12:06:38 +0100") : adding rsicv toolchain installation
+- ([0831512](https://git.ide3.de/universumgames/mic-projekt/-/commit/083151238546144b0964aacd84a49d337d72f03e)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 11:52:07 +0100") : not using x64 assembly
 - ([b5ca4fd](https://git.ide3.de/universumgames/mic-projekt/-/commit/b5ca4fd3368409426fa459a7ecf2fa8b9d53a5f4)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 23:44:40 +0100") : add knock recordings
 - ([3b618e5](https://git.ide3.de/universumgames/mic-projekt/-/commit/3b618e58d6d5b87967b068e5f412e1804466aa40)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 23:39:51 +0100") : retest native assembly
 - ([ec77e4e](https://git.ide3.de/universumgames/mic-projekt/-/commit/ec77e4e1b939f981866cedb86181e5fec81f3ca5)) Universumgames on [2024-10-28](## "Mon, 28 Oct 2024 23:15:14 +0100") : fix multiplatform build
