@@ -13,6 +13,7 @@ build:
     - pwd
     - ls -al
     - cd ~
+    - pwd
     - ls -al
   artifacts:
     paths:
