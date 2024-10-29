@@ -12,7 +12,5 @@ RUN ln -s ~/.platformio/penv/bin/pio /usr/local/bin/pio
 RUN ln -s ~/.platformio/penv/bin/piodebuggdb /usr/local/bin/piodebuggdb
 
 RUN pio platform install espressif32
-RUN pio pkg install -t platformio/toolchain-riscv32-esp
-
 
 CMD [ "/bin/bash" ]

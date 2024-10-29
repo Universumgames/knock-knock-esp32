@@ -1,5 +1,11 @@
 image: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
 
+default:
+  cache:
+    key: pio toolchain cache
+    paths:
+      - .platformio
+
 build:
   stage: build
   script:
