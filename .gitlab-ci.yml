@@ -1,6 +1,4 @@
-image: 
-  name: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
-  user: root
+image: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
 
 default:
   cache:
