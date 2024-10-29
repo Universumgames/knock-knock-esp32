@@ -1,5 +1,6 @@
 
 # Changelog
+- ([d7785b7](https://git.ide3.de/universumgames/mic-projekt/-/commit/d7785b7dd5994f8551a7396773e7f351450ff919)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 13:58:23 +0100") : Merge remote-tracking branch 'origin/main'
 - ([b7431e4](https://git.ide3.de/universumgames/mic-projekt/-/commit/b7431e43653f1dcf17d72b698ef759b40d2dc4cc)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 12:22:15 +0100") : Merge remote-tracking branch 'origin/main' into feature-pattern-record
 - ([ac2a4ec](https://git.ide3.de/universumgames/mic-projekt/-/commit/ac2a4ec3c0a224656faef4f5d5ac05a9e9f71ee8)) UniversumGames on [2024-10-29](## "Tue, 29 Oct 2024 12:21:58 +0100") : fix speedup of cicd
 - ([e742a33](https://git.ide3.de/universumgames/mic-projekt/-/commit/e742a33d560dc2bbc14a89e88f8ece9e99eb6635)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 12:15:57 +0100") : Merge remote-tracking branch 'origin/main' into feature-pattern-record

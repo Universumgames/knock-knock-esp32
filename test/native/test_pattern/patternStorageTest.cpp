@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "PatternStorage/PatternStorage.h"
+#include "PatternStorage.h"
 
 PatternData s_pattern = {
     .patternVersion = PATTERN_FILE_VERSION,

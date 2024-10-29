@@ -5,6 +5,9 @@
         doX;                     \
     }
 
+#define CHECK_ESP_DO(esp, doX) \
+    CHECK_DO(esp != ESP_OK, doX)
+
 #define CHECK_NULL_DO(ptr, doX) \
     CHECK_DO(ptr == NULL, doX)
 
