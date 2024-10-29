@@ -4,7 +4,7 @@ default:
   cache:
     key: pio toolchain cache
     paths:
-      - .platformio
+      - ~/.platformio
 
 build:
   stage: build
