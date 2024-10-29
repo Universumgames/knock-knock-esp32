@@ -1,7 +1,6 @@
 #include "PatternRecorder.h"
 
 #include "AnalogRead.h"
-#include "millis.h"
 
 #define PATTERN_RECORDER_ANALOG_BUFFER_SIZE 256
 #define PATTERN_RECORDER_ANALOG_CHANNEL ((adc_channel_t)ADC_CHANNEL_0)
@@ -18,11 +17,11 @@ union {
 } PatternRecorderData;
 
 static void analogReadTask(void* pvParameters) {
-    uint64_t lastRead = millisSinceStartup();
+    uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());
     while (1) {
         size_t read = read_continuous(PatternRecorderData.handle, PatternRecorderData.value, PATTERN_RECORDER_ANALOG_BUFFER_SIZE);
         if (read > 0) {
-            uint64_t now = millisSinceStartup();
+            uint64_t now = pdTICKS_TO_MS(xTaskGetTickCount());
             uint64_t delta = now - lastRead;
             lastRead = now;
             LOGI(TAG_PATTERN_RECORDER, "Read %u values in %llu ms", read, delta);
