@@ -1,20 +1,17 @@
-image: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
+image: 
+  name: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
+  user: root
 
 default:
   cache:
     key: pio toolchain cache
     paths:
-      - ~/.platformio
+      - /root/.platformio/
 
 build:
   stage: build
   script:
     - pio run -e esp32-c3-devkitc-02
-    - pwd
-    - ls -al
-    - cd ~
-    - pwd
-    - ls -al
   artifacts:
     paths:
       - .pio/build/esp32-c3-devkitc-02/firmware.bin
