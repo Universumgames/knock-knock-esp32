@@ -11,9 +11,9 @@ build:
   script:
     - pio run -e esp32-c3-devkitc-02
     - pwd
-    - ll
+    - ls -al
     - cd ~
-    - ll
+    - ls -al
   artifacts:
     paths:
       - .pio/build/esp32-c3-devkitc-02/firmware.bin
