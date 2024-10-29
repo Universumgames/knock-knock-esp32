@@ -10,6 +10,10 @@ build:
   stage: build
   script:
     - pio run -e esp32-c3-devkitc-02
+    - pwd
+    - ll
+    - cd ~
+    - ll
   artifacts:
     paths:
       - .pio/build/esp32-c3-devkitc-02/firmware.bin
