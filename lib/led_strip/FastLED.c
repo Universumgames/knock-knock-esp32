@@ -3,7 +3,6 @@
 #include <driver/gpio.h>
 #include <driver/i2s_std.h>
 #include <driver/spi_master.h>
-#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <hal/spi_hal.h>
 #include <string.h>
@@ -36,7 +35,7 @@ FastLEDConfig* initFastLED(int length, gpio_num_t pin_number) {
 
 void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint8_t blue) {
     if (index >= config->lengthRBGStrip) {
-        ESP_LOGE(TAG_FAST_LED, "Index out of range: %d", index);
+        LOGE(TAG_FAST_LED, "Index out of range: %d", index);
         return;
     }
     /*config->led_data[index] = (LED_Pixel){

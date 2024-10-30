@@ -1,12 +1,10 @@
-#include <driver/gpio.h>
-#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
-#include <stdio.h>
 
 #include "HardwareLED.h"
 #include "Serial.h"
 #include "Storage.h"
+#include "basicDefs.h"
 #include "lock_open.h"
 #include "stringHelper.h"
 
@@ -50,16 +48,10 @@ static void fade(void* pvParameters) {
     }
 }
 
-#ifdef __cplusplus
-extern "C"
-#endif
-
-    void
-    app_main() {
+CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
-
     initHardwareLED();
 
     ESP_LOGV("main", "Log test verbose");

@@ -19,6 +19,6 @@ build:
 test:
   stage: test
   script:
-    - pio test -e native
+    - pio test -e native_x64
   variables:
     PLATFORMIO_PACKAGES_DIR: "${CI_PROJECT_PATH}.platformio/packages"

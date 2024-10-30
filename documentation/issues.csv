@@ -1,0 +1,24 @@
+title; description; due_date; milestone
+Planung des Projektes; Die Planung des Projekts umfasst die Aufteilung der Aufgaben in Sprints, die Zuweisung von Verantwortlichkeiten und die Schätzung des Zeitaufwands für die einzelnen Aufgaben. Sie dient dazu, das Projekt in überschaubare Teilaufgaben zu gliedern, erste Gedanken zu Umsetzung und diese im Nachhinein zu erleichtern.; ; BOM & Schaltplan
+Vertrautmachen mit der Enwicklungsumgebung; ; ; BOM & Schaltplan
+LED Driver; ; ; BOM & Schaltplan
+Storage Driver; ; ; BOM & Schaltplan
+Schloss öffnen; ; ; BOM & Schaltplan
+Erstellen der One Minute Madness; ; ; BOM & Schaltplan
+Erstellen der Dokumentation Sprint 1; ; ; BOM & Schaltplan
+Musteraufnahme (und Komprimierung); ; ; PCB
+Mustererkennung; ; ; PCB
+Platine entwerfen; ; ; PCB
+Muster einspeichern; ; ; PCB
+Anfertigen der Holzbox; ; ; PCB
+Notöffnungsmechanismus; ; ; PCB
+Schloss Status LED; ; ; PCB
+Erstellen der Dokumentation Sprint 2; ; ; PCB
+Muster löschen; ; ; Software
+Musterwiedergabe; ; ; Software
+Musterverwaltung; ; ; Software
+Erstellen der Dokumentation Sprint 3; ; ; Software
+Fertigstellen des Systems; ; ; System
+Erstellen eines Videos; ; ; Engineering Days
+Erstellen des Kaufpitch; ; ; Engineering Days
+Erstellen der Dokumentation Sprint 4; ; ; System

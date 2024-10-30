@@ -2,7 +2,6 @@
 
 #include <driver/rmt_encoder.h>
 #include <driver/rmt_tx.h>
-#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 
 #include "FastLed.h"
@@ -83,7 +82,7 @@ encoder_callback(const void *data, size_t data_size,
 }
 
 WS2812Config *create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
-    ESP_LOGI(TAG_WS2812, "Create RMT TX channel");
+    LOGI(TAG_WS2812, "Create RMT TX channel");
     WS2812Config *led_config = (WS2812Config *)calloc(sizeof(WS2812Config), 1);
     led_config->led_data = (uint8_t *)calloc(led_count * WS2812_BYTES_PER_PIXEL, sizeof(uint8_t));
     led_config->led_count = led_count;
@@ -96,14 +95,14 @@ WS2812Config *create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
     };
     ESP_ERROR_CHECK(rmt_new_tx_channel(&led_config->tx_chan_config, &led_config->led_chan));
 
-    ESP_LOGI(TAG_WS2812, "Create simple callback-based encoder");
+    LOGI(TAG_WS2812, "Create simple callback-based encoder");
     led_config->simple_encoder_cfg = (rmt_simple_encoder_config_t){
         .callback = encoder_callback
         // Note we don't set min_chunk_size here as the default of 64 is good enough.
     };
     ESP_ERROR_CHECK(rmt_new_simple_encoder(&led_config->simple_encoder_cfg, &led_config->simple_encoder));
 
-    ESP_LOGI(TAG_WS2812, "Enable RMT TX channel");
+    LOGI(TAG_WS2812, "Enable RMT TX channel");
     ESP_ERROR_CHECK(rmt_enable(led_config->led_chan));
 
     led_config->tx_config = (rmt_transmit_config_t){
@@ -115,7 +114,7 @@ WS2812Config *create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
 
 void setWS2812Pixel(WS2812Config *config, int index, uint8_t red, uint8_t green, uint8_t blue) {
     if (index >= config->led_count) {
-        ESP_LOGE(TAG_WS2812, "Index out of range: %d", index);
+        LOGE(TAG_WS2812, "Index out of range: %d", index);
         return;
     }
     config->led_data[index * WS2812_BYTES_PER_PIXEL] = green;
@@ -124,7 +123,7 @@ void setWS2812Pixel(WS2812Config *config, int index, uint8_t red, uint8_t green,
 }
 
 void showWS2812(WS2812Config *config) {
-    ESP_LOGD(TAG_WS2812, "Transmitting %d pixels", config->led_count);
+    LOGD(TAG_WS2812, "Transmitting %d pixels", config->led_count);
     ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->simple_encoder, config->led_data, config->led_count * WS2812_BYTES_PER_PIXEL * sizeof(uint8_t), &config->tx_config));
     ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, portMAX_DELAY));
 }

@@ -42,6 +42,7 @@ TEST(Storage, readFileTest) {
     EXPECT_NE(file, nullptr);
     char buffer[100];
     char* res = fgets(buffer, sizeof(buffer), file);
+    EXPECT_NE(res, nullptr);
     EXPECT_STREQ(buffer, TEST_FILE_CONTENT);
     fclose(file);
 }
@@ -50,11 +51,7 @@ TEST(Storage, deleteFileTest) {
     EXPECT_EQ(unlink(TEST_FILE_NAME), 0);
 }
 
-#ifdef __cplusplus
-extern "C"
-#endif
-    int
-    app_main() {
+CPP_BEGIN int app_main() {
     ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();
 }
