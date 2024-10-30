@@ -24,6 +24,19 @@ TEST(String, splitStringTest) {
     free(indices);
 }
 
+TEST(String, substringTest) {
+    EXPECT_STREQ("Hello", substring("Hello, World!", 0, 4));
+    EXPECT_STREQ("World", substring("Hello, World!", 7, 11));
+}
+
+TEST(String, concatTest) {
+    EXPECT_STREQ("Hello, World!", concat("Hello, ", "World!"));
+}
+
+TEST(String, concat3Test) {
+    EXPECT_STREQ("Hello, World!", concat3("Hello, ", "World", "!"));
+}
+
 int main() {
     ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();

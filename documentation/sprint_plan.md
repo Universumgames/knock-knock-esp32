@@ -72,7 +72,6 @@ Kapitän: Simon Vehreschild
 ## Sprint 3
 Kapitän: Jovan Arnaut
 
-
 - Muster löschen
   - Verantwortlicher: Tom Arlt
   - Zeitaufwand: 5 Stunden

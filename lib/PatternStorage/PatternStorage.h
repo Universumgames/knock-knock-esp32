@@ -6,6 +6,7 @@ HEADER_BEGIN
 
 /**
  * @brief Initialize the pattern storage
+ * WARNING: on embedded devices, the storage must be mounted before calling this function
  *
  * @return true if the pattern storage was initialized successfully
  */
@@ -27,6 +28,14 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t ex
  * @param len the length of the returned array
  * @return PatternData* the patterns
  */
-PatternData* loadPatterns(size_t* len);
+PatternData** loadPatterns(size_t* len);
+
+/**
+ * @brief Delete a pattern from the pattern storage
+ *
+ * @param id the id of the pattern to delete
+ * @return true if the pattern was deleted successfully
+ */
+bool deletePattern(int id);
 
 HEADER_END

@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
-#include <linkedList.h>
+
+#include "basicDefs.h"
+#include "linkedList.h"
 
 list_t* list = NULL;
 #define NUMBERS_SIZE 3
