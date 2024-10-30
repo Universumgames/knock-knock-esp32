@@ -2,7 +2,7 @@
 
 #include <driver/rmt_encoder.h>
 #include <driver/rmt_tx.h>
-#include <freertos/FreeRTOS.h>
+#include <esp_err.h>
 
 #include "FastLed.h"
 
@@ -125,5 +125,5 @@ void setWS2812Pixel(WS2812Config *config, int index, uint8_t red, uint8_t green,
 void showWS2812(WS2812Config *config) {
     LOGD(TAG_WS2812, "Transmitting %d pixels", config->led_count);
     ESP_ERROR_CHECK(rmt_transmit(config->led_chan, config->simple_encoder, config->led_data, config->led_count * WS2812_BYTES_PER_PIXEL * sizeof(uint8_t), &config->tx_config));
-    ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, portMAX_DELAY));
+    ESP_ERROR_CHECK(rmt_tx_wait_all_done(config->led_chan, 0xffffUL));
 }

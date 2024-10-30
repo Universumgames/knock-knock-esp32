@@ -1,5 +1,6 @@
 
 # Changelog
+- ([dc37374](https://git.ide3.de/universumgames/mic-projekt/-/commit/dc37374ca8c5570d88df7574b7e294777172d14f)) Universumgames on [2024-10-30](## "Wed, 30 Oct 2024 09:49:38 +0100") : fix ci stage test
 - ([2cd316d](https://git.ide3.de/universumgames/mic-projekt/-/commit/2cd316d72530d4654f862534f7b7e3f19d1522b1)) Universumgames on [2024-10-30](## "Wed, 30 Oct 2024 09:42:47 +0100") : use updated gitlab ci file
 - ([e3b01d3](https://git.ide3.de/universumgames/mic-projekt/-/commit/e3b01d389664e3c150528aaece48c824a1de5555)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 22:47:17 +0100") : fix compile
 - ([fc36aab](https://git.ide3.de/universumgames/mic-projekt/-/commit/fc36aabba44ce30534012e6a24c722836f1d0df8)) Universumgames on [2024-10-29](## "Tue, 29 Oct 2024 21:03:56 +0100") : moving files, starting to implement pattern recorder

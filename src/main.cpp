@@ -51,7 +51,6 @@ static void fade(void* pvParameters) {
 
 CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
-    esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
     initHardwareLED();
 
