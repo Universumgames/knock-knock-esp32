@@ -44,7 +44,7 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
     return true;
 }
 
-size_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize) {
+uint32_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize) {
     uint32_t out_length = 0;
     esp_err_t ret = adc_continuous_read(handle, valueBuf, bufSize, &out_length, 0);
     if (ret != ESP_OK) {

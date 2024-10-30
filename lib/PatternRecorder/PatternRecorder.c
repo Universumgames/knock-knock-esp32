@@ -13,19 +13,33 @@ static const char* TAG_PATTERN_RECORDER = "PatternRecorder";
 
 union {
     adc_continuous_handle_t handle;
-    uint8_t* value;
+    uint8_t value[PATTERN_RECORDER_ANALOG_BUFFER_SIZE];
+    adc_channel_t* channels;
+    adc_continuous_evt_cbs_t cbs;
 } PatternRecorderData;
 
+static TaskHandle_t s_task_handle;
+
+static bool IRAM_ATTR s_conv_done_cb(adc_continuous_handle_t handle, const adc_continuous_evt_data_t* edata, void* user_data) {
+    BaseType_t mustYield = pdFALSE;
+    // Notify that ADC continuous driver has done enough number of conversions
+    vTaskNotifyGiveFromISR(s_task_handle, &mustYield);
+
+    return (mustYield == pdTRUE);
+}
+
 static void analogReadTask(void* pvParameters) {
+    s_task_handle = xTaskGetCurrentTaskHandle();
     uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());
     while (1) {
-        size_t read = read_continuous(PatternRecorderData.handle, PatternRecorderData.value, PATTERN_RECORDER_ANALOG_BUFFER_SIZE);
+        uint32_t read = read_continuous(PatternRecorderData.handle, PatternRecorderData.value, PATTERN_RECORDER_ANALOG_BUFFER_SIZE);
         if (read > 0) {
             uint64_t now = pdTICKS_TO_MS(xTaskGetTickCount());
             uint64_t delta = now - lastRead;
             lastRead = now;
-            LOGI(TAG_PATTERN_RECORDER, "Read %u values in %llu ms", read, delta);
+            LOGI(TAG_PATTERN_RECORDER, "Read %lu values in %llu ms", read, delta);
         }
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
 
@@ -35,17 +49,13 @@ bool initPatternRecorder() {
     }
     bool ret = true;
 
-    PatternRecorderData.value = (uint8_t*)calloc(PATTERN_RECORDER_ANALOG_BUFFER_SIZE, sizeof(uint8_t));
-
-    adc_channel_t channels[] = {PATTERN_RECORDER_ANALOG_CHANNEL};
-    ret &= continuous_init(channels, 1, PATTERN_RECORDER_GAIN, &PatternRecorderData.handle);
+    PatternRecorderData.channels = (adc_channel_t*)calloc(1, sizeof(adc_channel_t));
+    PatternRecorderData.channels[0] = PATTERN_RECORDER_ANALOG_CHANNEL;
+    PatternRecorderData.cbs.on_conv_done = s_conv_done_cb;
+    ret &= continuous_init(PatternRecorderData.channels, 1, PATTERN_RECORDER_GAIN, &PatternRecorderData.handle);
     CHECK_DO(!ret, LOGE(TAG_PATTERN_RECORDER, "Failed to initialize continuous ADC"); goto error);
 
-    adc_continuous_evt_cbs_t cbs = {
-        //.on_conv_done = s_conv_done_cb,
-    };
-
-    CHECK_ESP_DO(adc_continuous_register_event_callbacks(PatternRecorderData.handle, &cbs, NULL),
+    CHECK_ESP_DO(adc_continuous_register_event_callbacks(PatternRecorderData.handle, &PatternRecorderData.cbs, NULL),
                  LOGE(TAG_PATTERN_RECORDER, "Failed to register event callbacks");
                  goto error);
 

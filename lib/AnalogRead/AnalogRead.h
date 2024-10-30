@@ -34,7 +34,7 @@ bool continuous_init(adc_channel_t* channel, uint8_t channel_num, adc_atten_t at
  * @param bufSize the size of the buffer
  * @return size_t the number of values read
  */
-size_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize);
+uint32_t read_continuous(adc_continuous_handle_t handle, uint8_t* valueBuf, size_t bufSize);
 
 #if false
 bool init_oneshot(adc_unit_t unit, adc_atten_t atten, adc_channel_t channel);
