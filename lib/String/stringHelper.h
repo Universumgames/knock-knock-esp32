@@ -17,6 +17,7 @@ int stringToInt(const char* str, int base);
 
 /**
  * @brief Splits a string by a delimiter and returns the start index of each substring
+ * WARNING: index array has to be freed manually
  *
  * @param str the string to split
  * @param delim the delimiter to split the string by

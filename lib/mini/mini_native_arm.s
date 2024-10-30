@@ -1,4 +1,5 @@
 ; Created by Tom Arlt
+#include "mini.h"
 
 .global _max
 
