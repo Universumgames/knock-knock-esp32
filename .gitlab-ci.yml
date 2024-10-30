@@ -4,11 +4,11 @@ default:
   cache:
     key: pio toolchain cache
     paths:
-      - .platformio
+      - .platformio/packages
   before_script:
     - mkdir -p .platformio/packages
-    - export PLATFORMIO_PACKAGES_DIR=${CI_PROJECT_DIR}/.platformio/packages
-
+    - rm -rf .platformio/packages
+    - ln -sfn .platformio/packages ~/.platformio/packages
 
 build:
   stage: build
