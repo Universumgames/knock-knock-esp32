@@ -7,7 +7,7 @@ default:
       - .platformio/packages
   before_script:
     - mkdir -p .platformio/packages
-    - rm -rf .platformio/packages
+    - rm -rf ~/.platformio/packages
     - ln -sfn .platformio/packages ~/.platformio/packages
 
 build:
