@@ -2,7 +2,7 @@
 #include <freertos/task.h>
 
 #include "HardwareLED.h"
-#include "extern_led.h"
+#include "all_led.h"
 #include "Serial.h"
 #include "Storage.h"
 #include "basicDefs.h"
@@ -13,7 +13,7 @@
 
 #define LED_BRIGHTNESS 10 // 0-255
 #define LED_FADE_DELAY 10
-
+/*
 static void fade(void *pvParameters)
 {
     while (1)
@@ -56,13 +56,15 @@ static void fade(void *pvParameters)
         }
     }
 }
+*/
 
 CPP_BEGIN void app_main()
 {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
-    initHardwareLED();
+    // initHardwareLED();
+    initExternLEDs();
 
     ESP_LOGV("main", "Log test verbose");
     ESP_LOGD("main", "Log test debug");
@@ -70,7 +72,8 @@ CPP_BEGIN void app_main()
     ESP_LOGW("main", "Log test warn");
     ESP_LOGE("main", "Log test error");
 
-    xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    // xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
+    xTaskCreate(fadeHardwareLED, "Fade_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
     mountFS();
     size_t len;

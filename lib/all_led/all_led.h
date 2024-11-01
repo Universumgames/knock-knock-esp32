@@ -11,6 +11,21 @@ HEADER_BEGIN
 void initExternLEDs();
 
 /**
+ * @brief write the color values to the hardware LED
+ *
+ * @param red the red value
+ * @param green the green value
+ * @param blue the blue value
+ */
+void writeHWLED(uint8_t red, uint8_t green, uint8_t blue);
+
+/**
+ * @brief send the color values to the hardware LED
+ *
+ */
+void showHWLED();
+
+/**
  * @brief write the color values to the Status-LED
  *
  * @param red the red value
@@ -39,5 +54,9 @@ void writeWILED(uint8_t red, uint8_t green, uint8_t blue);
  *
  */
 void showWILED();
+
+// ----------------------------------------------------------------------------------------
+void fadeHardwareLED(void *pvParameters);
+void fadeStatusLED(void *pvParameters);
 
 HEADER_END
