@@ -1,6 +1,5 @@
 .git
-.githooks/
-
+.idea
 build/
 sdkconfig
 sdkconfig.old
