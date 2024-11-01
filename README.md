@@ -3,6 +3,7 @@
 - [Klap-Klap](#klap-klap)
   - [Description](#description)
   - [Important files and directories](#important-files-and-directories)
+  - [Contributing Setup](#contributing-setup)
   - [Project setup](#project-setup)
 
 
@@ -23,6 +24,17 @@ This project is a simple knock pattern recognizer for a door or chest. The knock
 - [`pinout.txt`](pinout.txt): Contains the pinout of the used microcontroller
 - [`pcb/`](pcb/): Contains the pcb files
 
+## Contributing Setup
+- install clang-format
+  - Debian/Ubuntu: `sudo apt install clang-format`
+  - Arch: `sudo pacman -S clang`
+  - MacOS: `brew install clang-format`
+  - Windows: `pip3 install clang-format`
+- configure githooks
+  - run `git config core.hooksPath .githooks`
+- configure IDE to use clang-format
+  - VS Code: install the `Clang-Format` extension (https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+  - CLion: enable clang-format (https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html)
 
 ## Project setup
 

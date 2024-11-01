@@ -5,11 +5,14 @@ default:
     key: pio toolchain cache
     paths:
       - .platformio
+      - .platformio
 
 build:
   stage: build
   script:
     - pio run -e esp32-c3-devkitc-02
+  variables:
+    PLATFORMIO_PACKAGES_DIR: "${CI_PROJECT_DIR}/.platformio/packages"
   variables:
     PLATFORMIO_PACKAGES_DIR: "${CI_PROJECT_DIR}/.platformio/packages"
   artifacts:
