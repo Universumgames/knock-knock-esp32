@@ -1,6 +1,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
+#include "lock_status.h"
 #include "HardwareLED.h"
 #include "all_led.h"
 #include "Serial.h"
@@ -63,8 +64,9 @@ CPP_BEGIN void app_main()
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
-    // initHardwareLED();
+
     initExternLEDs();
+    initialize_lock_state();
 
     ESP_LOGV("main", "Log test verbose");
     ESP_LOGD("main", "Log test debug");
@@ -72,8 +74,8 @@ CPP_BEGIN void app_main()
     ESP_LOGW("main", "Log test warn");
     ESP_LOGE("main", "Log test error");
 
+    // initHardwareLED();
     // xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-    xTaskCreate(fadeHardwareLED, "Fade_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 
     mountFS();
     size_t len;
