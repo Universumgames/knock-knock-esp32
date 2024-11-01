@@ -5,37 +5,37 @@
 HEADER_BEGIN
 
 /**
- * @brief Initialisiere die externen LEDs
+ * @brief initialize the extern LEDs
  *
  */
-void initExternLED();
+void initExternLEDs();
 
 /**
- * @brief Schreibe die Farbwerte auf die Status-LED
+ * @brief write the color values to the Status-LED
  *
- * @param red der Rotwert
- * @param green der Grünwert
- * @param blue der Blauwert
+ * @param red the red value
+ * @param green the green value
+ * @param blue the blue value
  */
 void writeSTLED(uint8_t red, uint8_t green, uint8_t blue);
 
 /**
- * @brief Anzeigen der Farbwerte auf der Status-LED
+ * @brief send the color values to the Status-LED
  *
  */
 void showSTLED();
 
 /**
- * @brief Schreibe die Farbwerte auf die Wiedergabe-LED
+ * @brief write the color values to the Wiedergabe-LED
  *
- * @param red der Rotwert
- * @param green der Grünwert
- * @param blue der Blauwert
+ * @param red the red value
+ * @param green the green value
+ * @param blue the blue value
  */
 void writeWILED(uint8_t red, uint8_t green, uint8_t blue);
 
 /**
- * @brief Anzeigen der Farbwerte auf der Wiedergabe-LED
+ * @brief write the color values to the Wiedergabe-LED
  *
  */
 void showWILED();
