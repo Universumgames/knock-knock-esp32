@@ -1,19 +1,19 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
-#include "lock_status.h"
-#include "HardwareLED.h"
-#include "all_led.h"
+// #include "HardwareLED.h"
 #include "Serial.h"
 #include "Storage.h"
+#include "all_led.h"
 #include "basicDefs.h"
-#include "lock_open.h"
+#include "lock_status.h"
 #include "stringHelper.h"
 
 #define ECHO_TASK_STACK_SIZE 2048
 
 #define LED_BRIGHTNESS 10 // 0-255
 #define LED_FADE_DELAY 10
+
 /*
 static void fade(void *pvParameters)
 {
@@ -59,13 +59,11 @@ static void fade(void *pvParameters)
 }
 */
 
-CPP_BEGIN void app_main()
-{
+CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_VERBOSE);
     esp_log_level_set("main", ESP_LOG_VERBOSE);
     beginSerial(115200);
 
-    initExternLEDs();
     initialize_lock_state();
 
     ESP_LOGV("main", "Log test verbose");
@@ -79,14 +77,11 @@ CPP_BEGIN void app_main()
 
     mountFS();
     size_t len;
-    char **list = lsDir(STORAGE_MOUNT_POINT, &len);
-    for (int i = 0; i < len; i++)
-    {
-        char *path = list[i];
+    char** list = lsDir(STORAGE_MOUNT_POINT, &len);
+    for (int i = 0; i < len; i++) {
+        char* path = list[i];
         ESP_LOGI("main", "File: %s", path);
         free(path);
     };
     free(list);
-
-    openLock();
 }

@@ -1,6 +1,6 @@
 #pragma once
-#include <stdint.h>
 #include "basicDefs.h"
+#include <stdint.h>
 
 HEADER_BEGIN
 
@@ -11,48 +11,30 @@ HEADER_BEGIN
 void initExternLEDs();
 
 /**
- * @brief write the color values to the hardware LED
+ * @brief set the color values of the hardware LED
  *
  * @param red the red value
  * @param green the green value
  * @param blue the blue value
  */
-void writeHWLED(uint8_t red, uint8_t green, uint8_t blue);
+void setHWLED(uint8_t red, uint8_t green, uint8_t blue);
 
 /**
- * @brief send the color values to the hardware LED
- *
- */
-void showHWLED();
-
-/**
- * @brief write the color values to the Status-LED
+ * @brief set the color values of the Wiedergabe-LED
  *
  * @param red the red value
  * @param green the green value
  * @param blue the blue value
  */
-void writeSTLED(uint8_t red, uint8_t green, uint8_t blue);
+void setWILED(uint8_t red, uint8_t green, uint8_t blue);
 
 /**
- * @brief send the color values to the Status-LED
- *
- */
-void showSTLED();
-
-/**
- * @brief write the color values to the Wiedergabe-LED
+ * @brief set the color values of the Status-LED
  *
  * @param red the red value
  * @param green the green value
  * @param blue the blue value
  */
-void writeWILED(uint8_t red, uint8_t green, uint8_t blue);
-
-/**
- * @brief write the color values to the Wiedergabe-LED
- *
- */
-void showWILED();
+void setSTLED(uint8_t red, uint8_t green, uint8_t blue);
 
 HEADER_END

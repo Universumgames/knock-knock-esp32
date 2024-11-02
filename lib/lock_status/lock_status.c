@@ -1,42 +1,55 @@
 #include "lock_status.h"
 #include "all_led.h"
-// Natürlich muss hier noch writeHWLED gegen writeSTLED und selbiges für show... ausgetauscht werden
+#include "lock_open.h"
+#include <freertos/FreeRTOS.h>
+
+#define COLOR_RED 255, 0, 0
+#define COLOR_GREEN 0, 255, 0
+#define COLOR_BLUE 0, 0, 255
+#define COLOR_ORANGE 255, 165, 0
+#define COLOR_WHITE 255, 255, 255
+
+// Natürlich muss hier noch writeHWLED gegen writeSTLED und selbiges für show...
+// ausgetauscht werden
 static SchlossStatus currentStatus = SCHLOSS_VERRIEGELT;
 
-void initialize_lock_state()
-{
+void initialize_lock_state() {
+    initExternLEDs(); // siehe all_led.c
+
     currentStatus = SCHLOSS_VERRIEGELT;
-    writeHWLED(255, 0, 0); // Rot
-    showHWLED();
+    setHWLED(COLOR_RED);
 }
 
-void updateLEDStatus(SchlossStatus status)
-{
-    if (status != currentStatus) // Hat sich der Status geändert?
-    {
+void set_back_to_locked() { // Geht das anders besser?
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    updateLEDStatus(SCHLOSS_VERRIEGELT);
+    vTaskDelete(NULL);
+}
+
+void updateLEDStatus(SchlossStatus status) {
+    if (status != currentStatus) {
         currentStatus = status;
-        switch (status)
-        {
+        switch (status) {
         case SCHLOSS_VERRIEGELT:
-            writeHWLED(255, 0, 0); // Rot
-            showHWLED();
+            setHWLED(COLOR_RED);
             break;
         case SCHLOSS_ENTRIEGELT:
-            writeHWLED(0, 255, 0); // Grün
-            showHWLED();
+            setHWLED(COLOR_GREEN);
+            openLock(); // Ist auch ein Task, siehe lock_open.c
+            xTaskCreate(set_back_to_locked, "set_back_to_locked_task", 2048,
+                        NULL, 10, NULL);
             break;
         case MUSTER_AUFNAHME:
-            writeHWLED(0, 0, 255); // Blau
-            showHWLED();
+            setHWLED(COLOR_BLUE);
             break;
         case MUSTER_FAST_KORREKT:
-            writeHWLED(255, 165, 0); // Orange
-            showHWLED();
+            setHWLED(COLOR_ORANGE);
             break;
         case FEHLERFALL:
-            writeHWLED(255, 255, 255); // Weiß
-            showHWLED();
+            setHWLED(COLOR_WHITE);
             break;
         }
     }
 }
+
+SchlossStatus get_current_status() { return currentStatus; }
