@@ -4,7 +4,6 @@
 // #include "HardwareLED.h"
 #include "Serial.h"
 #include "Storage.h"
-#include "all_led.h"
 #include "basicDefs.h"
 #include "lock_status.h"
 #include "stringHelper.h"
@@ -84,4 +83,16 @@ CPP_BEGIN void app_main() {
         free(path);
     };
     free(list);
+
+    // Test-Code kann also weg
+    updateLEDStatus(SCHLOSS_ENTRIEGELT);
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    updateLEDStatus(MUSTER_AUFNAHME);
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    updateLEDStatus(MUSTER_FAST_KORREKT);
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    updateLEDStatus(FEHLERFALL);
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    updateLEDStatus(SCHLOSS_ENTRIEGELT);
+    vTaskDelay(10000 / portTICK_PERIOD_MS);
 }

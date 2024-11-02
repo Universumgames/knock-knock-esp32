@@ -1,10 +1,11 @@
 #include "lock_open.h"
+#include "basicDefs.h"
 
 #include <driver/gpio.h>       //Bibliothek für GPIO des ESP32
 #include <freertos/FreeRTOS.h> //Betriebssytem Bibliothek des ESP32
+// Die OPENTIME wird in basicDefs.h definiert
 
 #define RELAY_GPIO GPIO_NUM_3
-#define OPENTIME 10000 // 10 Sekunden
 
 void lockTask(void* pvParameters) {
     gpio_reset_pin(RELAY_GPIO);

@@ -1,5 +1,6 @@
 #include "lock_status.h"
 #include "all_led.h"
+#include "basicDefs.h"
 #include "lock_open.h"
 #include <freertos/FreeRTOS.h>
 
@@ -21,7 +22,7 @@ void initialize_lock_state() {
 }
 
 void set_back_to_locked() { // Geht das anders besser?
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    vTaskDelay(OPENTIME / portTICK_PERIOD_MS);
     updateLEDStatus(SCHLOSS_VERRIEGELT);
     vTaskDelete(NULL);
 }
