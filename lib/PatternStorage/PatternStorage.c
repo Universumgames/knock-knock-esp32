@@ -9,20 +9,23 @@
 #define PATTERN_FILE_EXTENSION ".bin"
 #define PATTERN_FILE_PREFIX "pattern_"
 
-#define PATTERN_FILE_NAME(id) ({                                                  \
-    char* idStr = intToString(id, 10);                                            \
-    LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);                           \
-    char* fileName = concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION); \
-    LOGD(TAG_PATTERN_STORAGE, "Pattern file name: %s", fileName);                 \
-    fileName;                                                                     \
-})
+#define PATTERN_FILE_NAME(id)                                                  \
+    ({                                                                         \
+        char* idStr = intToString(id, 10);                                     \
+        LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);                    \
+        char* fileName =                                                       \
+            concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION);       \
+        LOGD(TAG_PATTERN_STORAGE, "Pattern file name: %s", fileName);          \
+        fileName;                                                              \
+    })
 
-#define PATTERN_FILE_PATH(id) ({                                  \
-    char* fileName = PATTERN_FILE_NAME(id);                       \
-    char* path = concat(PATTERN_STORAGE_PATH_FULL "/", fileName); \
-    free(fileName);                                               \
-    path;                                                         \
-})
+#define PATTERN_FILE_PATH(id)                                                  \
+    ({                                                                         \
+        char* fileName = PATTERN_FILE_NAME(id);                                \
+        char* path = concat(PATTERN_STORAGE_PATH_FULL "/", fileName);          \
+        free(fileName);                                                        \
+        path;                                                                  \
+    })
 
 static const char* TAG_PATTERN_STORAGE = "PatternStorage";
 
@@ -34,13 +37,15 @@ bool initPatternStorage() {
     }
     bool ret = true;
 
-    LOGI(TAG_PATTERN_STORAGE, "Initializing pattern storage at %s", PATTERN_STORAGE_PATH_FULL);
+    LOGI(TAG_PATTERN_STORAGE, "Initializing pattern storage at %s",
+         PATTERN_STORAGE_PATH_FULL);
 
     if (fileExists(PATTERN_STORAGE_PATH_FULL)) {
         ret &= true;
     } else {
         int retDir = mkdir(PATTERN_STORAGE_PATH_FULL, 0777);
-        LOGD(TAG_PATTERN_STORAGE, "Directory created with return code %d", retDir);
+        LOGD(TAG_PATTERN_STORAGE, "Directory created with return code %d",
+             retDir);
         ret &= (retDir == 0);
         if (!ret) {
             LOGE(TAG_PATTERN_STORAGE, "Failed to create directory");
@@ -53,13 +58,15 @@ bool initPatternStorage() {
     return ret;
 }
 
-int getNextPatternId(PatternData* existingPatterns, size_t existingPatternsLen) {
+int getNextPatternId(PatternData* existingPatterns,
+                     size_t existingPatternsLen) {
     if (!patternStorageInitialized) {
         LOGE(TAG_PATTERN_STORAGE, "Pattern storage not initialized");
         return -1;
     }
     int maxId = 0;
-    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %lu", existingPatternsLen);
+    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %lu",
+         existingPatternsLen);
     for (size_t i = 0; i < existingPatternsLen; i++) {
         maxId = max(maxId, existingPatterns[i].id);
         LOGD(TAG_PATTERN_STORAGE, "Pattern id: %d", existingPatterns[i].id);
@@ -68,7 +75,8 @@ int getNextPatternId(PatternData* existingPatterns, size_t existingPatternsLen) 
     return maxId + 1;
 }
 
-bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t existingPatternsLen) {
+bool storePattern(PatternData* pattern, PatternData* existingPatterns,
+                  size_t existingPatternsLen) {
     bool ret = true;
     // check if pattern storage is initialized
     if (!patternStorageInitialized) {
@@ -84,7 +92,8 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t ex
     size_t len = existingPatternsLen;
     // load patterns if no existing patterns are passed
     if (existingPatterns == NULL) {
-        LOGD(TAG_PATTERN_STORAGE, "No existing patterns or no passed existing patterns, loading patterns");
+        LOGD(TAG_PATTERN_STORAGE, "No existing patterns or no passed existing "
+                                  "patterns, loading patterns");
         // ps = loadPatterns(&len);
     }
 
@@ -106,9 +115,11 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t ex
 
     size_t written = fwrite(&pattern->patternVersion, sizeof(uint8_t), 1, file);
     written = fwrite(&pattern->id, sizeof(int), 1, file);
-    written = fwrite(&pattern->totalDurationMillis, sizeof(unsigned long), 1, file);
+    written =
+        fwrite(&pattern->totalDurationMillis, sizeof(unsigned long), 1, file);
     written = fwrite(&pattern->lengthPattern, sizeof(size_t), 1, file);
-    written = fwrite(pattern->deltaTimesMillis, sizeof(unsigned long), pattern->lengthPattern, file);
+    written = fwrite(pattern->deltaTimesMillis, sizeof(unsigned long),
+                     pattern->lengthPattern, file);
 
     // check if pattern was written to file
     if (written != 1) {
@@ -142,24 +153,33 @@ PatternData* loadPattern(char* filename) {
         return NULL;
     }
 
-    // read pattern version to check if file is compatible with current struct encoding
+    // read pattern version to check if file is compatible with current struct
+    // encoding
     uint8_t patternVersion;
     size_t read = fread(&patternVersion, sizeof(uint8_t), 1, file);
-    CHECK_DO(patternVersion != PATTERN_FILE_VERSION, LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch"); goto free_file);
+    CHECK_DO(patternVersion != PATTERN_FILE_VERSION,
+             LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch");
+             goto free_file);
 
     PatternData* pattern = (PatternData*)calloc(sizeof(PatternData), 1);
-    CHECK_NULL_GOTO_LOG(pattern, free_file, LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for pattern"));
+    CHECK_NULL_GOTO_LOG(
+        pattern, free_file,
+        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for pattern"));
 
     pattern->patternVersion = patternVersion;
     read = fread(&pattern->id, sizeof(int), 1, file);
     read = fread(&pattern->totalDurationMillis, sizeof(unsigned long), 1, file);
     read = fread(&pattern->lengthPattern, sizeof(size_t), 1, file);
-    pattern->deltaTimesMillis = (unsigned long*)calloc(sizeof(unsigned long), pattern->lengthPattern);
-    CHECK_NULL_GOTO_LOG(pattern->deltaTimesMillis, free_pattern, LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for delta times"));
-    read = fread(pattern->deltaTimesMillis, sizeof(unsigned long), pattern->lengthPattern, file);
+    pattern->deltaTimesMillis =
+        (unsigned long*)calloc(sizeof(unsigned long), pattern->lengthPattern);
+    CHECK_NULL_GOTO_LOG(
+        pattern->deltaTimesMillis, free_pattern,
+        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for delta times"));
+    read = fread(pattern->deltaTimesMillis, sizeof(unsigned long),
+                 pattern->lengthPattern, file);
 
     LOGI(TAG_PATTERN_STORAGE, "Loaded pattern with id %d", pattern->id);
-    goto free_file;  // on success, free file and return pattern
+    goto free_file; // on success, free file and return pattern
 
 free_pattern:
     free(pattern);
@@ -184,14 +204,18 @@ PatternData** loadPatterns(size_t* len) {
         return NULL;
     }
     LOGD(TAG_PATTERN_STORAGE, "Number of patterns: %lu", *len);
-    PatternData** patternPtrs = (PatternData**)calloc(sizeof(PatternData*), (*len));
-    CHECK_NULL_GOTO_LOG(patternPtrs, free_paths, LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for patterns"));
+    PatternData** patternPtrs =
+        (PatternData**)calloc(sizeof(PatternData*), (*len));
+    CHECK_NULL_GOTO_LOG(
+        patternPtrs, free_paths,
+        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for patterns"));
 
     for (size_t i = 0; i < *len; i++) {
         patternPtrs[i] = loadPattern(fileNames[i]);
-        CHECK_DO(patternPtrs[i] == NULL, LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
+        CHECK_DO(patternPtrs[i] == NULL,
+                 LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
     }
-    goto free_paths;  // on success, free paths and return patterns
+    goto free_paths; // on success, free paths and return patterns
 
 free_patterns:
     for (size_t i = 0; i < *len; i++) {
@@ -218,7 +242,9 @@ bool deletePattern(int id) {
     }
 
     char* path = PATTERN_FILE_PATH(id);
-    CHECK_NULL_GOTO_LOG(path, free_path, LOGE(TAG_PATTERN_STORAGE, "Failed to concatenate path"));
+    CHECK_NULL_GOTO_LOG(
+        path, free_path,
+        LOGE(TAG_PATTERN_STORAGE, "Failed to concatenate path"));
 
     ret = remove(path);
     if (ret != 0) {

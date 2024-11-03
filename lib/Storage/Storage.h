@@ -36,7 +36,8 @@ bool mountFS();
 
 /**
  * @brief List the filenames in a directory
- * WARNING: This function allocates memory for the filenames, make sure to free it after usage
+ * WARNING: This function allocates memory for the filenames, make sure to free
+ * it after usage
  *
  * @param path the path to the directory
  * @param len the length of the returned array

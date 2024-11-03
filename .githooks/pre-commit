@@ -5,5 +5,8 @@ scriptDir=$(dirname "$0")
 $scriptDir/../generateChangelog.sh
 git add CHANGELOG.md
 
-#git clang-format main
-#clang-format -i lib/**/*.* src/**/*.*
+$scriptDir/../format.sh
+
+# readd the files that were formatted
+stagedFiles=$(git diff --cached --name-only)
+git add $stagedFiles

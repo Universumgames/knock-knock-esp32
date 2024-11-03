@@ -1,6 +1,7 @@
 #include "Serial.h"
 
-// Copied from https://github.com/espressif/esp-idf/blob/master/examples/peripherals/uart/uart_events/main/uart_events_example_main.c
+// Copied from
+// https://github.com/espressif/esp-idf/blob/master/examples/peripherals/uart/uart_events/main/uart_events_example_main.c
 // Modified by: Tom Arlt
 
 #include <driver/uart.h>
@@ -13,7 +14,7 @@
 
 #include <queue>
 
-static const char *TAG_SERIAL = "uart_events";
+static const char* TAG_SERIAL = "uart_events";
 
 /**
  * This example shows how to use the UART driver to handle special UART events.
@@ -29,7 +30,9 @@ static const char *TAG_SERIAL = "uart_events";
  */
 
 #define HW_UART_NUM UART_NUM_0
-#define PATTERN_CHR_NUM (3) /*!< Set the number of consecutive and identical characters received by receiver which defines a UART pattern*/
+#define PATTERN_CHR_NUM                                                        \
+    (3) /*!< Set the number of consecutive and identical characters received   \
+           by receiver which defines a UART pattern*/
 
 #define BUF_SIZE (1024)
 #define RD_BUF_SIZE (BUF_SIZE)
@@ -38,82 +41,90 @@ static QueueHandle_t uart0_queue;
 static std::queue<char> rxQueue;
 static std::queue<char> txQueue;
 
-static void uart_event_task(void *pvParameters) {
+static void uart_event_task(void* pvParameters) {
     uart_event_t event;
     size_t buffered_size;
-    uint8_t *dtmp = (uint8_t *)malloc(RD_BUF_SIZE);
+    uint8_t* dtmp = (uint8_t*)malloc(RD_BUF_SIZE);
     for (;;) {
         // Waiting for UART event.
-        if (xQueueReceive(uart0_queue, (void *)&event, (TickType_t)portMAX_DELAY)) {
+        if (xQueueReceive(uart0_queue, (void*)&event,
+                          (TickType_t)portMAX_DELAY)) {
             bzero(dtmp, RD_BUF_SIZE);
             ESP_LOGI(TAG_SERIAL, "uart[%d] event:", HW_UART_NUM);
             switch (event.type) {
-                // Event of UART receiving data
-                /*We'd better handler data event fast, there would be much more data events than
-                other types of events. If we take too much time on data event, the queue might
-                be full.*/
-                case UART_DATA:
-                    ESP_LOGI(TAG_SERIAL, "[UART DATA]: %d", event.size);
-                    uart_read_bytes(HW_UART_NUM, dtmp, event.size, portMAX_DELAY);
-                    ESP_LOGI(TAG_SERIAL, "[DATA EVT]:");
-                    uart_write_bytes(HW_UART_NUM, (const char *)dtmp, event.size);
-                    for (int i = 0; i < event.size; i++) {
-                        rxQueue.push(dtmp[i]);
-                    }
-                    break;
-                // Event of HW FIFO overflow detected
-                case UART_FIFO_OVF:
-                    ESP_LOGI(TAG_SERIAL, "hw fifo overflow");
-                    // If fifo overflow happened, you should consider adding flow control for your application.
-                    // The ISR has already reset the rx FIFO,
-                    // As an example, we directly flush the rx buffer here in order to read more data.
-                    uart_flush_input(HW_UART_NUM);
-                    xQueueReset(uart0_queue);
-                    break;
-                // Event of UART ring buffer full
-                case UART_BUFFER_FULL:
-                    ESP_LOGI(TAG_SERIAL, "ring buffer full");
-                    // If buffer full happened, you should consider increasing your buffer size
-                    // As an example, we directly flush the rx buffer here in order to read more data.
-                    uart_flush_input(HW_UART_NUM);
-                    xQueueReset(uart0_queue);
-                    break;
-                // Event of UART RX break detected
-                case UART_BREAK:
-                    ESP_LOGI(TAG_SERIAL, "uart rx break");
-                    break;
-                // Event of UART parity check error
-                case UART_PARITY_ERR:
-                    ESP_LOGI(TAG_SERIAL, "uart parity error");
-                    break;
-                // Event of UART frame error
-                case UART_FRAME_ERR:
-                    ESP_LOGI(TAG_SERIAL, "uart frame error");
-                    break;
-                // UART_PATTERN_DET
-                case UART_PATTERN_DET: {
-                    uart_get_buffered_data_len(HW_UART_NUM, &buffered_size);
-                    int pos = uart_pattern_pop_pos(HW_UART_NUM);
-                    ESP_LOGI(TAG_SERIAL, "[UART PATTERN DETECTED] pos: %d, buffered size: %d", pos, buffered_size);
-                    if (pos == -1) {
-                        // There used to be a UART_PATTERN_DET event, but the pattern position queue is full so that it can not
-                        // record the position. We should set a larger queue size.
-                        // As an example, we directly flush the rx buffer here.
-                        uart_flush_input(HW_UART_NUM);
-                    } else {
-                        uart_read_bytes(HW_UART_NUM, dtmp, pos, 100 / portTICK_PERIOD_MS);
-                        uint8_t pat[PATTERN_CHR_NUM + 1];
-                        memset(pat, 0, sizeof(pat));
-                        uart_read_bytes(HW_UART_NUM, pat, PATTERN_CHR_NUM, 100 / portTICK_PERIOD_MS);
-                        ESP_LOGI(TAG_SERIAL, "read data: %s", dtmp);
-                        ESP_LOGI(TAG_SERIAL, "read pat : %s", pat);
-                    }
-                    break;
+            // Event of UART receiving data
+            /*We'd better handler data event fast, there would be much more data
+            events than other types of events. If we take too much time on data
+            event, the queue might be full.*/
+            case UART_DATA:
+                ESP_LOGI(TAG_SERIAL, "[UART DATA]: %d", event.size);
+                uart_read_bytes(HW_UART_NUM, dtmp, event.size, portMAX_DELAY);
+                ESP_LOGI(TAG_SERIAL, "[DATA EVT]:");
+                uart_write_bytes(HW_UART_NUM, (const char*)dtmp, event.size);
+                for (int i = 0; i < event.size; i++) {
+                    rxQueue.push(dtmp[i]);
                 }
-                // Others
-                default:
-                    ESP_LOGI(TAG_SERIAL, "uart event type: %d", event.type);
-                    break;
+                break;
+            // Event of HW FIFO overflow detected
+            case UART_FIFO_OVF:
+                ESP_LOGI(TAG_SERIAL, "hw fifo overflow");
+                // If fifo overflow happened, you should consider adding flow
+                // control for your application. The ISR has already reset the
+                // rx FIFO, As an example, we directly flush the rx buffer here
+                // in order to read more data.
+                uart_flush_input(HW_UART_NUM);
+                xQueueReset(uart0_queue);
+                break;
+            // Event of UART ring buffer full
+            case UART_BUFFER_FULL:
+                ESP_LOGI(TAG_SERIAL, "ring buffer full");
+                // If buffer full happened, you should consider increasing your
+                // buffer size As an example, we directly flush the rx buffer
+                // here in order to read more data.
+                uart_flush_input(HW_UART_NUM);
+                xQueueReset(uart0_queue);
+                break;
+            // Event of UART RX break detected
+            case UART_BREAK:
+                ESP_LOGI(TAG_SERIAL, "uart rx break");
+                break;
+            // Event of UART parity check error
+            case UART_PARITY_ERR:
+                ESP_LOGI(TAG_SERIAL, "uart parity error");
+                break;
+            // Event of UART frame error
+            case UART_FRAME_ERR:
+                ESP_LOGI(TAG_SERIAL, "uart frame error");
+                break;
+            // UART_PATTERN_DET
+            case UART_PATTERN_DET: {
+                uart_get_buffered_data_len(HW_UART_NUM, &buffered_size);
+                int pos = uart_pattern_pop_pos(HW_UART_NUM);
+                ESP_LOGI(TAG_SERIAL,
+                         "[UART PATTERN DETECTED] pos: %d, buffered size: %d",
+                         pos, buffered_size);
+                if (pos == -1) {
+                    // There used to be a UART_PATTERN_DET event, but the
+                    // pattern position queue is full so that it can not record
+                    // the position. We should set a larger queue size. As an
+                    // example, we directly flush the rx buffer here.
+                    uart_flush_input(HW_UART_NUM);
+                } else {
+                    uart_read_bytes(HW_UART_NUM, dtmp, pos,
+                                    100 / portTICK_PERIOD_MS);
+                    uint8_t pat[PATTERN_CHR_NUM + 1];
+                    memset(pat, 0, sizeof(pat));
+                    uart_read_bytes(HW_UART_NUM, pat, PATTERN_CHR_NUM,
+                                    100 / portTICK_PERIOD_MS);
+                    ESP_LOGI(TAG_SERIAL, "read data: %s", dtmp);
+                    ESP_LOGI(TAG_SERIAL, "read pat : %s", pat);
+                }
+                break;
+            }
+            // Others
+            default:
+                ESP_LOGI(TAG_SERIAL, "uart event type: %d", event.type);
+                break;
             }
         }
     }
@@ -136,16 +147,19 @@ void beginSerial(int baud) {
         .flags = {.backup_before_sleep = false},
     };
     // Install UART driver, and get the queue.
-    uart_driver_install(HW_UART_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 20, &uart0_queue, 0);
+    uart_driver_install(HW_UART_NUM, BUF_SIZE * 2, BUF_SIZE * 2, 20,
+                        &uart0_queue, 0);
     uart_param_config(HW_UART_NUM, &uart_config);
 
     // Set UART log level
     esp_log_level_set(TAG_SERIAL, ESP_LOG_INFO);
     // Set UART pins (using UART0 default pins ie no changes.)
-    uart_set_pin(HW_UART_NUM, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+    uart_set_pin(HW_UART_NUM, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE,
+                 UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 
     // Set uart pattern detect function.
-    uart_enable_pattern_det_baud_intr(HW_UART_NUM, '+', PATTERN_CHR_NUM, 9, 0, 0);
+    uart_enable_pattern_det_baud_intr(HW_UART_NUM, '+', PATTERN_CHR_NUM, 9, 0,
+                                      0);
     // Reset the pattern queue length to record at most 20 pattern positions.
     uart_pattern_queue_reset(HW_UART_NUM, 20);
 
@@ -155,7 +169,7 @@ void beginSerial(int baud) {
     xTaskCreate(uart_event_task, "uart_event_task", 3072, NULL, 12, NULL);
 }
 
-void serialWrite(const char *data) {
+void serialWrite(const char* data) {
     uart_write_bytes(HW_UART_NUM, data, strlen(data));
 }
 
@@ -163,7 +177,7 @@ void serialFlush() {
     uart_flush(HW_UART_NUM);
 }
 
-void serialRead(char *data, int len) {
+void serialRead(char* data, int len) {
     for (int i = 0; i < len - 1; i++) {
         if (rxQueue.empty()) {
             data[i] = '\0';

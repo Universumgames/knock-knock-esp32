@@ -3,7 +3,8 @@
 
 #include "basicDefs.h"
 
-// Datasheet WS2812 https://www.digikey.com/en/htmldatasheets/production/2755926/0/0/1/ws2812b-led
+// Datasheet WS2812
+// https://www.digikey.com/en/htmldatasheets/production/2755926/0/0/1/ws2812b-led
 
 HEADER_BEGIN
 

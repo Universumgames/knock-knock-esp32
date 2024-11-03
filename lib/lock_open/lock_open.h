@@ -8,6 +8,6 @@ HEADER_BEGIN
  * @return void
  * Aufruf mit:  openLock();
  */
-void openLock(void);
+void openLock();
 
 HEADER_END

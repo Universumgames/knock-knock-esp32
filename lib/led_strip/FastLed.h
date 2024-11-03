@@ -16,7 +16,8 @@ typedef struct __FastLED_Config_internal FastLEDConfig;
 } LED_Pixel;*/
 
 /**
- * @brief Initialize the FastLEDConfig object with the given length and pin number for a WS2812B LED strip
+ * @brief Initialize the FastLEDConfig object with the given length and pin
+ * number for a WS2812B LED strip
  *
  * @param length the number of LEDs in the strip
  * @param pin_number the GPIO pin number
@@ -33,7 +34,8 @@ FastLEDConfig* initFastLED(int length, gpio_num_t pin_number);
  * @param green the green value
  * @param blue the blue value
  */
-void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint8_t blue);
+void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green,
+              uint8_t blue);
 
 /**
  * @brief Send the pixel data to the LED strip
