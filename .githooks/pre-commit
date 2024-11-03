@@ -6,3 +6,7 @@ $scriptDir/../generateChangelog.sh
 git add CHANGELOG.md
 
 $scriptDir/../format.sh
+
+# readd the files that were formatted
+stagedFiles=$(git diff --cached --name-only)
+git add $stagedFiles

@@ -1,5 +1,6 @@
 
 # Changelog
+- ([c2b175e](https://git.ide3.de/universumgames/mic-projekt/-/commit/c2b175e0d891ed5a0c9d931703a36ec5ac0927ff)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 19:25:15 +0100") : add automatic file formatting on commit
 - ([9ff4b85](https://git.ide3.de/universumgames/mic-projekt/-/commit/9ff4b85c18811f13c920ed10843b651fa5acfaa8)) svehreschild on [2024-11-03](## "Sun, 3 Nov 2024 15:48:56 +0000") : Merge branch '14-schloss-status-led' into 'main'
 - ([3349079](https://git.ide3.de/universumgames/mic-projekt/-/commit/3349079e03bdd2a7492a209bc51885b857d22e2a)) simonvehreschild on [2024-11-03](## "Sun, 3 Nov 2024 16:37:24 +0100") : Co-authored-by: Tom <programming@universegame.de>
 - ([ccde72c](https://git.ide3.de/universumgames/mic-projekt/-/commit/ccde72cd9da413228bc1257d3f428ab26a7a3648)) simonvehreschild on [2024-11-03](## "Sun, 3 Nov 2024 15:31:15 +0100") : update
