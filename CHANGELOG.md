@@ -1,5 +1,6 @@
 
 # Changelog
+- ([61dbbf1](https://git.ide3.de/universumgames/mic-projekt/-/commit/61dbbf17137a23075a859e66eebe9ea8ba73c693)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 14:59:19 +0100") : fix analog read
 - ([00924a8](https://git.ide3.de/universumgames/mic-projekt/-/commit/00924a8704ae5cd09cf198b1d17a15bbe0356f54)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:57:17 +0100") : fix platformio.ini corrupted on merge
 - ([2ecf887](https://git.ide3.de/universumgames/mic-projekt/-/commit/2ecf887aaa9710332acb3530c4b55a19d87611c5)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:49:24 +0100") : Merge branch 'main' into feature-pattern-record
 - ([daf5ba2](https://git.ide3.de/universumgames/mic-projekt/-/commit/daf5ba2229b1667af7e6c672d46a8f32f7e46c08)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:43:02 +0100") : add formatter and githooks
