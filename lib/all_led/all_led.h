@@ -11,15 +11,6 @@ HEADER_BEGIN
 void initExternLEDs();
 
 /**
- * @brief set the color values of the hardware LED
- *
- * @param red the red value
- * @param green the green value
- * @param blue the blue value
- */
-void setHWLED(uint8_t red, uint8_t green, uint8_t blue);
-
-/**
  * @brief set the color values of the Wiedergabe-LED
  *
  * @param red the red value

@@ -5,7 +5,6 @@
 
 #define HIGH 1
 #define LOW 0
-#define OPENTIME 10000 // 10 Sekunden
 
 #ifdef __cplusplus
 #define HEADER_BEGIN extern "C" {
