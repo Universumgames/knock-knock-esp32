@@ -33,7 +33,8 @@ FastLEDConfig* initFastLED(int length, gpio_num_t pin_number) {
     return config;
 }
 
-void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green, uint8_t blue) {
+void writeLED(FastLEDConfig* config, int index, uint8_t red, uint8_t green,
+              uint8_t blue) {
     if (index >= config->lengthRBGStrip) {
         LOGE(TAG_FAST_LED, "Index out of range: %d", index);
         return;

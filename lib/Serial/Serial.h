@@ -17,7 +17,7 @@ void beginSerial(int baud);
  *
  * @param data the string to write
  */
-void serialWrite(const char *data);
+void serialWrite(const char* data);
 
 /**
  * @brief flush the serial port
@@ -27,16 +27,18 @@ void serialFlush();
 
 /**
  * @brief read a string from the serial port buffer
- * WARNING: this function is only reading the buffer, it is not waiting for new data
+ * WARNING: this function is only reading the buffer, it is not waiting for new
+ * data
  *
  * @param data the buffer to write to
  * @param len the length of the buffer
  */
-void serialRead(char *data, int len);
+void serialRead(char* data, int len);
 
 /**
  * @brief read a single character from the serial port buffer
- * WARNING: this function is only reading the buffer, it is not waiting for new data
+ * WARNING: this function is only reading the buffer, it is not waiting for new
+ * data
  *
  * @return char the character read
  */

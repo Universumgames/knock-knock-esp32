@@ -27,7 +27,8 @@ TEST(PatternStorageTests, loadPatternsTest) {
     EXPECT_EQ(s_pattern.totalDurationMillis, patterns[0]->totalDurationMillis);
     EXPECT_EQ(s_pattern.lengthPattern, patterns[0]->lengthPattern);
     for (size_t i = 0; i < s_pattern.lengthPattern; i++) {
-        EXPECT_EQ(s_pattern.deltaTimesMillis[i], patterns[0]->deltaTimesMillis[i]);
+        EXPECT_EQ(s_pattern.deltaTimesMillis[i],
+                  patterns[0]->deltaTimesMillis[i]);
     }
     free(patterns);
 }

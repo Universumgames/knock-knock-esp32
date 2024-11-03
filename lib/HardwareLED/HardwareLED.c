@@ -24,7 +24,8 @@ void writeHWLED(uint8_t red, uint8_t green, uint8_t blue) {
         return;
     }
     writeLED(config, 0, red, green, blue);
-    LOGV(TAG_HW_LED, "Wrote to Hardware LED memory: %d %d %d", red, green, blue);
+    LOGV(TAG_HW_LED, "Wrote to Hardware LED memory: %d %d %d", red, green,
+         blue);
 }
 
 void showHWLED() {

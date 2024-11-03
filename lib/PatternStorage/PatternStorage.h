@@ -6,7 +6,8 @@ HEADER_BEGIN
 
 /**
  * @brief Initialize the pattern storage
- * WARNING: on embedded devices, the storage must be mounted before calling this function
+ * WARNING: on embedded devices, the storage must be mounted before calling this
+ * function
  *
  * @return true if the pattern storage was initialized successfully
  */
@@ -16,11 +17,13 @@ bool initPatternStorage();
  * @brief Store a pattern in the pattern storage
  *
  * @param pattern the pattern to store
- * @param existingPatterns the existing patterns in the storage, if NULL, the patterns will be loaded
+ * @param existingPatterns the existing patterns in the storage, if NULL, the
+ * patterns will be loaded
  * @param existingPatternsLen the length of the existing patterns
  * @return true if the pattern was stored successfully
  */
-bool storePattern(PatternData* pattern, PatternData* existingPatterns, size_t existingPatternsLen);
+bool storePattern(PatternData* pattern, PatternData* existingPatterns,
+                  size_t existingPatternsLen);
 
 /**
  * @brief Load all patterns from the pattern storage

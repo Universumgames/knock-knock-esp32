@@ -1,5 +1,5 @@
-#include "lock_status.h"
 #include "all_led.h"
+#include "lock_status.h"
 
 #define COLOR_RED 30, 0, 0
 #define COLOR_GREEN 0, 30, 0
@@ -43,4 +43,6 @@ void updateLEDStatus(SchlossStatus status) {
     }
 }
 
-SchlossStatus get_current_status() { return currentStatus; }
+SchlossStatus get_current_status() {
+    return currentStatus;
+}

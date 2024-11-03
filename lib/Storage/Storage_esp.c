@@ -4,7 +4,8 @@
 
 #include "Storage.h"
 
-#define LOCAL_FS_LITTLEFS_PARTITION_NAME "littlefs"  // view partition table in littlefs.csv
+#define LOCAL_FS_LITTLEFS_PARTITION_NAME                                       \
+    "littlefs" // view partition table in littlefs.csv
 
 #define PIN_NUM_MISO GPIO_NUM_5
 #define PIN_NUM_MOSI GPIO_NUM_6
@@ -30,7 +31,8 @@ bool mountLocalFS() {
     size_t total = 0, used = 0;
     ret = esp_littlefs_info(conf.partition_label, &total, &used);
     if (ret != ESP_OK) {
-        LOGE(TAG_STORAGE, "Failed to get LittleFS partition information (%s)", esp_err_to_name(ret));
+        LOGE(TAG_STORAGE, "Failed to get LittleFS partition information (%s)",
+             esp_err_to_name(ret));
         esp_littlefs_format(conf.partition_label);
     } else {
         LOGI(TAG_STORAGE, "Partition size: total: %d, used: %d", total, used);
@@ -78,13 +80,17 @@ bool mountSDCard() {
     slot_config.host_id = host.slot;
 
     LOGI(TAG_STORAGE, "Mounting filesystem");
-    ret = esp_vfs_fat_sdspi_mount(SD_MOUNT_POINT, &host, &slot_config, &mount_config, &card);
+    ret = esp_vfs_fat_sdspi_mount(SD_MOUNT_POINT, &host, &slot_config,
+                                  &mount_config, &card);
 
     if (ret != ESP_OK) {
         if (ret == ESP_FAIL) {
-            LOGE(TAG_STORAGE, "Failed to mount filesystem. If you want the card to be formatted, set format_if_mount_failed = true.");
+            LOGE(TAG_STORAGE,
+                 "Failed to mount filesystem. If you want the card to be "
+                 "formatted, set format_if_mount_failed = true.");
         } else {
-            LOGE(TAG_STORAGE, "Failed to initialize the card (%s)", esp_err_to_name(ret));
+            LOGE(TAG_STORAGE, "Failed to initialize the card (%s)",
+                 esp_err_to_name(ret));
         }
         return false;
     }

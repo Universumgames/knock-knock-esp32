@@ -12,10 +12,12 @@ char* intToString(int value, int base) {
         return &buf[i];
     }
     int isNegative = value < 0;
-    if (isNegative) value = -value;
+    if (isNegative)
+        value = -value;
     for (; value && i; --i, value /= base)
         buf[i] = "0123456789abcdefghijklmnopqrstuvwxyz"[value % base];
-    if (isNegative) buf[i--] = '-';
+    if (isNegative)
+        buf[i--] = '-';
     return &buf[i + 1];
 }
 
@@ -28,13 +30,15 @@ int* splitString(const char* str, const char* delim, int* len) {
     int count = 1;
     int delimLen = strlen(delim);
     int strLen = strlen(str);
-    // indices[0] = 0; // first index is always 0, uncommented because calloc sets all values to 0
+    // indices[0] = 0; // first index is always 0, uncommented because calloc
+    // sets all values to 0
     for (int i = 1; i < strLen; i++) {
         if (strncmp(str + i, delim, delimLen) == 0) {
             indices[count++] = i;
         }
     }
-    if (len != NULL) *len = count;
+    if (len != NULL)
+        *len = count;
     return indices;
 }
 
@@ -66,7 +70,8 @@ char* concat3(const char* str1, const char* str2, const char* str3) {
 }
 
 char* randomString(int len) {
-    static char* charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    static char* charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     static int charsetLen = 62;
     char* str = (char*)calloc(sizeof(char), len + 1);
     for (int i = 0; i < len; i++) {
