@@ -52,8 +52,8 @@ void setSTLED(uint8_t red, uint8_t green, uint8_t blue) {
         return;
     }
     writeLED(config, 2, red, green, blue);
+    writeLED(config, 0, red, green, blue);
     LOGV(TAG_LED, "Wrote to Status-LED memory: %d %d %d", red, green, blue);
     showLED(config);
     LOGV(TAG_LED, "Showed Status-LED");
-    setHWLED(red, green, blue);
 }

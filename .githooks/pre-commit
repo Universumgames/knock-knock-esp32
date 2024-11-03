@@ -5,4 +5,4 @@ scriptDir=$(dirname "$0")
 $scriptDir/../generateChangelog.sh
 git add CHANGELOG.md
 
-git clang-format --staged
+#git clang-format main -f

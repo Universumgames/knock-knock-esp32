@@ -32,17 +32,14 @@ CPP_BEGIN void app_main() {
     };
     free(list);
 
-    // Test-Code kann also weg
-    updateLEDStatus(SCHLOSS_ENTRIEGELT);
+    // Test-Code
     openLock();
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
+    vTaskDelay(11000 / portTICK_PERIOD_MS);
     updateLEDStatus(MUSTER_AUFNAHME);
     vTaskDelay(10000 / portTICK_PERIOD_MS);
     updateLEDStatus(MUSTER_FAST_KORREKT);
     vTaskDelay(10000 / portTICK_PERIOD_MS);
     updateLEDStatus(FEHLERFALL);
     vTaskDelay(10000 / portTICK_PERIOD_MS);
-    updateLEDStatus(SCHLOSS_ENTRIEGELT);
     openLock();
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
 }

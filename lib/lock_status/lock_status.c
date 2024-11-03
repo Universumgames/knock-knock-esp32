@@ -1,11 +1,11 @@
 #include "lock_status.h"
 #include "all_led.h"
 
-#define COLOR_RED 255, 0, 0
-#define COLOR_GREEN 0, 255, 0
-#define COLOR_BLUE 0, 0, 255
-#define COLOR_ORANGE 255, 165, 0
-#define COLOR_WHITE 255, 255, 255
+#define COLOR_RED 30, 0, 0
+#define COLOR_GREEN 0, 30, 0
+#define COLOR_BLUE 0, 0, 30
+#define COLOR_ORANGE 30, 15, 0
+#define COLOR_WHITE 30, 30, 30
 
 // Natürlich muss hier noch writeHWLED gegen writeSTLED und selbiges für show...
 // ausgetauscht werden
