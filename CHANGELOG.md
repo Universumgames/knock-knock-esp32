@@ -1,10 +1,26 @@
 
 # Changelog
+- ([6005cf1](https://git.ide3.de/universumgames/mic-projekt/-/commit/6005cf164df783f98859e31e1769f18476022e2d)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 19:31:02 +0100") : Merge branch 'main' into feature-pattern-record
+- ([c4d08db](https://git.ide3.de/universumgames/mic-projekt/-/commit/c4d08db1b22d5a6003379ebcf59df41f16dd6807)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 19:28:43 +0100") : fix formatting in files
+- ([dbd51ec](https://git.ide3.de/universumgames/mic-projekt/-/commit/dbd51ec270d8b9d6348b8530c54b01ecb3a73657)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 19:28:26 +0100") : retest formatting
+- ([c2b175e](https://git.ide3.de/universumgames/mic-projekt/-/commit/c2b175e0d891ed5a0c9d931703a36ec5ac0927ff)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 19:25:15 +0100") : add automatic file formatting on commit
+- ([9ff4b85](https://git.ide3.de/universumgames/mic-projekt/-/commit/9ff4b85c18811f13c920ed10843b651fa5acfaa8)) svehreschild on [2024-11-03](## "Sun, 3 Nov 2024 15:48:56 +0000") : Merge branch '14-schloss-status-led' into 'main'
+- ([3349079](https://git.ide3.de/universumgames/mic-projekt/-/commit/3349079e03bdd2a7492a209bc51885b857d22e2a)) simonvehreschild on [2024-11-03](## "Sun, 3 Nov 2024 16:37:24 +0100") : Co-authored-by: Tom <programming@universegame.de>
 - ([2100f28](https://git.ide3.de/universumgames/mic-projekt/-/commit/2100f28a90ef14fb986b44ffa62766a145e57458)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 15:54:46 +0100") : update clang config
+- ([ccde72c](https://git.ide3.de/universumgames/mic-projekt/-/commit/ccde72cd9da413228bc1257d3f428ab26a7a3648)) simonvehreschild on [2024-11-03](## "Sun, 3 Nov 2024 15:31:15 +0100") : update
 - ([61dbbf1](https://git.ide3.de/universumgames/mic-projekt/-/commit/61dbbf17137a23075a859e66eebe9ea8ba73c693)) Universumgames on [2024-11-03](## "Sun, 3 Nov 2024 14:59:19 +0100") : fix analog read
+- ([a6eaa9a](https://git.ide3.de/universumgames/mic-projekt/-/commit/a6eaa9a864a7dba3c9d0013e3ed7c0483dc71efd)) simonvehreschild on [2024-11-02](## "Sat, 2 Nov 2024 13:20:55 +0100") : update
+- ([a50cd6d](https://git.ide3.de/universumgames/mic-projekt/-/commit/a50cd6da9f860241eb1349d03e1052d451d5cea7)) simonvehreschild on [2024-11-02](## "Sat, 2 Nov 2024 04:38:29 +0100") : update, Anpassungen der Hinweise
 - ([00924a8](https://git.ide3.de/universumgames/mic-projekt/-/commit/00924a8704ae5cd09cf198b1d17a15bbe0356f54)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:57:17 +0100") : fix platformio.ini corrupted on merge
 - ([2ecf887](https://git.ide3.de/universumgames/mic-projekt/-/commit/2ecf887aaa9710332acb3530c4b55a19d87611c5)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:49:24 +0100") : Merge branch 'main' into feature-pattern-record
+- ([2607671](https://git.ide3.de/universumgames/mic-projekt/-/commit/2607671f6e2343d5591d79dc5ba285117a36883a)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:44:46 +0100") : Merge branch 'main' into 14-schloss-status-led
 - ([daf5ba2](https://git.ide3.de/universumgames/mic-projekt/-/commit/daf5ba2229b1667af7e6c672d46a8f32f7e46c08)) Universumgames on [2024-11-01](## "Fri, 1 Nov 2024 23:43:02 +0100") : add formatter and githooks
+- ([6e950ab](https://git.ide3.de/universumgames/mic-projekt/-/commit/6e950ab9c8ef0dbd14ff24605bc61ffab102c709)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 19:14:36 +0100") : test
+- ([d0d8d69](https://git.ide3.de/universumgames/mic-projekt/-/commit/d0d8d69ae49e5292d2fce60f60eb0810dabd09cf)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 19:09:50 +0100") : pipeline fail korrektur
+- ([5ed0b4e](https://git.ide3.de/universumgames/mic-projekt/-/commit/5ed0b4eb34a219570c70926f08d6fb6d8f2b2727)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 18:57:02 +0100") : fertig
+- ([7bc6055](https://git.ide3.de/universumgames/mic-projekt/-/commit/7bc6055a7bb1f8185a3e6204f7e8f961a2c30220)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 17:38:40 +0100") : update
+- ([e146c6b](https://git.ide3.de/universumgames/mic-projekt/-/commit/e146c6b7c45ca60ab892abeb8a73d43337219fde)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 15:58:34 +0100") : lib extern led first attempt
+- ([a4fc5a5](https://git.ide3.de/universumgames/mic-projekt/-/commit/a4fc5a5ad97abc72336d1a9df37ee4f4b072dc3f)) simonvehreschild on [2024-11-01](## "Fri, 1 Nov 2024 15:33:58 +0100") : update
 - ([8778e27](https://git.ide3.de/universumgames/mic-projekt/-/commit/8778e270e1622eda6f5525a007524e7787e29aac)) Universumgames on [2024-10-30](## "Wed, 30 Oct 2024 19:58:27 +0100") : fix int types
 - ([ffcadd8](https://git.ide3.de/universumgames/mic-projekt/-/commit/ffcadd807b9406e338e93b46c0bf086d0f8d202c)) Universumgames on [2024-10-30](## "Wed, 30 Oct 2024 13:13:14 +0100") : update comments, add code check to cicd
 - ([fa70355](https://git.ide3.de/universumgames/mic-projekt/-/commit/fa703552eb888062bc76d002edbec24ce6b9c385)) Universumgames on [2024-10-30](## "Wed, 30 Oct 2024 11:30:40 +0100") : cleanup

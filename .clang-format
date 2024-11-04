@@ -30,3 +30,5 @@ IncludeCategories:
     - Regex: '.*'
       Priority: 3
 SpaceAfterCStyleCast: false
+IndentCaseLabels: true
+IndentGotoLabels: false
