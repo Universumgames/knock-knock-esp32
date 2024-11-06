@@ -2,6 +2,8 @@
 
 #include "AnalogRead.h"
 
+#include <PatternEncoder.h>
+#include <PatternTypes.h>
 #include <freertos/FreeRTOS.h>
 
 #define PATTERN_RECORDER_ANALOG_CHANNEL ((adc_channel_t)ADC_CHANNEL_0)
@@ -13,8 +15,7 @@ static const char* TAG_PATTERN_RECORDER = "PatternRecorder";
 
 static AnalogReadHandle* analogReadHandle = NULL;
 
-[[noreturn]]
-static void analogReadTask(void* pvParameters) {
+[[noreturn]] static void analogReadTask(void* pvParameters) {
     uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());
     int value = 0;
     while (true) {
@@ -25,6 +26,17 @@ static void analogReadTask(void* pvParameters) {
             lastRead = now;
             LOGI(TAG_PATTERN_RECORDER, "Read %d values in %llu ms", value,
                  delta);
+            PatternData* patternData = encodeAnalogData(value, delta);
+            if (patternData != NULL) {
+                LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");
+                // TODO check status
+                // match pattern if normal operation
+                // save pattern if recording
+                free(patternData->deltaTimesMillis);
+                free(patternData);
+            } else {
+                LOGD(TAG_PATTERN_RECORDER, "Pattern recording not finished");
+            }
         } else {
         }
         vTaskDelay(1);
