@@ -54,9 +54,6 @@ CPP_BEGIN void app_main() {
     ESP_LOGW("main", "Log test warn");
     ESP_LOGE("main", "Log test error");
 
-    xTaskCreate(fade, "lsd_led_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
-    // xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE *
-    // 2, NULL, 5, NULL);
     xTaskCreate(oneshotAnalogRead, "oneshot_analog_read_task",
                 ECHO_TASK_STACK_SIZE * 2, NULL, 5, NULL);
     // initPatternRecorder();
