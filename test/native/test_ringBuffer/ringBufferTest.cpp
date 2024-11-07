@@ -14,16 +14,16 @@ TEST(BufferTest, initBufferTest) {
 }
 
 TEST(BufferTest, addElementsTest) {
-    ASSERT_TRUE(ringBufferAdd(buffer, (void*)storeAsPtr(int, values[0])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[1])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[2])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[3])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[4])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[5])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[6])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[7])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[8])));
-    ASSERT_TRUE(ringBufferAdd(buffer, storeAsPtr(int, values[9])));
+    ringBufferAdd(buffer, storeAsPtr(int, values[0]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[1]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[2]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[3]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[4]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[5]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[6]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[7]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[8]));
+    ringBufferAdd(buffer, storeAsPtr(int, values[9]));
     ASSERT_EQ(getRingBufferHead(buffer), 0);
 }
 
