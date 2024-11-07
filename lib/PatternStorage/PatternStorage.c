@@ -9,29 +9,27 @@
 #define PATTERN_FILE_EXTENSION ".bin"
 #define PATTERN_FILE_PREFIX "pattern_"
 
-#define PATTERN_FILE_NAME(id)                                                  \
-    ({                                                                         \
-        char* idStr = intToString(id, 10);                                     \
-        LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);                    \
-        char* fileName =                                                       \
-            concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION);       \
-        LOGD(TAG_PATTERN_STORAGE, "Pattern file name: %s", fileName);          \
-        fileName;                                                              \
-    })
-
-#define PATTERN_FILE_PATH(id)                                                  \
-    ({                                                                         \
-        char* fileName = PATTERN_FILE_NAME(id);                                \
-        char* path = concat(PATTERN_STORAGE_PATH_FULL "/", fileName);          \
-        free(fileName);                                                        \
-        path;                                                                  \
-    })
-
 static const char* TAG_PATTERN_STORAGE = "PatternStorage";
 
 static bool patternStorageInitialized = false;
 
 #define PATTERN_STORAGE_PATH_ACCESS_MODE 0777
+
+char* patternFileName(int patternID) {
+    char* idStr = intToString(patternID, BASE_DECIMAL);
+    LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);
+    char* fileName =
+        concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION);
+    LOGD(TAG_PATTERN_STORAGE, "Pattern file name: %s", fileName);
+    return fileName;
+}
+
+char* patternFilePath(int patternID) {
+    char* fileName = patternFileName(patternID);
+    char* path = concat(PATTERN_STORAGE_PATH_FULL "/", fileName);
+    free(fileName);
+    return path;
+}
 
 bool initPatternStorage() {
     if (patternStorageInitialized) {
@@ -105,7 +103,7 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns,
     pattern->id = nextId;
     pattern->patternVersion = PATTERN_FILE_VERSION;
 
-    char* path = PATTERN_FILE_PATH(pattern->id);
+    char* path = patternFilePath(pattern->id);
     LOGD(TAG_PATTERN_STORAGE, "Pattern file path: %s", path);
     CHECK_NULL_GOTO(path, free_ps);
     FILE* file = fopen(path, "wbe");
@@ -244,7 +242,7 @@ bool deletePattern(int id) {
         return false;
     }
 
-    char* path = PATTERN_FILE_PATH(id);
+    char* path = patternFilePath(id);
     CHECK_NULL_GOTO_LOG(
         path, free_path,
         LOGE(TAG_PATTERN_STORAGE, "Failed to concatenate path"));

@@ -5,7 +5,7 @@
 
 #define MAX_INT_STRING_LEN 32
 
-char* intToString(int value, int base) {
+char* intToString(int value, Base base) {
     static char buf[MAX_INT_STRING_LEN] = {0};
     memset(buf, 0, MAX_INT_STRING_LEN);
     int i = MAX_INT_STRING_LEN - 2;

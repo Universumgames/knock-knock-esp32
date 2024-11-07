@@ -3,6 +3,15 @@
 
 HEADER_BEGIN
 
+enum Base_t {
+    BASE_BINARY = 2,
+    BASE_OCTAL = 8,
+    BASE_DECIMAL = 10,
+    BASE_HEXADECIMAL = 16
+};
+
+typedef enum Base_t Base;
+
 /**
  * @brief Convert an integer to a string
  * WARNING: This function uses a static buffer. If you need to keep the result,
@@ -12,7 +21,7 @@ HEADER_BEGIN
  * @param base the base to convert the integer to
  * @return char*
  */
-char* intToString(int value, int base);
+char* intToString(int value, Base base);
 
 int stringToInt(const char* str, int base);
 

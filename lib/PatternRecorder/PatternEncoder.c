@@ -106,6 +106,7 @@ PatternData* encodeAnalogData(int value, uint64_t deltaMs) {
     if (value > avg * THRESHOLD_DELTA_MULTIPLIER &&
         lastTriggeredValuesAgo > THRESHOLD_TRIGGER_TIMEOUT_VALUES) {
         // TODO add value to patternData
+
     } else {
         if (lastTriggeredValuesAgo < THRESHOLD_TRIGGER_TIMEOUT_VALUES * 2) {
             lastTriggeredValuesAgo++;
