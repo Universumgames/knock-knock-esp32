@@ -24,21 +24,21 @@ void updateLEDStatus(SchlossStatus status) {
     if (status != currentStatus) {
         currentStatus = status;
         switch (status) {
-        case SCHLOSS_VERRIEGELT:
-            setSTLED(COLOR_RED);
-            break;
-        case SCHLOSS_ENTRIEGELT:
-            setSTLED(COLOR_GREEN);
-            break;
-        case MUSTER_AUFNAHME:
-            setSTLED(COLOR_BLUE);
-            break;
-        case MUSTER_FAST_KORREKT:
-            setSTLED(COLOR_ORANGE);
-            break;
-        case FEHLERFALL:
-            setSTLED(COLOR_WHITE);
-            break;
+            case SCHLOSS_VERRIEGELT:
+                setSTLED(COLOR_RED);
+                break;
+            case SCHLOSS_ENTRIEGELT:
+                setSTLED(COLOR_GREEN);
+                break;
+            case MUSTER_AUFNAHME:
+                setSTLED(COLOR_BLUE);
+                break;
+            case MUSTER_FAST_KORREKT:
+                setSTLED(COLOR_ORANGE);
+                break;
+            case FEHLERFALL:
+                setSTLED(COLOR_WHITE);
+                break;
         }
     }
 }
