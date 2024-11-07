@@ -1,5 +1,6 @@
 
 # Changelog
+- ([4ee3284](https://git.ide3.de/universumgames/mic-projekt/-/commit/4ee32843f754dd710362d57ee06e47837ea1c545)) Universumgames on [2024-11-06](## "Wed, 6 Nov 2024 10:28:53 +0100") : use pattern encoder
 - ([9a449a9](https://git.ide3.de/universumgames/mic-projekt/-/commit/9a449a9fb719c0f943d320aab2b2a825804eb8b7)) Universumgames on [2024-11-06](## "Wed, 6 Nov 2024 10:28:33 +0100") : fix removed function
 - ([f2abc81](https://git.ide3.de/universumgames/mic-projekt/-/commit/f2abc81f175aafa5feebb27add397ec25cf9f94c)) Universumgames on [2024-11-06](## "Wed, 6 Nov 2024 10:28:08 +0100") : test code to get best encoding
 - ([b763fe7](https://git.ide3.de/universumgames/mic-projekt/-/commit/b763fe7c85d677d4c0f4ab9deaed440c78602f01)) Universumgames on [2024-11-04](## "Mon, 4 Nov 2024 10:54:28 +0100") : start implementing encoder

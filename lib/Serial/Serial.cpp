@@ -41,14 +41,13 @@ static QueueHandle_t uart0_queue;
 static std::queue<char> rxQueue;
 static std::queue<char> txQueue;
 
-static void uart_event_task(void* pvParameters) {
+[[noreturn]] static void uart_event_task(void* pvParameters) {
     uart_event_t event;
-    size_t buffered_size;
-    uint8_t* dtmp = (uint8_t*)malloc(RD_BUF_SIZE);
+    size_t buffered_size = 0;
+    auto* dtmp = static_cast<uint8_t*>(malloc(RD_BUF_SIZE));
     for (;;) {
         // Waiting for UART event.
-        if (xQueueReceive(uart0_queue, (void*)&event,
-                          (TickType_t)portMAX_DELAY)) {
+        if (xQueueReceive(uart0_queue, &event, portMAX_DELAY)) {
             bzero(dtmp, RD_BUF_SIZE);
             ESP_LOGI(TAG_SERIAL, "uart[%d] event:", HW_UART_NUM);
             switch (event.type) {
@@ -61,8 +60,7 @@ static void uart_event_task(void* pvParameters) {
                     uart_read_bytes(HW_UART_NUM, dtmp, event.size,
                                     portMAX_DELAY);
                     ESP_LOGI(TAG_SERIAL, "[DATA EVT]:");
-                    uart_write_bytes(HW_UART_NUM, (const char*)dtmp,
-                                     event.size);
+                    uart_write_bytes(HW_UART_NUM, dtmp, event.size);
                     for (int i = 0; i < event.size; i++) {
                         rxQueue.push(dtmp[i]);
                     }
@@ -140,7 +138,7 @@ static void uart_event_task(void* pvParameters) {
 void beginSerial(int baud) {
     /* Configure parameters of an UART driver,
      * communication pins and install the driver */
-    uart_config_t uart_config = {
+    uart_config_t const uart_config = {
         .baud_rate = baud,
         .data_bits = UART_DATA_8_BITS,
         .parity = UART_PARITY_DISABLE,
@@ -181,7 +179,7 @@ void serialFlush() {
     uart_flush(HW_UART_NUM);
 }
 
-void serialRead(char* data, int len) {
+void serialRead(char* data, const int len) {
     for (int i = 0; i < len - 1; i++) {
         if (rxQueue.empty()) {
             data[i] = '\0';
@@ -197,7 +195,7 @@ char serialReadChar() {
     if (rxQueue.empty()) {
         return '\0';
     }
-    char c = rxQueue.front();
+    char nextChar = rxQueue.front();
     rxQueue.pop();
-    return c;
+    return nextChar;
 }

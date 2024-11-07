@@ -4,10 +4,10 @@
 
 #define RMT_LED_STRIP_GPIO_NUM (GPIO_NUM_8)
 
-#define LED_STRIP_LENGTH 1
+#define LED_STRIP_LENGTH (1)
 
 static FastLEDConfig* config = NULL;
-const char* TAG_HW_LED = "HardwareLED";
+const static char* TAG_HW_LED = "HardwareLED";
 
 void initHardwareLED() {
     if (config != NULL) {

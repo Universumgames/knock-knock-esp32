@@ -23,7 +23,7 @@ void* list_pop_front(list_t* list);
 
 void* list_get(list_t* list, size_t index);
 
-size_t list_size(list_t* list);
+size_t list_size(const list_t* list);
 
 void list_foreach(list_t* list, void (*callback)(void*));
 

@@ -12,29 +12,29 @@
 
 #define ECHO_TASK_STACK_SIZE 2048
 
-int values[4096] = {0};
-size_t len = 0;
+static int values[4096] = {0};
 
-static void oneshotAnalogRead(void* pvParameters) {
-    int value;
-    adc_oneshot_unit_handle_t handle;
-    adc_cali_handle_t cali_handle;
+[[noreturn]] static void oneshotAnalogRead(void* pvParameters) {
+    static size_t len = 0;
+    int value = 0;
+    adc_oneshot_unit_handle_t handle = nullptr;
+    adc_cali_handle_t cali_handle = nullptr;
     init_oneshot(ADC_UNIT_1, ADC_ATTEN_DB_0, ADC_CHANNEL_0, &handle,
                  &cali_handle);
 
-    while (1) {
+    while (true) {
         read_oneshot(handle, ADC_CHANNEL_0, &value);
         // serialWrite("Analog value: ");
         // serialWrite(intToString(value, 10));
         // serialWrite("\n");
         values[len++] = value;
         if (len >= 4096) {
-            FILE* file = fopen(STORAGE_MOUNT_POINT "/data.bin", "wb");
+            FILE* file = fopen(STORAGE_MOUNT_POINT "/data.bin", "wbe");
             LOGI("main", "Int size: %d", sizeof(int));
             fwrite(values, sizeof(int), 4096, file);
             fclose(file);
             LOGI("main", "Wrote data to file");
-            vTaskDelete(NULL);
+            vTaskDelete(nullptr);
         }
         // ESP_LOGI("main", "Analog value: %d", value);
         vTaskDelay(1);
@@ -44,7 +44,7 @@ static void oneshotAnalogRead(void* pvParameters) {
 
 CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_INFO);
-    beginSerial(115200);
+    beginSerial(CONFIG_MONITOR_BAUD);
 
     initialize_lock_state();
 
@@ -59,7 +59,7 @@ CPP_BEGIN void app_main() {
     // initPatternRecorder();
 
     mountFS();
-    size_t len;
+    size_t len = 0;
     char** list = lsDir(STORAGE_MOUNT_POINT, &len);
     for (int i = 0; i < len; i++) {
         char* path = list[i];

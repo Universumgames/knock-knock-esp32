@@ -1,0 +1,6 @@
+---
+Checks: '*, -bugprone-easily-swappable-parameters, -modernize-macro-to-enum, -llvm-header-guard, -altera-unroll-loops, -llvmlibc-callee-namespace, -hicpp*, -google-readability-braces-around-statements, -cppcoreguidelines-avoid-non-const-global-variables'
+CheckOptions:
+  readability-function-cognitive-complexity.Threshold: 100
+  readability-braces-around-statements.ShortStatementLines: 3
+  readability-braces-around-statements.AllowShortIfStatementsWithoutBraces: true

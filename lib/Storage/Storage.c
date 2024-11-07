@@ -9,35 +9,43 @@
 
 static const char* TAG_STORAGE = "Storage";
 
+#define DIR_LS_START_SIZE 10
+
 char** lsDir(const char* path, size_t* len) {
-    struct stat st;
-    if (stat(path, &st) != 0) {
+    struct stat entryStat;
+    if (stat(path, &entryStat) != 0) {
         LOGE(TAG_STORAGE, "Failed to stat %s", path);
         return NULL;
     }
 
-    if (S_ISDIR(st.st_mode)) {
+    if (S_ISDIR(entryStat.st_mode)) {
         LOGI(TAG_STORAGE, "Listing directory %s", path);
-        struct dirent* de;
+        struct dirent* dirEntry = NULL;
         DIR* dir = opendir(path);
         if (dir == NULL) {
             LOGE(TAG_STORAGE, "Failed to open directory %s", path);
             return NULL;
         }
 
-        size_t storage_len = 10;
+        size_t storage_len = DIR_LS_START_SIZE;
         char** files = (char**)calloc(sizeof(char*), storage_len);
         int index = 0;
         *len = 0;
 
-        while ((de = readdir(dir)) != NULL) {
-            if (strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0) {
+        while ((dirEntry = readdir(dir)) != NULL) {
+            if (strcmp(dirEntry->d_name, ".") == 0 ||
+                strcmp(dirEntry->d_name, "..") == 0) {
                 continue;
             }
-            files[index++] = strdup(de->d_name);
+            files[index++] = strdup(dirEntry->d_name);
             if (index >= storage_len) {
-                storage_len *= 2;
-                files = (char**)realloc(files, sizeof(char*) * storage_len);
+                size_t new_len = storage_len + DIR_LS_START_SIZE;
+                char** new_files =
+                    (char**)realloc((void*)files, sizeof(char*) * storage_len);
+                if (new_files != NULL) {
+                    files = new_files;
+                    storage_len = new_len;
+                }
             }
         }
         closedir(dir);
