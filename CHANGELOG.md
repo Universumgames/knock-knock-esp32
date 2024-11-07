@@ -1,5 +1,6 @@
 
 # Changelog
+- ([eceb5f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/eceb5f9defb33ad8514e467dc5d55fa353530a4e)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:03:07 +0100") : continue with pattern encoder
 - ([8f64b4b](https://git.ide3.de/universumgames/mic-projekt/-/commit/8f64b4b024da2a603d8dcfe862decbf47d5dc6ef)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:02:30 +0100") : add thread prio header
 - ([ba8fab1](https://git.ide3.de/universumgames/mic-projekt/-/commit/ba8fab1710113d1ebba23f83b322992b78d816a8)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:02:07 +0100") : ring buffer fixes and added tests
 - ([03d64da](https://git.ide3.de/universumgames/mic-projekt/-/commit/03d64dad07745754426b30ee4d325e5cf3eb279d)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:44:43 +0100") : fix string test
