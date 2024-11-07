@@ -1,10 +1,10 @@
 #include "_AnalogRead_internal.h"
 
-static const char* TAG_ANALOG_READ = "AnalogRead";
+const static char* TAG_ANALOG_READ = "AnalogRead";
 
 #define READ_LEN (SOC_ADC_DIGI_DATA_BYTES_PER_CONV * 64)
 
-bool continuous_init(adc_channel_t* channel, uint8_t channel_num,
+bool continuous_init(const adc_channel_t* channel, const uint8_t channel_num,
                      adc_atten_t atten, adc_continuous_handle_t* out_handle) {
     adc_continuous_handle_t handle = NULL;
 

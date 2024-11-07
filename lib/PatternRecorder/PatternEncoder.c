@@ -1,5 +1,6 @@
 #include "PatternEncoder.h"
 
+#include "ring_buffer.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -12,7 +13,7 @@ void saveRawToFile(int rawValue) {
     static size_t fileWriteCount = 0;
 
     if (file == NULL && fileWriteCount == 0) {
-        file = fopen("encoded_raw.bin", "wb");
+        file = fopen("encoded_raw.bin", "wbe");
     }
     fwrite(&rawValue, sizeof(int), 1, file);
     fileWriteCount++;
@@ -27,7 +28,7 @@ void saveAVGToFile(int avgValue) {
     static size_t fileWriteCount = 0;
 
     if (file == NULL && fileWriteCount == 0) {
-        file = fopen("encoded_avg.bin", "wb");
+        file = fopen("encoded_avg.bin", "wbe");
     }
     fwrite(&avgValue, sizeof(int), 1, file);
     fileWriteCount++;
@@ -42,7 +43,7 @@ void saveDeltaToFile(uint64_t deltaMs) {
     static size_t fileWriteCount = 0;
 
     if (file == NULL && fileWriteCount == 0) {
-        file = fopen("encoded_delta.bin", "wb");
+        file = fopen("encoded_delta.bin", "wbe");
     }
     fwrite(&deltaMs, sizeof(uint64_t), 1, file);
     fileWriteCount++;
@@ -52,26 +53,32 @@ void saveDeltaToFile(uint64_t deltaMs) {
     }
 }
 
-#define BUFFER_INDEX_INC bufferIndex = (bufferIndex + 1) % BUFFER_LEN;
-#define BUFFER_LAST_VALUE (lastValues[bufferIndex])
-#define BUFFER_AVG_VALUE                                                       \
-    ({                                                                         \
-        unsigned long sum = 0;                                                 \
-        for (int i = 0; i < BUFFER_LEN; i++) {                                 \
-            sum += lastValues[i];                                              \
-        }                                                                      \
-        sum / BUFFER_LEN;                                                      \
-    })
-#define BUFFER_DELTA_LAST_TIME (BUFFER_LAST_VALUE - value)
+#define THRESHOLD_DELTA_MULTIPLIER                                             \
+    (1.5) // how much higher the value has to be compared to the avg to trigger
+          // a "knock"
+#define THRESHOLD_TRIGGER_TIMEOUT_VALUES                                       \
+    (20) // how many values have to be read before triggering again
 
 #define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) (oldSize + 5)
+
+int bufferAVG(int** buffer, const size_t len) {
+    unsigned long sum = 0;
+    for (int i = 0; i < len; i++) {
+        sum += *buffer[i];
+    }
+    return (sum / len);
+}
 
 PatternData* encodeAnalogData(int value, uint64_t deltaMs) {
     static PatternData patternData = {0};
     static size_t patternDataBufLen = 0;
-    static int lastValues[BUFFER_LEN] = {0};     // ringbuffer
-    static uint64_t lastTimes[BUFFER_LEN] = {0}; // ringbuffer
-    static int bufferIndex = 0;                  // ringbuffer index
+    static RingBuffer lastValues = NULL;
+    if (lastValues == NULL)
+        lastValues = ringBufferCreate(BUFFER_LEN, sizeof(int));
+    static RingBuffer lastTimes = NULL;
+    if (lastTimes == NULL)
+        ringBufferCreate(BUFFER_LEN, sizeof(uint64_t));
+    static int lastTriggeredValuesAgo = THRESHOLD_TRIGGER_TIMEOUT_VALUES;
 
     // increase delta millis array if exceeding max length
     if (patternData.deltaTimesMillis == NULL) {
@@ -89,13 +96,23 @@ PatternData* encodeAnalogData(int value, uint64_t deltaMs) {
         }
     }
 
+    int avg = bufferAVG((int**)ringBufferGetAll(lastValues), BUFFER_LEN);
+    int delta = *(int*)ringBufferGetElement(lastValues, -1);
+
     saveRawToFile(value);
-    saveDeltaToFile(BUFFER_DELTA_LAST_TIME);
-    saveAVGToFile(BUFFER_AVG_VALUE);
+    saveDeltaToFile(delta);
+    saveAVGToFile(avg);
 
-    // TODO add value to patternData
+    if (value > avg * THRESHOLD_DELTA_MULTIPLIER &&
+        lastTriggeredValuesAgo > THRESHOLD_TRIGGER_TIMEOUT_VALUES) {
+        // TODO add value to patternData
+    } else {
+        if (lastTriggeredValuesAgo < THRESHOLD_TRIGGER_TIMEOUT_VALUES * 2) {
+            lastTriggeredValuesAgo++;
+        }
+    }
 
-    BUFFER_INDEX_INC;
+    ringBufferAdd(lastValues, storeAsPtr(int, value));
 
     if (deltaMs > PATTERN_MAX_DELTA_MS) {
         goto returnPattern;
@@ -110,9 +127,6 @@ returnPattern:
     memcpy(ret->deltaTimesMillis, patternData.deltaTimesMillis,
            sizeof(uint64_t) * patternData.lengthPattern);
 
-    memset(lastValues, 0, sizeof(lastValues));
-    memset(lastTimes, 0, sizeof(lastTimes));
-    bufferIndex = 0;
     patternDataBufLen = 0;
     free(patternData.deltaTimesMillis);
     memset(&patternData, 0, sizeof(PatternData));

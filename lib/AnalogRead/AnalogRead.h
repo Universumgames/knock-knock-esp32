@@ -2,8 +2,8 @@
 #include "basicDefs.h"
 #include <hal/adc_types.h>
 
-#define ANALOG_READ_ONESHOT (1)
-#define ANALOG_READ_CONTINUOUS (0)
+#define ANALOG_READ_ONESHOT
+// #define ANALOG_READ_CONTINUOUS
 
 HEADER_BEGIN
 

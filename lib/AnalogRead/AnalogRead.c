@@ -1,7 +1,7 @@
 #include "AnalogRead.h"
 #include "_AnalogRead_internal.h"
 
-#if ANALOG_READ_ONESHOT
+#ifdef ANALOG_READ_ONESHOT
 
 struct AnalogReadHandle_internal {
     adc_oneshot_unit_handle_t handle;
@@ -11,10 +11,10 @@ struct AnalogReadHandle_internal {
     adc_unit_t adc_unit;
 };
 
-AnalogReadHandle* initAnalogRead(adc_unit_t adc_unit, adc_atten_t attenuation,
-                                 adc_channel_t channel) {
-    AnalogReadHandle* handle =
-        (AnalogReadHandle*)calloc(sizeof(AnalogReadHandle), 1);
+AnalogReadHandle* initAnalogRead(const adc_unit_t adc_unit,
+                                 const adc_atten_t attenuation,
+                                 const adc_channel_t channel) {
+    AnalogReadHandle* handle = calloc(sizeof(AnalogReadHandle), 1);
     if (!handle) {
         return NULL;
     }
@@ -39,12 +39,12 @@ bool readAnalogValuePtr(AnalogReadHandle* handle, int* rawValue) {
 }
 
 int readAnalogValue(AnalogReadHandle* handle) {
-    int value;
+    int value = 0;
     readAnalogValuePtr(handle, &value);
     return value;
 }
 
-#else if ANALOG_READ_CONTINUOUS
+#else if defined(ANALOG_READ_CONTINUOUS)
 
 // TODO: Implement continuous mode
 
