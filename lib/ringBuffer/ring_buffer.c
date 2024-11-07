@@ -23,12 +23,12 @@ RingBuffer ringBufferCreate(size_t size, size_t elementSize) {
     return buffer;
 }
 
-bool ringBufferAdd(RingBuffer buffer, void* element) {
+void ringBufferAdd(RingBuffer buffer, void* element) {
     if (buffer == NULL || element == NULL)
-        return false;
+        return;
+    free(buffer->elements[buffer->headIndex]);
     buffer->elements[buffer->headIndex] = element;
     buffer->headIndex = (buffer->headIndex + 1) % buffer->size;
-    return true;
 }
 
 void** ringBufferGetAll(RingBuffer buffer) {
@@ -74,7 +74,9 @@ void* ringBufferGetElement(RingBuffer buffer, int index) {
     while (indexToUse < 0) {
         indexToUse += buffer->size;
     }
-    return buffer->elements[(buffer->headIndex + indexToUse) % buffer->size];
+    size_t bufferIndex = (buffer->headIndex + indexToUse) % buffer->size;
+    LOGD("RingBuffer", "Index: %d, BufferIndex: %d", index, bufferIndex);
+    return buffer->elements[bufferIndex];
 }
 
 void ringBufferClear(RingBuffer buffer) {
@@ -86,4 +88,10 @@ void ringBufferClear(RingBuffer buffer) {
     }
     free(buffer->elements);
     buffer->headIndex = 0;
+}
+
+int getRingBufferHead(RingBuffer buffer) {
+    if (buffer == NULL)
+        return -1;
+    return buffer->headIndex;
 }
