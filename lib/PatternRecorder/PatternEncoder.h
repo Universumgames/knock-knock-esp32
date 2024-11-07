@@ -5,6 +5,14 @@
 HEADER_BEGIN
 
 /**
+ * @brief Initialize the pattern recorder
+ *
+ * @return true if the initialization was successful
+ * @return false if the initialization failed
+ */
+bool initPatternEncoder();
+
+/**
  * @brief Consecutively encode the value and the delta time into a PatternData
  * struct Encode the recorded analog value and the delta time since the last
  * `encode` call returns a PatternData struct with the encoded data when a
@@ -16,6 +24,6 @@ HEADER_BEGIN
  * @return PatternData* the encoded pattern data or NULL if the pattern is not
  * complete
  */
-PatternData* encodeAnalogData(int value, uint64_t deltaMs);
+PatternData* encodeAnalogData(analog_v value, uint64_t deltaMs);
 
 HEADER_END

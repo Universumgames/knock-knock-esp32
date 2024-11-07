@@ -24,9 +24,8 @@ static AnalogReadHandle* analogReadHandle = NULL;
             const uint64_t now = pdTICKS_TO_MS(xTaskGetTickCount());
             const uint64_t delta = now - lastRead;
             lastRead = now;
-            LOGI(TAG_PATTERN_RECORDER, "Read %d values in %llu ms", value,
-                 delta);
-            PatternData* patternData = encodeAnalogData(value, delta);
+            LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
+            PatternData* patternData = encodeAnalogData((analog_v)value, delta);
             if (patternData != NULL) {
                 LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");
                 // TODO check status
@@ -57,8 +56,9 @@ bool initPatternRecorder() {
         goto error;
     }
 
-    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE, NULL,
-                5, NULL);
+    initPatternEncoder();
+    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE * 2,
+                NULL, THREAD_PRIO_RECORDING, NULL);
     ESP_LOGI(TAG_PATTERN_RECORDER, "ADC continuous started");
     goto end;
 

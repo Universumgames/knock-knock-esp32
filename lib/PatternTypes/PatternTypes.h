@@ -5,6 +5,8 @@
 
 HEADER_BEGIN
 
+typedef uint16_t analog_v; // Pattern-Sensor Data
+
 typedef struct {
     uint8_t patternVersion;
     int id;
