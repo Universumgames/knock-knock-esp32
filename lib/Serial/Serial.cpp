@@ -41,26 +41,25 @@ static QueueHandle_t uart0_queue;
 static std::queue<char> rxQueue;
 static std::queue<char> txQueue;
 
-static void uart_event_task(void* pvParameters) {
+[[noreturn]] static void uart_event_task(void* pvParameters) {
     uart_event_t event;
-    size_t buffered_size;
-    uint8_t* dtmp = (uint8_t*)malloc(RD_BUF_SIZE);
+    size_t buffered_size = 0;
+    auto* dtmp = static_cast<uint8_t*>(malloc(RD_BUF_SIZE));
     for (;;) {
         // Waiting for UART event.
-        if (xQueueReceive(uart0_queue, (void*)&event,
-                          (TickType_t)portMAX_DELAY)) {
+        if (xQueueReceive(uart0_queue, &event, portMAX_DELAY)) {
             bzero(dtmp, RD_BUF_SIZE);
             ESP_LOGI(TAG_SERIAL, "uart[%d] event:", HW_UART_NUM);
             switch (event.type) {
             // Event of UART receiving data
-            /*We'd better handler data event fast, there would be much more data
-            events than other types of events. If we take too much time on data
-            event, the queue might be full.*/
+            /*We'd better handler data event fast, there would be much more
+            data events than other types of events. If we take too much time
+            on data event, the queue might be full.*/
             case UART_DATA:
                 ESP_LOGI(TAG_SERIAL, "[UART DATA]: %d", event.size);
                 uart_read_bytes(HW_UART_NUM, dtmp, event.size, portMAX_DELAY);
                 ESP_LOGI(TAG_SERIAL, "[DATA EVT]:");
-                uart_write_bytes(HW_UART_NUM, (const char*)dtmp, event.size);
+                uart_write_bytes(HW_UART_NUM, dtmp, event.size);
                 for (int i = 0; i < event.size; i++) {
                     rxQueue.push(dtmp[i]);
                 }
@@ -68,19 +67,19 @@ static void uart_event_task(void* pvParameters) {
             // Event of HW FIFO overflow detected
             case UART_FIFO_OVF:
                 ESP_LOGI(TAG_SERIAL, "hw fifo overflow");
-                // If fifo overflow happened, you should consider adding flow
-                // control for your application. The ISR has already reset the
-                // rx FIFO, As an example, we directly flush the rx buffer here
-                // in order to read more data.
+                // If fifo overflow happened, you should consider adding
+                // flow control for your application. The ISR has already
+                // reset the rx FIFO, As an example, we directly flush the
+                // rx buffer here in order to read more data.
                 uart_flush_input(HW_UART_NUM);
                 xQueueReset(uart0_queue);
                 break;
             // Event of UART ring buffer full
             case UART_BUFFER_FULL:
                 ESP_LOGI(TAG_SERIAL, "ring buffer full");
-                // If buffer full happened, you should consider increasing your
-                // buffer size As an example, we directly flush the rx buffer
-                // here in order to read more data.
+                // If buffer full happened, you should consider increasing
+                // your buffer size As an example, we directly flush the rx
+                // buffer here in order to read more data.
                 uart_flush_input(HW_UART_NUM);
                 xQueueReset(uart0_queue);
                 break;
@@ -105,9 +104,10 @@ static void uart_event_task(void* pvParameters) {
                          pos, buffered_size);
                 if (pos == -1) {
                     // There used to be a UART_PATTERN_DET event, but the
-                    // pattern position queue is full so that it can not record
-                    // the position. We should set a larger queue size. As an
-                    // example, we directly flush the rx buffer here.
+                    // pattern position queue is full so that it can not
+                    // record the position. We should set a larger queue
+                    // size. As an example, we directly flush the rx buffer
+                    // here.
                     uart_flush_input(HW_UART_NUM);
                 } else {
                     uart_read_bytes(HW_UART_NUM, dtmp, pos,
@@ -136,7 +136,7 @@ static void uart_event_task(void* pvParameters) {
 void beginSerial(int baud) {
     /* Configure parameters of an UART driver,
      * communication pins and install the driver */
-    uart_config_t uart_config = {
+    uart_config_t const uart_config = {
         .baud_rate = baud,
         .data_bits = UART_DATA_8_BITS,
         .parity = UART_PARITY_DISABLE,
@@ -177,7 +177,7 @@ void serialFlush() {
     uart_flush(HW_UART_NUM);
 }
 
-void serialRead(char* data, int len) {
+void serialRead(char* data, const int len) {
     for (int i = 0; i < len - 1; i++) {
         if (rxQueue.empty()) {
             data[i] = '\0';
@@ -193,7 +193,7 @@ char serialReadChar() {
     if (rxQueue.empty()) {
         return '\0';
     }
-    char c = rxQueue.front();
+    char nextChar = rxQueue.front();
     rxQueue.pop();
-    return c;
+    return nextChar;
 }

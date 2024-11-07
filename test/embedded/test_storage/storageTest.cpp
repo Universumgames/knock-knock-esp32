@@ -10,7 +10,7 @@ TEST(Storage, mount) {
 }
 
 TEST(Storage, createFileTest) {
-    FILE* file = fopen(TEST_FILE_NAME, "w");
+    FILE* file = fopen(TEST_FILE_NAME, "we");
     EXPECT_NE(file, nullptr);
     fclose(file);
 }
@@ -31,14 +31,14 @@ TEST(Storage, listDirTest) {
 }
 
 TEST(Storage, writeToFileTest) {
-    FILE* file = fopen(TEST_FILE_NAME, "w");
+    FILE* file = fopen(TEST_FILE_NAME, "we");
     EXPECT_NE(file, nullptr);
     fprintf(file, TEST_FILE_CONTENT);
     fclose(file);
 }
 
 TEST(Storage, readFileTest) {
-    FILE* file = fopen(TEST_FILE_NAME, "r");
+    FILE* file = fopen(TEST_FILE_NAME, "re");
     EXPECT_NE(file, nullptr);
     char buffer[100];
     char* res = fgets(buffer, sizeof(buffer), file);

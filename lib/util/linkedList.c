@@ -95,7 +95,7 @@ void* list_get(list_t* list, size_t index) {
     return current->data;
 }
 
-size_t list_size(list_t* list) {
+size_t list_size(const list_t* list) {
     return list->size;
 }
 
@@ -112,9 +112,8 @@ void list_reset(list_t* list) {
 }
 
 void* list_next(list_t* list) {
-    if (list->current == NULL) {
+    if (list->current == NULL)
         return NULL;
-    }
     void* data = list->current->data;
     list->current = list->current->next;
     return data;

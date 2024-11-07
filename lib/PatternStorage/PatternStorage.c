@@ -31,6 +31,8 @@ static const char* TAG_PATTERN_STORAGE = "PatternStorage";
 
 static bool patternStorageInitialized = false;
 
+#define PATTERN_STORAGE_PATH_ACCESS_MODE 0777
+
 bool initPatternStorage() {
     if (patternStorageInitialized) {
         return true;
@@ -43,10 +45,11 @@ bool initPatternStorage() {
     if (fileExists(PATTERN_STORAGE_PATH_FULL)) {
         ret &= true;
     } else {
-        int retDir = mkdir(PATTERN_STORAGE_PATH_FULL, 0777);
+        int retDir =
+            mkdir(PATTERN_STORAGE_PATH_FULL, PATTERN_STORAGE_PATH_ACCESS_MODE);
         LOGD(TAG_PATTERN_STORAGE, "Directory created with return code %d",
              retDir);
-        ret &= (retDir == 0);
+        ret &= retDir == 0;
         if (!ret) {
             LOGE(TAG_PATTERN_STORAGE, "Failed to create directory");
             return ret;
@@ -58,8 +61,8 @@ bool initPatternStorage() {
     return ret;
 }
 
-int getNextPatternId(PatternData* existingPatterns,
-                     size_t existingPatternsLen) {
+int getNextPatternId(const PatternData* existingPatterns,
+                     const size_t existingPatternsLen) {
     if (!patternStorageInitialized) {
         LOGE(TAG_PATTERN_STORAGE, "Pattern storage not initialized");
         return -1;
@@ -76,7 +79,7 @@ int getNextPatternId(PatternData* existingPatterns,
 }
 
 bool storePattern(PatternData* pattern, PatternData* existingPatterns,
-                  size_t existingPatternsLen) {
+                  const size_t existingPatternsLen) {
     bool ret = true;
     // check if pattern storage is initialized
     if (!patternStorageInitialized) {
@@ -105,7 +108,7 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns,
     char* path = PATTERN_FILE_PATH(pattern->id);
     LOGD(TAG_PATTERN_STORAGE, "Pattern file path: %s", path);
     CHECK_NULL_GOTO(path, free_ps);
-    FILE* file = fopen(path, "wb");
+    FILE* file = fopen(path, "wbe");
     // check if file could be opened
     if (file == NULL) {
         LOGE(TAG_PATTERN_STORAGE, "Failed to open file");
@@ -143,10 +146,10 @@ free_ps:
     return ret;
 }
 
-PatternData* loadPattern(char* filename) {
+PatternData* loadPattern(const char* filename) {
     char* path = concat3(PATTERN_STORAGE_PATH_FULL "/", filename, "");
     LOGD(TAG_PATTERN_STORAGE, "Loading pattern from %s", path);
-    FILE* file = fopen(path, "rb");
+    FILE* file = fopen(path, "rbe");
     free(path);
     if (file == NULL) {
         LOGE(TAG_PATTERN_STORAGE, "Failed to open file");
@@ -155,7 +158,7 @@ PatternData* loadPattern(char* filename) {
 
     // read pattern version to check if file is compatible with current struct
     // encoding
-    uint8_t patternVersion;
+    uint8_t patternVersion = 0;
     size_t read = fread(&patternVersion, sizeof(uint8_t), 1, file);
     CHECK_DO(patternVersion != PATTERN_FILE_VERSION,
              LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch");
@@ -212,8 +215,9 @@ PatternData** loadPatterns(size_t* len) {
 
     for (size_t i = 0; i < *len; i++) {
         patternPtrs[i] = loadPattern(fileNames[i]);
-        CHECK_DO(patternPtrs[i] == NULL,
-                 LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
+        CHECK_NULL_GOTO_LOG(
+            patternPtrs[i], free_patterns,
+            LOGE(TAG_PATTERN_STORAGE, "Failed to load pattern"));
     }
     goto free_paths; // on success, free paths and return patterns
 
@@ -230,7 +234,6 @@ free_paths:
             free(fileNames[i]);
     }
     free(fileNames);
-end:
     return patternPtrs;
 }
 

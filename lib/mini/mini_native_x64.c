@@ -1,9 +1,8 @@
 #include "mini.h"
 
-int max(int a, int b) {
-    if (a > b) {
-        return a;
-    } else {
-        return b;
+int max(int numberA, int numberB) {
+    if (numberA > numberB) {
+        return numberA;
     }
+    return numberB;
 }

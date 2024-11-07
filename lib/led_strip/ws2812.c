@@ -61,7 +61,7 @@ static size_t encoder_callback(const void* data, size_t data_size,
     // Alternatively, we could use some counter referenced by the arg
     // parameter to keep track of this.
     size_t data_pos = symbols_written / 8;
-    uint8_t* data_bytes = (uint8_t*)data;
+    const uint8_t* data_bytes = (uint8_t*)data;
     if (data_pos < data_size) {
         // Encode a byte
         size_t symbol_pos = 0;
