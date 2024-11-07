@@ -1,5 +1,6 @@
 
 # Changelog
+- ([48cd7ec](https://git.ide3.de/universumgames/mic-projekt/-/commit/48cd7ecef43b659950dafe297fac3ade155d8eb9)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:04:22 +0100") : encoder tests
 - ([dd17fbb](https://git.ide3.de/universumgames/mic-projekt/-/commit/dd17fbb015fbef4d9d53f559435d771e9784d6cf)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:03:20 +0100") : increase maximum opened files
 - ([eceb5f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/eceb5f9defb33ad8514e467dc5d55fa353530a4e)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:03:07 +0100") : continue with pattern encoder
 - ([8f64b4b](https://git.ide3.de/universumgames/mic-projekt/-/commit/8f64b4b024da2a603d8dcfe862decbf47d5dc6ef)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:02:30 +0100") : add thread prio header
