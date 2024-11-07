@@ -1,5 +1,6 @@
 
 # Changelog
+- ([0a72fc2](https://git.ide3.de/universumgames/mic-projekt/-/commit/0a72fc2ca654486e33fb4c6326cec5578aa8f266)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:14:57 +0100") : use ringbuffer, clang-tidy fixes
 - ([bc4289d](https://git.ide3.de/universumgames/mic-projekt/-/commit/bc4289d1f5da9c9d738c0064b9e8e6e5ce68025a)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:13:23 +0100") : Merge branch 'main' into feature-pattern-record
 - ([a589934](https://git.ide3.de/universumgames/mic-projekt/-/commit/a589934b623e6df17331466dfa71c8200d3757b0)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:12:04 +0100") : clang tidy warnings fix, add ring buffer
 - ([4ee3284](https://git.ide3.de/universumgames/mic-projekt/-/commit/4ee32843f754dd710362d57ee06e47837ea1c545)) Universumgames on [2024-11-06](## "Wed, 6 Nov 2024 10:28:53 +0100") : use pattern encoder

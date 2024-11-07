@@ -32,3 +32,4 @@ IncludeCategories:
 SpaceAfterCStyleCast: false
 IndentCaseLabels: true
 IndentGotoLabels: false
+ColumnLimit: 80
