@@ -1,4 +1,4 @@
-# Dokumentation Sprint 1
+# Sprint Retro 1
 
 ## Einleitung
 Mit dem Produkt Klopf-Klopf wollen wir eine Möglichkeit bieten, klassische Passwörter oder Schlösser durch ein System zur Identifizierung durch eindeutige Klopfmuster zu ersetzen.

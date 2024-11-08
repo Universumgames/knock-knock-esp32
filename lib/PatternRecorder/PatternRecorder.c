@@ -1,6 +1,7 @@
 #include "PatternRecorder.h"
 
 #include "AnalogRead.h"
+#include "freertos/projdefs.h"
 
 #include <PatternEncoder.h>
 #include <PatternTypes.h>

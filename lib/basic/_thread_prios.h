@@ -1,3 +1,5 @@
 #pragma once
 
 #define THREAD_PRIO_RECORDING 10
+#define THREAD_PRIO_LOCK 4
+#define THREAD_PRIO_SERIAL 5

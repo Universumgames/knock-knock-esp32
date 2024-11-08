@@ -168,7 +168,8 @@ void beginSerial(int baud) {
     serialFlush();
 
     // Create a task to handler UART event from ISR
-    xTaskCreate(uart_event_task, "uart_event_task", 3072, NULL, 12, NULL);
+    xTaskCreate(uart_event_task, "uart_event_task", 3072, NULL,
+                THREAD_PRIO_SERIAL, NULL);
 }
 
 void serialWrite(const char* data) {
