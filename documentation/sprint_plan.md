@@ -46,7 +46,7 @@ Kapitän: Simon Vehreschild
 
 - Platine entwerfen
   - Verantwortlicher: Jovan Arnaut
-  - Zeitaufwand: 20 Stunden
+  - Zeitaufwand: 25 Stunden
 
 - Muster einspeichern
   - Verantwortlicher: Jovan Arnaut, Tom Arlt
@@ -71,6 +71,14 @@ Kapitän: Simon Vehreschild
 
 ## Sprint 3
 Kapitän: Jovan Arnaut
+
+- Musteraufnahme (und Komprimierung)
+  - Verantwortlicher: Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 15 Stunden
+
+- Mustererkennung
+  - Verantwortlicher: Tom Arlt, Simon Vehreschild
+  - Zeitaufwand: 40 Stunden
 
 - Muster löschen
   - Verantwortlicher: Tom Arlt

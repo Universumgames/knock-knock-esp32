@@ -1,5 +1,6 @@
 
 # Changelog
+- ([f35bbc6](https://git.ide3.de/universumgames/mic-projekt/-/commit/f35bbc676327295653ecf0b8b9bd34507d316b91)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 02:05:05 +0100") : fix compile
 - ([fb8e2e3](https://git.ide3.de/universumgames/mic-projekt/-/commit/fb8e2e39a2b6c4730b1f321638511326ee74f7f0)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:43:06 +0100") : missing partition table
 - ([0de0811](https://git.ide3.de/universumgames/mic-projekt/-/commit/0de0811782bec8077c69343b5dda2c6e952c22d7)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:38:58 +0100") : fix 4mb flash
 - ([b29f7f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/b29f7f9dbcacc173474911e1e16de23c828cf5cf)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:22:49 +0100") : update pio file
