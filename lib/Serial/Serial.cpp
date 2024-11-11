@@ -4,13 +4,13 @@
 // https://github.com/espressif/esp-idf/blob/master/examples/peripherals/uart/uart_events/main/uart_events_example_main.c
 // Modified by: Tom Arlt
 
+#include <cstdio>
+#include <cstring>
 #include <driver/uart.h>
 #include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <freertos/task.h>
-#include <stdio.h>
-#include <string.h>
 
 #include <queue>
 

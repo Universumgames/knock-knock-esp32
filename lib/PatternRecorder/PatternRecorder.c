@@ -29,7 +29,7 @@ static AnalogReadHandle* analogReadHandle = NULL;
             PatternData* patternData = encodeAnalogData((analog_v)value, delta);
             if (patternData != NULL) {
                 LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");
-                // TODO check status
+                // TODO(#8) check status
                 // match pattern if normal operation
                 // save pattern if recording
                 free(patternData->deltaTimesMillis);

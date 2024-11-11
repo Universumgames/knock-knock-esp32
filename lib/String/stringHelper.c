@@ -8,19 +8,19 @@
 char* intToString(int value, Base base) {
     static char buf[MAX_INT_STRING_LEN] = {0};
     memset(buf, 0, MAX_INT_STRING_LEN);
-    int i = MAX_INT_STRING_LEN - 2;
+    int index = MAX_INT_STRING_LEN - 2;
     if (value == 0) {
-        buf[i] = '0';
-        return &buf[i];
+        buf[index] = '0';
+        return &buf[index];
     }
     int isNegative = value < 0;
     if (isNegative)
         value = -value;
-    for (; value && i; --i, value /= base)
-        buf[i] = "0123456789abcdefghijklmnopqrstuvwxyz"[value % base];
+    for (; value && index; --index, value /= base)
+        buf[index] = "0123456789abcdefghijklmnopqrstuvwxyz"[value % base];
     if (isNegative)
-        buf[i--] = '-';
-    return &buf[i + 1];
+        buf[index--] = '-';
+    return &buf[index + 1];
 }
 
 int stringToInt(const char* str, int base) {

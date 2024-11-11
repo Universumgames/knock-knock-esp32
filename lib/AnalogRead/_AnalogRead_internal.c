@@ -151,7 +151,7 @@ void read_oneshot(adc_oneshot_unit_handle_t handle, adc_channel_t channel,
 void readVoltage_oneshot(adc_oneshot_unit_handle_t handle,
                          adc_channel_t channel, adc_cali_handle_t cali_handle,
                          int* voltage) {
-    int value;
+    int value = 0;
     read_oneshot(handle, channel, &value);
     adc_cali_raw_to_voltage(cali_handle, value, voltage);
 }

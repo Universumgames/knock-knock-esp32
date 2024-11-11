@@ -67,7 +67,7 @@ void saveDeltaToFile(int32_t delta) {
 #define THRESHOLD_TRIGGER_TIMEOUT_VALUES                                       \
     (20) // how many values have to be read before triggering again
 
-#define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) (oldSize + 5)
+#define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 5)
 
 analog_v bufferAVG(analog_v** buffer, const size_t len) {
     unsigned long sum = 0;
@@ -148,7 +148,7 @@ PatternData* encodeAnalogData(analog_v value, uint64_t deltaMs) {
 
     if (value > avg * THRESHOLD_DELTA_MULTIPLIER &&
         lastTriggeredValuesAgo > THRESHOLD_TRIGGER_TIMEOUT_VALUES) {
-        // TODO add value to patternData
+        // TODO(#8) add value to patternData
 
     } else {
         if (lastTriggeredValuesAgo < THRESHOLD_TRIGGER_TIMEOUT_VALUES * 2) {

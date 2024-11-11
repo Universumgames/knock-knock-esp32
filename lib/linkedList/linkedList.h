@@ -5,9 +5,9 @@
 
 HEADER_BEGIN
 
-struct __list;
+struct __ll_list;
 
-typedef struct __list list_t;
+typedef struct __ll_list list_t;
 
 list_t* list_create();
 

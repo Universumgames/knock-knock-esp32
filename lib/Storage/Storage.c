@@ -58,6 +58,6 @@ char** lsDir(const char* path, size_t* len) {
 }
 
 bool fileExists(const char* path) {
-    struct stat st;
-    return stat(path, &st) == 0;
+    struct stat fileStat;
+    return stat(path, &fileStat) == 0;
 }

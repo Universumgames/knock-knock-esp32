@@ -1,5 +1,6 @@
 
 # Changelog
+- ([62586cf](https://git.ide3.de/universumgames/mic-projekt/-/commit/62586cf243ba6ebf202729d89a836cbf4058808e)) Universumgames on [2024-11-08](## "Fri, 8 Nov 2024 15:41:41 +0100") : bugfixes and preparing sprint retro
 - ([2d5a2cd](https://git.ide3.de/universumgames/mic-projekt/-/commit/2d5a2cdce5b1bfad4c80fd359e235e49aad2f16f)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:14:03 +0100") : fix unit tests
 - ([bc12b02](https://git.ide3.de/universumgames/mic-projekt/-/commit/bc12b021220965f45291ba36961642f5a6f17ee9)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:04:49 +0100") : add gitignore for old encoder tests
 - ([48cd7ec](https://git.ide3.de/universumgames/mic-projekt/-/commit/48cd7ecef43b659950dafe297fac3ade155d8eb9)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:04:22 +0100") : encoder tests

@@ -44,7 +44,7 @@ int readAnalogValue(AnalogReadHandle* handle) {
     return value;
 }
 
-#else if defined(ANALOG_READ_CONTINUOUS)
+#elif defined(ANALOG_READ_CONTINUOUS)
 
 // TODO: Implement continuous mode
 

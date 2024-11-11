@@ -2,15 +2,15 @@
 
 #include <stdlib.h>
 
-typedef struct __node {
+typedef struct __llnode {
     void* data;
-    struct __node* next;
-} node_t;
+    struct __llnode* next;
+} ll_node_t;
 
-struct __list {
-    node_t* head;
-    node_t* tail;
-    node_t* current;
+struct __ll_list {
+    ll_node_t* head;
+    ll_node_t* tail;
+    ll_node_t* current;
     size_t size;
 };
 
