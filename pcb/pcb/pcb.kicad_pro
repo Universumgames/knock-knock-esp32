@@ -466,7 +466,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "Produktionsdaten/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
