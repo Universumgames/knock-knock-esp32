@@ -11220,7 +11220,7 @@
 	(footprint "New_Library:QR_Code_10-10"
 		(layer "F.Cu")
 		(uuid "c7fec34d-4097-496a-82df-149cc4f4dcae")
-		(at 77 117.5)
+		(at 78.5 118.5)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "F.SilkS")
@@ -15888,8 +15888,8 @@
 		)
 	)
 	(gr_rect
-		(start 66 50.5)
-		(end 201 130.5)
+		(start 70 50.5)
+		(end 200 130.5)
 		(stroke
 			(width 0.2)
 			(type solid)
@@ -15925,7 +15925,7 @@
 		)
 	)
 	(gr_text "SD Card"
-		(at 70.285 95.785 90)
+		(at 85 97.5 90)
 		(layer "F.SilkS")
 		(uuid "11504a9e-0892-40de-bfb9-c50f4021bb54")
 		(effects
@@ -16057,15 +16057,15 @@
 	(dimension
 		(type aligned)
 		(layer "User.1")
-		(uuid "98ef20fc-406c-46ab-b735-abcb1f8abebf")
+		(uuid "14d6ef93-1738-48f0-bb0c-83172ca3a4bd")
 		(pts
-			(xy 201 50.5) (xy 201 130.5)
+			(xy 70 130.5) (xy 200 130.5)
 		)
-		(height -11.5)
-		(gr_text "80,0000 mm"
-			(at 210.7 90.5 90)
+		(height 7.5)
+		(gr_text "130,0000 mm"
+			(at 135 136.2 0)
 			(layer "User.1")
-			(uuid "98ef20fc-406c-46ab-b735-abcb1f8abebf")
+			(uuid "14d6ef93-1738-48f0-bb0c-83172ca3a4bd")
 			(effects
 				(font
 					(size 1.5 1.5)
@@ -16090,15 +16090,15 @@
 	(dimension
 		(type aligned)
 		(layer "User.1")
-		(uuid "e3963fe6-fa91-4c22-a27d-a465d54500ac")
+		(uuid "5c2b3cd5-408f-40be-9be8-7885aa4cbf25")
 		(pts
-			(xy 66 130.5) (xy 201 130.5)
+			(xy 200 50.5) (xy 200 130.5)
 		)
-		(height 9.5)
-		(gr_text "135,0000 mm"
-			(at 133.5 138.2 0)
+		(height -13)
+		(gr_text "80,0000 mm"
+			(at 211.2 90.5 90)
 			(layer "User.1")
-			(uuid "e3963fe6-fa91-4c22-a27d-a465d54500ac")
+			(uuid "5c2b3cd5-408f-40be-9be8-7885aa4cbf25")
 			(effects
 				(font
 					(size 1.5 1.5)
