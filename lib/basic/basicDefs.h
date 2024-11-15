@@ -24,4 +24,5 @@
 
 #include "_checks.h"
 #include "_minis.h"
+#include "_pins.h"
 #include "_thread_prios.h"
