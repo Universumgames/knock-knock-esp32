@@ -1,5 +1,6 @@
 
 # Changelog
+- ([63d0d00](https://git.ide3.de/universumgames/mic-projekt/-/commit/63d0d00b8221fe614c133f1a104fb00f5cb3abfe)) Universumgames on [2024-11-16](## "Sat, 16 Nov 2024 00:23:51 +0100") : add min function
 - ([117297f](https://git.ide3.de/universumgames/mic-projekt/-/commit/117297f0d08be2f9b11a9b64d9f4e1c0bb43d6ef)) Universumgames on [2024-11-16](## "Sat, 16 Nov 2024 00:23:38 +0100") : use global pin definition
 - ([7d82214](https://git.ide3.de/universumgames/mic-projekt/-/commit/7d8221420ee78d44c28a2fffce6b67b20a127799)) Universumgames on [2024-11-11](## "Mon, 11 Nov 2024 20:05:04 +0100") : refactoring
 - ([62586cf](https://git.ide3.de/universumgames/mic-projekt/-/commit/62586cf243ba6ebf202729d89a836cbf4058808e)) Universumgames on [2024-11-08](## "Fri, 8 Nov 2024 15:41:41 +0100") : bugfixes and preparing sprint retro

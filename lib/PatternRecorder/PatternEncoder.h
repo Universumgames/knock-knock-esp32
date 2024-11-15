@@ -24,6 +24,6 @@ bool initPatternEncoder();
  * @return PatternData* the encoded pattern data or NULL if the pattern is not
  * complete
  */
-PatternData* encodeAnalogData(analog_v value, uint64_t deltaMs);
+PatternData* encodeAnalogData(analog_v value, delta_t deltaMs);
 
 HEADER_END

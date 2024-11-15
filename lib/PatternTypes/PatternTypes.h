@@ -5,14 +5,16 @@
 
 HEADER_BEGIN
 
-typedef uint16_t analog_v; // Pattern-Sensor Data
+typedef uint16_t analog_v;     // Pattern-Sensor Data
+typedef unsigned long delta_t; // Pattern-Sensor Data
+typedef uint8_t pattern_ver_t; // Pattern version
 
 typedef struct {
-    uint8_t patternVersion;
+    pattern_ver_t patternVersion;
     int id;
-    unsigned long totalDurationMillis;
+    delta_t totalDurationMillis;
     size_t lengthPattern;
-    unsigned long* deltaTimesMillis;
+    delta_t* deltaTimesMillis;
 } PatternData;
 
 HEADER_END

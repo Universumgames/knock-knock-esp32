@@ -66,7 +66,7 @@ int getNextPatternId(const PatternData* existingPatterns,
         return -1;
     }
     int maxId = 0;
-    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %lu",
+    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %u",
          existingPatternsLen);
     for (size_t i = 0; i < existingPatternsLen; i++) {
         maxId = max(maxId, existingPatterns[i].id);
@@ -98,7 +98,7 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns,
         // ps = loadPatterns(&len);
     }
 
-    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %lu", len);
+    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %u", len);
     int nextId = getNextPatternId(ps, len);
     pattern->id = nextId;
     pattern->patternVersion = PATTERN_FILE_VERSION;
@@ -114,12 +114,12 @@ bool storePattern(PatternData* pattern, PatternData* existingPatterns,
         goto free_file;
     }
 
-    size_t written = fwrite(&pattern->patternVersion, sizeof(uint8_t), 1, file);
+    size_t written =
+        fwrite(&pattern->patternVersion, sizeof(pattern_ver_t), 1, file);
     written = fwrite(&pattern->id, sizeof(int), 1, file);
-    written =
-        fwrite(&pattern->totalDurationMillis, sizeof(unsigned long), 1, file);
+    written = fwrite(&pattern->totalDurationMillis, sizeof(delta_t), 1, file);
     written = fwrite(&pattern->lengthPattern, sizeof(size_t), 1, file);
-    written = fwrite(pattern->deltaTimesMillis, sizeof(unsigned long),
+    written = fwrite(pattern->deltaTimesMillis, sizeof(delta_t),
                      pattern->lengthPattern, file);
 
     // check if pattern was written to file
@@ -135,7 +135,6 @@ free_all:
 free_file:
     if (file != NULL)
         fclose(file);
-free_path:
     free(path);
 free_ps:
     if (ps != existingPatterns) {
@@ -157,35 +156,37 @@ PatternData* loadPattern(const char* filename) {
     // read pattern version to check if file is compatible with current struct
     // encoding
     uint8_t patternVersion = 0;
-    size_t read = fread(&patternVersion, sizeof(uint8_t), 1, file);
-    CHECK_DO(patternVersion != PATTERN_FILE_VERSION,
-             LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch");
-             goto free_file);
+    size_t read = fread(&patternVersion, sizeof(pattern_ver_t), 1, file);
+    if (patternVersion != PATTERN_FILE_VERSION || read != 1) {
+        LOGE(TAG_PATTERN_STORAGE, "Pattern version mismatch");
+        fclose(file);
+        return NULL;
+    }
 
     PatternData* pattern = (PatternData*)calloc(sizeof(PatternData), 1);
-    CHECK_NULL_GOTO_LOG(
-        pattern, free_file,
-        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for pattern"));
+    if (pattern == NULL) {
+        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for pattern");
+        fclose(file);
+        return NULL;
+    }
 
     pattern->patternVersion = patternVersion;
     read = fread(&pattern->id, sizeof(int), 1, file);
-    read = fread(&pattern->totalDurationMillis, sizeof(unsigned long), 1, file);
+    read = fread(&pattern->totalDurationMillis, sizeof(delta_t), 1, file);
     read = fread(&pattern->lengthPattern, sizeof(size_t), 1, file);
     pattern->deltaTimesMillis =
-        (unsigned long*)calloc(sizeof(unsigned long), pattern->lengthPattern);
-    CHECK_NULL_GOTO_LOG(
-        pattern->deltaTimesMillis, free_pattern,
-        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for delta times"));
-    read = fread(pattern->deltaTimesMillis, sizeof(unsigned long),
+        (unsigned long*)calloc(sizeof(delta_t), pattern->lengthPattern);
+    if (pattern->deltaTimesMillis) {
+        LOGE(TAG_PATTERN_STORAGE, "Failed to allocate memory for delta times");
+        fclose(file);
+        free(pattern);
+        return NULL;
+    }
+    read = fread(pattern->deltaTimesMillis, sizeof(delta_t),
                  pattern->lengthPattern, file);
 
     LOGI(TAG_PATTERN_STORAGE, "Loaded pattern with id %d", pattern->id);
-    goto free_file; // on success, free file and return pattern
 
-free_pattern:
-    free(pattern);
-
-free_file:
     fclose(file);
     return pattern;
 }
@@ -204,7 +205,7 @@ PatternData** loadPatterns(size_t* len) {
         LOGI(TAG_PATTERN_STORAGE, "No patterns found");
         return NULL;
     }
-    LOGD(TAG_PATTERN_STORAGE, "Number of patterns: %lu", *len);
+    LOGD(TAG_PATTERN_STORAGE, "Number of patterns: %u", *len);
     PatternData** patternPtrs =
         (PatternData**)calloc(sizeof(PatternData*), (*len));
     CHECK_NULL_GOTO_LOG(
