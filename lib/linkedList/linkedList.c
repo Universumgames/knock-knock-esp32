@@ -23,9 +23,9 @@ list_t* list_create() {
 }
 
 void list_destroy(list_t* list) {
-    node_t* current = list->head;
+    ll_node_t* current = list->head;
     while (current != NULL) {
-        node_t* next = current->next;
+        ll_node_t* next = current->next;
         free(current);
         current = next;
     }
@@ -33,7 +33,7 @@ void list_destroy(list_t* list) {
 }
 
 void __list_push_back(list_t* list, void* data) {
-    node_t* node = malloc(sizeof(node_t));
+    ll_node_t* node = malloc(sizeof(ll_node_t));
     node->data = data;
     node->next = NULL;
     if (list->tail == NULL) {
@@ -47,7 +47,7 @@ void __list_push_back(list_t* list, void* data) {
 }
 
 void __list_push_front(list_t* list, void* data) {
-    node_t* node = malloc(sizeof(node_t));
+    ll_node_t* node = malloc(sizeof(ll_node_t));
     node->data = data;
     node->next = list->head;
     list->head = node;
@@ -62,7 +62,7 @@ void* list_pop_back(list_t* list) {
         return NULL;
     }
     void* data = list->tail->data;
-    node_t* current = list->head;
+    ll_node_t* current = list->head;
     while (current->next != list->tail) {
         current = current->next;
     }
@@ -77,7 +77,7 @@ void* list_pop_front(list_t* list) {
         return NULL;
     }
     void* data = list->head->data;
-    node_t* next = list->head->next;
+    ll_node_t* next = list->head->next;
     free(list->head);
     list->head = next;
     list->size--;
@@ -88,7 +88,7 @@ void* list_get(list_t* list, size_t index) {
     if (index >= list->size) {
         return NULL;
     }
-    node_t* current = list->head;
+    ll_node_t* current = list->head;
     for (size_t i = 0; i < index; i++) {
         current = current->next;
     }
@@ -100,7 +100,7 @@ size_t list_size(const list_t* list) {
 }
 
 void list_foreach(list_t* list, void (*callback)(void*)) {
-    node_t* current = list->head;
+    ll_node_t* current = list->head;
     while (current != NULL) {
         callback(current->data);
         current = current->next;

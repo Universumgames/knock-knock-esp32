@@ -2,9 +2,7 @@
 
 #include "ring_buffer.h"
 
-#include <PatternStorage.h>
 #include <Storage.h>
-#include <mini.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -218,7 +216,7 @@ returnPattern:
     PatternData* ret = savePatternData();
 
     // TODO(tom) remove debug save file
-    storePattern(ret, NULL, 0);
+    // storePattern(ret, NULL, 0);
 
     if (ret != NULL)
         resetEncoder();
