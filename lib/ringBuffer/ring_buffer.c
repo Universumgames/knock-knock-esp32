@@ -75,7 +75,7 @@ void* ringBufferGetElement(RingBuffer buffer, int index) {
         indexToUse += buffer->size;
     }
     size_t bufferIndex = (buffer->headIndex + indexToUse) % buffer->size;
-    LOGD("RingBuffer", "Index: %d, BufferIndex: %d", index, bufferIndex);
+    LOGD("RingBuffer", "Index: %d, BufferIndex: %u", index, bufferIndex);
     return buffer->elements[bufferIndex];
 }
 
