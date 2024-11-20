@@ -1,6 +1,5 @@
 #include "stringHelper.h"
 
-#include <esp_heap_caps.h>
 #include <stdlib.h>
 #include <string.h>
 

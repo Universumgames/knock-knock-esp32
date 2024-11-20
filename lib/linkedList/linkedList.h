@@ -39,8 +39,12 @@ void* list_reset(LinkedList list);
 #define list_push_front(list, obj) __list_push_front(list, (void*)(obj))
 
 #define list_foreach_raw(list, type, method)                                   \
-    for (type* it = list_reset(list); it != NULL; it = list_next(list)) {      \
-        method;                                                                \
+    {                                                                          \
+        type* it = list_reset(list);                                           \
+        while (it != NULL) {                                                   \
+            method;                                                            \
+            it = list_next(list);                                              \
+        }                                                                      \
     }
 
 HEADER_END

@@ -91,6 +91,7 @@ int getNextPatternId() {
     LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %u",
          list_size(patternList));
     list_foreach_raw(patternList, PatternData, {
+        LOGI("nextID", "Compare %d with %d", it->id, maxId);
         maxId = max(maxId, it->id);
         LOGD(TAG_PATTERN_STORAGE, "Pattern id: %d", it->id);
     });
@@ -111,8 +112,6 @@ bool storePattern(PatternData* pattern) {
         return false;
     }
 
-    LOGD(TAG_PATTERN_STORAGE, "Existing patterns length: %u",
-         list_size(patternList));
     int nextId = getNextPatternId();
     pattern->id = nextId;
     pattern->patternVersion = PATTERN_FILE_VERSION;
@@ -140,16 +139,16 @@ bool storePattern(PatternData* pattern) {
     if (written == 0) {
         LOGE(TAG_PATTERN_STORAGE, "Failed to write pattern to file");
         ret = false;
-        goto free_all;
+        goto free_path;
     }
 
     list_push_back(patternList, pattern);
     LOGI(TAG_PATTERN_STORAGE, "Stored pattern with id %d", pattern->id);
 
-free_all:
 free_file:
     if (file != NULL)
         fclose(file);
+free_path:
     free(path);
     return ret;
 }

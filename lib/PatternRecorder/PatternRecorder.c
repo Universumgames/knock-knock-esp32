@@ -30,6 +30,7 @@ static AnalogReadHandle* analogReadHandle = NULL;
                 // TODO(#8) check status
                 // match pattern if normal operation
                 // save pattern if recording
+
                 free(patternData->deltaTimesMillis);
                 free(patternData);
             } else {

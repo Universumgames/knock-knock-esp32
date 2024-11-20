@@ -3,33 +3,34 @@
 #include "PatternStorage.h"
 #include "basicDefs.h"
 
-PatternData s_pattern = {
+static PatternData s_pattern = {
     .patternVersion = PATTERN_FILE_VERSION,
     .id = 1,
     .totalDurationMillis = 1000,
     .lengthPattern = 3,
-    .deltaTimesMillis = (unsigned long[]){100, 200, 300},
+    .deltaTimesMillis = (delta_t[]){100, 200, 300},
 };
 
 TEST(PatternStorageTests, storePatternTest) {
     printf("storePatternTest\n");
 
-    bool ret = storePattern(&s_pattern, nullptr, 0);
+    bool ret = storePattern(NULL);
     EXPECT_TRUE(true);
 }
 
 TEST(PatternStorageTests, loadPatternsTest) {
-    size_t len = 0;
-    PatternData** patterns = loadPatterns(&len);
+    LinkedList patterns = loadPatternsFromDisk();
+    size_t len = list_size(patterns);
+    PatternData* firstPattern = list_get(patterns, 0);
     EXPECT_TRUE(patterns != NULL);
     EXPECT_EQ(1, len);
-    EXPECT_EQ(s_pattern.patternVersion, patterns[0]->patternVersion);
-    EXPECT_EQ(s_pattern.id, patterns[0]->id);
-    EXPECT_EQ(s_pattern.totalDurationMillis, patterns[0]->totalDurationMillis);
-    EXPECT_EQ(s_pattern.lengthPattern, patterns[0]->lengthPattern);
+    EXPECT_EQ(s_pattern.patternVersion, firstPattern->patternVersion);
+    EXPECT_EQ(s_pattern.id, firstPattern->id);
+    EXPECT_EQ(s_pattern.totalDurationMillis, firstPattern->totalDurationMillis);
+    EXPECT_EQ(s_pattern.lengthPattern, firstPattern->lengthPattern);
     for (size_t i = 0; i < s_pattern.lengthPattern; i++) {
         EXPECT_EQ(s_pattern.deltaTimesMillis[i],
-                  patterns[0]->deltaTimesMillis[i]);
+                  firstPattern->deltaTimesMillis[i]);
     }
     free(patterns);
 }

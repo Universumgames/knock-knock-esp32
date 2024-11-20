@@ -5,8 +5,6 @@
 
 HEADER_BEGIN
 
-// TODO(tom) convert pattern list to linked list
-
 /**
  * @brief Initialize the pattern storage
  * WARNING: on embedded devices, the storage must be mounted before calling this
@@ -21,9 +19,6 @@ bool initPatternStorage();
  * Adds the pattern to the cached pattern storage and saves it to the disk
  *
  * @param pattern the pattern to store
- * @param existingPatterns the existing patterns in the storage, if NULL, the
- * patterns will be loaded
- * @param existingPatternsLen the length of the existing patterns
  * @return true if the pattern was stored successfully
  */
 bool storePattern(PatternData* pattern);

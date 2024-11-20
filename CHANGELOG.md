@@ -1,5 +1,6 @@
 
 # Changelog
+- ([447a657](https://git.ide3.de/universumgames/mic-projekt/-/commit/447a6574a2a06086005b5f2946f4593405364e9c)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:52:59 +0100") : refactor to use cached linked lists for pattern storage
 - ([cfe5a9e](https://git.ide3.de/universumgames/mic-projekt/-/commit/cfe5a9efb5b231471d2f54206def3fe639d4556b)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:52:36 +0100") : fix warnings
 - ([851c7b4](https://git.ide3.de/universumgames/mic-projekt/-/commit/851c7b4fd5868cc8812cc0b479905147f350735f)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:51:58 +0100") : fix clang tidy
 - ([92e4d6d](https://git.ide3.de/universumgames/mic-projekt/-/commit/92e4d6df0e384cbd3130696d507fb1e9e9eb8742)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 09:25:21 +0100") : refactoring,

@@ -241,7 +241,7 @@ returnPattern:
 
     // TODO(tom) remove debug save file
     LOGI("PatternEncoder", "Pattern finished, saving pattern in file");
-    storePattern(ret);
+    storePattern(savePatternData());
 
     resetEncoder();
     return ret;

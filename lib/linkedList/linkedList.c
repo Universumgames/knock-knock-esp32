@@ -15,9 +15,10 @@ struct __ll_list {
 };
 
 LinkedList list_create() {
-    LinkedList list = malloc(sizeof(linked_list_t));
+    LinkedList list = calloc(sizeof(linked_list_t), 1);
     list->head = NULL;
     list->tail = NULL;
+    list->current = NULL;
     list->size = 0;
     return list;
 }
@@ -33,15 +34,19 @@ void list_destroy(LinkedList list) {
 }
 
 void list_clear(LinkedList list, bool freeData) {
+    if (list == NULL) {
+        return;
+    }
     ll_node_t* current = list->head;
     while (current != NULL) {
         ll_node_t* next = current->next;
-        if (freeData) {
+        if (freeData && current->data != NULL) {
             free(current->data);
         }
         free(current);
         current = next;
     }
+    list->current = NULL;
     list->head = NULL;
     list->tail = NULL;
     list->size = 0;
@@ -115,12 +120,18 @@ void* list_get(LinkedList list, size_t index) {
     }
     ll_node_t* current = list->head;
     for (size_t i = 0; i < index; i++) {
+        if (current == NULL) {
+            return NULL;
+        }
         current = current->next;
     }
     return current->data;
 }
 
 size_t list_size(const LinkedList list) {
+    if (list == NULL) {
+        return 0;
+    }
     return list->size;
 }
 
@@ -134,6 +145,8 @@ void list_foreach(LinkedList list, void (*callback)(void*)) {
 
 void* list_reset(LinkedList list) {
     list->current = list->head;
+    if (list->current == NULL)
+        return NULL;
     return list->current->data;
 }
 

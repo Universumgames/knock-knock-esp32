@@ -3,7 +3,7 @@
 #include "basicDefs.h"
 #include "linkedList.h"
 
-list_t* list = NULL;
+LinkedList list = NULL;
 #define NUMBERS_SIZE 3
 int numbers[] = {1, 2, 3};
 
