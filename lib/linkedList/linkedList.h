@@ -16,6 +16,8 @@ void list_destroy(LinkedList list);
 
 void list_clear(LinkedList list, bool freeData);
 
+LinkedList list_copy_shallow(LinkedList list);
+
 void __list_push_back(LinkedList list, void* data);
 
 void __list_push_front(LinkedList list, void* data);
@@ -31,9 +33,14 @@ size_t list_size(const LinkedList list);
 void list_foreach(LinkedList list, void (*callback)(void*));
 
 void* list_next(LinkedList list);
-void list_reset(LinkedList list);
+void* list_reset(LinkedList list);
 
 #define list_push_back(list, obj) __list_push_back(list, (void*)(obj))
 #define list_push_front(list, obj) __list_push_front(list, (void*)(obj))
+
+#define list_foreach_raw(list, type, method)                                   \
+    for (type* it = list_reset(list); it != NULL; it = list_next(list)) {      \
+        method;                                                                \
+    }
 
 HEADER_END

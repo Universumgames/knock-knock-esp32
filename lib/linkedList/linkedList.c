@@ -47,6 +47,16 @@ void list_clear(LinkedList list, bool freeData) {
     list->size = 0;
 }
 
+LinkedList list_copy_shallow(LinkedList list) {
+    LinkedList copy = list_create();
+    ll_node_t* current = list->head;
+    while (current != NULL) {
+        __list_push_back(copy, current->data);
+        current = current->next;
+    }
+    return copy;
+}
+
 void __list_push_back(LinkedList list, void* data) {
     ll_node_t* node = malloc(sizeof(ll_node_t));
     node->data = data;
@@ -122,8 +132,9 @@ void list_foreach(LinkedList list, void (*callback)(void*)) {
     }
 }
 
-void list_reset(LinkedList list) {
+void* list_reset(LinkedList list) {
     list->current = list->head;
+    return list->current->data;
 }
 
 void* list_next(LinkedList list) {

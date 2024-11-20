@@ -31,9 +31,6 @@ CPP_BEGIN void app_main() {
     ESP_LOGW("main", "Log test warn");
     ESP_LOGE("main", "Log test error");
 
-    size_t len2 = 0;
-    PatternData** pattern = loadPatterns(&len2);
-
     initPatternRecorder();
 
     // Test-Code
