@@ -6,7 +6,7 @@
 void logPatternData(PatternData* ret) {
     printf("ID: %d\n", ret->id);
     printf("Total duration: %d\n", ret->totalDurationMillis);
-    printf("length: %d\n", ret->lengthPattern);
+    printf("length: %u\n", ret->lengthPattern);
     printf("delta times: ");
     if (ret->deltaTimesMillis == NULL) {
         printf("NULL\n");
