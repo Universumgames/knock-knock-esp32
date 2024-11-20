@@ -14,6 +14,8 @@
 
 static const char* TAG_STORAGE = "Storage";
 
+static bool storageInitialized = false;
+
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
 #include "esp_littlefs.h"
 
@@ -104,9 +106,14 @@ bool mountSDCard() {
 #endif
 
 bool mountFS() {
+    if (storageInitialized)
+        return true;
+    bool ret = false;
 #if CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_LITTLEFS
-    return mountLocalFS();
+    ret = mountLocalFS();
 #elif CONFIG_STORAGE_FS_TYPE == CONFIG_REFERENCE_STORAGE_FS_SD
-    return mountSDCard();
+    ret = mountSDCard();
 #endif
+    storageInitialized = ret;
+    return ret;
 }

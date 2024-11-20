@@ -22,6 +22,7 @@ void lockTask(void* pvParameters) {
 }
 
 void openLock() {
-    xTaskCreate(lockTask, "open_lock_task", 2048, NULL, THREAD_PRIO_LOCK,
+    xTaskCreate(lockTask, "open_lock_task", THREAD_STACK_LOCK, NULL,
+                THREAD_PRIO_LOCK,
                 NULL); // Task erstellen und ausführen
 }

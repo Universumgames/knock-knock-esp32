@@ -4,6 +4,8 @@
 
 #include "PatternStorage.h"
 #include "Storage.h"
+
+#include <mini.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +14,7 @@
 #define FILE_WRITE_LEN 4096
 #define PATTERN_MAX_DELTA_MS 2000
 
+/*
 static FILE* fileRaw = NULL;
 static size_t fileWriteCountRaw = 0;
 
@@ -62,7 +65,7 @@ void saveDeltaToFile(int32_t delta) {
         LOGI("PatternEncoder", "Wrote %d values to delta file",
              fileWriteCountDelta);
     }
-}
+}*/
 
 // how much higher the value has to be compared to the avg to trigger a "knock"
 #define THRESHOLD_DELTA_MULTIPLIER (1.5)
@@ -72,7 +75,9 @@ void saveDeltaToFile(int32_t delta) {
 // how many ms have to pass before triggering again
 #define THRESHOLD_TRIGGER_TIMEOUT_MS (200)
 
-#define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 5)
+#define THRESHOLD_TRIGGER_VALUE ((avg * THRESHOLD_DELTA_MULTIPLIER) + 100)
+
+#define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 10)
 
 analog_v bufferAVG(analog_v** buffer, const size_t len) {
     unsigned long sum = 0;
@@ -93,20 +98,20 @@ static bool patternStarted = false;
 static RingBuffer lastValues = NULL;
 static RingBuffer lastTimes = NULL;
 static int lastTriggeredValuesAgo = THRESHOLD_TRIGGER_TIMEOUT_VALUES;
-static unsigned long lastTriggeredTimeAgo = 0;
+static delta_t lastTriggeredTimeAgo = 0;
 
 bool initPatternEncoder() {
     if (lastValues == NULL)
         lastValues = ringBufferCreate(BUFFER_LEN, sizeof(analog_v));
     if (lastTimes == NULL)
-        ringBufferCreate(BUFFER_LEN, sizeof(delta_t));
+        lastTimes = ringBufferCreate(BUFFER_LEN, sizeof(delta_t));
     // fill with zeros
     for (int i = 0; i < BUFFER_LEN; i++) {
         ringBufferAdd(lastValues, storeAsPtr(analog_v, 0));
         ringBufferAdd(lastTimes, storeAsPtr(delta_t, 0));
     }
 
-    if (fileRaw == NULL) {
+    /*if (fileRaw == NULL) {
         fileRaw = fopen(STORAGE_MOUNT_POINT "/encoded_raw.bin", "wbe");
     }
     if (fileDeltaMs == NULL) {
@@ -119,7 +124,9 @@ bool initPatternEncoder() {
         fileAVG = fopen(STORAGE_MOUNT_POINT "/encoded_avg.bin", "wbe");
     }
     LOGI("PatternEncoder", "raw file: %p, delta file: %p, avg file: %p",
-         fileRaw, fileDeltaMs, fileAVG);
+         fileRaw, fileDeltaMs, fileAVG);*/
+
+    HEAP_LOG
 
     return lastValues != NULL && lastTimes != NULL;
 }
@@ -129,14 +136,20 @@ void resetEncoder() {
     lastTriggeredTimeAgo = 0;
     patternDataBufLen = 0;
     patternStarted = false;
-    free(patternData.deltaTimesMillis);
-    memset(&patternData, 0, sizeof(PatternData));
+    if (patternData.deltaTimesMillis != NULL)
+        free(patternData.deltaTimesMillis);
+    patternData.id = 0;
+    patternData.lengthPattern = 0;
+    patternData.totalDurationMillis = 0;
+    patternData.deltaTimesMillis = NULL;
 }
 
 PatternData* savePatternData() {
+    HEAP_LOG;
     PatternData* ret = calloc(sizeof(PatternData), 1);
-    if (ret == NULL)
+    if (ret == NULL) {
         return NULL;
+    }
     memcpy(ret, &patternData, sizeof(PatternData));
     ret->deltaTimesMillis = calloc(sizeof(delta_t), patternData.lengthPattern);
     if (ret->deltaTimesMillis == NULL) {
@@ -150,24 +163,28 @@ PatternData* savePatternData() {
 
 void addPatternDataToBuf(analog_v value, delta_t deltaMs) {
     ringBufferAdd(lastValues, storeAsPtr(analog_v, value));
-    lastTriggeredValuesAgo++;
+    lastTriggeredValuesAgo =
+        min(lastTriggeredTimeAgo + 1, THRESHOLD_TRIGGER_TIMEOUT_VALUES * 5);
     lastTriggeredTimeAgo += deltaMs;
 }
 
 // increase delta millis array if exceeding max length
 void checkPatternDeltaMillisMemory() {
-    if (patternData.deltaTimesMillis == NULL) {
-        patternDataBufLen = PATTERN_DELTA_MILLIS_MEM_INCREMENT(0);
-        patternData.deltaTimesMillis =
-            calloc(sizeof(delta_t), patternDataBufLen);
-    } else if (patternData.lengthPattern - 2 >= patternDataBufLen) {
-        size_t size =
+    if (patternDataBufLen == 0 ||
+        patternData.lengthPattern + 2 >= patternDataBufLen) {
+        HEAP_LOG;
+        LOGI("encoder", "size %u", patternData.lengthPattern);
+        size_t newSize =
             PATTERN_DELTA_MILLIS_MEM_INCREMENT(patternData.lengthPattern);
-        unsigned long* newDeltaMillis =
-            realloc(patternData.deltaTimesMillis, sizeof(delta_t) * size);
+        delta_t* newDeltaMillis = patternData.deltaTimesMillis == NULL
+                                      ? calloc(sizeof(delta_t), newSize)
+                                      : realloc(patternData.deltaTimesMillis,
+                                                sizeof(delta_t) * newSize);
         if (newDeltaMillis != NULL) {
             patternData.deltaTimesMillis = newDeltaMillis;
-            patternDataBufLen = size;
+            patternDataBufLen = newSize;
+        } else {
+            LOGE("encoder", "Failed to allocate memory for delta millis");
         }
     }
 }
@@ -199,27 +216,33 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
     }
 
     // basic check if value is above average
-    if (value < avg * THRESHOLD_DELTA_MULTIPLIER) {
+    if (value < THRESHOLD_TRIGGER_VALUE) {
         return NULL;
     }
 
     checkPatternDeltaMillisMemory();
 
-    if (patternStarted)
+    if (patternStarted) {
         patternData.deltaTimesMillis[patternData.lengthPattern++] =
             lastTriggeredTimeAgo;
+        patternData.totalDurationMillis += lastTriggeredTimeAgo;
+    }
 
     lastTriggeredTimeAgo = 0;
     lastTriggeredValuesAgo = 0;
     patternStarted = true;
+    return NULL;
 
 returnPattern:
+    LOGI("PatternEncoder", "Pattern finished, saving pattern in buffer");
     PatternData* ret = savePatternData();
+    LOGI("PatternEncoder", "Pattern data");
+    logPatternData(ret);
 
     // TODO(tom) remove debug save file
+    LOGI("PatternEncoder", "Pattern finished, saving pattern in file");
     storePattern(ret, NULL, 0);
 
-    if (ret != NULL)
-        resetEncoder();
+    resetEncoder();
     return ret;
 }

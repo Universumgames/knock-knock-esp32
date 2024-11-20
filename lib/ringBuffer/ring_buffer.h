@@ -24,6 +24,9 @@ RingBuffer ringBufferCreate(size_t size, size_t elementSize);
  */
 void ringBufferAdd(RingBuffer buffer, void* element);
 
+#define ringBufferAddElement(buffer, element)                                  \
+    ringBufferAdd(buffer, storeAsVoidPtr(element))
+
 /**
  * @param buffer The ring buffer to get the elements from
  * @return void* The elements in the ring buffer as an array

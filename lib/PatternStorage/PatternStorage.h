@@ -4,6 +4,8 @@
 
 HEADER_BEGIN
 
+// TODO(tom) convert pattern list to linked list
+
 /**
  * @brief Initialize the pattern storage
  * WARNING: on embedded devices, the storage must be mounted before calling this

@@ -9,7 +9,6 @@
 #define PATTERN_RECORDER_ANALOG_CHANNEL ((adc_channel_t)ADC_CHANNEL_0)
 #define PATTERN_RECORDER_ANALOG_UNIT ((adc_unit_t)ADC_UNIT_1)
 #define PATTERN_RECORDER_GAIN ((adc_atten_t)ADC_ATTEN_DB_0)
-#define ECHO_TASK_STACK_SIZE 2048
 
 static const char* TAG_PATTERN_RECORDER = "PatternRecorder";
 
@@ -24,7 +23,7 @@ static AnalogReadHandle* analogReadHandle = NULL;
             const uint64_t now = pdTICKS_TO_MS(xTaskGetTickCount());
             const uint64_t delta = now - lastRead;
             lastRead = now;
-            LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
+            // LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
             PatternData* patternData = encodeAnalogData((analog_v)value, delta);
             if (patternData != NULL) {
                 LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");
@@ -57,7 +56,7 @@ bool initPatternRecorder() {
     }
 
     initPatternEncoder();
-    xTaskCreate(analogReadTask, "analog_read_task", ECHO_TASK_STACK_SIZE * 2,
+    xTaskCreate(analogReadTask, "analog_read_task", THREAD_STACK_RECORDING,
                 NULL, THREAD_PRIO_RECORDING, NULL);
     ESP_LOGI(TAG_PATTERN_RECORDER, "ADC continuous started");
     goto end;

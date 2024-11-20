@@ -18,6 +18,7 @@
 
 #if ENV_IS_ESP32
 #include "_defs_esp.h"
+#include "_minis_esp.h"
 #elif ENV_IS_NATIVE
 #include "_defs_native.h"
 #endif
@@ -25,4 +26,4 @@
 #include "_checks.h"
 #include "_minis.h"
 #include "_pins.h"
-#include "_thread_prios.h"
+#include "_threads.h"
