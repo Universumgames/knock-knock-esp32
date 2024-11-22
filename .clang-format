@@ -19,7 +19,7 @@ BraceWrapping:
     IndentBraces: false
 BreakBeforeBinaryOperators: None
 AllowShortFunctionsOnASingleLine: Empty
-SortIncludes: true
+SortIncludes: CaseSensitive
 IncludeCategories:
     - Regex: '^<.*\.h>'
       Priority: 2

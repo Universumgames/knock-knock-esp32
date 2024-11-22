@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "basicDefs.h"
+#include "linkedList.h"
 
 #define CONFIG_REFERENCE_STORAGE_FS_SD 1
 #define CONFIG_REFERENCE_STORAGE_FS_LITTLEFS 0
@@ -44,6 +45,8 @@ bool mountFS();
  * @return char** the filenames in the directory
  */
 char** lsDir(const char* path, size_t* len);
+
+LinkedList lsDirLL(const char* path);
 
 bool fileExists(const char* path);
 

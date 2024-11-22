@@ -57,6 +57,37 @@ char** lsDir(const char* path, size_t* len) {
     }
 }
 
+LinkedList lsDirLL(const char* path) {
+    LinkedList entries = list_create();
+    struct stat entryStat;
+    if (stat(path, &entryStat) != 0) {
+        LOGE(TAG_STORAGE, "Failed to stat %s", path);
+        return NULL;
+    }
+
+    if (!S_ISDIR(entryStat.st_mode))
+        return entries;
+
+    LOGI(TAG_STORAGE, "Listing directory %s", path);
+    struct dirent* dirEntry = NULL;
+    DIR* dir = opendir(path);
+    if (dir == NULL) {
+        LOGE(TAG_STORAGE, "Failed to open directory %s", path);
+        return NULL;
+    }
+
+    while ((dirEntry = readdir(dir)) != NULL) {
+        if (strcmp(dirEntry->d_name, ".") == 0 ||
+            strcmp(dirEntry->d_name, "..") == 0) {
+            continue;
+        }
+
+        list_push_back(entries, strdup(dirEntry->d_name));
+    }
+    closedir(dir);
+    return entries;
+}
+
 bool fileExists(const char* path) {
     struct stat fileStat;
     return stat(path, &fileStat) == 0;

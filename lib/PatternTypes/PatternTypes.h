@@ -11,7 +11,7 @@ typedef uint8_t pattern_ver_t; // Pattern version
 
 typedef struct {
     pattern_ver_t patternVersion;
-    int id;
+    uint32_t id;
     delta_t totalDurationMillis;
     size_t lengthPattern;
     delta_t* deltaTimesMillis;

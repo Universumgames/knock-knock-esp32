@@ -1,5 +1,7 @@
 
 # Changelog
+- ([41d2d6f](https://git.ide3.de/universumgames/mic-projekt/-/commit/41d2d6fdd8b2d711d971bcc28c305504905e952e)) Tom Arlt on [2024-11-20](## "Wed, 20 Nov 2024 11:59:04 +0000") : Merge branch 'main' into 'feature-pattern-record'
+- ([dfc5623](https://git.ide3.de/universumgames/mic-projekt/-/commit/dfc56233d1b82b46d6b7265411b79d314d5f017c)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 12:56:23 +0100") : some bugfixes
 - ([447a657](https://git.ide3.de/universumgames/mic-projekt/-/commit/447a6574a2a06086005b5f2946f4593405364e9c)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:52:59 +0100") : refactor to use cached linked lists for pattern storage
 - ([cfe5a9e](https://git.ide3.de/universumgames/mic-projekt/-/commit/cfe5a9efb5b231471d2f54206def3fe639d4556b)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:52:36 +0100") : fix warnings
 - ([851c7b4](https://git.ide3.de/universumgames/mic-projekt/-/commit/851c7b4fd5868cc8812cc0b479905147f350735f)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:51:58 +0100") : fix clang tidy
@@ -12,6 +14,7 @@
 - ([8a36d8a](https://git.ide3.de/universumgames/mic-projekt/-/commit/8a36d8a1e80e76ca9429b151008e2ac40c42eca9)) Universumgames on [2024-11-16](## "Sat, 16 Nov 2024 00:23:59 +0100") : update pattern encoder
 - ([63d0d00](https://git.ide3.de/universumgames/mic-projekt/-/commit/63d0d00b8221fe614c133f1a104fb00f5cb3abfe)) Universumgames on [2024-11-16](## "Sat, 16 Nov 2024 00:23:51 +0100") : add min function
 - ([117297f](https://git.ide3.de/universumgames/mic-projekt/-/commit/117297f0d08be2f9b11a9b64d9f4e1c0bb43d6ef)) Universumgames on [2024-11-16](## "Sat, 16 Nov 2024 00:23:38 +0100") : use global pin definition
+- ([e9bf8e8](https://git.ide3.de/universumgames/mic-projekt/-/commit/e9bf8e81ac69185c09682d7bd9ff6557e4fea30f)) Universumgames on [2024-11-11](## "Mon, 11 Nov 2024 20:28:58 +0100") : finish retro sprint 2
 - ([7d82214](https://git.ide3.de/universumgames/mic-projekt/-/commit/7d8221420ee78d44c28a2fffce6b67b20a127799)) Universumgames on [2024-11-11](## "Mon, 11 Nov 2024 20:05:04 +0100") : refactoring
 - ([62586cf](https://git.ide3.de/universumgames/mic-projekt/-/commit/62586cf243ba6ebf202729d89a836cbf4058808e)) Universumgames on [2024-11-08](## "Fri, 8 Nov 2024 15:41:41 +0100") : bugfixes and preparing sprint retro
 - ([2d5a2cd](https://git.ide3.de/universumgames/mic-projekt/-/commit/2d5a2cdce5b1bfad4c80fd359e235e49aad2f16f)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:14:03 +0100") : fix unit tests
@@ -21,8 +24,12 @@
 - ([eceb5f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/eceb5f9defb33ad8514e467dc5d55fa353530a4e)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:03:07 +0100") : continue with pattern encoder
 - ([8f64b4b](https://git.ide3.de/universumgames/mic-projekt/-/commit/8f64b4b024da2a603d8dcfe862decbf47d5dc6ef)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:02:30 +0100") : add thread prio header
 - ([ba8fab1](https://git.ide3.de/universumgames/mic-projekt/-/commit/ba8fab1710113d1ebba23f83b322992b78d816a8)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 23:02:07 +0100") : ring buffer fixes and added tests
+- ([f35bbc6](https://git.ide3.de/universumgames/mic-projekt/-/commit/f35bbc676327295653ecf0b8b9bd34507d316b91)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 02:05:05 +0100") : fix compile
 - ([03d64da](https://git.ide3.de/universumgames/mic-projekt/-/commit/03d64dad07745754426b30ee4d325e5cf3eb279d)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:44:43 +0100") : fix string test
+- ([fb8e2e3](https://git.ide3.de/universumgames/mic-projekt/-/commit/fb8e2e39a2b6c4730b1f321638511326ee74f7f0)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:43:06 +0100") : missing partition table
+- ([0de0811](https://git.ide3.de/universumgames/mic-projekt/-/commit/0de0811782bec8077c69343b5dda2c6e952c22d7)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:38:58 +0100") : fix 4mb flash
 - ([f2d6fb1](https://git.ide3.de/universumgames/mic-projekt/-/commit/f2d6fb1f87ededa323b8ce1bd5ac5634554d1d6f)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:38:12 +0100") : refactoring
+- ([b29f7f9](https://git.ide3.de/universumgames/mic-projekt/-/commit/b29f7f9dbcacc173474911e1e16de23c828cf5cf)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:22:49 +0100") : update pio file
 - ([a081b70](https://git.ide3.de/universumgames/mic-projekt/-/commit/a081b706b3da3f33ea1caab2a22cfeca08247307)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:21:55 +0100") : missing pio update
 - ([0a72fc2](https://git.ide3.de/universumgames/mic-projekt/-/commit/0a72fc2ca654486e33fb4c6326cec5578aa8f266)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:14:57 +0100") : use ringbuffer, clang-tidy fixes
 - ([bc4289d](https://git.ide3.de/universumgames/mic-projekt/-/commit/bc4289d1f5da9c9d738c0064b9e8e6e5ce68025a)) Universumgames on [2024-11-07](## "Thu, 7 Nov 2024 01:13:23 +0100") : Merge branch 'main' into feature-pattern-record

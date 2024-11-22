@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 void logPatternData(PatternData* ret) {
-    printf("ID: %d\n", ret->id);
+    printf("ID: %lu\n", ret->id);
     printf("Total duration: %d\n", ret->totalDurationMillis);
     printf("length: %u\n", ret->lengthPattern);
     printf("delta times: ");

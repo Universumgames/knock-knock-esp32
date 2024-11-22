@@ -69,7 +69,7 @@ static size_t encoder_callback(const void* data, size_t data_size,
         size_t symbol_pos = 0;
         for (int bitmask = 0x80; bitmask != 0; bitmask >>= 1) {
             symbols[symbol_pos++] =
-                data_bytes[data_pos] & bitmask ? ws2812_one : ws2812_zero;
+                (data_bytes[data_pos] & bitmask) ? ws2812_one : ws2812_zero;
         }
         // We're done; we should have written 8 symbols.
         return symbol_pos;
