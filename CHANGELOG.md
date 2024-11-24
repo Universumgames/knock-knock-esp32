@@ -1,5 +1,6 @@
 
 # Changelog
+- ([fbd126a](https://git.ide3.de/universumgames/mic-projekt/-/commit/fbd126a5e791f91753b7804b060cb9180a357c4b)) Universumgames on [2024-11-22](## "Fri, 22 Nov 2024 20:21:52 +0100") : fix types, fix one memory bug, update "nextID" generation, improve memory management, fix warnings
 - ([41d2d6f](https://git.ide3.de/universumgames/mic-projekt/-/commit/41d2d6fdd8b2d711d971bcc28c305504905e952e)) Tom Arlt on [2024-11-20](## "Wed, 20 Nov 2024 11:59:04 +0000") : Merge branch 'main' into 'feature-pattern-record'
 - ([dfc5623](https://git.ide3.de/universumgames/mic-projekt/-/commit/dfc56233d1b82b46d6b7265411b79d314d5f017c)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 12:56:23 +0100") : some bugfixes
 - ([447a657](https://git.ide3.de/universumgames/mic-projekt/-/commit/447a6574a2a06086005b5f2946f4593405364e9c)) Universumgames on [2024-11-20](## "Wed, 20 Nov 2024 10:52:59 +0100") : refactor to use cached linked lists for pattern storage

@@ -9,14 +9,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define BUFFER_LEN 10
-#define FILE_WRITE_LEN 4096
+#define RING_BUFFER_LEN 10
 #define PATTERN_MAX_DELTA_MS 2000
 
+/// feature flags
 // #define PATTERN_STORE_RAW_RECORDING
 #define PATTERN_STORE_PATTERN_RECORDING
 
 #ifdef PATTERN_STORE_RAW_RECORDING
+#define FILE_WRITE_LEN 4096
+
 static FILE* fileRaw = NULL;
 static size_t fileWriteCountRaw = 0;
 
@@ -70,17 +72,16 @@ void saveDeltaToFile(int32_t delta) {
 }
 #endif
 
-// how much higher the value has to be compared to the avg to trigger a "knock"
-#define THRESHOLD_DELTA_MULTIPLIER (1.5)
-
-// how many values have to be read before triggering again
-#define THRESHOLD_TRIGGER_TIMEOUT_VALUES (20)
 // how many ms have to pass before triggering again
 #define THRESHOLD_TRIGGER_TIMEOUT_MS (200)
+#define THRESHOLD_DELTA_MILLIS_WARNING (40)
 
-#define THRESHOLD_TRIGGER_VALUE ((avg * THRESHOLD_DELTA_MULTIPLIER) + 100)
+// how much higher the value has to be compared to the avg to trigger a "knock"
+#define THRESHOLD_TRIGGER_VALUE ((avg * 1.5) + 100)
 
 #define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 10)
+
+const static char* TAG_PATTERN_ENCODER = "PatternEncoder";
 
 analog_v bufferAVG(analog_v** buffer, const size_t len) {
     unsigned long sum = 0;
@@ -100,16 +101,15 @@ static size_t patternDataBufLen = 0;
 static bool patternStarted = false;
 static RingBuffer lastValues = NULL;
 static RingBuffer lastTimes = NULL;
-static int lastTriggeredValuesAgo = THRESHOLD_TRIGGER_TIMEOUT_VALUES;
 static delta_t lastTriggeredTimeAgo = 0;
 
 bool initPatternEncoder() {
     if (lastValues == NULL)
-        lastValues = ringBufferCreate(BUFFER_LEN, sizeof(analog_v));
+        lastValues = ringBufferCreate(RING_BUFFER_LEN, sizeof(analog_v));
     if (lastTimes == NULL)
-        lastTimes = ringBufferCreate(BUFFER_LEN, sizeof(delta_t));
+        lastTimes = ringBufferCreate(RING_BUFFER_LEN, sizeof(delta_t));
     // fill with zeros
-    for (int i = 0; i < BUFFER_LEN; i++) {
+    for (int i = 0; i < RING_BUFFER_LEN; i++) {
         ringBufferAdd(lastValues, storeAsPtr(analog_v, 0));
         ringBufferAdd(lastTimes, storeAsPtr(delta_t, 0));
     }
@@ -135,7 +135,6 @@ bool initPatternEncoder() {
 }
 
 void resetEncoder() {
-    lastTriggeredValuesAgo = THRESHOLD_TRIGGER_TIMEOUT_VALUES;
     lastTriggeredTimeAgo = 0;
     patternDataBufLen = 0;
     patternStarted = false;
@@ -165,16 +164,20 @@ PatternData* savePatternData() {
 
 void addPatternDataToBuf(analog_v value, delta_t deltaMs) {
     ringBufferAdd(lastValues, storeAsPtr(analog_v, value));
-    lastTriggeredValuesAgo =
-        min(lastTriggeredTimeAgo + 1, THRESHOLD_TRIGGER_TIMEOUT_VALUES * 5);
     lastTriggeredTimeAgo += deltaMs;
+    if (deltaMs >= THRESHOLD_DELTA_MILLIS_WARNING) {
+        LOGW(TAG_PATTERN_ENCODER,
+             "Delta time warning: %u ms (should be less than %u)", deltaMs,
+             THRESHOLD_DELTA_MILLIS_WARNING);
+    }
 }
 
 // increase delta millis array if exceeding max length
 void checkPatternDeltaMillisMemory() {
     if (patternDataBufLen == 0 ||
         patternData.lengthPattern + 2 >= patternDataBufLen) {
-        LOGI("encoder", "size %u", patternData.lengthPattern);
+        LOGI(TAG_PATTERN_ENCODER, "size of pattern %u",
+             patternData.lengthPattern);
         size_t newSize =
             PATTERN_DELTA_MILLIS_MEM_INCREMENT(patternData.lengthPattern);
         delta_t* newDeltaMillis = patternData.deltaTimesMillis == NULL
@@ -194,7 +197,7 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
     addPatternDataToBuf(value, deltaMs);
 
     analog_v avg =
-        bufferAVG((analog_v**)ringBufferGetAll(lastValues), BUFFER_LEN);
+        bufferAVG((analog_v**)ringBufferGetAll(lastValues), RING_BUFFER_LEN);
 #ifdef PATTERN_STORE_RAW_RECORDING
     analog_v lastValue = *(analog_v*)ringBufferGetElement(lastValues, 0);
     int32_t delta = value - lastValue;
@@ -211,9 +214,6 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
     }
 
     // check "timeout" for triggering
-    /*if (lastTriggeredValuesAgo < THRESHOLD_TRIGGER_TIMEOUT_VALUES) {
-        return NULL;
-    }*/
     if (lastTriggeredTimeAgo < THRESHOLD_TRIGGER_TIMEOUT_MS) {
         return NULL;
     }
@@ -232,18 +232,17 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
     }
 
     lastTriggeredTimeAgo = 0;
-    lastTriggeredValuesAgo = 0;
     patternStarted = true;
     return NULL;
 
 returnPattern:
-    LOGI("PatternEncoder", "Pattern finished, saving pattern in buffer");
+    LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in buffer");
     PatternData* ret = savePatternData();
-    LOGI("PatternEncoder", "Pattern data");
+    LOGI(TAG_PATTERN_ENCODER, "Pattern data");
     // logPatternData(ret);
 
 #ifdef PATTERN_STORE_PATTERN_RECORDING
-    LOGI("PatternEncoder", "Pattern finished, saving pattern in file");
+    LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in file");
     storePattern(savePatternData());
 #endif
 
