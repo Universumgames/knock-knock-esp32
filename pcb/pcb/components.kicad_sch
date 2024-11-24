@@ -3797,7 +3797,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Converter_DCDC:Converter_DCDC_XP_POWER-IAxxxxD_THT"
+		(property "Footprint" ""
 			(at 21.59 132.08 0)
 			(effects
 				(font
@@ -3880,7 +3880,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Relay_THT:Relay_StandexMeder_DIP_LowProfile"
+		(property "Footprint" ""
 			(at 83.82 109.22 0)
 			(effects
 				(font
@@ -4115,7 +4115,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
+		(property "Footprint" ""
 			(at 87.63 161.29 0)
 			(effects
 				(font
