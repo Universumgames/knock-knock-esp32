@@ -6,6 +6,11 @@
 #define storeAsPtr(type, value)                                                \
     ({                                                                         \
         type* ptr = (type*)malloc(sizeof(type));                               \
-        *ptr = value;                                                          \
+        if (ptr != NULL)                                                       \
+            *ptr = value;                                                      \
+        else                                                                   \
+            LOGE("storeAsPtr", "Failed to allocate memory for %s", #type);     \
         ptr;                                                                   \
     })
+
+#define storeAsVoidPtr(value) storeAsPtr(void, value)

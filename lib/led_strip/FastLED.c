@@ -1,12 +1,5 @@
 #include "FastLed.h"
 
-#include <driver/gpio.h>
-#include <driver/i2s_std.h>
-#include <driver/spi_master.h>
-#include <freertos/FreeRTOS.h>
-#include <hal/spi_hal.h>
-#include <string.h>
-
 #include "ws2812.h"
 
 const char* TAG_FAST_LED = "FastLED";

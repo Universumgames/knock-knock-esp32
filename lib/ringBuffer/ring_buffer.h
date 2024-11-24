@@ -17,12 +17,15 @@ typedef struct ring_buffer__internal* RingBuffer;
 RingBuffer ringBufferCreate(size_t size, size_t elementSize);
 
 /**
- * @brief Add an element to the ring buffer
+ * @brief Add an element to the ring buffer, deletes the oldest element
  *
  * @param buffer The ring buffer to add the element to
  * @param element The element to add
  */
-bool ringBufferAdd(RingBuffer buffer, void* element);
+void ringBufferAdd(RingBuffer buffer, void* element);
+
+#define ringBufferAddElement(buffer, element)                                  \
+    ringBufferAdd(buffer, storeAsVoidPtr(element))
 
 /**
  * @param buffer The ring buffer to get the elements from
@@ -60,5 +63,11 @@ void* ringBufferGetElement(RingBuffer buffer, int index);
  * WARNING: This will free the memory of the ring buffer and the elements
  */
 void ringBufferClear(RingBuffer buffer);
+
+/**
+ * @brief Get the head index of the ring buffer
+ * @return int The head index
+ */
+int getRingBufferHead(RingBuffer buffer);
 
 HEADER_END

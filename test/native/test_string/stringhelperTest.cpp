@@ -2,17 +2,17 @@
 #include <stringHelper.h>
 
 TEST(String, intToStringTest) {
-    EXPECT_STREQ("123", intToString(123, 10));
-    EXPECT_STREQ("0", intToString(0, 10));
-    EXPECT_STREQ("-123", intToString(-123, 10));
-    EXPECT_STREQ("7b", intToString(123, 16));
+    EXPECT_STREQ("123", intToString(123, BASE_DECIMAL));
+    EXPECT_STREQ("0", intToString(0, BASE_DECIMAL));
+    EXPECT_STREQ("-123", intToString(-123, BASE_DECIMAL));
+    EXPECT_STREQ("7b", intToString(123, BASE_HEXADECIMAL));
 }
 
 TEST(String, stringToIntTest) {
-    EXPECT_EQ(123, stringToInt("123", 10));
-    EXPECT_EQ(0, stringToInt("0", 10));
-    EXPECT_EQ(-123, stringToInt("-123", 10));
-    EXPECT_EQ(123, stringToInt("7b", 16));
+    EXPECT_EQ(123, stringToInt("123", BASE_DECIMAL));
+    EXPECT_EQ(0, stringToInt("0", BASE_DECIMAL));
+    EXPECT_EQ(-123, stringToInt("-123", BASE_DECIMAL));
+    EXPECT_EQ(123, stringToInt("7b", BASE_HEXADECIMAL));
 }
 
 TEST(String, splitStringTest) {

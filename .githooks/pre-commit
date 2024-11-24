@@ -8,5 +8,5 @@ git add CHANGELOG.md
 $scriptDir/../format.sh
 
 # readd the files that were formatted
-stagedFiles=$(git diff --cached --name-only)
+stagedFiles=$(git diff --cached --name-only --diff-filter=ACM)
 git add $stagedFiles

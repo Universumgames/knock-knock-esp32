@@ -2,9 +2,11 @@
 
 #include <driver/rmt_encoder.h>
 #include <driver/rmt_tx.h>
-#include <freertos/FreeRTOS.h>
+#include <esp_err.h>
 
 #include "FastLed.h"
+
+#include <portmacro.h>
 
 #define RMT_LED_STRIP_RESOLUTION_HZ                                            \
     10000000 // 10MHz resolution, 1 tick = 0.1us (led strip needs a high
@@ -66,11 +68,8 @@ static size_t encoder_callback(const void* data, size_t data_size,
         // Encode a byte
         size_t symbol_pos = 0;
         for (int bitmask = 0x80; bitmask != 0; bitmask >>= 1) {
-            if (data_bytes[data_pos] & bitmask) {
-                symbols[symbol_pos++] = ws2812_one;
-            } else {
-                symbols[symbol_pos++] = ws2812_zero;
-            }
+            symbols[symbol_pos++] =
+                (data_bytes[data_pos] & bitmask) ? ws2812_one : ws2812_zero;
         }
         // We're done; we should have written 8 symbols.
         return symbol_pos;
@@ -102,6 +101,7 @@ WS2812Config* create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
         rmt_new_tx_channel(&led_config->tx_chan_config, &led_config->led_chan));
 
     LOGI(TAG_WS2812, "Create simple callback-based encoder");
+    LOGI(TAG_WS2812, "Create simple callback-based encoder");
     led_config->simple_encoder_cfg = (rmt_simple_encoder_config_t){
         .callback = encoder_callback
         // Note we don't set min_chunk_size here as the default of 64 is good
@@ -110,6 +110,7 @@ WS2812Config* create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
     ESP_ERROR_CHECK(rmt_new_simple_encoder(&led_config->simple_encoder_cfg,
                                            &led_config->simple_encoder));
 
+    LOGI(TAG_WS2812, "Enable RMT TX channel");
     LOGI(TAG_WS2812, "Enable RMT TX channel");
     ESP_ERROR_CHECK(rmt_enable(led_config->led_chan));
 
@@ -123,6 +124,7 @@ WS2812Config* create_ws2812_encoder(gpio_num_t gpio_num, int led_count) {
 void setWS2812Pixel(WS2812Config* config, int index, uint8_t red, uint8_t green,
                     uint8_t blue) {
     if (index >= config->led_count) {
+        LOGE(TAG_WS2812, "Index out of range: %d", index);
         LOGE(TAG_WS2812, "Index out of range: %d", index);
         return;
     }

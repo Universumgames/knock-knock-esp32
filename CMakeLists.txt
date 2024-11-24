@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.16.0)
+message(STATUS "CMake version: ${CMAKE_VERSION}")
+message(STATUS "IDF_PATH: $ENV{IDF_PATH}")
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(mic-projekt)
 #get_filename_component(configName "${CMAKE_BINARY_DIR}" NAME)

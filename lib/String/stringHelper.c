@@ -5,22 +5,22 @@
 
 #define MAX_INT_STRING_LEN 32
 
-char* intToString(int value, int base) {
+char* intToString(int value, Base base) {
     static char buf[MAX_INT_STRING_LEN] = {0};
     memset(buf, 0, MAX_INT_STRING_LEN);
-    int i = MAX_INT_STRING_LEN - 2;
+    int index = MAX_INT_STRING_LEN - 2;
     if (value == 0) {
-        buf[i] = '0';
-        return &buf[i];
+        buf[index] = '0';
+        return &buf[index];
     }
     int isNegative = value < 0;
     if (isNegative)
         value = -value;
-    for (; value && i; --i, value /= base)
-        buf[i] = "0123456789abcdefghijklmnopqrstuvwxyz"[value % base];
+    for (; value && index; --index, value /= base)
+        buf[index] = "0123456789abcdefghijklmnopqrstuvwxyz"[value % base];
     if (isNegative)
-        buf[i--] = '-';
-    return &buf[i + 1];
+        buf[index--] = '-';
+    return &buf[index + 1];
 }
 
 int stringToInt(const char* str, int base) {
@@ -29,6 +29,8 @@ int stringToInt(const char* str, int base) {
 
 int* splitString(const char* str, const char* delim, int* len) {
     int* indices = (int*)calloc(sizeof(int), strlen(str));
+    if (indices == NULL)
+        return NULL;
     int count = 1;
     size_t delimLen = strlen(delim);
     size_t strLen = strlen(str);
@@ -50,11 +52,15 @@ char* substring(const char* str, int start, int end) {
         return NULL;
     int len = end - start + 1;
     char* substr = (char*)calloc(sizeof(char), len + 1);
-    strncpy(substr, str + start, len);
+    if (substr == NULL)
+        return NULL;
+    memcpy(substr, str + start, len);
     return substr;
 }
 
 char* concat(const char* str1, const char* str2) {
+    if (str1 == NULL || str2 == NULL)
+        return NULL;
     size_t len1 = strlen(str1);
     size_t len2 = strlen(str2);
     char* str = calloc(sizeof(char), len1 + len2 + 1);
@@ -66,6 +72,8 @@ char* concat(const char* str1, const char* str2) {
 }
 
 char* concat3(const char* str1, const char* str2, const char* str3) {
+    if (str1 == NULL || str2 == NULL || str3 == NULL)
+        return NULL;
     size_t len1 = strlen(str1);
     size_t len2 = strlen(str2);
     size_t len3 = strlen(str3);

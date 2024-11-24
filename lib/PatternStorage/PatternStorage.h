@@ -1,6 +1,7 @@
 #pragma once
 #include "PatternTypes.h"
 #include "basicDefs.h"
+#include "linkedList.h"
 
 HEADER_BEGIN
 
@@ -15,26 +16,34 @@ bool initPatternStorage();
 
 /**
  * @brief Store a pattern in the pattern storage
+ * Adds the pattern to the cached pattern storage and saves it to the disk
  *
  * @param pattern the pattern to store
- * @param existingPatterns the existing patterns in the storage, if NULL, the
- * patterns will be loaded
- * @param existingPatternsLen the length of the existing patterns
  * @return true if the pattern was stored successfully
  */
-bool storePattern(PatternData* pattern, PatternData* existingPatterns,
-                  size_t existingPatternsLen);
+bool storePattern(PatternData* pattern);
 
 /**
- * @brief Load all patterns from the pattern storage
+ * @brief Load all patterns from the disk
+ * Load all patterns from the disk and return them as a linked list
+ * Caches the patterns in memory, so that they can be accessed faster by
+ * getPatterns Clears and frees the cache if called again WARNING: Returns
+ * internal linked list, do not free the returned linked list
  *
- * @param len the length of the returned array
- * @return PatternData* the patterns
+ * @return LinkedList<PatternData*> the patterns
  */
-PatternData** loadPatterns(size_t* len);
+LinkedList loadPatternsFromDisk();
+
+/**
+ * @brief Get the patterns as a linked list
+ *
+ * @return LinkedList<PatternData*> the patterns
+ */
+LinkedList getPatterns();
 
 /**
  * @brief Delete a pattern from the pattern storage
+ * Deletes the pattern from the cached pattern storage and from the disk
  *
  * @param id the id of the pattern to delete
  * @return true if the pattern was deleted successfully

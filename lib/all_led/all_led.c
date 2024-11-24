@@ -1,7 +1,7 @@
 #include "all_led.h"
 #include <FastLed.h>
 
-#define RMT_LED_STRIP_GPIO_NUM (GPIO_NUM_8) // GPIO 8 laut Plan
+#define RMT_LED_STRIP_GPIO_NUM (PIN_STATUS_LED)
 
 #define LED_STRIP_LENGTH 3 // Index startet bei 0
 
