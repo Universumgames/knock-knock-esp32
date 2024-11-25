@@ -1,4 +1,4 @@
-image: registry.ide3.de/universumgames/mic-projekt/pio_build_esp32
+image: $CI_REGISTRY_IMAGE:latest
 
 default:
   cache:
