@@ -17,22 +17,31 @@ bool matchPattern(const PatternData* pattern, PatternData* matchedPattern) {
     LinkedList patterns = getPatterns();
 
     list_foreach_raw(patterns, PatternData, {
+        LOGD(TAG_PATTERN_MATCHER, "Checking pattern with id %u", it->id);
         if (it->lengthPattern != pattern->lengthPattern)
-            continue;
+            goto next;
 
         if (IN_RANGE_DELTA(it->lengthPattern, pattern->lengthPattern,
                            DELTA_TIME_VARIANCE_MS *
                                (pattern->lengthPattern / 2)))
-            continue;
+            goto next;
 
         for (size_t i = 0; i < it->lengthPattern; i++) {
             if (!IN_RANGE_DELTA(it->deltaTimesMillis[i],
                                 pattern->deltaTimesMillis[i],
-                                DELTA_TIME_VARIANCE_MS))
-                continue;
+                                DELTA_TIME_VARIANCE_MS)) {
+                LOGD(TAG_PATTERN_MATCHER, "Pattern did not match");
+                goto next;
+            }
         }
 
+        LOGI(TAG_PATTERN_MATCHER, "Pattern matched with id %u", it->id);
+
+        if (matchedPattern != NULL)
+            *matchedPattern = *it;
         return true;
+next:
+        LOGD(TAG_PATTERN_MATCHER, "Pattern did not match");
     });
 
     return false;
