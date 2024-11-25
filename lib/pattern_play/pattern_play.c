@@ -21,7 +21,7 @@ bool playPattern(PatternData* pattern) {
         vTaskDelay(pdMS_TO_TICKS(KNOCK_DURATION_MS)); //Funktion, die Division durch portTICK_PERIOD_MS ausführt
 
         setWILED(PLAY_LED_OFF);
-        /Fehlerbehandlung aus all.led
+        //Fehlerbehandlung aus all.led
         vTaskDelay(pdMS_TO_TICKS(pattern->deltaTimesMillis[i] - KNOCK_DURATION_MS)); // Abziehen der bereits Ausgegebenen Zeit
     }
 
