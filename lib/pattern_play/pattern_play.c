@@ -9,20 +9,25 @@
 #define PLAY_LED_OFF 0, 0, 0
 
 bool playPattern(PatternData* pattern) {
-    if (pattern == NULL) {
+    if (pattern == NULL || pattern->lengthPattern == 0 || pattern->deltaTimesMillis == NULL) {
         return false;
     }
     
     // play the pattern
     for (size_t i = 0; i < pattern->lengthPattern; i++) {
-        setWILED(PLAY_LED_COLOUR);
-        //Fehlerbehandlung aus all.led
-        //Fehlerbehandlung deltaTimesMillis[i] < KNOCK_DURATION_MS 
+        if (pattern->deltaTimesMillis[i] < KNOCK_DURATION_MS) { //Fehlerbehandlung deltaTimesMillis[i] < KNOCK_DURATION_MS 
+            LOGD("PatternPlay", "Pattern too short");
+            return false;
+        }
+
+        setWILED(PLAY_LED_COLOUR); //Fehlerbehandlung bereits in all.led gemacht
+
         vTaskDelay(pdMS_TO_TICKS(KNOCK_DURATION_MS)); //Funktion, die Division durch portTICK_PERIOD_MS ausführt
 
-        setWILED(PLAY_LED_OFF);
-        //Fehlerbehandlung aus all.led
+        setWILED(PLAY_LED_OFF); //Fehlerbehandlung bereits in all.led gemacht
+
         vTaskDelay(pdMS_TO_TICKS(pattern->deltaTimesMillis[i] - KNOCK_DURATION_MS)); // Abziehen der bereits Ausgegebenen Zeit
+
     }
 
     return true;
