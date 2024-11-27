@@ -6,7 +6,7 @@ const static char* TAG_PATTERN_MATCHER = "PatternMatcher";
 
 #define IN_RANGE(value, min, max) ((value) >= (min) && (value) <= (max))
 #define IN_RANGE_DELTA(value, target, delta)                                   \
-    IN_RANGE(value, target - delta, target + delta)
+    IN_RANGE(value, (target) - (delta), (target) + (delta))
 
 #define DELTA_TIME_VARIANCE_MS 100
 
