@@ -1,9 +1,14 @@
 
 # Changelog
-- ([7042a96](https://git.ide3.de/universumgames/mic-projekt/-/commit/7042a96b0f73c9257ae3c56c4ffa2b7d6d14a44d)) siveh001 on [2024-11-26](## "Tue, 26 Nov 2024 09:07:02 +0100") : ready?
-- ([7f7fa6c](https://git.ide3.de/universumgames/mic-projekt/-/commit/7f7fa6c4fcaed055d61cdbe1963af5d51251ec50)) siveh001 on [2024-11-25](## "Mon, 25 Nov 2024 17:44:57 +0100") : update
-- ([eb25ee5](https://git.ide3.de/universumgames/mic-projekt/-/commit/eb25ee587e6ab8e40efa793d348fd60ed80c40dd)) siveh001 on [2024-11-25](## "Mon, 25 Nov 2024 11:26:14 +0100") : update nochmal weitermachen
-- ([74b6e8c](https://git.ide3.de/universumgames/mic-projekt/-/commit/74b6e8cdda62b65b812017458f96ad1bb9f6794e)) siveh001 on [2024-11-25](## "Mon, 25 Nov 2024 10:48:13 +0100") : start pattern_play
+- ([c9da382](https://git.ide3.de/universumgames/mic-projekt/-/commit/c9da382b031da73ffbc5d12413b1b21a0150e27b)) Tom Arlt on [2024-11-27](## "Wed, 27 Nov 2024 11:07:59 +0000") : Merge branch 'feature-pattern-recognize' into 'main'
+- ([931d451](https://git.ide3.de/universumgames/mic-projekt/-/commit/931d451ef37f855890fbd0ada18246e5e5abffc9)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:35:40 +0100") : fix compile bugs
+- ([065606f](https://git.ide3.de/universumgames/mic-projekt/-/commit/065606f4ab3b1728601ae35d831bada42c6c7b85)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:29:00 +0100") : adding status check to recoder to match and store pattern
+- ([4f21d47](https://git.ide3.de/universumgames/mic-projekt/-/commit/4f21d47d805eaa0c8085216ba2c2f674099f9b25)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:08:17 +0100") : adding second pattern to matcher test
+- ([e9c5ce5](https://git.ide3.de/universumgames/mic-projekt/-/commit/e9c5ce531708b1202a8bbd35c7e622fc42c9b7b3)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:08:00 +0100") : bugfixes in llinked list
+- ([6e94a9b](https://git.ide3.de/universumgames/mic-projekt/-/commit/6e94a9b85d46fb0c98c3972234bddbc07513d584)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 10:27:20 +0100") : add more test cases
+- ([4601c5e](https://git.ide3.de/universumgames/mic-projekt/-/commit/4601c5e1565d47ea9a885591d10f25737139d0ed)) Universumgames on [2024-11-26](## "Tue, 26 Nov 2024 00:24:18 +0100") : adding unit tests for matching, bugfixes
+- ([89db4fa](https://git.ide3.de/universumgames/mic-projekt/-/commit/89db4fa147b4324ae3fbf0edb8b5ffc8b51a8f8e)) Universumgames on [2024-11-25](## "Mon, 25 Nov 2024 12:20:28 +0100") : fix multi instance ci/cd
+- ([eeac543](https://git.ide3.de/universumgames/mic-projekt/-/commit/eeac543a58281025c7c9e8e139cd8246582091d4)) Universumgames on [2024-11-25](## "Mon, 25 Nov 2024 11:21:56 +0100") : implement first draft of pattern matching
 - ([bfa9880](https://git.ide3.de/universumgames/mic-projekt/-/commit/bfa988028dd70cf5577eeb60fdef526644dc55ea)) Tom Arlt on [2024-11-24](## "Sun, 24 Nov 2024 21:28:22 +0000") : Merge branch 'feature-pattern-record' into 'main'
 - ([c59112f](https://git.ide3.de/universumgames/mic-projekt/-/commit/c59112f46fa42f836837f5e5c9cadfe4ae8e5981)) Tom Arlt on [2024-11-24](## "Sun, 24 Nov 2024 21:19:11 +0000") : Merge branch 'feature-pcb' into 'main'
 - ([0d5cec2](https://git.ide3.de/universumgames/mic-projekt/-/commit/0d5cec23ba89017788fff9c470e3207ba3a2856b)) Universumgames on [2024-11-24](## "Sun, 24 Nov 2024 22:14:03 +0100") : refactoring, adding delta time warnings
