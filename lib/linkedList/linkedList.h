@@ -40,10 +40,10 @@ void* list_reset(LinkedList list);
 
 #define list_foreach_raw(list, type, method)                                   \
     {                                                                          \
-        type* it = list_reset(list);                                           \
+        type* it = (type*)list_reset(list);                                    \
         while (it != NULL) {                                                   \
             method;                                                            \
-            it = list_next(list);                                              \
+            it = (type*)list_next(list);                                       \
         }                                                                      \
     }
 

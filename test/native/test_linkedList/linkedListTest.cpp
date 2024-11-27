@@ -21,12 +21,21 @@ TEST(LinkedList, pushBack) {
 
 TEST(LinkedList, forEach) {
     int sum = 0;
-    list_reset(list);
-    void* data = list_next(list);
+    void* data = list_reset(list);
     while (data != NULL) {
         sum += *(int*)data;
         data = list_next(list);
     }
+    int normalSum = 0;
+    for (int i = 0; i < NUMBERS_SIZE; i++) {
+        normalSum += numbers[i];
+    }
+    EXPECT_EQ(normalSum, sum);
+}
+
+TEST(LinkedList, foreach_pramga_test) {
+    int sum = 0;
+    list_foreach_raw(list, int, { sum += *(int*)it; });
     int normalSum = 0;
     for (int i = 0; i < NUMBERS_SIZE; i++) {
         normalSum += numbers[i];

@@ -245,6 +245,10 @@ LinkedList loadPatternsFromDisk() {
     return patternList;
 }
 
+LinkedList getPatterns() {
+    return patternList;
+}
+
 bool deletePattern(const int id) {
     bool ret = true;
     if (!patternStorageInitialized) {

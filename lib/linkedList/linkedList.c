@@ -153,7 +153,9 @@ void* list_reset(LinkedList list) {
 void* list_next(LinkedList list) {
     if (list->current == NULL)
         return NULL;
-    void* data = list->current->data;
     list->current = list->current->next;
+    if (list->current == NULL)
+        return NULL;
+    void* data = list->current->data;
     return data;
 }

@@ -26,4 +26,10 @@ bool initPatternEncoder();
  */
 PatternData* encodeAnalogData(analog_v value, delta_t deltaMs);
 
+/**
+ * @brief Reset the encoder
+ *
+ */
+void resetPatternEncoder();
+
 HEADER_END
