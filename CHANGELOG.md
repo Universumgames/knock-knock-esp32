@@ -1,5 +1,6 @@
 
 # Changelog
+- ([4601c5e](https://git.ide3.de/universumgames/mic-projekt/-/commit/4601c5e1565d47ea9a885591d10f25737139d0ed)) Universumgames on [2024-11-26](## "Tue, 26 Nov 2024 00:24:18 +0100") : adding unit tests for matching, bugfixes
 - ([89db4fa](https://git.ide3.de/universumgames/mic-projekt/-/commit/89db4fa147b4324ae3fbf0edb8b5ffc8b51a8f8e)) Universumgames on [2024-11-25](## "Mon, 25 Nov 2024 12:20:28 +0100") : fix multi instance ci/cd
 - ([eeac543](https://git.ide3.de/universumgames/mic-projekt/-/commit/eeac543a58281025c7c9e8e139cd8246582091d4)) Universumgames on [2024-11-25](## "Mon, 25 Nov 2024 11:21:56 +0100") : implement first draft of pattern matching
 - ([bfa9880](https://git.ide3.de/universumgames/mic-projekt/-/commit/bfa988028dd70cf5577eeb60fdef526644dc55ea)) Tom Arlt on [2024-11-24](## "Sun, 24 Nov 2024 21:28:22 +0000") : Merge branch 'feature-pattern-record' into 'main'
