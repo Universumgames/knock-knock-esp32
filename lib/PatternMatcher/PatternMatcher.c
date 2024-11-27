@@ -17,7 +17,7 @@ bool matchPattern(const PatternData* pattern, PatternData* matchedPattern) {
     LinkedList patterns = getPatterns();
 
     list_foreach_raw(patterns, PatternData, {
-        LOGD(TAG_PATTERN_MATCHER, "Checking pattern with id %u", it->id);
+        LOGD(TAG_PATTERN_MATCHER, "Checking pattern with id %lu", it->id);
         if (it->lengthPattern != pattern->lengthPattern)
             goto next;
 
@@ -35,7 +35,7 @@ bool matchPattern(const PatternData* pattern, PatternData* matchedPattern) {
             }
         }
 
-        LOGI(TAG_PATTERN_MATCHER, "Pattern matched with id %u", it->id);
+        LOGI(TAG_PATTERN_MATCHER, "Pattern matched with id %lu", it->id);
 
         if (matchedPattern != NULL)
             *matchedPattern = *it;

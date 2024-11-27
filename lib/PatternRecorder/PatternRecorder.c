@@ -32,7 +32,7 @@ static AnalogReadHandle* analogReadHandle = NULL;
             // LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
             if (currentStatus != lastStatus) {
                 LOGI(TAG_PATTERN_RECORDER,
-                     "Status changed to %d, resetting encoder", currentStatus);
+                     "Status changed to %u, resetting encoder", currentStatus);
                 resetPatternEncoder();
                 lastStatus = currentStatus;
             }

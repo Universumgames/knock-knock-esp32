@@ -1,5 +1,6 @@
 
 # Changelog
+- ([065606f](https://git.ide3.de/universumgames/mic-projekt/-/commit/065606f4ab3b1728601ae35d831bada42c6c7b85)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:29:00 +0100") : adding status check to recoder to match and store pattern
 - ([4f21d47](https://git.ide3.de/universumgames/mic-projekt/-/commit/4f21d47d805eaa0c8085216ba2c2f674099f9b25)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:08:17 +0100") : adding second pattern to matcher test
 - ([e9c5ce5](https://git.ide3.de/universumgames/mic-projekt/-/commit/e9c5ce531708b1202a8bbd35c7e622fc42c9b7b3)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:08:00 +0100") : bugfixes in llinked list
 - ([6e94a9b](https://git.ide3.de/universumgames/mic-projekt/-/commit/6e94a9b85d46fb0c98c3972234bddbc07513d584)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 10:27:20 +0100") : add more test cases

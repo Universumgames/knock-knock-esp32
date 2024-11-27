@@ -246,6 +246,6 @@ returnPattern:
     storePattern(savePatternData());
 #endif
 
-    resetEncoder();
+    resetPatternEncoder();
     return ret;
 }
