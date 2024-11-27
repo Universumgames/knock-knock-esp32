@@ -83,6 +83,7 @@ TEST(TestPatternMatcher, matchPatternTest14) {
 int main() {
     patternList = list_create();
     list_push_back(patternList, storeAsPtr(PatternData, testPattern0));
+    list_push_back(patternList, storeAsPtr(PatternData, testPattern5));
     getPatterns_fake.return_val = patternList;
 
     ::testing::InitGoogleTest();
