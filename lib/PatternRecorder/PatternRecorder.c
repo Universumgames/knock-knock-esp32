@@ -1,8 +1,12 @@
 #include "PatternRecorder.h"
 
+#include "../lock_open/lock_open.h"
+#include "../lock_status/lock_status.h"
 #include "AnalogRead.h"
+#include "PatternMatcher.h"
 
 #include <PatternEncoder.h>
+#include <PatternStorage.h>
 #include <PatternTypes.h>
 #include <freertos/FreeRTOS.h>
 
@@ -17,19 +21,40 @@ static AnalogReadHandle* analogReadHandle = NULL;
 [[noreturn]] static void analogReadTask(void* pvParameters) {
     uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());
     int value = 0;
+    SchlossStatus lastStatus = get_current_status();
     while (true) {
         bool suc = readAnalogValuePtr(analogReadHandle, &value);
         if (suc) {
+            SchlossStatus currentStatus = get_current_status();
             const uint64_t now = pdTICKS_TO_MS(xTaskGetTickCount());
             const uint64_t delta = now - lastRead;
             lastRead = now;
             // LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
+            if (currentStatus != lastStatus) {
+                LOGI(TAG_PATTERN_RECORDER,
+                     "Status changed to %d, resetting encoder", currentStatus);
+                resetPatternEncoder();
+                lastStatus = currentStatus;
+            }
             PatternData* patternData = encodeAnalogData((analog_v)value, delta);
             if (patternData != NULL) {
                 LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");
-                // TODO(#8) check status
-                // match pattern if normal operation
-                // save pattern if recording
+
+                switch (currentStatus) {
+                    case SCHLOSS_VERRIEGELT:
+                        bool matched = matchPattern(patternData, NULL);
+                        if (matched) {
+                            openLock();
+                        }
+                        break;
+                    case MUSTER_AUFNAHME:
+                        storePattern(patternData);
+                        updateLEDStatus(SCHLOSS_VERRIEGELT);
+                        break;
+                    default:
+                        LOGW(TAG_PATTERN_RECORDER, "Unknown status");
+                        break;
+                }
 
                 free(patternData->deltaTimesMillis);
                 free(patternData);

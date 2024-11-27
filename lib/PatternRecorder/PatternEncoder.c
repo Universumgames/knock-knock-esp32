@@ -134,7 +134,7 @@ bool initPatternEncoder() {
     return lastValues != NULL && lastTimes != NULL;
 }
 
-void resetEncoder() {
+void resetPatternEncoder() {
     lastTriggeredTimeAgo = 0;
     patternDataBufLen = 0;
     patternStarted = false;
