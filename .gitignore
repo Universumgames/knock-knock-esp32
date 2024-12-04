@@ -7,3 +7,5 @@ sdkconfig.old
 .vscode
 managed_components/
 pcb/pcb/pcb-backups
+.codeedit
+pattern_storage
