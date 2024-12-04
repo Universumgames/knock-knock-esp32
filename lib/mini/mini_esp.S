@@ -1,7 +1,10 @@
 # risc-v assembly cheat sheet https://projectf.io/posts/riscv-cheat-sheet/
 
+.section .text
 .global max
+.type max, @function
 .global min
+.type min, @function
 
 max:
     bge a0, a1, end_max         # branch if a0 greater or equal to a1, if true jump to end_max
