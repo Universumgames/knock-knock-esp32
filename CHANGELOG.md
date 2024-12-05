@@ -1,10 +1,13 @@
 
 # Changelog
+- ([1e217d8](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e217d8fdd4cd9b19596d2837ad7ff7df70bb2ba)) Tom Arlt on [2024-12-04](## "Wed, 4 Dec 2024 11:49:54 +0000") : Merge branch 'main' into 'feature-pattern-management'
+- ([8903ab0](https://git.ide3.de/universumgames/mic-projekt/-/commit/8903ab0d4f1143b16ad2785b63a968f446d5de71)) Universumgames on [2024-12-04](## "Wed, 4 Dec 2024 10:41:07 +0100") : add new gitignore entries
 - ([37dff18](https://git.ide3.de/universumgames/mic-projekt/-/commit/37dff18784dbfc096ecabf309d318f8a91f46794)) Universumgames on [2024-12-04](## "Wed, 4 Dec 2024 10:40:55 +0100") : fix formatting
 - ([48afa2b](https://git.ide3.de/universumgames/mic-projekt/-/commit/48afa2b193d875400d9141799a6ef214a676b8fd)) Universumgames on [2024-12-04](## "Wed, 4 Dec 2024 10:40:46 +0100") : fix assembler conventions
 - ([f36bbc8](https://git.ide3.de/universumgames/mic-projekt/-/commit/f36bbc848fece2f69daccff08c871af543f9c841)) Tom Arlt on [2024-11-27](## "Wed, 27 Nov 2024 18:57:03 +0000") : Merge branch 'feature-pattern-play' into 'main'
 - ([666f6bb](https://git.ide3.de/universumgames/mic-projekt/-/commit/666f6bb19dc74f1e1c72e6545efefd740d8a6b7f)) Tom Arlt on [2024-11-27](## "Wed, 27 Nov 2024 18:49:10 +0000") : Merge branch 'main' into 'feature-pattern-play'
 - ([15a6aec](https://git.ide3.de/universumgames/mic-projekt/-/commit/15a6aec15a870fdc6dde10230679e42bc9027c8b)) siveh001 on [2024-11-27](## "Wed, 27 Nov 2024 15:51:30 +0100") : fertig
+- ([83237cf](https://git.ide3.de/universumgames/mic-projekt/-/commit/83237cfa27bfa3e9b443a071db7117275b4eecde)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 12:31:07 +0100") : create first rough outline for pattern management
 - ([806ec46](https://git.ide3.de/universumgames/mic-projekt/-/commit/806ec46e5f99d68856d24271ec99664ad7f4c506)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 12:15:57 +0100") : fix warnings in pragma
 - ([c9da382](https://git.ide3.de/universumgames/mic-projekt/-/commit/c9da382b031da73ffbc5d12413b1b21a0150e27b)) Tom Arlt on [2024-11-27](## "Wed, 27 Nov 2024 11:07:59 +0000") : Merge branch 'feature-pattern-recognize' into 'main'
 - ([931d451](https://git.ide3.de/universumgames/mic-projekt/-/commit/931d451ef37f855890fbd0ada18246e5e5abffc9)) Universumgames on [2024-11-27](## "Wed, 27 Nov 2024 11:35:40 +0100") : fix compile bugs

@@ -5,6 +5,7 @@
 typedef struct __llnode {
     void* data;
     struct __llnode* next;
+    struct __llnode* prev;
 } ll_node_t;
 
 struct __ll_list {
@@ -71,6 +72,7 @@ void __list_push_back(LinkedList list, void* data) {
         list->tail = node;
     } else {
         list->tail->next = node;
+        node->prev = list->tail;
         list->tail = node;
     }
     list->size++;
@@ -79,6 +81,7 @@ void __list_push_back(LinkedList list, void* data) {
 void __list_push_front(LinkedList list, void* data) {
     ll_node_t* node = malloc(sizeof(ll_node_t));
     node->data = data;
+    list->head->prev = node;
     node->next = list->head;
     list->head = node;
     if (list->tail == NULL) {
@@ -109,6 +112,7 @@ void* list_pop_front(LinkedList list) {
     void* data = list->head->data;
     ll_node_t* next = list->head->next;
     free(list->head);
+    next->prev = NULL;
     list->head = next;
     list->size--;
     return data;
@@ -154,6 +158,16 @@ void* list_next(LinkedList list) {
     if (list->current == NULL)
         return NULL;
     list->current = list->current->next;
+    if (list->current == NULL)
+        return NULL;
+    void* data = list->current->data;
+    return data;
+}
+
+void* list_prev(LinkedList list) {
+    if (list->current == NULL)
+        return NULL;
+    list->current = list->current->prev;
     if (list->current == NULL)
         return NULL;
     void* data = list->current->data;
