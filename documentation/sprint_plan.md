@@ -104,6 +104,10 @@ Kapitän: Tom Arlt
   - Verantwortlicher: Simon Vehreschild, Jovan Arnaut, Tom Arlt
   - Zeitaufwand: 30 Stunden
 
+- Feintuning der Mustererkennung
+  - Verantwortlicher: Simon Vehreschild, Tom Arlt
+  - Zeitaufwand: 20 Stunden
+
 - Erstellen der Dokumentation
   - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
   - Zeitaufwand: 5 Stunden
