@@ -268,7 +268,7 @@ bool deletePattern(const pattern_id_t id) {
         goto free_path;
     }
 
-    LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %d", id);
+    LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %lu", id);
 free_path:
     free(path);
     return ret == 0;

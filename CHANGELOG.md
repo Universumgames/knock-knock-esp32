@@ -1,5 +1,6 @@
 
 # Changelog
+- ([3659db5](https://git.ide3.de/universumgames/mic-projekt/-/commit/3659db5f134715116a320101c4d0e79ad1c21c7e)) Universumgames on [2024-12-06](## "Fri, 6 Dec 2024 14:29:33 +0100") : bugfixes
 - ([23721ce](https://git.ide3.de/universumgames/mic-projekt/-/commit/23721ce4ee7622c611f49f9b62abaf6cd20e7b7b)) joarn002 on [2024-12-05](## "Thu, 5 Dec 2024 20:39:59 +0100") : PatternManagmentdraft
 - ([994c277](https://git.ide3.de/universumgames/mic-projekt/-/commit/994c2777cb02efae799f5ce648a399bb1babfc3c)) Universumgames on [2024-12-05](## "Thu, 5 Dec 2024 20:21:10 +0100") : update linked list to add prev
 - ([1e217d8](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e217d8fdd4cd9b19596d2837ad7ff7df70bb2ba)) Tom Arlt on [2024-12-04](## "Wed, 4 Dec 2024 11:49:54 +0000") : Merge branch 'main' into 'feature-pattern-management'
