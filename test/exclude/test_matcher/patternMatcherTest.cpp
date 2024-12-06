@@ -2,8 +2,8 @@
 
 #include "../../fff.h"
 DEFINE_FFF_GLOBALS;
-#include "PatternMatcher.h"
 #include "../../TestPattern.h"
+#include "PatternMatcher.h"
 #include "basicDefs.h"
 #include "linkedList.h"
 
