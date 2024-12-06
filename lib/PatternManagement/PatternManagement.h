@@ -8,4 +8,6 @@ HEADER_BEGIN
  */
 void initPatternManagement();
 
+void _handleButtonPress(uint8_t pin);
+
 HEADER_END

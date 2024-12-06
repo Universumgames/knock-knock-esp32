@@ -1,5 +1,6 @@
 
 # Changelog
+- ([7e69a26](https://git.ide3.de/universumgames/mic-projekt/-/commit/7e69a26ef940e0f52c1d6276e3b0be9ce9cd2d05)) Universumgames on [2024-12-06](## "Fri, 6 Dec 2024 14:46:39 +0100") : add numbertoString pragma
 - ([b28b590](https://git.ide3.de/universumgames/mic-projekt/-/commit/b28b590542839ababc16819ea62b45f9b011ef9a)) Universumgames on [2024-12-06](## "Fri, 6 Dec 2024 14:30:28 +0100") : fix log
 - ([3659db5](https://git.ide3.de/universumgames/mic-projekt/-/commit/3659db5f134715116a320101c4d0e79ad1c21c7e)) Universumgames on [2024-12-06](## "Fri, 6 Dec 2024 14:29:33 +0100") : bugfixes
 - ([23721ce](https://git.ide3.de/universumgames/mic-projekt/-/commit/23721ce4ee7622c611f49f9b62abaf6cd20e7b7b)) joarn002 on [2024-12-05](## "Thu, 5 Dec 2024 20:39:59 +0100") : PatternManagmentdraft
