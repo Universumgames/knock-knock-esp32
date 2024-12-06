@@ -23,6 +23,24 @@ typedef enum Base_t Base;
  */
 char* intToString(int value, Base base);
 
+/**
+ * @brief Convert a long to a string
+ * WARNING: This function uses a static buffer. If you need to keep the result,
+ * copy it to another buffer.
+ *
+ * @param value the long to convert
+ * @param base the base to convert the long to
+ * @return char*
+ */
+char* longToString(long value, Base base);
+
+/**
+ * @brief Convert a string to an integer
+ *
+ * @param str the string to convert
+ * @param base the base of the integer
+ * @return int the integer
+ */
 int stringToInt(const char* str, int base);
 
 /**
