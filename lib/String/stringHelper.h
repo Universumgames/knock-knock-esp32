@@ -34,6 +34,8 @@ char* intToString(int value, Base base);
  */
 char* longToString(long value, Base base);
 
+char* ulongToString(unsigned long value, Base base);
+
 /**
  * @brief Convert a string to an integer
  *

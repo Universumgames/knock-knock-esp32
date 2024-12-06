@@ -18,7 +18,7 @@ static bool patternStorageInitialized = false;
 static LinkedList patternList = NULL;
 
 char* patternFileName(pattern_id_t patternID) {
-    char* idStr = longToString(patternID, BASE_DECIMAL);
+    char* idStr = ulongToString(patternID, BASE_DECIMAL);
     LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);
     char* fileName =
         concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION);
