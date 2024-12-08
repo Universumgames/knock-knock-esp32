@@ -18,7 +18,7 @@ TEST_PATTERN_CREATE(5, 3800, 6, 1000, 300, 1000, 500, 1000);
 
 LinkedList createTestPatternStorage() {
     LinkedList patterns = list_create();
-    list_push_back(patterns, storeAsPtr(PatternData*, &testPattern0));
-    list_push_back(patterns, storeAsPtr(PatternData*, &testPattern5));
+    list_push_back(patterns, storeAsPtr(PatternData, testPattern0));
+    list_push_back(patterns, storeAsPtr(PatternData, testPattern5));
     return patterns;
 }
