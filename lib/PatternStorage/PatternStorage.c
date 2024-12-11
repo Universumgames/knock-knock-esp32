@@ -17,8 +17,8 @@ static bool patternStorageInitialized = false;
 
 static LinkedList patternList = NULL;
 
-char* patternFileName(int patternID) {
-    char* idStr = intToString(patternID, BASE_DECIMAL);
+char* patternFileName(pattern_id_t patternID) {
+    char* idStr = ulongToString(patternID, BASE_DECIMAL);
     LOGD(TAG_PATTERN_STORAGE, "Pattern id: %s", idStr);
     char* fileName =
         concat3(PATTERN_FILE_PREFIX, idStr, PATTERN_FILE_EXTENSION);
@@ -26,7 +26,7 @@ char* patternFileName(int patternID) {
     return fileName;
 }
 
-char* patternFilePath(int patternID) {
+char* patternFilePath(pattern_id_t patternID) {
     char* fileName = patternFileName(patternID);
     char* path = concat(PATTERN_STORAGE_PATH_FULL "/", fileName);
     free(fileName);
@@ -249,7 +249,7 @@ LinkedList getPatterns() {
     return patternList;
 }
 
-bool deletePattern(const int id) {
+bool deletePattern(const pattern_id_t id) {
     bool ret = true;
     if (!patternStorageInitialized) {
         LOGE(TAG_PATTERN_STORAGE, "Pattern storage not initialized");
@@ -268,7 +268,7 @@ bool deletePattern(const int id) {
         goto free_path;
     }
 
-    LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %d", id);
+    LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %lu", id);
 free_path:
     free(path);
     return ret == 0;

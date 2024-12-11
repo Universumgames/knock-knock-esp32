@@ -48,6 +48,6 @@ LinkedList getPatterns();
  * @param id the id of the pattern to delete
  * @return true if the pattern was deleted successfully
  */
-bool deletePattern(int id);
+bool deletePattern(pattern_id_t id);
 
 HEADER_END

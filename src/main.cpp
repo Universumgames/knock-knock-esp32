@@ -2,6 +2,7 @@
 #include <freertos/task.h>
 
 #include "HardwareLED.h"
+#include "PatternManagement.h"
 #include "PatternRecorder.h"
 #include "PatternStorage.h"
 #include "Serial.h"
@@ -32,6 +33,7 @@ CPP_BEGIN void app_main() {
     ESP_LOGE("main", "Log test error");
 
     initPatternRecorder();
+    initPatternManagement();
 
     // Test-Code
     openLock();
