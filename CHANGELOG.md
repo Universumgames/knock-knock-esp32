@@ -1,5 +1,8 @@
 
 # Changelog
+- ([3d7b25b](https://git.ide3.de/universumgames/mic-projekt/-/commit/3d7b25b6349334d827615533846a3462f6a5e816)) Universumgames on [2024-12-13](## "Fri, 13 Dec 2024 14:34:09 +0100") : Merge branch 'main' into 25-testat-01-tom
+- ([08fb26b](https://git.ide3.de/universumgames/mic-projekt/-/commit/08fb26befb89d9a7967e39cde2de7bc24c952a56)) Universumgames on [2024-12-12](## "Thu, 12 Dec 2024 22:06:13 +0100") : add testate template
+- ([ce3a362](https://git.ide3.de/universumgames/mic-projekt/-/commit/ce3a362653af6e417e17509b221fc4c0e71969f7)) Universumgames on [2024-12-12](## "Thu, 12 Dec 2024 22:05:45 +0100") : add testate templates
 - ([a126b9c](https://git.ide3.de/universumgames/mic-projekt/-/commit/a126b9c436e6e89dca7838ce0754f67f96590ac6)) Tom Arlt on [2024-12-11](## "Wed, 11 Dec 2024 10:42:44 +0000") : Merge branch 'feature-pattern-management' into 'main'
 - ([2831f1d](https://git.ide3.de/universumgames/mic-projekt/-/commit/2831f1df3c33a8fc05067e5f9b499334c806bca5)) Universumgames on [2024-12-09](## "Mon, 9 Dec 2024 00:03:00 +0100") : fixed unit tests
 - ([410cec8](https://git.ide3.de/universumgames/mic-projekt/-/commit/410cec826621a594d82b1d4fcec03a21037dbe3a)) Universumgames on [2024-12-06](## "Fri, 6 Dec 2024 15:51:52 +0100") : Merge remote-tracking branch 'origin/feature-pattern-management' into feature-pattern-management
