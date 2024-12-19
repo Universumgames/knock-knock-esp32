@@ -1,8 +1,6 @@
 #pragma once
 #include "basicDefs.h"
 
-// Created by: Tom Arlt
-
 HEADER_BEGIN
 
 /**
@@ -43,5 +41,13 @@ void serialRead(char* data, int len);
  * @return char the character read
  */
 char serialReadChar();
+
+char* serialReadLine();
+
+typedef enum { SERIAL_INTERRUPT_CHAR, SERIAL_INTERRUPT_LINE } SerialInterrupt;
+
+typedef void (*SerialInterruptCallback)(const char*);
+void attachSerialInterrupt(SerialInterruptCallback callback,
+                           SerialInterrupt interrupt);
 
 HEADER_END

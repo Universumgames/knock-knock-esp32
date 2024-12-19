@@ -43,7 +43,7 @@ void initPatternManagement() {
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
     gpio_num_t pin = *(gpio_num_t*)arg;
     // send pin "press" (gpio_num_t) to queue
-    xQueueSend(queue, (void*)pin, (TickType_t)0);
+    // xQueueSendFromISR(queue, (void*)pin, (TickType_t)0);
 }
 
 [[noreturn]]

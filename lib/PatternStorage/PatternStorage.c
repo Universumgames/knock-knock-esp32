@@ -142,9 +142,15 @@ bool storePattern(PatternData* pattern) {
     }
 
     list_push_back(patternList, pattern);
+
+    bool closed = fclose(file) == 0;
+    if (!closed) {
+        LOGE(TAG_PATTERN_STORAGE, "Failed to close file");
+        return false;
+    }
+
     LOGI(TAG_PATTERN_STORAGE, "Stored pattern with id %lu", pattern->id);
 
-    fclose(file);
     return true;
 }
 
@@ -272,4 +278,16 @@ bool deletePattern(const pattern_id_t id) {
 free_path:
     free(path);
     return ret == 0;
+}
+
+void listPatternsToConsole() {
+    if (!patternStorageInitialized) {
+        LOGE(TAG_PATTERN_STORAGE, "Pattern storage not initialized");
+        return;
+    }
+    printf("Listing patterns\n");
+    list_foreach_raw(patternList, PatternData, {
+        logPatternDataConcise(it);
+        printf("====================================\n");
+    });
 }

@@ -12,11 +12,14 @@
 #include "lock_open.h"
 #include "lock_status.h"
 
+#include <CommandLine.h>
+
 #define ECHO_TASK_STACK_SIZE 2048
 
 CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_INFO);
     beginSerial(CONFIG_MONITOR_BAUD);
+    initCommandLine();
 
     initialize_lock_state();
 
@@ -34,15 +37,4 @@ CPP_BEGIN void app_main() {
 
     initPatternRecorder();
     initPatternManagement();
-
-    // Test-Code
-    openLock();
-    vTaskDelay(11000 / portTICK_PERIOD_MS);
-    updateLEDStatus(MUSTER_AUFNAHME);
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
-    updateLEDStatus(MUSTER_FAST_KORREKT);
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
-    updateLEDStatus(FEHLERFALL);
-    vTaskDelay(10000 / portTICK_PERIOD_MS);
-    openLock();
 }
