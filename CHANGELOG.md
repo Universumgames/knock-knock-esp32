@@ -1,5 +1,6 @@
 
 # Changelog
+- ([b80ee31](https://git.ide3.de/universumgames/mic-projekt/-/commit/b80ee31038bf60261b75f09ca3c37c403389f492)) Universumgames on [2024-12-19](## "Thu, 19 Dec 2024 23:57:20 +0100") : add first draft of commands
 - ([af3b91c](https://git.ide3.de/universumgames/mic-projekt/-/commit/af3b91c288550e825564653ba36de89e72902a0f)) Tom Arlt on [2024-12-16](## "Mon, 16 Dec 2024 09:34:29 +0000") : Merge branch '25-testat-01-tom' into 'main'
 - ([b209c70](https://git.ide3.de/universumgames/mic-projekt/-/commit/b209c70dd2871194b6042fe8319a96a8bec87713)) siveh001 on [2024-12-13](## "Fri, 13 Dec 2024 16:49:01 +0100") : Simon und Jovan
 - ([8ed5dbc](https://git.ide3.de/universumgames/mic-projekt/-/commit/8ed5dbc9f5ec180a35148c96cb14bd8149e74973)) Universumgames on [2024-12-13](## "Fri, 13 Dec 2024 16:31:12 +0100") : finished testat

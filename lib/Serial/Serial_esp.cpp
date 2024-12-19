@@ -20,6 +20,8 @@ static QueueHandle_t uart0_queue;
 
 static std::queue<char> txQueue;
 
+static const char* TAG_SERIAL = "uart_events";
+
 [[noreturn]] static void uart_event_task(void* pvParameters) {
     uart_event_t event;
     size_t buffered_size = 0;

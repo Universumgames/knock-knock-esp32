@@ -7,12 +7,8 @@
 #include <cstdio>
 #include <cstring>
 #include <list>
-#include <CommandLine.h>
 #include <driver/uart.h>
-#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
-#include <freertos/queue.h>
-#include <freertos/task.h>
 
 #include "_Serial.hpp"
 #include <queue>
