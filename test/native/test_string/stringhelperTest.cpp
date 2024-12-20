@@ -16,12 +16,16 @@ TEST(String, stringToIntTest) {
 }
 
 TEST(String, splitStringTest) {
-    int len;
-    int* indices = splitString("Hello, World!", ", ", &len);
+    size_t len;
+    char str[] = "Hello, World!";
+    size_t* indices = splitString(str, ", ", &len);
     EXPECT_EQ(2, len);
     EXPECT_EQ(0, indices[0]);
     EXPECT_EQ(5, indices[1]);
     free(indices);
+    indices = splitString(str, "?", &len);
+    EXPECT_EQ(1, len);
+    EXPECT_EQ(strlen(str), indices[0]);
 }
 
 TEST(String, substringTest) {

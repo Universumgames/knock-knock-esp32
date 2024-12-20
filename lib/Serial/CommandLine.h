@@ -10,7 +10,8 @@ typedef enum {
     LIST_PATTERNS,
     ENCODER_LOG_BRANCHES,
     RECORDER_PAUSE,
-    ENCODER_STORE_ALL
+    ENCODER_STORE_ALL,
+    TRIGGER_UNLOCK
 } Command;
 
 void initCommandLine();

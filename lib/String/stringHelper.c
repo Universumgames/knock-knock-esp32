@@ -32,8 +32,8 @@ int stringToInt(const char* str, int base) {
     return strtol(str, NULL, base);
 }
 
-int* splitString(const char* str, const char* delim, int* len) {
-    int* indices = (int*)calloc(sizeof(int), strlen(str));
+size_t* splitString(const char* str, const char* delim, size_t* len) {
+    size_t* indices = (size_t*)calloc(sizeof(size_t), strlen(str));
     if (indices == NULL)
         return NULL;
     int count = 1;
@@ -54,12 +54,12 @@ int* splitString(const char* str, const char* delim, int* len) {
 char* substring(const char* str, int start, int end) {
     size_t strLen = strlen(str);
     if (start < 0 || start >= strLen || end < 0 || end >= strLen || start > end)
-        return NULL;
+        return strdup(str);
     int len = end - start + 1;
-    char* substr = (char*)calloc(sizeof(char), len + 1);
+    char* substr = (char*)calloc(sizeof(char), len + 2);
     if (substr == NULL)
         return NULL;
-    memcpy(substr, str + start, len);
+    strncpy(substr, str + start, len);
     return substr;
 }
 

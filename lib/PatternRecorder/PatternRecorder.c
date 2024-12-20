@@ -24,7 +24,8 @@ static AnalogReadHandle* analogReadHandle = NULL;
     SchlossStatus lastStatus = get_current_status();
     while (true) {
         if (dflag_pattern_recorder_pause) {
-            vTaskDelay(1000);
+            printf("Recorder paused\n");
+            vTaskDelay(10000);
             continue;
         }
         bool suc = readAnalogValuePtr(analogReadHandle, &value);
