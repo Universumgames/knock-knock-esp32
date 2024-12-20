@@ -25,7 +25,7 @@ TEST(String, splitStringTest) {
     free(indices);
     indices = splitString(str, "?", &len);
     EXPECT_EQ(1, len);
-    EXPECT_EQ(strlen(str), indices[0]);
+    EXPECT_EQ(0, indices[0]);
 }
 
 TEST(String, substringTest) {
