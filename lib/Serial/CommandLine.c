@@ -83,6 +83,7 @@ void handleCommand(const char* command) {
             printf("\t%s - toggle recorder pause\n", CMD_STR_RECORDER_PAUSE);
             printf("\t%s - toggle encoder store all patterns to file\n",
                    CMD_STR_ENCODER_STORE_ALL);
+            printf("\t%s - trigger unlock\n", CMD_STR_UNLOCK_TRIGGER);
             break;
         case LS_FLAGS:
             printf("\nListing flags\n");
