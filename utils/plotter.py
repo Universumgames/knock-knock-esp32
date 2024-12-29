@@ -4,21 +4,23 @@ import matplotlib.pyplot as plt
 from matplotlib import pyplot  
 import numpy as np
 
+baseDir = "./v4/"
+
 #open data.bin, read hex values and convert to float
 def read_data_raw():
-    data = np.fromfile('./encoded_raw.bin', dtype=np.uint16)
+    data = np.fromfile(baseDir + 'encoded_raw.bin', dtype=np.uint16)
     return data
 
 def read_data_avg():
-    data = np.fromfile('./encoded_avg.bin', dtype=np.uint16)
+    data = np.fromfile(baseDir + 'encoded_avg.bin', dtype=np.uint16)
     return data
 
 def read_data_delta():
-    data = np.fromfile('./encoded_delta.bin', dtype=np.int32)
+    data = np.fromfile(baseDir + 'encoded_delta.bin', dtype=np.int32)
     return data
 
 def read_data_delta_ms():
-    data = np.fromfile('./encoded_delta_ms.bin', dtype=np.uint64)
+    data = np.fromfile(baseDir + 'encoded_delta_ms.bin', dtype=np.uint64)
     return data
 
 #plot data

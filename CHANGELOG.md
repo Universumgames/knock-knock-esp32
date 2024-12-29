@@ -1,5 +1,13 @@
 
 # Changelog
+- ([036818f](https://git.ide3.de/universumgames/mic-projekt/-/commit/036818f163baec4a51a59e1f5d42f098951d0682)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 15:15:40 +0100") : fix unit test
+- ([6ce4403](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ce4403fd06219ae818813ce665b9073f55b4231)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:57:00 +0100") : missed adding help entry for unlock
+- ([8a5ed0e](https://git.ide3.de/universumgames/mic-projekt/-/commit/8a5ed0e822197245f6728abf0bcf7da984a777cd)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:55:52 +0100") : rewrite to allow commands with arguments, string helper functions needed fixing
+- ([eeb5c9a](https://git.ide3.de/universumgames/mic-projekt/-/commit/eeb5c9a2faad4db60a81a4b4f269bc00c16d5b96)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 00:08:58 +0100") : fix flag header include
+- ([b80ee31](https://git.ide3.de/universumgames/mic-projekt/-/commit/b80ee31038bf60261b75f09ca3c37c403389f492)) Universumgames on [2024-12-19](## "Thu, 19 Dec 2024 23:57:20 +0100") : add first draft of commands
+- ([af3b91c](https://git.ide3.de/universumgames/mic-projekt/-/commit/af3b91c288550e825564653ba36de89e72902a0f)) Tom Arlt on [2024-12-16](## "Mon, 16 Dec 2024 09:34:29 +0000") : Merge branch '25-testat-01-tom' into 'main'
+- ([b209c70](https://git.ide3.de/universumgames/mic-projekt/-/commit/b209c70dd2871194b6042fe8319a96a8bec87713)) siveh001 on [2024-12-13](## "Fri, 13 Dec 2024 16:49:01 +0100") : Simon und Jovan
+- ([8ed5dbc](https://git.ide3.de/universumgames/mic-projekt/-/commit/8ed5dbc9f5ec180a35148c96cb14bd8149e74973)) Universumgames on [2024-12-13](## "Fri, 13 Dec 2024 16:31:12 +0100") : finished testat
 - ([3d7b25b](https://git.ide3.de/universumgames/mic-projekt/-/commit/3d7b25b6349334d827615533846a3462f6a5e816)) Universumgames on [2024-12-13](## "Fri, 13 Dec 2024 14:34:09 +0100") : Merge branch 'main' into 25-testat-01-tom
 - ([08fb26b](https://git.ide3.de/universumgames/mic-projekt/-/commit/08fb26befb89d9a7967e39cde2de7bc24c952a56)) Universumgames on [2024-12-12](## "Thu, 12 Dec 2024 22:06:13 +0100") : add testate template
 - ([ce3a362](https://git.ide3.de/universumgames/mic-projekt/-/commit/ce3a362653af6e417e17509b221fc4c0e71969f7)) Universumgames on [2024-12-12](## "Thu, 12 Dec 2024 22:05:45 +0100") : add testate templates

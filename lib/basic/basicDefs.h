@@ -24,6 +24,7 @@
 #endif
 
 #include "_checks.h"
+#include "_dflags.h"
 #include "_minis.h"
 #include "_pins.h"
 #include "_threads.h"

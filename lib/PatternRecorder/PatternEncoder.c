@@ -77,7 +77,7 @@ void saveDeltaToFile(int32_t delta) {
 #define THRESHOLD_DELTA_MILLIS_WARNING (40)
 
 // how much higher the value has to be compared to the avg to trigger a "knock"
-#define THRESHOLD_TRIGGER_VALUE ((avg * 1.5) + 100)
+#define THRESHOLD_TRIGGER_VALUE ((avg * 2) + 250)
 
 #define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 10)
 
@@ -209,17 +209,24 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
 #endif
 
     // pattern finished
-    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS) {
+    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS &&
+        patternData.lengthPattern > 0) {
+        if (dflag_pattern_encoder_printf_if_branches)
+            printf(".");
         goto returnPattern;
     }
 
     // check "timeout" for triggering
     if (lastTriggeredTimeAgo < THRESHOLD_TRIGGER_TIMEOUT_MS) {
+        if (dflag_pattern_encoder_printf_if_branches)
+            printf(",");
         return NULL;
     }
 
     // basic check if value is above average
     if (value < THRESHOLD_TRIGGER_VALUE) {
+        if (dflag_pattern_encoder_printf_if_branches)
+            printf("*");
         return NULL;
     }
 
@@ -241,10 +248,14 @@ returnPattern:
     LOGI(TAG_PATTERN_ENCODER, "Pattern data");
     // logPatternData(ret);
 
-#ifdef PATTERN_STORE_PATTERN_RECORDING
-    LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in file");
-    storePattern(savePatternData());
-#endif
+    if (dflag_pattern_store_recorded_pattern) {
+        LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in file");
+        bool saved = storePattern(savePatternData());
+        if (!saved) {
+            LOGE(TAG_PATTERN_ENCODER, "Failed to save pattern");
+            logPatternData(ret);
+        }
+    }
 
     resetPatternEncoder();
     return ret;

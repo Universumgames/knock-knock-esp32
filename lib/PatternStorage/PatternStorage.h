@@ -50,4 +50,9 @@ LinkedList getPatterns();
  */
 bool deletePattern(pattern_id_t id);
 
+/**
+ * @brief List all patterns to the console
+ */
+void listPatternsToConsole();
+
 HEADER_END

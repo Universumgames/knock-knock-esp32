@@ -7,10 +7,18 @@
 #include "lock_status.h"
 #include "pattern_play.h"
 
-static void IRAM_ATTR gpio_isr_handler(void* arg);
 static void patternManagerThread(void* arg);
 
 QueueHandle_t queue;
+
+/**
+ * fast interrupt handler
+ */
+static void IRAM_ATTR gpio_isr_handler(void* arg) {
+    gpio_num_t pin = *(gpio_num_t*)arg;
+    // send pin "press" (gpio_num_t) to queue
+    xQueueSendFromISR(queue, (void*)pin, (TickType_t)0);
+}
 
 /**
  * Configure button for input pin and configure interrupt
@@ -35,15 +43,6 @@ void initPatternManagement() {
     setupButton((gpio_num_t)PIN_BUTTON_DOWN);
     setupButton((gpio_num_t)PIN_BUTTON_RECORD);
     setupButton((gpio_num_t)PIN_BUTTON_DELETE);
-}
-
-/**
- * fast interrupt handler
- */
-static void IRAM_ATTR gpio_isr_handler(void* arg) {
-    gpio_num_t pin = *(gpio_num_t*)arg;
-    // send pin "press" (gpio_num_t) to queue
-    xQueueSend(queue, (void*)pin, (TickType_t)0);
 }
 
 [[noreturn]]

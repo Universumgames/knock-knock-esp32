@@ -20,4 +20,6 @@ typedef struct {
 
 void logPatternData(PatternData* pattern);
 
+void logPatternDataConcise(PatternData* pattern);
+
 HEADER_END

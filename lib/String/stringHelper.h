@@ -54,7 +54,7 @@ int stringToInt(const char* str, int base);
  * @param len the length of the returned array
  * @return int* the start index of each substring
  */
-int* splitString(const char* str, const char* delim, int* len);
+size_t* splitString(const char* str, const char* delim, size_t* len);
 
 /**
  * @brief Get a substring of a string
