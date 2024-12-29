@@ -1,5 +1,6 @@
 
 # Changelog
+- ([036818f](https://git.ide3.de/universumgames/mic-projekt/-/commit/036818f163baec4a51a59e1f5d42f098951d0682)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 15:15:40 +0100") : fix unit test
 - ([6ce4403](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ce4403fd06219ae818813ce665b9073f55b4231)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:57:00 +0100") : missed adding help entry for unlock
 - ([8a5ed0e](https://git.ide3.de/universumgames/mic-projekt/-/commit/8a5ed0e822197245f6728abf0bcf7da984a777cd)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:55:52 +0100") : rewrite to allow commands with arguments, string helper functions needed fixing
 - ([eeb5c9a](https://git.ide3.de/universumgames/mic-projekt/-/commit/eeb5c9a2faad4db60a81a4b4f269bc00c16d5b96)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 00:08:58 +0100") : fix flag header include
