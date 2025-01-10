@@ -209,10 +209,13 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
 #endif
 
     // pattern finished
-    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS &&
-        patternData.lengthPattern > 0) {
+    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS) {
         if (dflag_pattern_encoder_printf_if_branches)
             printf(".");
+        if (patternData.lengthPattern == 0) {
+            resetPatternEncoder();
+            return NULL;
+        }
         goto returnPattern;
     }
 
@@ -246,7 +249,8 @@ returnPattern:
     LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in buffer");
     PatternData* ret = savePatternData();
     LOGI(TAG_PATTERN_ENCODER, "Pattern data");
-    // logPatternData(ret);
+    if (dflag_pattern_encoder_log_all)
+        logPatternDataConcise(ret);
 
     if (dflag_pattern_store_recorded_pattern) {
         LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in file");

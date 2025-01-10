@@ -1,5 +1,7 @@
 
 # Changelog
+- ([1e5b9f7](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e5b9f717a9609f90c54e2996d730d3775f65e64)) Tom Arlt on [2024-12-29](## "Sun, 29 Dec 2024 01:14:12 +0000") : Merge branch '28-implement-a-simple-command-line-tool' into 'main'
+- ([ef6e7ee](https://git.ide3.de/universumgames/mic-projekt/-/commit/ef6e7eeaa9297453423dba66cf436b8abe3645fc)) Universumgames on [2024-12-29](## "Sun, 29 Dec 2024 02:08:33 +0100") : disable all debug flags by default
 - ([036818f](https://git.ide3.de/universumgames/mic-projekt/-/commit/036818f163baec4a51a59e1f5d42f098951d0682)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 15:15:40 +0100") : fix unit test
 - ([6ce4403](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ce4403fd06219ae818813ce665b9073f55b4231)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:57:00 +0100") : missed adding help entry for unlock
 - ([8a5ed0e](https://git.ide3.de/universumgames/mic-projekt/-/commit/8a5ed0e822197245f6728abf0bcf7da984a777cd)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:55:52 +0100") : rewrite to allow commands with arguments, string helper functions needed fixing

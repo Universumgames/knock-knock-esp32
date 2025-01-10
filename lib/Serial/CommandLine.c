@@ -6,8 +6,10 @@
 #include "sdkconfig.h"
 
 #include "../lock_open/lock_open.h"
+#include "../lock_status/lock_status.h"
 #include "Serial.h"
 #include "stringHelper.h"
+
 #include <string.h>
 
 #define PATTERN_CHR_NUM (3)
@@ -25,7 +27,12 @@ void initCommandLine() {
 #define CMD_STR_ENCODER_LOG_BRANCHES "elb"
 #define CMD_STR_RECORDER_PAUSE "rp"
 #define CMD_STR_ENCODER_STORE_ALL "esa"
+#define CMD_STR_ENCODER_LOG_ALL "ela"
 #define CMD_STR_UNLOCK_TRIGGER "unlock"
+#define CMD_STR_THRESHOLD "t"
+#define CMD_STR_REBOOT "reboot"
+#define CMD_STR_RECORD_PATTERN "record"
+#define CMD_STR_DELETE_PATTERN "rm"
 
 Command parseCommand(const char* command) {
     size_t splitLen = 0;
@@ -63,6 +70,26 @@ Command parseCommand(const char* command) {
         ret = TRIGGER_UNLOCK;
         goto command_parse_end;
     }
+    if (strcmp(cmd, CMD_STR_THRESHOLD) == 0) {
+        ret = TRIGGER_UNLOCK;
+        goto command_parse_end;
+    }
+    if (strcmp(cmd, CMD_STR_REBOOT) == 0) {
+        ret = REBOOT;
+        goto command_parse_end;
+    }
+    if (strcmp(cmd, CMD_STR_ENCODER_LOG_ALL) == 0) {
+        ret = ENCODER_LOG_ALL;
+        goto command_parse_end;
+    }
+    if (strcmp(cmd, CMD_STR_RECORD_PATTERN) == 0) {
+        ret = RECORD_PATTERN;
+        goto command_parse_end;
+    }
+    if (strcmp(cmd, CMD_STR_DELETE_PATTERN) == 0) {
+        ret = DELETE_PATTERN;
+        goto command_parse_end;
+    }
 
 command_parse_end:
     free(arr);
@@ -97,7 +124,6 @@ void handleCommand(const char* command) {
                                                         : "disabled");
             break;
         case LIST_PATTERNS:
-            printf("\nListing patterns\n");
             listPatternsToConsole();
             break;
         case ENCODER_LOG_BRANCHES:
@@ -122,6 +148,31 @@ void handleCommand(const char* command) {
         case TRIGGER_UNLOCK:
             printf("\nTriggering unlock\n");
             openLock();
+            break;
+        case REBOOT:
+            printf("\nRebooting\n");
+            esp_restart();
+            break;
+        case ENCODER_LOG_ALL:
+            dflag_pattern_encoder_log_all = !dflag_pattern_encoder_log_all;
+            printf("\tEncoder log all: %s\n",
+                   dflag_pattern_encoder_log_all ? "enabled" : "disabled");
+            break;
+        case RECORD_PATTERN:
+            printf("\nRecording pattern\n");
+            updateLEDStatus(MUSTER_AUFNAHME);
+            break;
+        case DELETE_PATTERN:
+            char* idStr = substring(command, strlen(CMD_STR_DELETE_PATTERN) + 1,
+                                    strlen(command));
+            if (idStr == NULL) {
+                printf("\nNo pattern id provided\n");
+                break;
+            }
+            size_t id = strtol(idStr, NULL, 10);
+            free(idStr);
+            printf("\nDeleting pattern with id %u\n", id);
+            deletePattern(id);
             break;
         case UNKNOWN:
             LOGE(TAG_COMMAND_LINE, "Unknown command: %s", command);

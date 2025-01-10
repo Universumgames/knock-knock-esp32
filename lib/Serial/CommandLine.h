@@ -11,7 +11,11 @@ typedef enum {
     ENCODER_LOG_BRANCHES,
     RECORDER_PAUSE,
     ENCODER_STORE_ALL,
-    TRIGGER_UNLOCK
+    TRIGGER_UNLOCK,
+    REBOOT,
+    ENCODER_LOG_ALL,
+    RECORD_PATTERN,
+    DELETE_PATTERN,
 } Command;
 
 void initCommandLine();

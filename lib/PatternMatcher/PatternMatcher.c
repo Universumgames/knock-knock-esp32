@@ -8,7 +8,7 @@ const static char* TAG_PATTERN_MATCHER = "PatternMatcher";
 #define IN_RANGE_DELTA(value, target, delta)                                   \
     IN_RANGE(value, (target) - (delta), (target) + (delta))
 
-#define DELTA_TIME_VARIANCE_MS 100
+#define DELTA_TIME_VARIANCE_MS 200
 
 bool matchPattern(const PatternData* pattern, PatternData* matchedPattern) {
     if (pattern == NULL)
