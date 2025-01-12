@@ -1,0 +1,64 @@
+tom arlt
+730
+730
+999 999 999
+43 732
+0 0 0
+6 0
+
+
+notes:
+phase 5:
+a5 = 2
+if length = 2
+s0 = a2
+a1 = *(int*)a2
+a4 = a1 - 5
+a5 = 5
+if a5 > a4
+a5 = 10
+a0 = a0 % a5
+
+{
+    if a1 > 0
+    s0 = a0
+    a5 = 1
+    if a1 = a5
+}
+
+a5 = *(int*)(s0+4)
+if a5 = a0
+
+
+phase 4:
+a5 = 3
+if length = 3
+a5 = *(int*)a2
+a5 = a5 & 0xf
+a2 = a5
+a4 = 9
+if a4 >= a5
+a5 = a2
+if a5 <= 0
+a4 = *(int*)(a2 + 4)
+a5 = *(int*)(a2 + 8)
+if a4 = a5
+
+phase 3:
+a5 = 2
+if length = 1
+a5 = *(int*)a2
+a4 = 43
+if a5 == a4
+a0 = a0 + 2
+a5 = *(int*)(a2 + 4)
+if a5 = a0
+
+phase 2:
+länge gleich 3
+a5 = *(int*)a2;
+a4 = *(int*)(a2+4);
+a5 = a5 + a4;
+a4 = *(int*)(a2+8);
+a5 = a5 + a4;
+a5 greater a0;

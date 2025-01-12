@@ -1,5 +1,6 @@
 
 # Changelog
+- ([2142ca9](https://git.ide3.de/universumgames/mic-projekt/-/commit/2142ca97a7410c03cd0216734862d896483d66e9)) Universumgames on [2025-01-10](## "Fri, 10 Jan 2025 14:24:12 +0100") : bugfixes, adding new commands
 - ([1e5b9f7](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e5b9f717a9609f90c54e2996d730d3775f65e64)) Tom Arlt on [2024-12-29](## "Sun, 29 Dec 2024 01:14:12 +0000") : Merge branch '28-implement-a-simple-command-line-tool' into 'main'
 - ([ef6e7ee](https://git.ide3.de/universumgames/mic-projekt/-/commit/ef6e7eeaa9297453423dba66cf436b8abe3645fc)) Universumgames on [2024-12-29](## "Sun, 29 Dec 2024 02:08:33 +0100") : disable all debug flags by default
 - ([036818f](https://git.ide3.de/universumgames/mic-projekt/-/commit/036818f163baec4a51a59e1f5d42f098951d0682)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 15:15:40 +0100") : fix unit test
