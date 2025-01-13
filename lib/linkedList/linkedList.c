@@ -147,6 +147,33 @@ void list_foreach(LinkedList list, void (*callback)(void*)) {
     }
 }
 
+void list_removeIndex(LinkedList list, size_t index) {
+    if (index >= list->size) {
+        return;
+    }
+    ll_node_t* current = list->head;
+    for (size_t i = 0; i < index; i++) {
+        if (current == NULL) {
+            return;
+        }
+        current = current->next;
+    }
+    ll_node_t* prev = current->prev;
+    if (prev != NULL) {
+        prev->next = current->next;
+    } else {
+        list->head = current->next;
+    }
+    ll_node_t* next = current->next;
+    if (next != NULL) {
+        next->prev = current->prev;
+    } else {
+        list->tail = current->prev;
+    }
+    free(current);
+    list->size--;
+}
+
 void* list_reset(LinkedList list) {
     list->current = list->head;
     if (list->current == NULL)
