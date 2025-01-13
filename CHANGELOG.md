@@ -1,5 +1,6 @@
 
 # Changelog
+- ([7b1c37d](https://git.ide3.de/universumgames/mic-projekt/-/commit/7b1c37d20a52a401980b64425895fcb3388c4cf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:13 +0100") : add remove element method
 - ([ad62f91](https://git.ide3.de/universumgames/mic-projekt/-/commit/ad62f9159d745fd353526e1d6e0771777c45468c)) Universumgames on [2025-01-12](## "Sun, 12 Jan 2025 22:27:20 +0100") : bomb lab files
 - ([2142ca9](https://git.ide3.de/universumgames/mic-projekt/-/commit/2142ca97a7410c03cd0216734862d896483d66e9)) Universumgames on [2025-01-10](## "Fri, 10 Jan 2025 14:24:12 +0100") : bugfixes, adding new commands
 - ([1e5b9f7](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e5b9f717a9609f90c54e2996d730d3775f65e64)) Tom Arlt on [2024-12-29](## "Sun, 29 Dec 2024 01:14:12 +0000") : Merge branch '28-implement-a-simple-command-line-tool' into 'main'
