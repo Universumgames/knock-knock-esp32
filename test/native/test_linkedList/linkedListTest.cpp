@@ -43,6 +43,11 @@ TEST(LinkedList, foreach_pramga_test) {
     EXPECT_EQ(normalSum, sum);
 }
 
+TEST(LinkedList, deleteElement) {
+    list_removeIndex(list, 1);
+    EXPECT_EQ(2, list_size(list));
+}
+
 int main() {
     ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();

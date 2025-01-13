@@ -1,5 +1,6 @@
 
 # Changelog
+- ([21d6a82](https://git.ide3.de/universumgames/mic-projekt/-/commit/21d6a821a930d9bc8e05e34bec31a47376094ea1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:11:25 +0100") : update brightness
 - ([c6fe082](https://git.ide3.de/universumgames/mic-projekt/-/commit/c6fe082856ec5440f0ee6aa3a9450f3b6ca66434)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 12:06:22 +0100") : update gitignore for kicad
 - ([4f1936a](https://git.ide3.de/universumgames/mic-projekt/-/commit/4f1936a892fae19c68ce54f589a217b5efd0bdf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:01:58 +0100") : fix recording
 - ([4d987d1](https://git.ide3.de/universumgames/mic-projekt/-/commit/4d987d12aca9fbddf086559e8682bfe0ebb9b723)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:38:09 +0100") : update command line

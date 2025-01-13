@@ -4,8 +4,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
-#include "lock_status.h"
-#include "pattern_play.h"
 
 static void patternManagerThread(void* arg);
 
