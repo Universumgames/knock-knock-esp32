@@ -285,7 +285,7 @@ bool deletePattern(const pattern_id_t id) {
     });
 
     if (patternIndex != -1)
-        list_removeIndex(patternList, patternIndex);
+        free(list_removeIndex(patternList, patternIndex));
 
     LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %lu", id);
 free_path:

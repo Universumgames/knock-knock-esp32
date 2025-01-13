@@ -18,6 +18,9 @@ static const char* TAG_PATTERN_RECORDER = "PatternRecorder";
 
 static AnalogReadHandle* analogReadHandle = NULL;
 
+static uint64_t recordingDuration = 0;
+#define RECORDING_DURATION_MAXIMUM_MS 6000
+
 [[noreturn]] static void analogReadTask(void* pvParameters) {
     uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());
     int value = 0;
@@ -41,7 +44,19 @@ static AnalogReadHandle* analogReadHandle = NULL;
                      get_status_string(currentStatus));
                 resetPatternEncoder();
                 lastStatus = currentStatus;
+                if (currentStatus == MUSTER_AUFNAHME) {
+                    recordingDuration = 0;
+                }
             }
+            if (currentStatus == MUSTER_AUFNAHME) {
+                recordingDuration += delta;
+                if (recordingDuration > RECORDING_DURATION_MAXIMUM_MS) {
+                    LOGI(TAG_PATTERN_RECORDER, "Recording duration exceeded");
+                    resetPatternEncoder();
+                    updateLEDStatus(SCHLOSS_VERRIEGELT);
+                }
+            }
+
             PatternData* patternData = encodeAnalogData((analog_v)value, delta);
             if (patternData != NULL) {
                 LOGI(TAG_PATTERN_RECORDER, "Encoded pattern data");

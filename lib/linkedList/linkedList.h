@@ -32,7 +32,7 @@ size_t list_size(const LinkedList list);
 
 void list_foreach(LinkedList list, void (*callback)(void*));
 
-void list_removeIndex(LinkedList list, size_t index);
+void* list_removeIndex(LinkedList list, size_t index);
 
 void* list_next(LinkedList list);
 void* list_prev(LinkedList list);

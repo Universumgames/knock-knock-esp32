@@ -8,6 +8,7 @@
 
 HEADER_BEGIN
 typedef enum {
+    PIN_BUTTON_NONE = -2,
     PIN_BUTTON_UP = 2,
     PIN_BUTTON_DOWN = 1,
     PIN_BUTTON_RECORD = 18,

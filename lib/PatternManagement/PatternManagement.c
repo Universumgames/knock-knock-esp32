@@ -32,6 +32,8 @@ void _handleButtonPress(uint8_t pin) {
         playPattern(toPlay);
     } else */
     if (pin == PIN_BUTTON_UP) {
+        if (patternLength <= 0)
+            goto end;
         // up button was pressed
         selectedPatternIndex =
             (selectedPatternIndex + patternLength - 1) % patternLength;
@@ -39,6 +41,8 @@ void _handleButtonPress(uint8_t pin) {
              selectedPatternIndex);
         selectPatternChange(patterns);
     } else if (pin == PIN_BUTTON_DOWN) {
+        if (patternLength <= 0)
+            goto end;
         // down button was pressed
         selectedPatternIndex = (selectedPatternIndex + 1) % patternLength;
         LOGI(TAG_PATTERN_MANAGEMENT, "Selected pattern index: %u",
@@ -49,6 +53,8 @@ void _handleButtonPress(uint8_t pin) {
         LOGI(TAG_PATTERN_MANAGEMENT, "Recording new pattern");
         updateLEDStatus(MUSTER_AUFNAHME);
     } else if (pin == PIN_BUTTON_DELETE) {
+        if (patternLength <= 0)
+            goto end;
         // delete button was pressed
         PatternData* toDelete =
             (PatternData*)list_get(patterns, selectedPatternIndex);
@@ -56,4 +62,6 @@ void _handleButtonPress(uint8_t pin) {
              toDelete->id);
         deletePattern(toDelete->id);
     }
+end:
+    LOGI(TAG_PATTERN_MANAGEMENT, "Handled button press");
 }

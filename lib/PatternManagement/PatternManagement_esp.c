@@ -25,7 +25,7 @@ void setupButton(gpio_num_t pin) {
     gpio_reset_pin(pin);
     gpio_set_direction(pin, GPIO_MODE_INPUT);
     gpio_set_pull_mode(pin, GPIO_PULLDOWN_ONLY);
-    gpio_set_intr_type(pin, GPIO_INTR_POSEDGE);
+    gpio_set_intr_type(pin, GPIO_INTR_HIGH_LEVEL);
     gpio_num_t* arg = malloc(sizeof(gpio_num_t));
     *arg = pin;
     gpio_isr_handler_add(pin, gpio_isr_handler, (void*)arg);
@@ -53,7 +53,10 @@ static void patternManagerThread(void* arg) {
         // wait
         if (!xQueueReceive(queue, &pin, (TickType_t)5))
             vTaskDelay(pdMS_TO_TICKS(50));
-        else
+        else {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            xQueueReset(queue);
             _handleButtonPress(pin);
+        }
     }
 }
