@@ -40,7 +40,7 @@ void initPatternManagement() {
                 THREAD_STACK_MANAGEMENT, NULL, THREAD_PRIO_MANAGEMENT, NULL);
 
     gpio_install_isr_service(0);
-    setupButton((gpio_num_t)PIN_BUTTON_PLAY);
+    // setupButton((gpio_num_t)PIN_BUTTON_PLAY);
     setupButton((gpio_num_t)PIN_BUTTON_UP);
     setupButton((gpio_num_t)PIN_BUTTON_DOWN);
     setupButton((gpio_num_t)PIN_BUTTON_RECORD);

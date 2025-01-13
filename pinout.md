@@ -4,7 +4,7 @@ Used Pins:
 - Serial: 20, 21
 - USB: (18,19)
 - Solenoid: 3
-- Microphone: 0
+- Piezo: 0
 - Buttons: 
   - Up: 2
   - Down: 1
