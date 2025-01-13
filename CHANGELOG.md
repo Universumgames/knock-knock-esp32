@@ -1,5 +1,7 @@
 
 # Changelog
+- ([c6fe082](https://git.ide3.de/universumgames/mic-projekt/-/commit/c6fe082856ec5440f0ee6aa3a9450f3b6ca66434)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 12:06:22 +0100") : update gitignore for kicad
+- ([4f1936a](https://git.ide3.de/universumgames/mic-projekt/-/commit/4f1936a892fae19c68ce54f589a217b5efd0bdf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:01:58 +0100") : fix recording
 - ([4d987d1](https://git.ide3.de/universumgames/mic-projekt/-/commit/4d987d12aca9fbddf086559e8682bfe0ebb9b723)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:38:09 +0100") : update command line
 - ([91af50d](https://git.ide3.de/universumgames/mic-projekt/-/commit/91af50d39bdfccea6526d045dd9b866d47bbc446)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:51 +0100") : update PatternManagement to autoplay
 - ([711bf46](https://git.ide3.de/universumgames/mic-projekt/-/commit/711bf46cc7f34879e5092ef998f5dab4a3393bd0)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:37 +0100") : fix deletion
