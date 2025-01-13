@@ -5,7 +5,7 @@
 #include <freertos/FreeRTOS.h> //Betriebssytem Bibliothek des ESP32
 // Die OPENTIME wird in basicDefs.h definiert
 
-#define OPENTIME_LOCK_MS 10000 // 10 Sekunden
+#define OPENTIME_LOCK_MS 7000 // 7 Sekunden
 
 void lockTask(void* pvParameters) {
     gpio_reset_pin(PIN_LOCK_RELAY);
