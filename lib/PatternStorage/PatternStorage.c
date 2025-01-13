@@ -274,6 +274,15 @@ bool deletePattern(const pattern_id_t id) {
         goto free_path;
     }
 
+    size_t index = 0;
+    list_foreach_raw(patternList, PatternData, {
+        if (it->id == id) {
+            list_removeIndex(patternList, index);
+            break;
+        }
+        index++;
+    });
+
     LOGI(TAG_PATTERN_STORAGE, "Deleted pattern with id %lu", id);
 free_path:
     free(path);

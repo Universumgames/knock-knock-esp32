@@ -1,5 +1,6 @@
 
 # Changelog
+- ([5ef6fe9](https://git.ide3.de/universumgames/mic-projekt/-/commit/5ef6fe986efddd6307e42f31a20a3cb07dde457a)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:20 +0100") : update pins definition
 - ([7b1c37d](https://git.ide3.de/universumgames/mic-projekt/-/commit/7b1c37d20a52a401980b64425895fcb3388c4cf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:13 +0100") : add remove element method
 - ([ad62f91](https://git.ide3.de/universumgames/mic-projekt/-/commit/ad62f9159d745fd353526e1d6e0771777c45468c)) Universumgames on [2025-01-12](## "Sun, 12 Jan 2025 22:27:20 +0100") : bomb lab files
 - ([2142ca9](https://git.ide3.de/universumgames/mic-projekt/-/commit/2142ca97a7410c03cd0216734862d896483d66e9)) Universumgames on [2025-01-10](## "Fri, 10 Jan 2025 14:24:12 +0100") : bugfixes, adding new commands
