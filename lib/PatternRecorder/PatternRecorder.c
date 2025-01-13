@@ -19,7 +19,7 @@ static const char* TAG_PATTERN_RECORDER = "PatternRecorder";
 static AnalogReadHandle* analogReadHandle = NULL;
 
 static uint64_t recordingDuration = 0;
-#define RECORDING_DURATION_MAXIMUM_MS 6000
+#define RECORDING_DURATION_MAXIMUM_MS 8000
 
 [[noreturn]] static void analogReadTask(void* pvParameters) {
     uint64_t lastRead = pdTICKS_TO_MS(xTaskGetTickCount());

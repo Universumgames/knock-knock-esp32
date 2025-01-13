@@ -77,7 +77,7 @@ void saveDeltaToFile(int32_t delta) {
 #define THRESHOLD_DELTA_MILLIS_WARNING (40)
 
 // how much higher the value has to be compared to the avg to trigger a "knock"
-#define THRESHOLD_TRIGGER_VALUE ((avg * 2) + 250)
+#define THRESHOLD_TRIGGER_VALUE ((avg * 2) + 200)
 
 #define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 10)
 
@@ -214,6 +214,7 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
             printf(".");
         if (patternData.lengthPattern == 0) {
             resetPatternEncoder();
+            lastTriggeredTimeAgo = THRESHOLD_TRIGGER_TIMEOUT_MS;
             return NULL;
         }
         goto returnPattern;
@@ -232,6 +233,9 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
             printf("*");
         return NULL;
     }
+
+    if (dflag_pattern_encoder_printf_if_branches)
+        printf("!");
 
     checkPatternDeltaMillisMemory();
 

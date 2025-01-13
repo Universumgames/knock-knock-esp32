@@ -37,6 +37,7 @@ void initCommandLine() {
 Command parseCommand(const char* command) {
     size_t splitLen = 0;
     size_t* arr = splitString(command, " ", &splitLen);
+    printf("%u", splitLen);
     char* cmd = substring(command, 0, splitLen > 1 ? arr[1] : strlen(command));
     Command ret = UNKNOWN;
     if (cmd == NULL) {
@@ -90,6 +91,8 @@ Command parseCommand(const char* command) {
         ret = DELETE_PATTERN;
         goto command_parse_end;
     }
+
+    LOGE(TAG_COMMAND_LINE, "Unknown command: %s", cmd);
 
 command_parse_end:
     free(arr);
@@ -181,9 +184,6 @@ void handleCommand(const char* command) {
             free(idStr);
             printf("\nDeleting pattern with id %u\n", id);
             deletePattern(id);
-            break;
-        case UNKNOWN:
-            LOGE(TAG_COMMAND_LINE, "Unknown command: %s", command);
             break;
         default:
             LOGE(TAG_COMMAND_LINE, "Unhandled command: %s", command);

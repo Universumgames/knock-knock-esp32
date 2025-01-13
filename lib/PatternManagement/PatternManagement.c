@@ -53,8 +53,10 @@ void _handleButtonPress(uint8_t pin) {
         LOGI(TAG_PATTERN_MANAGEMENT, "Recording new pattern");
         updateLEDStatus(MUSTER_AUFNAHME);
     } else if (pin == PIN_BUTTON_DELETE) {
-        if (patternLength <= 0)
+        if (patternLength <= 0) {
+            LOGW(TAG_PATTERN_MANAGEMENT, "No patterns to delete");
             goto end;
+        }
         // delete button was pressed
         PatternData* toDelete =
             (PatternData*)list_get(patterns, selectedPatternIndex);
