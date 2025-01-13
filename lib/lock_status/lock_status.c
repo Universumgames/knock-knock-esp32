@@ -46,3 +46,20 @@ void updateLEDStatus(SchlossStatus status) {
 SchlossStatus get_current_status() {
     return currentStatus;
 }
+
+char* get_status_string(SchlossStatus status) {
+    switch (status) {
+        case SCHLOSS_VERRIEGELT:
+            return "Locked";
+        case SCHLOSS_ENTRIEGELT:
+            return "Opend";
+        case MUSTER_AUFNAHME:
+            return "Pattern recording";
+        case MUSTER_FAST_KORREKT:
+            return "Pattern almost correct";
+        case FEHLERFALL:
+            return "Error";
+        default:
+            return "Unknown";
+    }
+}

@@ -37,7 +37,8 @@ static AnalogReadHandle* analogReadHandle = NULL;
             // LOGI(TAG_PATTERN_RECORDER, "Read %d in %llu ms", value, delta);
             if (currentStatus != lastStatus) {
                 LOGI(TAG_PATTERN_RECORDER,
-                     "Status changed to %u, resetting encoder", currentStatus);
+                     "Status changed to '%s', resetting encoder",
+                     get_status_string(currentStatus));
                 resetPatternEncoder();
                 lastStatus = currentStatus;
             }
@@ -60,9 +61,10 @@ static AnalogReadHandle* analogReadHandle = NULL;
                         LOGW(TAG_PATTERN_RECORDER, "Unknown status");
                         break;
                 }
-
-                free(patternData->deltaTimesMillis);
-                free(patternData);
+                if (lastStatus != MUSTER_AUFNAHME) {
+                    free(patternData->deltaTimesMillis);
+                    free(patternData);
+                }
             } else {
                 LOGD(TAG_PATTERN_RECORDER, "Pattern recording not finished");
             }
