@@ -1,5 +1,6 @@
 
 # Changelog
+- ([91af50d](https://git.ide3.de/universumgames/mic-projekt/-/commit/91af50d39bdfccea6526d045dd9b866d47bbc446)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:51 +0100") : update PatternManagement to autoplay
 - ([711bf46](https://git.ide3.de/universumgames/mic-projekt/-/commit/711bf46cc7f34879e5092ef998f5dab4a3393bd0)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:37 +0100") : fix deletion
 - ([5ef6fe9](https://git.ide3.de/universumgames/mic-projekt/-/commit/5ef6fe986efddd6307e42f31a20a3cb07dde457a)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:20 +0100") : update pins definition
 - ([7b1c37d](https://git.ide3.de/universumgames/mic-projekt/-/commit/7b1c37d20a52a401980b64425895fcb3388c4cf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:13 +0100") : add remove element method

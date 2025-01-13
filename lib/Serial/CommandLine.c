@@ -111,6 +111,12 @@ void handleCommand(const char* command) {
             printf("\t%s - toggle encoder store all patterns to file\n",
                    CMD_STR_ENCODER_STORE_ALL);
             printf("\t%s - trigger unlock\n", CMD_STR_UNLOCK_TRIGGER);
+            printf("\t%s - reboot\n", CMD_STR_REBOOT);
+            printf("\t%s - toggle encoder log all patterns\n",
+                   CMD_STR_ENCODER_LOG_ALL);
+            printf("\t%s - record pattern\n", CMD_STR_RECORD_PATTERN);
+            printf("\t%s <id> - delete pattern with id\n",
+                   CMD_STR_DELETE_PATTERN);
             break;
         case LS_FLAGS:
             printf("\nListing flags\n");
@@ -122,6 +128,8 @@ void handleCommand(const char* command) {
             printf("\tEncoder store all: %s\n",
                    dflag_pattern_store_recorded_pattern ? "enabled"
                                                         : "disabled");
+            printf("\tEncoder log all: %s\n",
+                   dflag_pattern_encoder_log_all ? "enabled" : "disabled");
             break;
         case LIST_PATTERNS:
             listPatternsToConsole();
