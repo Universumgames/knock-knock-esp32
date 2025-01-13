@@ -1,5 +1,6 @@
 
 # Changelog
+- ([7fb437e](https://git.ide3.de/universumgames/mic-projekt/-/commit/7fb437e1e2878075624be3e12f37a627531ba61c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 14:11:19 +0100") : bugfixes
 - ([0e5e46d](https://git.ide3.de/universumgames/mic-projekt/-/commit/0e5e46d5a2fcdf5088b00d8e6bbe265bbb78c320)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 13:33:59 +0100") : bugfixes
 - ([7a1ea41](https://git.ide3.de/universumgames/mic-projekt/-/commit/7a1ea4139fd18cfafbed7307fbcfc9b34c157c9c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:30:10 +0100") : bugfixes for pattern deletion
 - ([21d6a82](https://git.ide3.de/universumgames/mic-projekt/-/commit/21d6a821a930d9bc8e05e34bec31a47376094ea1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:11:25 +0100") : update brightness

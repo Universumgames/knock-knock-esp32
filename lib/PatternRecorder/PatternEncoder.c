@@ -73,7 +73,7 @@ void saveDeltaToFile(int32_t delta) {
 #endif
 
 // how many ms have to pass before triggering again
-#define THRESHOLD_TRIGGER_TIMEOUT_MS (200)
+#define THRESHOLD_TRIGGER_TIMEOUT_MS (150)
 #define THRESHOLD_DELTA_MILLIS_WARNING (40)
 
 // how much higher the value has to be compared to the avg to trigger a "knock"
