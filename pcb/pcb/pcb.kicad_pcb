@@ -106,362 +106,6 @@
 	(net 24 "unconnected-(U1-RST-Pad4)")
 	(net 25 "unconnected-(U1-GPIO20{slash}U0RXD-Pad22)")
 	(net 26 "unconnected-(U1-GPIO18{slash}USBD_--Pad19)")
-	(footprint "Button_Switch_THT:SW_PUSH_6mm_H4.3mm"
-		(layer "F.Cu")
-		(uuid "04f92933-ea1f-4227-8bba-abed78406532")
-		(at 133.5 92.235)
-		(descr "tactile push button, 6x6mm e.g. PHAP33xx series, height=4.3mm")
-		(tags "tact sw push 6mm")
-		(property "Reference" "SW5"
-			(at 3.25 -2 0)
-			(layer "F.SilkS")
-			(uuid "bd4ab81c-46c8-49f3-9e4d-00b86a3fba09")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "Button Play"
-			(at 3.75 6.7 0)
-			(layer "F.Fab")
-			(uuid "16a3c57a-2f14-4149-a2d2-dbe0ec224b19")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm_H4.3mm"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "26ad2b34-85cf-4ec1-b0f4-f7bdc7b0ad0a")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b9c138a0-f97f-4409-9515-3f19df7771c1")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "aba610a0-0819-42c7-aeb0-702e31d1bf73")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr through_hole)
-		(fp_line
-			(start -0.25 1.5)
-			(end -0.25 3)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "12c95770-a72a-4921-920c-af4b9c925452")
-		)
-		(fp_line
-			(start 1 5.5)
-			(end 5.5 5.5)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6edbadbb-5ea6-4a63-a824-86321e36cf31")
-		)
-		(fp_line
-			(start 5.5 -1)
-			(end 1 -1)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "b3b68d2e-8217-40cb-b078-db0c4c25f06d")
-		)
-		(fp_line
-			(start 6.75 3)
-			(end 6.75 1.5)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "db5b311a-9507-4cf2-9bc4-ae97a7378ad7")
-		)
-		(fp_line
-			(start -1.5 -1.5)
-			(end -1.25 -1.5)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "d2a49195-e790-43de-9662-485a093c5f49")
-		)
-		(fp_line
-			(start -1.5 -1.25)
-			(end -1.5 -1.5)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "a067b714-c687-4a1a-847d-2953568cfb0e")
-		)
-		(fp_line
-			(start -1.5 5.75)
-			(end -1.5 -1.25)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "bb9e4693-a69c-47e1-a63e-19c25068b67e")
-		)
-		(fp_line
-			(start -1.5 5.75)
-			(end -1.5 6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "05c07bf1-34f1-4958-9682-d226c681ae37")
-		)
-		(fp_line
-			(start -1.5 6)
-			(end -1.25 6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "5f1a8fe2-ac86-4b10-bc17-96ab087d3778")
-		)
-		(fp_line
-			(start -1.25 -1.5)
-			(end 7.75 -1.5)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "4813acad-c4f5-4d50-baeb-a0cd05a515bb")
-		)
-		(fp_line
-			(start 7.75 -1.5)
-			(end 8 -1.5)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "b3af9f92-1b9d-47a7-b786-6e269f367963")
-		)
-		(fp_line
-			(start 7.75 6)
-			(end -1.25 6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "3840be9b-4822-4427-9f66-1c6dfa329c1c")
-		)
-		(fp_line
-			(start 7.75 6)
-			(end 8 6)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "07e958aa-835f-4493-96eb-fc52cfb68e85")
-		)
-		(fp_line
-			(start 8 -1.5)
-			(end 8 -1.25)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "395b1fbb-6d2b-4b4f-aff1-4b881cad0271")
-		)
-		(fp_line
-			(start 8 -1.25)
-			(end 8 5.75)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "888ca5cf-b771-44f1-bbc8-201f6566f2db")
-		)
-		(fp_line
-			(start 8 6)
-			(end 8 5.75)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "71d629c2-ba83-418c-a992-eeca0712610d")
-		)
-		(fp_line
-			(start 0.25 -0.75)
-			(end 3.25 -0.75)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "724ef99b-9505-47a6-8fec-86470c5115df")
-		)
-		(fp_line
-			(start 0.25 5.25)
-			(end 0.25 -0.75)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "404c774b-6753-4ad4-835c-779228f45a38")
-		)
-		(fp_line
-			(start 3.25 -0.75)
-			(end 6.25 -0.75)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "35791489-c1db-4f65-9c75-dedafb82cba6")
-		)
-		(fp_line
-			(start 6.25 -0.75)
-			(end 6.25 5.25)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "fdd83e6b-72bf-4760-9a85-f18183ae103e")
-		)
-		(fp_line
-			(start 6.25 5.25)
-			(end 0.25 5.25)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "78b4f696-d503-44af-825c-b9499e98a221")
-		)
-		(fp_circle
-			(center 3.25 2.25)
-			(end 1.25 2.5)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(fill none)
-			(layer "F.Fab")
-			(uuid "17720a4b-8879-4459-b0c5-1266f499d0f7")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 3.25 2.25 0)
-			(layer "F.Fab")
-			(uuid "2a337d22-0ff4-47e4-a7a2-4f4e3545bf9f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" thru_hole circle
-			(at 0 0 90)
-			(size 2 2)
-			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 9 "5V")
-			(pinfunction "1")
-			(pintype "passive")
-			(uuid "f7687364-4bc5-46ca-b265-8dd3a1e9704f")
-		)
-		(pad "1" thru_hole circle
-			(at 6.5 0 90)
-			(size 2 2)
-			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 9 "5V")
-			(pinfunction "1")
-			(pintype "passive")
-			(uuid "4305b3dc-6112-4f8b-9612-a1714bd108b6")
-		)
-		(pad "2" thru_hole circle
-			(at 0 4.5 90)
-			(size 2 2)
-			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 21 "Net-(R10-Pad1)")
-			(pinfunction "2")
-			(pintype "passive")
-			(uuid "a954f2d8-a282-4c32-80b0-23cfbc7a7f43")
-		)
-		(pad "2" thru_hole circle
-			(at 6.5 4.5 90)
-			(size 2 2)
-			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 21 "Net-(R10-Pad1)")
-			(pinfunction "2")
-			(pintype "passive")
-			(uuid "46794186-bb44-4ba1-8094-07e718bb5f14")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Button_Switch_THT.3dshapes/SW_PUSH_6mm_H4.3mm.wrl"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-	)
 	(footprint "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 		(layer "F.Cu")
 		(uuid "0ea1e172-6f01-49b8-aa3d-ff96f567eaa0")
@@ -2523,7 +2167,7 @@
 		)
 		(fp_arc
 			(start 3.521125 1.286294)
-			(mid 3.477135 1.233899)
+			(mid 3.477135 1.233898)
 			(end 3.435 1.18)
 			(stroke
 				(width 0.12)
@@ -2600,7 +2244,7 @@
 		)
 		(fp_arc
 			(start 3.93363 -1.644317)
-			(mid 4.00637 -1.689265)
+			(mid 4.00637 -1.689264)
 			(end 4.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -2655,7 +2299,7 @@
 		)
 		(fp_arc
 			(start 5.000479 1.960685)
-			(mid 4.744554 1.943973)
+			(mid 4.744554 1.943974)
 			(end 4.493 1.894)
 			(stroke
 				(width 0.12)
@@ -2688,7 +2332,7 @@
 		)
 		(fp_arc
 			(start 5.638712 -1.85392)
-			(mid 5.734863 -1.817951)
+			(mid 5.734863 -1.817952)
 			(end 5.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -2699,7 +2343,7 @@
 		)
 		(fp_arc
 			(start 5.829295 1.77705)
-			(mid 5.735155 1.818016)
+			(mid 5.735154 1.818015)
 			(end 5.639 1.854)
 			(stroke
 				(width 0.12)
@@ -2710,7 +2354,7 @@
 		)
 		(fp_arc
 			(start 5.920652 -1.730826)
-			(mid 5.995274 -1.689022)
+			(mid 5.995275 -1.689024)
 			(end 6.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -2732,7 +2376,7 @@
 		)
 		(fp_arc
 			(start 6.096479 -1.625751)
-			(mid 6.166348 -1.576374)
+			(mid 6.166349 -1.576375)
 			(end 6.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -2743,7 +2387,7 @@
 		)
 		(fp_arc
 			(start 6.233457 1.523294)
-			(mid 6.16584 1.575649)
+			(mid 6.165839 1.575648)
 			(end 6.096 1.625)
 			(stroke
 				(width 0.12)
@@ -2853,7 +2497,7 @@
 		)
 		(fp_arc
 			(start 8.521125 1.286294)
-			(mid 8.477135 1.233899)
+			(mid 8.477135 1.233898)
 			(end 8.435 1.18)
 			(stroke
 				(width 0.12)
@@ -2930,7 +2574,7 @@
 		)
 		(fp_arc
 			(start 8.93363 -1.644317)
-			(mid 9.00637 -1.689265)
+			(mid 9.00637 -1.689264)
 			(end 9.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -2985,7 +2629,7 @@
 		)
 		(fp_arc
 			(start 10.000479 1.960685)
-			(mid 9.744554 1.943973)
+			(mid 9.744554 1.943974)
 			(end 9.493 1.894)
 			(stroke
 				(width 0.12)
@@ -3018,7 +2662,7 @@
 		)
 		(fp_arc
 			(start 10.638712 -1.85392)
-			(mid 10.734863 -1.817951)
+			(mid 10.734863 -1.817952)
 			(end 10.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -3029,7 +2673,7 @@
 		)
 		(fp_arc
 			(start 10.829295 1.77705)
-			(mid 10.735155 1.818016)
+			(mid 10.735154 1.818015)
 			(end 10.639 1.854)
 			(stroke
 				(width 0.12)
@@ -3040,7 +2684,7 @@
 		)
 		(fp_arc
 			(start 10.920652 -1.730826)
-			(mid 10.995274 -1.689022)
+			(mid 10.995275 -1.689024)
 			(end 11.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -3062,7 +2706,7 @@
 		)
 		(fp_arc
 			(start 11.096479 -1.625751)
-			(mid 11.166348 -1.576374)
+			(mid 11.166349 -1.576375)
 			(end 11.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -3073,7 +2717,7 @@
 		)
 		(fp_arc
 			(start 11.233457 1.523294)
-			(mid 11.16584 1.575649)
+			(mid 11.165839 1.575648)
 			(end 11.096 1.625)
 			(stroke
 				(width 0.12)
@@ -3183,7 +2827,7 @@
 		)
 		(fp_arc
 			(start 13.521125 1.286294)
-			(mid 13.477135 1.233899)
+			(mid 13.477135 1.233898)
 			(end 13.435 1.18)
 			(stroke
 				(width 0.12)
@@ -3260,7 +2904,7 @@
 		)
 		(fp_arc
 			(start 13.93363 -1.644317)
-			(mid 14.00637 -1.689265)
+			(mid 14.00637 -1.689264)
 			(end 14.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -3315,7 +2959,7 @@
 		)
 		(fp_arc
 			(start 15.000479 1.960685)
-			(mid 14.744554 1.943973)
+			(mid 14.744554 1.943974)
 			(end 14.493 1.894)
 			(stroke
 				(width 0.12)
@@ -3348,7 +2992,7 @@
 		)
 		(fp_arc
 			(start 15.638712 -1.85392)
-			(mid 15.734863 -1.817951)
+			(mid 15.734863 -1.817952)
 			(end 15.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -3359,7 +3003,7 @@
 		)
 		(fp_arc
 			(start 15.829295 1.77705)
-			(mid 15.735155 1.818016)
+			(mid 15.735154 1.818015)
 			(end 15.639 1.854)
 			(stroke
 				(width 0.12)
@@ -3370,7 +3014,7 @@
 		)
 		(fp_arc
 			(start 15.920652 -1.730826)
-			(mid 15.995274 -1.689022)
+			(mid 15.995275 -1.689024)
 			(end 16.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -3392,7 +3036,7 @@
 		)
 		(fp_arc
 			(start 16.096479 -1.625751)
-			(mid 16.166348 -1.576374)
+			(mid 16.166349 -1.576375)
 			(end 16.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -3403,7 +3047,7 @@
 		)
 		(fp_arc
 			(start 16.233457 1.523294)
-			(mid 16.16584 1.575649)
+			(mid 16.165839 1.575648)
 			(end 16.096 1.625)
 			(stroke
 				(width 0.12)
@@ -6012,7 +5656,7 @@
 		(descr "<bound method MaiXu_MX126_Generator.classname_description of <__main__.MaiXu_MX126_Generator object at 0x7ec3e009e810>>, 6 pins, pitch 5mm, size 30.5x7.8mm^2, drill diameter 1.3mm, pad diameter 2.8mm, see https://www.lcsc.com/datasheet/lcsc_datasheet_2309150913_MAX-MX126-5-0-03P-GN01-Cu-S-A_C5188435.pdf, script-generated using https://gitlab.com/kicad/libraries/kicad-footprint-generator/-/tree/master/scripts/TerminalBlock_MaiXu")
 		(tags "THT <bound method MaiXu_MX126_Generator.classname_description of <__main__.MaiXu_MX126_Generator object at 0x7ec3e009e810>> pitch 5mm size 30.5x7.8mm^2 drill 1.3mm pad 2.8mm")
 		(property "Reference" "J1"
-			(at 12.25 -5.12 360)
+			(at 12.25 -5.12 0)
 			(layer "F.SilkS")
 			(uuid "6d8f24f8-9e3b-4c14-8fb4-bc3240530db3")
 			(effects
@@ -6023,7 +5667,7 @@
 			)
 		)
 		(property "Value" "SD Card"
-			(at 12.25 4.92 360)
+			(at 12.25 4.92 0)
 			(layer "F.Fab")
 			(uuid "62b49d62-d492-45f6-b94f-c21d5095f8bb")
 			(effects
@@ -6034,7 +5678,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_MaiXu_MX126-5.0-06P_1x06_P5.00mm"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "15415da1-c2c3-4ed8-862d-786c14de3219")
@@ -6046,7 +5690,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0825f186-88b7-49fd-9da1-802b9893e089")
@@ -6058,7 +5702,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f9285eab-4bdc-4904-99b7-c6b332611eb2")
@@ -6523,7 +6167,7 @@
 		)
 		(fp_arc
 			(start 3.521125 1.286294)
-			(mid 3.477135 1.233899)
+			(mid 3.477135 1.233898)
 			(end 3.435 1.18)
 			(stroke
 				(width 0.12)
@@ -6600,7 +6244,7 @@
 		)
 		(fp_arc
 			(start 3.93363 -1.644317)
-			(mid 4.00637 -1.689265)
+			(mid 4.00637 -1.689264)
 			(end 4.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -6655,7 +6299,7 @@
 		)
 		(fp_arc
 			(start 5.000479 1.960685)
-			(mid 4.744554 1.943973)
+			(mid 4.744554 1.943974)
 			(end 4.493 1.894)
 			(stroke
 				(width 0.12)
@@ -6688,7 +6332,7 @@
 		)
 		(fp_arc
 			(start 5.638712 -1.85392)
-			(mid 5.734863 -1.817951)
+			(mid 5.734863 -1.817952)
 			(end 5.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -6699,7 +6343,7 @@
 		)
 		(fp_arc
 			(start 5.829295 1.77705)
-			(mid 5.735155 1.818016)
+			(mid 5.735154 1.818015)
 			(end 5.639 1.854)
 			(stroke
 				(width 0.12)
@@ -6710,7 +6354,7 @@
 		)
 		(fp_arc
 			(start 5.920652 -1.730826)
-			(mid 5.995274 -1.689022)
+			(mid 5.995275 -1.689024)
 			(end 6.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -6732,7 +6376,7 @@
 		)
 		(fp_arc
 			(start 6.096479 -1.625751)
-			(mid 6.166348 -1.576374)
+			(mid 6.166349 -1.576375)
 			(end 6.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -6743,7 +6387,7 @@
 		)
 		(fp_arc
 			(start 6.233457 1.523294)
-			(mid 6.16584 1.575649)
+			(mid 6.165839 1.575648)
 			(end 6.096 1.625)
 			(stroke
 				(width 0.12)
@@ -6853,7 +6497,7 @@
 		)
 		(fp_arc
 			(start 8.521125 1.286294)
-			(mid 8.477135 1.233899)
+			(mid 8.477135 1.233898)
 			(end 8.435 1.18)
 			(stroke
 				(width 0.12)
@@ -6930,7 +6574,7 @@
 		)
 		(fp_arc
 			(start 8.93363 -1.644317)
-			(mid 9.00637 -1.689265)
+			(mid 9.00637 -1.689264)
 			(end 9.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -6985,7 +6629,7 @@
 		)
 		(fp_arc
 			(start 10.000479 1.960685)
-			(mid 9.744554 1.943973)
+			(mid 9.744554 1.943974)
 			(end 9.493 1.894)
 			(stroke
 				(width 0.12)
@@ -7018,7 +6662,7 @@
 		)
 		(fp_arc
 			(start 10.638712 -1.85392)
-			(mid 10.734863 -1.817951)
+			(mid 10.734863 -1.817952)
 			(end 10.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -7029,7 +6673,7 @@
 		)
 		(fp_arc
 			(start 10.829295 1.77705)
-			(mid 10.735155 1.818016)
+			(mid 10.735154 1.818015)
 			(end 10.639 1.854)
 			(stroke
 				(width 0.12)
@@ -7040,7 +6684,7 @@
 		)
 		(fp_arc
 			(start 10.920652 -1.730826)
-			(mid 10.995274 -1.689022)
+			(mid 10.995275 -1.689024)
 			(end 11.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -7062,7 +6706,7 @@
 		)
 		(fp_arc
 			(start 11.096479 -1.625751)
-			(mid 11.166348 -1.576374)
+			(mid 11.166349 -1.576375)
 			(end 11.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -7073,7 +6717,7 @@
 		)
 		(fp_arc
 			(start 11.233457 1.523294)
-			(mid 11.16584 1.575649)
+			(mid 11.165839 1.575648)
 			(end 11.096 1.625)
 			(stroke
 				(width 0.12)
@@ -7183,7 +6827,7 @@
 		)
 		(fp_arc
 			(start 13.521125 1.286294)
-			(mid 13.477135 1.233899)
+			(mid 13.477135 1.233898)
 			(end 13.435 1.18)
 			(stroke
 				(width 0.12)
@@ -7260,7 +6904,7 @@
 		)
 		(fp_arc
 			(start 13.93363 -1.644317)
-			(mid 14.00637 -1.689265)
+			(mid 14.00637 -1.689264)
 			(end 14.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -7315,7 +6959,7 @@
 		)
 		(fp_arc
 			(start 15.000479 1.960685)
-			(mid 14.744554 1.943973)
+			(mid 14.744554 1.943974)
 			(end 14.493 1.894)
 			(stroke
 				(width 0.12)
@@ -7348,7 +6992,7 @@
 		)
 		(fp_arc
 			(start 15.638712 -1.85392)
-			(mid 15.734863 -1.817951)
+			(mid 15.734863 -1.817952)
 			(end 15.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -7359,7 +7003,7 @@
 		)
 		(fp_arc
 			(start 15.829295 1.77705)
-			(mid 15.735155 1.818016)
+			(mid 15.735154 1.818015)
 			(end 15.639 1.854)
 			(stroke
 				(width 0.12)
@@ -7370,7 +7014,7 @@
 		)
 		(fp_arc
 			(start 15.920652 -1.730826)
-			(mid 15.995274 -1.689022)
+			(mid 15.995275 -1.689024)
 			(end 16.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -7392,7 +7036,7 @@
 		)
 		(fp_arc
 			(start 16.096479 -1.625751)
-			(mid 16.166348 -1.576374)
+			(mid 16.166349 -1.576375)
 			(end 16.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -7403,7 +7047,7 @@
 		)
 		(fp_arc
 			(start 16.233457 1.523294)
-			(mid 16.16584 1.575649)
+			(mid 16.165839 1.575648)
 			(end 16.096 1.625)
 			(stroke
 				(width 0.12)
@@ -7513,7 +7157,7 @@
 		)
 		(fp_arc
 			(start 18.521125 1.286294)
-			(mid 18.477135 1.233899)
+			(mid 18.477135 1.233898)
 			(end 18.435 1.18)
 			(stroke
 				(width 0.12)
@@ -7590,7 +7234,7 @@
 		)
 		(fp_arc
 			(start 18.93363 -1.644317)
-			(mid 19.00637 -1.689265)
+			(mid 19.00637 -1.689264)
 			(end 19.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -7645,7 +7289,7 @@
 		)
 		(fp_arc
 			(start 20.000479 1.960685)
-			(mid 19.744554 1.943973)
+			(mid 19.744554 1.943974)
 			(end 19.493 1.894)
 			(stroke
 				(width 0.12)
@@ -7678,7 +7322,7 @@
 		)
 		(fp_arc
 			(start 20.638712 -1.85392)
-			(mid 20.734863 -1.817951)
+			(mid 20.734863 -1.817952)
 			(end 20.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -7689,7 +7333,7 @@
 		)
 		(fp_arc
 			(start 20.829295 1.77705)
-			(mid 20.735155 1.818016)
+			(mid 20.735154 1.818015)
 			(end 20.639 1.854)
 			(stroke
 				(width 0.12)
@@ -7700,7 +7344,7 @@
 		)
 		(fp_arc
 			(start 20.920652 -1.730826)
-			(mid 20.995274 -1.689022)
+			(mid 20.995275 -1.689024)
 			(end 21.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -7722,7 +7366,7 @@
 		)
 		(fp_arc
 			(start 21.096479 -1.625751)
-			(mid 21.166348 -1.576374)
+			(mid 21.166349 -1.576375)
 			(end 21.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -7733,7 +7377,7 @@
 		)
 		(fp_arc
 			(start 21.233457 1.523294)
-			(mid 21.16584 1.575649)
+			(mid 21.165839 1.575648)
 			(end 21.096 1.625)
 			(stroke
 				(width 0.12)
@@ -7843,7 +7487,7 @@
 		)
 		(fp_arc
 			(start 23.521125 1.286294)
-			(mid 23.477135 1.233899)
+			(mid 23.477135 1.233898)
 			(end 23.435 1.18)
 			(stroke
 				(width 0.12)
@@ -7920,7 +7564,7 @@
 		)
 		(fp_arc
 			(start 23.93363 -1.644317)
-			(mid 24.00637 -1.689265)
+			(mid 24.00637 -1.689264)
 			(end 24.081 -1.731)
 			(stroke
 				(width 0.12)
@@ -7975,7 +7619,7 @@
 		)
 		(fp_arc
 			(start 25.000479 1.960685)
-			(mid 24.744554 1.943973)
+			(mid 24.744554 1.943974)
 			(end 24.493 1.894)
 			(stroke
 				(width 0.12)
@@ -8008,7 +7652,7 @@
 		)
 		(fp_arc
 			(start 25.638712 -1.85392)
-			(mid 25.734863 -1.817951)
+			(mid 25.734863 -1.817952)
 			(end 25.829 -1.777)
 			(stroke
 				(width 0.12)
@@ -8019,7 +7663,7 @@
 		)
 		(fp_arc
 			(start 25.829295 1.77705)
-			(mid 25.735155 1.818016)
+			(mid 25.735154 1.818015)
 			(end 25.639 1.854)
 			(stroke
 				(width 0.12)
@@ -8030,7 +7674,7 @@
 		)
 		(fp_arc
 			(start 25.920652 -1.730826)
-			(mid 25.995274 -1.689022)
+			(mid 25.995275 -1.689024)
 			(end 26.068 -1.644)
 			(stroke
 				(width 0.12)
@@ -8052,7 +7696,7 @@
 		)
 		(fp_arc
 			(start 26.096479 -1.625751)
-			(mid 26.166348 -1.576374)
+			(mid 26.166349 -1.576375)
 			(end 26.234 -1.524)
 			(stroke
 				(width 0.12)
@@ -8063,7 +7707,7 @@
 		)
 		(fp_arc
 			(start 26.233457 1.523294)
-			(mid 26.16584 1.575649)
+			(mid 26.165839 1.575648)
 			(end 26.096 1.625)
 			(stroke
 				(width 0.12)
@@ -16050,19 +15694,6 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Button Play"
-		(at 132.35 100.835 0)
-		(layer "F.SilkS")
-		(uuid "238bc1b5-8d12-4055-a60b-5e4cf0614408")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.25)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
 	(gr_text "LED Status"
 		(at 171 71 0)
 		(layer "F.SilkS")
@@ -17106,14 +16737,6 @@
 		(uuid "9ddb3a32-ee30-4507-afc0-a867845f83df")
 	)
 	(segment
-		(start 140.085 92.32)
-		(end 140 92.235)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 9)
-		(uuid "02175744-13d7-4656-8662-3167d7d1cbdb")
-	)
-	(segment
 		(start 146.67 55)
 		(end 166.815 55)
 		(width 0.2)
@@ -17162,14 +16785,6 @@
 		(uuid "50461824-4e7d-43e9-a78b-5e2bb74c61b6")
 	)
 	(segment
-		(start 149.25 92.32)
-		(end 140.085 92.32)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 9)
-		(uuid "5685fce3-ce52-471f-8231-420aacdb54a1")
-	)
-	(segment
 		(start 174.815 55)
 		(end 191.5 55)
 		(width 0.2)
@@ -17208,14 +16823,6 @@
 		(layer "B.Cu")
 		(net 9)
 		(uuid "713e30e2-f514-49f7-ba00-d9fd2398cdd3")
-	)
-	(segment
-		(start 140 92.235)
-		(end 133.5 92.235)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 9)
-		(uuid "7c965790-498d-4115-965e-3d1099d3bf19")
 	)
 	(segment
 		(start 163 92.32)
@@ -17336,14 +16943,6 @@
 		(layer "B.Cu")
 		(net 9)
 		(uuid "d614fc55-573f-4bca-9f91-2f2e51905876")
-	)
-	(segment
-		(start 140.1 92.135)
-		(end 140 92.235)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 9)
-		(uuid "d6db3616-1ff6-45c6-ab4d-1a5b349fb0d7")
 	)
 	(segment
 		(start 166.815 55)
@@ -17816,14 +17415,6 @@
 		(layer "B.Cu")
 		(net 21)
 		(uuid "4d7e4b81-6ac3-4405-916c-5cd9ef9172d3")
-	)
-	(segment
-		(start 140 96.735)
-		(end 133.5 96.735)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 21)
-		(uuid "8d17e333-3ded-436a-a450-939d34b43e98")
 	)
 	(segment
 		(start 139.5 96.735)
