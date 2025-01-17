@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 Import('env')
 
@@ -18,3 +19,8 @@ def ignorePlatformFiles(env, node):
     return node
 
 env.AddBuildMiddleware(ignorePlatformFiles, "*")
+
+def addVersionNumber(env, node):
+    subprocess.call(["sh", "generateVersionHash.sh"])
+
+env.AddBuildMiddleware(addVersionNumber, "main")

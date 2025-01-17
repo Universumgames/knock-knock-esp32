@@ -1,5 +1,7 @@
 
 # Changelog
+- ([70e9046](https://git.ide3.de/universumgames/mic-projekt/-/commit/70e9046aa21d6bf2cabd5776c275e6acd962c004)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 19:21:27 +0100") : update lock OPENTIME
+- ([5b58df3](https://git.ide3.de/universumgames/mic-projekt/-/commit/5b58df302d651c89018db62a85e6cae5f3b1193b)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 17:55:32 +0100") : update trigger timeout
 - ([7fb437e](https://git.ide3.de/universumgames/mic-projekt/-/commit/7fb437e1e2878075624be3e12f37a627531ba61c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 14:11:19 +0100") : bugfixes
 - ([0e5e46d](https://git.ide3.de/universumgames/mic-projekt/-/commit/0e5e46d5a2fcdf5088b00d8e6bbe265bbb78c320)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 13:33:59 +0100") : bugfixes
 - ([7a1ea41](https://git.ide3.de/universumgames/mic-projekt/-/commit/7a1ea4139fd18cfafbed7307fbcfc9b34c157c9c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:30:10 +0100") : bugfixes for pattern deletion

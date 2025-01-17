@@ -28,7 +28,7 @@ static uint64_t recordingDuration = 0;
     while (true) {
         if (dflag_pattern_recorder_pause) {
             printf("Recorder paused\n");
-            vTaskDelay(10000);
+            vTaskDelay(pdMS_TO_TICKS(500));
             continue;
         }
         bool suc = readAnalogValuePtr(analogReadHandle, &value);
