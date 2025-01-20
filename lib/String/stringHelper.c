@@ -42,7 +42,7 @@ size_t* splitString(const char* str, const char* delim, size_t* len) {
     // indices[0] = 0; // first index is always 0, uncommented because calloc
     // sets all values to 0
     for (size_t i = 1; i < strLen; i++) {
-        if (strncmp(str + i, delim, delimLen) == 0 || i == strLen - 1) {
+        if (strncmp(str + i, delim, delimLen) == 0) {
             indices[count++] = i;
         }
     }

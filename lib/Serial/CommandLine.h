@@ -20,7 +20,8 @@ typedef enum {
 
 void initCommandLine();
 
-Command parseCommand(const char* command);
+Command parseCommand(const char* command, size_t** splitIndices,
+                     size_t* splittedLen);
 
 void handleCommand(const char* command);
 

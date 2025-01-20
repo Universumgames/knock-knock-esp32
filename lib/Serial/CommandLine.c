@@ -34,11 +34,16 @@ void initCommandLine() {
 #define CMD_STR_RECORD_PATTERN "record"
 #define CMD_STR_DELETE_PATTERN "rm"
 
-Command parseCommand(const char* command) {
+Command parseCommand(const char* command, size_t** splitIndices,
+                     size_t* splittedLen) {
     size_t splitLen = 0;
     size_t* arr = splitString(command, " ", &splitLen);
-    printf("%u", splitLen);
-    char* cmd = substring(command, 0, splitLen > 1 ? arr[1] : strlen(command));
+    if (splitIndices != NULL && splittedLen != NULL) {
+        *splitIndices = arr + 1;
+        *splittedLen = splitLen - 1;
+    }
+    char* cmd =
+        substring(command, 0, splitLen > 1 ? (arr[1] - 1) : strlen(command));
     Command ret = UNKNOWN;
     if (cmd == NULL) {
         goto command_parse_end;
@@ -101,7 +106,9 @@ command_parse_end:
 }
 
 void handleCommand(const char* command) {
-    Command cmd = parseCommand(command);
+    size_t* splitIndices;
+    size_t splittedLen;
+    Command cmd = parseCommand(command, &splitIndices, &splittedLen);
     switch (cmd) {
         case HELP:
             printf("\nAvailable commands:\n");
@@ -180,6 +187,7 @@ void handleCommand(const char* command) {
                 printf("\nNo pattern id provided\n");
                 break;
             }
+
             size_t id = strtol(idStr, NULL, 10);
             free(idStr);
             printf("\nDeleting pattern with id %u\n", id);

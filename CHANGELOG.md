@@ -1,5 +1,6 @@
 
 # Changelog
+- ([eb05db2](https://git.ide3.de/universumgames/mic-projekt/-/commit/eb05db2c7c2adfaccbe80ee312f56d69052e60ec)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:21:10 +0100") : uncomment management
 - ([2b4080a](https://git.ide3.de/universumgames/mic-projekt/-/commit/2b4080a2562daca5866ca0177699384fcae1e494)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:20:38 +0100") : add version hash
 - ([70e9046](https://git.ide3.de/universumgames/mic-projekt/-/commit/70e9046aa21d6bf2cabd5776c275e6acd962c004)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 19:21:27 +0100") : update lock OPENTIME
 - ([5b58df3](https://git.ide3.de/universumgames/mic-projekt/-/commit/5b58df302d651c89018db62a85e6cae5f3b1193b)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 17:55:32 +0100") : update trigger timeout
