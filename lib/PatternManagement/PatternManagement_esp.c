@@ -4,8 +4,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
-#include "lock_status.h"
-#include "pattern_play.h"
 
 static void patternManagerThread(void* arg);
 
@@ -17,7 +15,7 @@ QueueHandle_t queue;
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
     gpio_num_t pin = *(gpio_num_t*)arg;
     // send pin "press" (gpio_num_t) to queue
-    xQueueSendFromISR(queue, (void*)pin, (TickType_t)0);
+    xQueueSendFromISR(queue, &pin, (TickType_t)0);
 }
 
 /**
@@ -27,8 +25,10 @@ void setupButton(gpio_num_t pin) {
     gpio_reset_pin(pin);
     gpio_set_direction(pin, GPIO_MODE_INPUT);
     gpio_set_pull_mode(pin, GPIO_PULLDOWN_ONLY);
-    gpio_set_intr_type(pin, GPIO_INTR_POSEDGE);
-    gpio_isr_handler_add(pin, gpio_isr_handler, (void*)&pin);
+    gpio_set_intr_type(pin, GPIO_INTR_HIGH_LEVEL);
+    gpio_num_t* arg = malloc(sizeof(gpio_num_t));
+    *arg = pin;
+    gpio_isr_handler_add(pin, gpio_isr_handler, (void*)arg);
     gpio_intr_enable(pin);
 }
 
@@ -38,7 +38,7 @@ void initPatternManagement() {
                 THREAD_STACK_MANAGEMENT, NULL, THREAD_PRIO_MANAGEMENT, NULL);
 
     gpio_install_isr_service(0);
-    setupButton((gpio_num_t)PIN_BUTTON_PLAY);
+    // setupButton((gpio_num_t)PIN_BUTTON_PLAY);
     setupButton((gpio_num_t)PIN_BUTTON_UP);
     setupButton((gpio_num_t)PIN_BUTTON_DOWN);
     setupButton((gpio_num_t)PIN_BUTTON_RECORD);
@@ -53,6 +53,10 @@ static void patternManagerThread(void* arg) {
         // wait
         if (!xQueueReceive(queue, &pin, (TickType_t)5))
             vTaskDelay(pdMS_TO_TICKS(50));
-        _handleButtonPress(pin);
+        else {
+            vTaskDelay(pdMS_TO_TICKS(100));
+            xQueueReset(queue);
+            _handleButtonPress(pin);
+        }
     }
 }

@@ -73,11 +73,11 @@ void saveDeltaToFile(int32_t delta) {
 #endif
 
 // how many ms have to pass before triggering again
-#define THRESHOLD_TRIGGER_TIMEOUT_MS (200)
+#define THRESHOLD_TRIGGER_TIMEOUT_MS (150)
 #define THRESHOLD_DELTA_MILLIS_WARNING (40)
 
 // how much higher the value has to be compared to the avg to trigger a "knock"
-#define THRESHOLD_TRIGGER_VALUE ((avg * 2) + 250)
+#define THRESHOLD_TRIGGER_VALUE ((avg * 2) + 200)
 
 #define PATTERN_DELTA_MILLIS_MEM_INCREMENT(oldSize) ((oldSize) + 10)
 
@@ -209,10 +209,14 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
 #endif
 
     // pattern finished
-    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS &&
-        patternData.lengthPattern > 0) {
+    if (patternStarted && lastTriggeredTimeAgo > PATTERN_MAX_DELTA_MS) {
         if (dflag_pattern_encoder_printf_if_branches)
             printf(".");
+        if (patternData.lengthPattern == 0) {
+            resetPatternEncoder();
+            lastTriggeredTimeAgo = THRESHOLD_TRIGGER_TIMEOUT_MS;
+            return NULL;
+        }
         goto returnPattern;
     }
 
@@ -230,6 +234,9 @@ PatternData* encodeAnalogData(analog_v value, delta_t deltaMs) {
         return NULL;
     }
 
+    if (dflag_pattern_encoder_printf_if_branches)
+        printf("!");
+
     checkPatternDeltaMillisMemory();
 
     if (patternStarted) {
@@ -246,7 +253,8 @@ returnPattern:
     LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in buffer");
     PatternData* ret = savePatternData();
     LOGI(TAG_PATTERN_ENCODER, "Pattern data");
-    // logPatternData(ret);
+    if (dflag_pattern_encoder_log_all)
+        logPatternDataConcise(ret);
 
     if (dflag_pattern_store_recorded_pattern) {
         LOGI(TAG_PATTERN_ENCODER, "Pattern finished, saving pattern in file");

@@ -64,7 +64,7 @@ LinkedList list_copy_shallow(LinkedList list) {
 }
 
 void __list_push_back(LinkedList list, void* data) {
-    ll_node_t* node = malloc(sizeof(ll_node_t));
+    ll_node_t* node = calloc(sizeof(ll_node_t), 1);
     node->data = data;
     node->next = NULL;
     if (list->tail == NULL) {
@@ -79,7 +79,7 @@ void __list_push_back(LinkedList list, void* data) {
 }
 
 void __list_push_front(LinkedList list, void* data) {
-    ll_node_t* node = malloc(sizeof(ll_node_t));
+    ll_node_t* node = calloc(sizeof(ll_node_t), 1);
     node->data = data;
     list->head->prev = node;
     node->next = list->head;
@@ -145,6 +145,38 @@ void list_foreach(LinkedList list, void (*callback)(void*)) {
         callback(current->data);
         current = current->next;
     }
+}
+
+void* list_removeIndex(LinkedList list, size_t index) {
+    if (index >= list->size) {
+        return NULL;
+    }
+
+    ll_node_t* current = list->head;
+    for (size_t i = 0; i < index; i++) {
+        if (current == NULL) {
+            return NULL;
+        }
+        current = current->next;
+    }
+
+    ll_node_t* prev = current->prev;
+    if (prev != NULL) {
+        prev->next = current->next;
+    } else {
+        list->head = current->next;
+    }
+    ll_node_t* next = current->next;
+    if (next != NULL) {
+        next->prev = current->prev;
+    } else {
+        list->tail = current->prev;
+    }
+
+    void* data = current->data;
+    free(current);
+    list->size--;
+    return data;
 }
 
 void* list_reset(LinkedList list) {

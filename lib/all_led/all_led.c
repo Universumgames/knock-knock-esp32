@@ -3,6 +3,9 @@
 
 #define RMT_LED_STRIP_GPIO_NUM (PIN_STATUS_LED)
 
+#define BRIGHTNESS_ADJUST(r, g, b, brightness)                                 \
+    (r * brightness / 255), (g * brightness / 255), (b * brightness / 255)
+
 #define LED_STRIP_LENGTH 3 // Index startet bei 0
 
 static FastLEDConfig* config = NULL;
@@ -52,7 +55,7 @@ void setSTLED(uint8_t red, uint8_t green, uint8_t blue) {
         return;
     }
     writeLED(config, 2, red, green, blue);
-    writeLED(config, 0, red, green, blue);
+    writeLED(config, 0, BRIGHTNESS_ADJUST(red, green, blue, 50));
     LOGV(TAG_LED, "Wrote to Status-LED memory: %d %d %d", red, green, blue);
     showLED(config);
     LOGV(TAG_LED, "Showed Status-LED");

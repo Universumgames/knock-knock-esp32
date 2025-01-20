@@ -23,4 +23,6 @@ void updateLEDStatus(SchlossStatus status);
  */
 SchlossStatus get_current_status();
 
+char* get_status_string(SchlossStatus status);
+
 HEADER_END

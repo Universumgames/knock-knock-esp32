@@ -3,7 +3,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
-#define KNOCK_DURATION_MS 50        // Klopfzeit ist ca. 50ms
+#define KNOCK_DURATION_MS 80        // Klopfzeit ist ca. 50ms
 #define PLAY_LED_COLOUR 255, 0, 255 // Magenta
 #define PLAY_LED_OFF 0, 0, 0
 
@@ -30,6 +30,9 @@ bool playPattern(PatternData* pattern) {
             pattern->deltaTimesMillis[i] -
             KNOCK_DURATION_MS)); // Abziehen der bereits Ausgegebenen Zeit
     }
+    setWILED(PLAY_LED_COLOUR);
+    vTaskDelay(pdMS_TO_TICKS(KNOCK_DURATION_MS));
+    setWILED(PLAY_LED_OFF);
 
     return true;
 }

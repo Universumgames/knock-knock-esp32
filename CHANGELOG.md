@@ -1,5 +1,24 @@
 
 # Changelog
+- ([eb05db2](https://git.ide3.de/universumgames/mic-projekt/-/commit/eb05db2c7c2adfaccbe80ee312f56d69052e60ec)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:21:10 +0100") : uncomment management
+- ([2b4080a](https://git.ide3.de/universumgames/mic-projekt/-/commit/2b4080a2562daca5866ca0177699384fcae1e494)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:20:38 +0100") : add version hash
+- ([70e9046](https://git.ide3.de/universumgames/mic-projekt/-/commit/70e9046aa21d6bf2cabd5776c275e6acd962c004)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 19:21:27 +0100") : update lock OPENTIME
+- ([5b58df3](https://git.ide3.de/universumgames/mic-projekt/-/commit/5b58df302d651c89018db62a85e6cae5f3b1193b)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 17:55:32 +0100") : update trigger timeout
+- ([7fb437e](https://git.ide3.de/universumgames/mic-projekt/-/commit/7fb437e1e2878075624be3e12f37a627531ba61c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 14:11:19 +0100") : bugfixes
+- ([0e5e46d](https://git.ide3.de/universumgames/mic-projekt/-/commit/0e5e46d5a2fcdf5088b00d8e6bbe265bbb78c320)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 13:33:59 +0100") : bugfixes
+- ([7a1ea41](https://git.ide3.de/universumgames/mic-projekt/-/commit/7a1ea4139fd18cfafbed7307fbcfc9b34c157c9c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:30:10 +0100") : bugfixes for pattern deletion
+- ([21d6a82](https://git.ide3.de/universumgames/mic-projekt/-/commit/21d6a821a930d9bc8e05e34bec31a47376094ea1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:11:25 +0100") : update brightness
+- ([c6fe082](https://git.ide3.de/universumgames/mic-projekt/-/commit/c6fe082856ec5440f0ee6aa3a9450f3b6ca66434)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 12:06:22 +0100") : update gitignore for kicad
+- ([4f1936a](https://git.ide3.de/universumgames/mic-projekt/-/commit/4f1936a892fae19c68ce54f589a217b5efd0bdf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 12:01:58 +0100") : fix recording
+- ([4d987d1](https://git.ide3.de/universumgames/mic-projekt/-/commit/4d987d12aca9fbddf086559e8682bfe0ebb9b723)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:38:09 +0100") : update command line
+- ([91af50d](https://git.ide3.de/universumgames/mic-projekt/-/commit/91af50d39bdfccea6526d045dd9b866d47bbc446)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:51 +0100") : update PatternManagement to autoplay
+- ([711bf46](https://git.ide3.de/universumgames/mic-projekt/-/commit/711bf46cc7f34879e5092ef998f5dab4a3393bd0)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:37 +0100") : fix deletion
+- ([5ef6fe9](https://git.ide3.de/universumgames/mic-projekt/-/commit/5ef6fe986efddd6307e42f31a20a3cb07dde457a)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:20 +0100") : update pins definition
+- ([7b1c37d](https://git.ide3.de/universumgames/mic-projekt/-/commit/7b1c37d20a52a401980b64425895fcb3388c4cf1)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 11:28:13 +0100") : add remove element method
+- ([ad62f91](https://git.ide3.de/universumgames/mic-projekt/-/commit/ad62f9159d745fd353526e1d6e0771777c45468c)) Universumgames on [2025-01-12](## "Sun, 12 Jan 2025 22:27:20 +0100") : bomb lab files
+- ([2142ca9](https://git.ide3.de/universumgames/mic-projekt/-/commit/2142ca97a7410c03cd0216734862d896483d66e9)) Universumgames on [2025-01-10](## "Fri, 10 Jan 2025 14:24:12 +0100") : bugfixes, adding new commands
+- ([1e5b9f7](https://git.ide3.de/universumgames/mic-projekt/-/commit/1e5b9f717a9609f90c54e2996d730d3775f65e64)) Tom Arlt on [2024-12-29](## "Sun, 29 Dec 2024 01:14:12 +0000") : Merge branch '28-implement-a-simple-command-line-tool' into 'main'
+- ([ef6e7ee](https://git.ide3.de/universumgames/mic-projekt/-/commit/ef6e7eeaa9297453423dba66cf436b8abe3645fc)) Universumgames on [2024-12-29](## "Sun, 29 Dec 2024 02:08:33 +0100") : disable all debug flags by default
 - ([036818f](https://git.ide3.de/universumgames/mic-projekt/-/commit/036818f163baec4a51a59e1f5d42f098951d0682)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 15:15:40 +0100") : fix unit test
 - ([6ce4403](https://git.ide3.de/universumgames/mic-projekt/-/commit/6ce4403fd06219ae818813ce665b9073f55b4231)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:57:00 +0100") : missed adding help entry for unlock
 - ([8a5ed0e](https://git.ide3.de/universumgames/mic-projekt/-/commit/8a5ed0e822197245f6728abf0bcf7da984a777cd)) Universumgames on [2024-12-20](## "Fri, 20 Dec 2024 14:55:52 +0100") : rewrite to allow commands with arguments, string helper functions needed fixing

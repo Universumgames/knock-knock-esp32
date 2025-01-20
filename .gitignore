@@ -9,3 +9,7 @@ managed_components/
 pcb/pcb/pcb-backups
 .codeedit
 pattern_storage
+*.lck
+pcb/pcb/~pcb.kicad_pcb.lck
+pcb/pcb/~pcb.kicad_sch.lck
+

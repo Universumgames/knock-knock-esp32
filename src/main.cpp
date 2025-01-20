@@ -18,6 +18,7 @@
 
 CPP_BEGIN void app_main() {
     esp_log_level_set("*", ESP_LOG_INFO);
+    printf("Running version %s\n", VERSION_HASH);
     beginSerial(CONFIG_MONITOR_BAUD);
     initCommandLine();
 

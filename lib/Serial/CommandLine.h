@@ -11,12 +11,17 @@ typedef enum {
     ENCODER_LOG_BRANCHES,
     RECORDER_PAUSE,
     ENCODER_STORE_ALL,
-    TRIGGER_UNLOCK
+    TRIGGER_UNLOCK,
+    REBOOT,
+    ENCODER_LOG_ALL,
+    RECORD_PATTERN,
+    DELETE_PATTERN,
 } Command;
 
 void initCommandLine();
 
-Command parseCommand(const char* command);
+Command parseCommand(const char* command, size_t** splitIndices,
+                     size_t* splittedLen);
 
 void handleCommand(const char* command);
 
