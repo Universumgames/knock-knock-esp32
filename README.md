@@ -11,6 +11,8 @@
 This project is a simple knock pattern recognizer for a door or chest. The knock pattern is stored on an SD card connected to the ESP32. The knock pattern is recognized by the ESP32 and if the pattern is correct, the door or chest is unlocked. The lock is controlled by a solenoid lock. The project is written in C with the ESP-IDF and uses the PlatformIO IDE. The project is based on the ESP32-C3 microcontroller.
 
 ## Important files and directories
+- [`documentation/sprint_plan.md`](documentation/sprint_plan.md): Contains the Sprint Plan and detailed description by whom the task was completed
+- [`documentation/backlog.md`](documentation/backlog.md): Contains the backlog, a detailed beakdown of the seperate task of this project
 - [`src/`](src/): Contains the source code of the project
 - [`test/`](test/): Contains the test code of the project
 - [`platformio.ini`](platformio.ini): Contains the configuration of the project

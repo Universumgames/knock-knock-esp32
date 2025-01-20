@@ -112,6 +112,10 @@ Kapitän: Tom Arlt
   - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
   - Zeitaufwand: 5 Stunden
 
+- Bugfixing und Feintuning der Parameter
+  - Verantwortlicher: Tom Arlt, Simon Vehreschild, Jovan Arnaut
+  - Zeitaufwand: 15 Stunden
+
 
 ## Sprint 5
 Kapitän: Simon Vehreschild
@@ -119,10 +123,6 @@ Kapitän: Simon Vehreschild
 - Erstellen eines Videos
   - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
   - Zeitaufwand: 25 Stunden
-  
-- Erstellen des Kaufpitch
-  - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
-  - Zeitaufwand: 10 Stunden
 
 - Erstellen der Dokumentation
   - Verantwortlicher: Jovan Arnaut, Tom Arlt, Simon Vehreschild
