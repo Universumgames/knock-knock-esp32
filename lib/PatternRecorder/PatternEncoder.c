@@ -144,6 +144,7 @@ void resetPatternEncoder() {
     patternData.lengthPattern = 0;
     patternData.totalDurationMillis = 0;
     patternData.deltaTimesMillis = NULL;
+    LOGI(TAG_PATTERN_ENCODER, "Pattern over, resetting");
 }
 
 PatternData* savePatternData() {
