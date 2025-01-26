@@ -1,7 +1,20 @@
 
 # Changelog
+- ([a01efb8](https://git.ide3.de/universumgames/mic-projekt/-/commit/a01efb8b23990f4a6e3d581d785604724726ab35)) siveh001 on [2025-01-26](## "Sun, 26 Jan 2025 00:31:53 +0100") : update 3d prints
+- ([779bcd3](https://git.ide3.de/universumgames/mic-projekt/-/commit/779bcd3e7dc9a0d5ab21f91674d646f1f4a435d6)) siveh001 on [2025-01-24](## "Fri, 24 Jan 2025 14:02:55 +0100") : adding pattern encoder reset debug log
+- ([11ffe33](https://git.ide3.de/universumgames/mic-projekt/-/commit/11ffe33228d2ceff9ea967245f2ef551c7dade44)) joarn002 on [2025-01-20](## "Mon, 20 Jan 2025 11:35:55 +0100") : update sprint plan and readme
+- ([cd08374](https://git.ide3.de/universumgames/mic-projekt/-/commit/cd083742735e00c5cf3adfcb40172784e5e79248)) Tom Arlt on [2025-01-20](## "Mon, 20 Jan 2025 10:33:41 +0000") : Merge branch 'recording-and-matching-fixing' into 'main'
+- ([5391c4b](https://git.ide3.de/universumgames/mic-projekt/-/commit/5391c4b75337eedd8157a3d5855be4cf44b725f2)) Universumgames on [2025-01-20](## "Mon, 20 Jan 2025 11:25:01 +0100") : bugfixes
 - ([eb05db2](https://git.ide3.de/universumgames/mic-projekt/-/commit/eb05db2c7c2adfaccbe80ee312f56d69052e60ec)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:21:10 +0100") : uncomment management
 - ([2b4080a](https://git.ide3.de/universumgames/mic-projekt/-/commit/2b4080a2562daca5866ca0177699384fcae1e494)) Universumgames on [2025-01-17](## "Fri, 17 Jan 2025 13:20:38 +0100") : add version hash
+- ([7013eac](https://git.ide3.de/universumgames/mic-projekt/-/commit/7013eac1ad7b0750bc30768b47471e2b9af83501)) joarn002 on [2025-01-17](## "Fri, 17 Jan 2025 12:31:43 +0100") : Merge commit 'ee06e87d7b4baa23892cef55028fb3ea19ede206'
+- ([ee06e87](https://git.ide3.de/universumgames/mic-projekt/-/commit/ee06e87d7b4baa23892cef55028fb3ea19ede206)) joarn002 on [2025-01-17](## "Fri, 17 Jan 2025 12:29:02 +0100") : Final Sprint4
+- ([654df95](https://git.ide3.de/universumgames/mic-projekt/-/commit/654df95e4c53fd8d12cad5800f086949cdbca1e1)) Tom Arlt on [2025-01-17](## "Fri, 17 Jan 2025 11:17:04 +0000") : Merge branch 'Sprint-4' into 'main'
+- ([9fc9d7b](https://git.ide3.de/universumgames/mic-projekt/-/commit/9fc9d7b0aa41037f68660336cb23b305b5bf3759)) joarn002 on [2025-01-15](## "Wed, 15 Jan 2025 23:36:27 +0100") : Sprint 4 Update
+- ([d9ed498](https://git.ide3.de/universumgames/mic-projekt/-/commit/d9ed498de7e9c39f7a64830750d7db49dbba0ba7)) Tom Arlt on [2025-01-15](## "Wed, 15 Jan 2025 10:59:55 +0000") : Merge branch 'Update-PCB' into 'main'
+- ([9b0ea3a](https://git.ide3.de/universumgames/mic-projekt/-/commit/9b0ea3ab78993f5aadb8a057238caef7f5ac9fcc)) joarn002 on [2025-01-14](## "Tue, 14 Jan 2025 14:36:22 +0100") : Finale Change PCB
+- ([60b04c7](https://git.ide3.de/universumgames/mic-projekt/-/commit/60b04c7045623f344401285b44fcfeb5e494f90d)) joarn002 on [2025-01-13](## "Mon, 13 Jan 2025 20:16:10 +0100") : Change PCB/TEST
+- ([169ed3e](https://git.ide3.de/universumgames/mic-projekt/-/commit/169ed3e36a8d705a5a01bd6566fc1a460eb4a6db)) joarn002 on [2025-01-13](## "Mon, 13 Jan 2025 20:13:48 +0100") : Schaltplanm
 - ([70e9046](https://git.ide3.de/universumgames/mic-projekt/-/commit/70e9046aa21d6bf2cabd5776c275e6acd962c004)) siveh001 on [2025-01-13](## "Mon, 13 Jan 2025 19:21:27 +0100") : update lock OPENTIME
 - ([5b58df3](https://git.ide3.de/universumgames/mic-projekt/-/commit/5b58df302d651c89018db62a85e6cae5f3b1193b)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 17:55:32 +0100") : update trigger timeout
 - ([7fb437e](https://git.ide3.de/universumgames/mic-projekt/-/commit/7fb437e1e2878075624be3e12f37a627531ba61c)) Universumgames on [2025-01-13](## "Mon, 13 Jan 2025 14:11:19 +0100") : bugfixes

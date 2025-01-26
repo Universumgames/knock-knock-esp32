@@ -37,5 +37,5 @@ CPP_BEGIN void app_main() {
     ESP_LOGE("main", "Log test error");
 
     initPatternRecorder();
-    initPatternManagement();
+    // initPatternManagement();
 }
